@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SINP – OASIS Руководство пользователя для заявителей</title>
+<style>
+:root {
+  --ink: #1a1a1a;
+  --green: #1a5632;
+  --green-dark: #123d23;
+  --paper: #ffffff;
+  --page-bg: #e9e9e4;
+  --rule: #c9c9c0;
+  --note-bg: #eef4fb;
+  --note-border: #9db8d8;
+  --callout-border: #d8b3b3;
+  --highlight-bg: #fff6df;
+  --highlight-border: #d9a441;
+  --warn-red: #b12727;
+}
+* { box-sizing: border-box; }
+html { background: var(--page-bg); }
+body {
+  margin: 0;
+  padding: 40px 16px 100px;
+  background: var(--page-bg);
+  font-family: "Times New Roman", Georgia, "Liberation Serif", serif;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 56px 64px 72px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 8px 30px rgba(0,0,0,0.12);
+}
+/* Cover */
+.cover { text-align: center; padding-top: 20px; padding-bottom: 48px; border-bottom: 3px solid var(--green); margin-bottom: 40px;}
+.cover img.logo { height: 92px; margin-bottom: 6px; }
+.cover h1 { font-size: 30px; color: var(--green); margin: 28px 0 6px; line-height: 1.3; }
+.cover .subtitle { font-size: 19px; color: #444; margin-bottom: 30px; font-style: italic; }
+.cover .contact { font-size: 15px; color: #333; margin-top: 30px; line-height: 1.7; }
+.cover .contact a { color: var(--green); }
+.cover .datestamp { margin-top: 18px; font-size: 15px; color: #555; }
+.cover .brief-note { margin-top: 34px; font-size: 13.5px; color: #8a8a8a; border-top: 1px dashed var(--rule); padding-top: 16px; }
+
+/* TOC */
+.toc { margin: 0 0 48px; padding: 24px 28px; background: #f7f7f3; border: 1px solid var(--rule); }
+.toc-title { color: var(--green); font-size: 20px; margin: 0 0 14px; border-bottom: 2px solid var(--green); padding-bottom: 8px; }
+.toc-list { list-style: none; margin: 0; padding: 0; column-count: 1; }
+.toc-list li { padding: 3px 0; font-size: 15px; }
+.toc-list li.toc-lvl1 { font-weight: bold; margin-top: 10px; }
+.toc-list li.toc-lvl2 { padding-left: 22px; }
+.toc-list li.toc-lvl3 { padding-left: 42px; font-size: 14px; }
+.toc-list li a { color: var(--green-dark); text-decoration: none; }
+.toc-list li a:hover { text-decoration: underline; }
+.toc-list li.toc-inactive { color: #aaa; font-style: italic; }
+.toc-list li.toc-inactive.toc-lvl1 { color: #999; }
+
+/* Headings */
+h2.sec-h1 { color: var(--green); font-size: 24px; margin: 46px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--green); scroll-margin-top: 20px;}
+h3.sec-h2 { color: var(--green); font-size: 19px; margin: 34px 0 12px; scroll-margin-top: 20px;}
+h4.sec-h3 { color: var(--green-dark); font-size: 16px; text-decoration: underline; margin: 26px 0 10px; scroll-margin-top: 20px;}
+
+/* Text */
+p { margin: 0 0 14px; text-align: left; }
+p.lead-bold { font-weight: bold; }
+p.warn-red { color: var(--warn-red); font-weight: bold; }
+ul, ol { margin: 0 0 16px; padding-left: 28px; }
+li { margin-bottom: 8px; }
+a { color: #1155aa; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/* Callout (warning icon + italic text) */
+.callout { display: flex; align-items: flex-start; gap: 14px; margin: 18px 0 22px; padding: 14px 18px; background: #fdfaf5; border: 1px solid var(--callout-border); border-left: 4px solid #c0392b; }
+.callout-icon { width: 30px; height: 30px; flex: none; margin-top: 2px; }
+.callout-text { font-style: italic; color: #333; }
+
+/* Note box (dashed, blue-ish, matches original's tip/status boxes) */
+.note-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--note-bg); border: 1.5px dashed var(--note-border); font-size: 15.5px; }
+
+/* Highlight box - the user's own 10/60-day emphasis */
+.highlight-box { display:flex; align-items:center; gap: 16px; margin: 24px 0 26px; padding: 18px 22px; background: var(--highlight-bg); border: 2px solid var(--highlight-border); border-radius: 3px; box-shadow: 0 2px 8px rgba(217,164,65,0.25); }
+.highlight-box img.callout-icon { width: 34px; height: 34px; }
+.highlight-box div { font-weight: bold; font-size: 18px; color: #6b4a12; line-height: 1.4; }
+
+/* Screenshots */
+.shot { text-align: center; margin: 20px 0 26px; }
+.shot img { max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+.shot-row { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; }
+.shot-row img { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+.img-cap { font-size: 13.5px; color: #666; margin-top: 8px; font-style: italic; }
+
+/* Small inline button-style images get no heavy border/shadow */
+.shot.plain img { box-shadow: none; border: none; }
+
+footer.doc-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 13px; color: #888; text-align: center; }
+
+@media (max-width: 700px) {
+  .page { padding: 28px 20px 50px; }
+  body { font-size: 16px; padding: 16px 8px 60px; }
+  .cover h1 { font-size: 24px; }
+}
+
+/* --- Добавлено при слиянии с Частью 2: в оригинале блоки "Required documentation for..."
+   заключены в рамку с КРАСНЫМ пунктиром (проверено по векторной обводке в PDF), а не в синюю,
+   как .note-box. Заводим для него отдельный класс на основе .note-box. */
+:root { --req-border: #c0504d; --req-bg: #fdf6f5; }
+.req-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--req-bg); border: 1.5px dashed var(--req-border); font-size: 15.5px; }
+</style>
+</head>
+<body>
+<div class="page"><div class="cover"><img class="logo" src="images/img-p00-Im0.png" alt="Government of Saskatchewan"/><h1>SINP – OASIS Руководство пользователя для заявителей<br><span style="font-size:0.7em;font-weight:normal;color:#555">(User Guide for Applicants)</span></h1><div class="subtitle">Министерство иммиграции и профессионального обучения<br>(Ministry of Immigration and Career Training)</div><div class="contact">За дополнительной информацией, пожалуйста, обращайтесь:<br>Government of Saskatchewan &mdash; Ministry of Immigration and Career Training<br>Immigration Services Branch &mdash; Saskatchewan Immigrant Nominee Program<br>7th Floor, 1945 Hamilton Street, Regina, Saskatchewan S4P 2C8<br>Телефон: (Canada 001) 833-613-0485 &nbsp;&middot;&nbsp; Факс: (Canada 001) 306-798-0713<br>Вопросы (Inquiries): <a href="mailto:immigration@gov.sk.ca">immigration@gov.sk.ca</a><br>Веб-сайт: <a href="https://www.saskatchewan.ca/sinp" target="_blank">www.saskatchewan.ca/sinp</a></div><div class="datestamp">Апрель 2026 г.</div></div><nav class="toc"><h2 class="toc-title">Оглавление</h2><ol class="toc-list">
+<li class="toc-lvl1"><a href="#s1-0">Введение и вход в систему (Introduction and Log On)</a></li>
+<li class="toc-lvl2"><a href="#s1-1">Регистрация в OASIS (Register on OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-2">Вход в OASIS (Login to OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-3">Согласие на раскрытие личной информации (Authority to Disclose Personal Information)</a></li>
+<li class="toc-lvl2"><a href="#s1-4">Восстановление ID пользователя или пароля (User ID or Password Recovery)</a></li>
+<li class="toc-lvl1"><a href="#s2-0">Начало оформления заявки (Start your application)</a></li>
+<li class="toc-lvl2"><a href="#s2-1">Информация о заявителе / Данные паспорта (Applicant Information / Passport Details)</a></li>
+<li class="toc-lvl2"><a href="#s2-2">Адрес проживания/домашний адрес (Residential/Home Address)</a></li>
+<li class="toc-lvl2"><a href="#s2-3">Почтовый адрес и контактная информация (Mailing Address and Contact Information)</a></li>
+<li class="toc-lvl2"><a href="#s2-4">Представитель (Representative)</a></li>
+<li class="toc-lvl1"><a href="#s3-0">Предварительная заявка и данные заявителя (Pre-Application and Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-1">Право на подачу заявки (Eligibility for Application)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-eoi">Выражение заинтересованности (Expression of Interest)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-jos">Направления с предложением работы (Job Offer Streams)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-agri">Направление Agriculture Talent Pathway</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">Направление Innovation and Tech Talent Pathway</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">Innovation and Tech Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">Направление Health Talent Pathway – Non-Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">Направление Health Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-work">Опыт работы в Саскачеване – Действующее разрешение на работу</a></li>
+<li class="toc-lvl3"><a href="#s3-1-student">Опыт работы в Саскачеване – Студент</a></li>
+<li class="toc-lvl2"><a href="#s3-2">Сетка баллов для квалифицированных работников (Skilled Worker Points Grid)</a></li>
+<li class="toc-lvl2"><a href="#s3-3">Текущее место жительства и место поселения (Current Residency and Settlement Destination)</a></li>
+<li class="toc-lvl2"><a href="#s3-4">Данные заявителя (Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-5">Загрузка ваших документов (Uploading your documents)</a></li>
+<li class="toc-lvl2"><a href="#s3-6">Раскрытие информации (Information Disclosure)</a></li>
+<li class="toc-lvl2"><a href="#s3-7">Гражданство (Citizenship)</a></li>
+<li class="toc-lvl2"><a href="#s3-8">Документ о рождении (Birth Document)</a></li>
+<li class="toc-lvl2"><a href="#s3-9">Паспорт (Passport)</a></li>
+<li class="toc-lvl2"><a href="#s3-10">Семейное положение (Marital Status)</a></li>
+<li class="toc-lvl2"><a href="#s3-11">Образование (Education)</a></li>
+<li class="toc-lvl3"><a href="#s3-11-enter">Ввод/Изменение образования (Enter/Change Education)</a></li>
+<li class="toc-lvl2"><a href="#s3-12">Документы о регулировании или лицензировании и Оценка документов об образовании (Regulatory or Licensing Credentials and Education Credentials Assessment)</a></li>
+<li class="toc-lvl2"><a href="#s3-13">Опыт работы (Work Experience)</a></li>
+<li class="toc-lvl2"><a href="#s3-14">Владение английским/французским языком (English/French Ability)</a></li>
+<li class="toc-lvl2"><a href="#s3-15">Последняя страница Части 1 (Final Page of Part 1)</a></li>
+<li class="toc-lvl2"><a href="#s3-16">Внесение изменений в Часть 1 и Данные заявителя (Making a Change on Part 1 and Applicant Details)</a></li>
+<li class="toc-lvl1"><a href="#s4-0">Экраны заявки для квалифицированных специалистов (Skilled Worker Application Screens)</a></li>
+<li class="toc-lvl2"><a href="#s4-1">Экран заявки (Application Screen)</a></li>
+<li class="toc-lvl2"><a href="#s4-2">Связь с Саскачеваном (Connection to Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-study">Обучение в Саскачеване</a></li>
+<li class="toc-lvl3"><a href="#s4-2-work">Опыт работы в Саскачеване</a></li>
+<li class="toc-lvl3"><a href="#s4-2-relative">Близкий родственник в Саскачеване</a></li>
+<li class="toc-lvl2"><a href="#s4-3">Федеральные формы (Federal Forms)</a></li>
+<li class="toc-lvl2"><a href="#s4-4">Шаг 1: Кнопки создания (Step 1 Create Buttons)</a></li>
+<li class="toc-lvl2"><a href="#s4-5">Разрешение на работу (Work Permit)</a></li>
+<li class="toc-lvl2"><a href="#s4-6">Родственник в Канаде (In-Canada Relative)</a></li>
+<li class="toc-lvl2"><a href="#s4-7">Средства на обустройство и План обустройства (Settlement Funds and Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-plan">План обустройства (Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-funds">Средства на обустройство (Settlement Funds)</a></li>
+<li class="toc-lvl2"><a href="#s4-8">Сопровождающие и не сопровождающие члены семьи (Accompanying and Non-Accompanying Family Member)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a1">Сопровождающий иждивенец младше 18 лет</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a2">Сопровождающий иждивенец от 18 до 21 года</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a3">Сопровождающий супруг/супруга</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n1">Не сопровождающий супруг/супруга</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n2">Не сопровождающий иждивенец старше 18 лет</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n3">Не сопровождающий иждивенец младше 18 лет</a></li>
+<li class="toc-lvl3"><a href="#s4-8-imm5406">IMM 5406 – Дополнительная информация о членах семьи</a></li>
+<li class="toc-lvl3"><a href="#s4-8-schedulea">Schedule A – История/Декларация</a></li>
+<li class="toc-lvl2"><a href="#s4-9">Предложение о работе (Job Offer)</a></li>
+<li class="toc-lvl2"><a href="#s4-10">Подтверждение лицензии (Proof of Licensure)</a></li>
+<li class="toc-lvl2"><a href="#s4-11">Водительское удостоверение (Driver's License)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-1">4.11.1 Категория/Разрешение (Endorsement)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-2">4.11.2 Ограничение (Restriction)</a></li>
+<li class="toc-lvl2"><a href="#s4-12">Предыдущая заявка (Previous Application)</a></li>
+<li class="toc-lvl2"><a href="#s4-13">Необходимые экраны заявки для каждой категории (Required Application Screens for Each Category)</a></li>
+<li class="toc-lvl3"><a href="#s4-13-1">4.13.1 Иностранный квалифицированный специалист (International Skilled Worker)</a></li>
+<li class="toc-lvl3"><a href="#s4-13-2">4.13.2 Опыт работы в Саскачеване (Saskatchewan Experience)</a></li>
+<li class="toc-lvl1"><a href="#s5-0">Проверка экранов заявки и подача (Check Application Screens and Submit)</a></li>
+<li class="toc-lvl1"><a href="#s6-0">Оплата сбора – Все категории SINP (Fee Payment – All SINP Categories)</a></li>
+<li class="toc-lvl1"><a href="#s7-0">Заявка получена (Application Received)</a></li>
+<li class="toc-lvl1"><a href="#s8-0">Запрос на предоставление дополнительной информации (Request for Additional Information)</a></li>
+<li class="toc-lvl1"><a href="#s9-0">Обновление номера профиля Express Entry и кода валидации соискателя (Update Express Entry Profile Number and Job Seeker Validation Code)</a></li>
+<li class="toc-lvl1"><a href="#s10-0">Процесс второго рассмотрения (Second Review Process)</a></li>
+</ol></nav><h2 id="s1-0" class="sec-h1">1.0 Введение и вход в систему (Introduction and Log On)</h2>
+<p>Это руководство объясняет, как получить доступ и использовать различные экраны, связанные с онлайн-заявками SINP (SINP Online Applications) в системе OASIS.</p>
+<div class="shot"><img src="images/img-p03-01.png" alt="" style="max-width:794px"/></div>
+<p>Нажмите на следующую ссылку, чтобы перейти в SINP Online: <a href="https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231" target="_blank" rel="noopener">https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231</a></p>
+<p>Отобразится экран приветствия (Welcome). Сначала вам нужно создать учетную запись, чтобы получить доступ к системе.</p>
+<p>Мы настоятельно рекомендуем вам ознакомиться со всеми требованиями к документации и формам, которые необходимо прикрепить к вашей заявке, а также изучить приведенные ниже критерии, прежде чем начать оформление заявки.</p>
+<p>Нажмите на ссылку ниже для категории иностранных квалифицированных специалистов (International Skilled Worker Category): <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">Ссылка на программу International Skilled Worker</a></p>
+<p>Нажмите на ссылку ниже для категории с опытом работы в Саскачеване (Saskatchewan Experience Category): <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">Ссылка на программу Saskatchewan Experience</a></p>
+<h2 id="s1-1" class="sec-h1">1.1 Регистрация в OASIS (Register on OASIS)</h2>
+<ul>
+<li>Нажмите на кнопку <strong>Create an Account</strong> (Создать учетную запись).</li>
+<li>Нажмите <strong>Select a Registration Type</strong> (Выберите тип регистрации).</li>
+</ul>
+<div class="shot"><img src="images/img-p04-04.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Выберите <strong>SINP Applicant or Expression of Interest Candidate</strong> (Заявитель SINP или кандидат с выражением заинтересованности) и нажмите <strong>Continue</strong> (Продолжить).</li>
+<li>Создайте имя пользователя (<strong>Username</strong>). Имя пользователя не должно содержать пробелов или каких-либо специальных символов, кроме нижнего подчеркивания ('_'). Ваше имя пользователя будет использоваться для доступа к вашей учетной записи OASIS.</li>
+</ul>
+<div class="note-box">Пожалуйста, введите имя пользователя (username) в отведенном поле. Все остальные данные вводите с заглавной буквы (Title Case).</div>
+<ul>
+<li>Введите ваше имя (<strong>First Name</strong>), второе имя/отчество (<strong>Middle Name</strong>) и фамилию (<strong>Family (Last) Name</strong>) точно так, как они указаны в вашем паспорте.</li>
+<li>Введите вашу дату рождения (<strong>Date of Birth</strong>) в формате ДД-Мес-ГГГГ (DD-Mon-YYYY).</li>
+<li>Введите ваш адрес электронной почты (<strong>Email address</strong>).</li>
+</ul>
+<div class="callout"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div class="callout-text">Этот адрес электронной почты (Email address) будет использоваться для всей будущей переписки по вашей заявке в OASIS, включая восстановление пароля.</div></div>
+<div class="shot"><img src="images/img-p04-01.png" alt="" style="max-width:797px"/></div>
+<p>Нажмите <strong>Submit</strong> (Отправить).</p>
+<p>Вам будет отправлено электронное письмо с вашим именем пользователя и паролем. Эта информация понадобится вам для входа в OASIS.</p>
+<h2 id="s1-2" class="sec-h1">1.2 Вход в OASIS (Login to OASIS)</h2>
+<ul>
+<li>На странице входа введите имя пользователя и пароль, отправленные в электронном письме, и нажмите <strong>Login</strong> (Войти).</li>
+</ul>
+<div class="shot"><img src="images/img-p05-05.png" alt="" style="max-width:636px"/></div>
+<ul>
+<li>Затем система предложит вам изменить пароль.</li>
+</ul>
+<div class="note-box">Обратите внимание на следующие требования к паролю: должен содержать не менее восьми символов; содержать символы как минимум из трех следующих категорий: заглавные английские буквы (A – Z); строчные английские буквы (a – z); цифры (0 – 9); не буквенно-цифровые символы (например: !, #, $, %); не должен содержать имя учетной записи пользователя.</div>
+<div class="shot"><img src="images/img-p05-01.png" alt="" style="max-width:875px"/></div>
+<div class="shot"><img src="images/img-p05-03.png" alt="" style="max-width:726px"/></div>
+<h2 id="s1-3" class="sec-h1">1.3 Согласие на раскрытие личной информации (Authority to Disclose Personal Information)</h2>
+<p>Чтобы продолжить первый вход в OASIS, все пользователи должны согласиться на раскрытие информации, нажав кнопку “I AGREE” (Я СОГЛАСЕН).</p>
+<div class="shot"><img src="images/img-p06-03.png" alt="" style="max-width:764px"/></div>
+<h2 id="s1-4" class="sec-h1">1.4 Восстановление ID пользователя или пароля (User ID or Password Recovery)</h2>
+<p>Чтобы восстановить доступ к вашей учетной записи, на странице входа нажмите “Forgot your User ID or Password?” (Забыли свой ID пользователя или пароль?), затем выберите метод восстановления (Recovery Method).</p>
+<div class="shot"><img src="images/img-p06-01.png" alt="" style="max-width:736px"/></div>
+<p>Выберите “User ID” (ID пользователя), чтобы сбросить пароль. Вам будет предложено ввести имя пользователя, использованное при создании учетной записи. Электронное письмо с именем пользователя и временным паролем будет отправлено на адрес электронной почты, связанный с вашим ID пользователя (или именем пользователя).</p>
+<p>Если вы хотите восстановить свою учетную запись, используя адрес электронной почты, выберите “Email” (Электронная почта) в качестве метода восстановления. Список имен пользователей, связанных с вашим адресом электронной почты, будет отправлен вам по почте. Чтобы сбросить пароль, вам нужно будет выполнить предыдущий шаг, используя метод восстановления “User ID”.</p>
+<h2 id="s2-0" class="sec-h1">2.0 Начало оформления заявки (Start your application)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p07-02.png" alt=""/><div class="callout-text">Убедитесь, что вы отсканировали все необходимые документы и формы, желательно в формате PDF, прежде чем начать заполнение заявки.</div></div>
+<div class="shot"><img src="images/img-p07-01.png" alt="" style="max-width:497px"/></div>
+<ul>
+<li>При сканировании переведенных документов, пожалуйста, сканируйте оригинальный документ, перевод на английский или французский язык и аффидевит переводчика SINP (SINP Translator Affidavit) как один документ. Форму аффидевита можно найти здесь: <a href="https://publications.saskatchewan.ca/#/products/76058" target="_blank" rel="noopener">https://publications.saskatchewan.ca/#/products/76058</a></li>
+<li>Чтобы уменьшить размер отсканированных документов, SINP не требует предоставления пустых страниц вашего паспорта.</li>
+<li>Убедитесь, что все отсканированные копии четкие и легко читаются.</li>
+<li>Пожалуйста, ознакомьтесь с контрольным списком (checklist) для вашей категории, чтобы убедиться, что ваша заявка полностью укомплектована всеми необходимыми документами.</li>
+</ul>
+<p><strong>Важное примечание (Important Note):</strong> Если у вас есть вопросы, проблемы с именем пользователя или паролем, или вам нужно сбросить пароль; пожалуйста, напишите на immigration@gov.sk.ca или позвоните по телефону 1-833-613-0485.</p>
+<p class="warn-red">В целях защиты вашей личной информации, пожалуйста, выходите из системы SINP Online Application (Log out) и полностью закрывайте веб-браузер по окончании сеанса.</p>
+<h2 id="s2-1" class="sec-h1">2.1 Информация о заявителе / Данные паспорта (Applicant Information / Passport Details)</h2>
+<p>Заполните всю информацию о заявителе и данные паспорта, требуемые ниже:</p>
+<div class="shot"><img src="images/img-p08-01.png" alt="" style="max-width:900px"/></div>
+<p>Выберите предполагаемое место поселения (Intended destination for settlement), затем введите страну и текущий город/населенный пункт вашего нынешнего проживания.</p>
+<div class="shot"><img src="images/img-p08-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-2" class="sec-h1">2.2 Адрес проживания/домашний адрес (Residential/Home Address)</h2>
+<p>Заполните Адрес проживания/домашний адрес:</p>
+<div class="shot"><img src="images/img-p08-03.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Если ваш домашний адрес находится за пределами Канады, в разделе Провинция/Штат (Province/State) выберите International/Outside Canada (Международный/За пределами Канады) и впишите вашу провинцию.</li>
+</ul>
+<div class="shot"><img src="images/img-p09-01.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Если ваш домашний адрес совпадает с вашим почтовым адресом, выберите ‘Yes’ (Да) для вопроса ‘Is the mailing address the same as the Residential/Home Address?’ (Совпадает ли почтовый адрес с адресом проживания/домашним адресом?).</li>
+</ul>
+<div class="shot"><img src="images/img-p09-03.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-3" class="sec-h1">2.3 Почтовый адрес и контактная информация (Mailing Address and Contact Information)</h2>
+<p>Заполните почтовый адрес и номер телефона, если они отличаются от вашего домашнего адреса:</p>
+<div class="shot"><img src="images/img-p09-05.png" alt="" style="max-width:900px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p09-06.png" alt=""/><div class="callout-text">Адрес электронной почты заявителя (Applicant's Email Address) является обязательным полем и должен содержать именно электронный адрес заявителя, чтобы заявка считалась полной. Заявка может быть подвергнута проверке на предмет предоставления ложной информации (misrepresentation), если адрес, указанный в поле Applicant's Email Address, не принадлежит заявителю.</div></div>
+<p>Затем выберите один вариант, который относится к вам:</p>
+<div class="shot"><img src="images/img-p09-08.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-4" class="sec-h1">2.4 Представитель (Representative)</h2>
+<p>Выберите ‘Yes’ (Да), если вы назначаете представителя, в противном случае выберите ‘No’ (Нет).</p>
+<div class="shot"><img src="images/img-p10-01.png" alt="" style="max-width:870px"/></div>
+<p>Введите адрес электронной почты консультанта, если вы выбрали ‘Yes’.</p>
+<div class="shot"><img src="images/img-p10-05.png" alt="" style="max-width:900px"/></div>
+<p>Перейдите по ссылке ниже для получения информации об использовании представителя в вашей заявке SINP:</p>
+<p><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities" target="_blank" rel="noopener">https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities</a></p>
+<p>Нажмите кнопку ниже, чтобы продолжить оформление заявки.</p>
+<div class="shot plain"><img src="images/img-p10-03.png" alt="" style="max-width:236px"/></div>
+<h2 id="s3-0" class="sec-h1">3.0 Предварительная заявка и данные заявителя (Pre-Application and Applicant Details)</h2>
+<p class="lead-bold">Вопросы предварительной заявки о предложении работы или трудоустройстве предназначены для того, чтобы направить вас к соответствующей категории заявки.</p>
+<h2 id="s3-1" class="sec-h1">3.1 Право на подачу заявки (Eligibility for Application)</h2>
+<p>Вы должны ответить на ряд вопросов на этой странице, чтобы определить ваше право на подачу и категорию заявки.</p>
+<h4 id="s3-1-eoi" class="sec-h3">Выражение заинтересованности (Expression of Interest)</h4>
+<p>Если вы соответствуете требованиям подкатегорий «Востребованные профессии» (Occupations In-Demand) или Express Entry, вы сможете подать Выражение заинтересованности (EOI).</p>
+<p>Если вы подаете EOI для категории Occupations In-Demand, вы должны ответить на вопросы, как показано ниже, и выбрать NOC вашей предполагаемой профессии. Для соответствия требованиям вы должны иметь не менее одного года оплачиваемого опыта работы за последние десять лет в сфере вашего образования или обучения.</p>
+<div class="shot"><img src="images/img-p11-01.png" alt="" style="max-width:900px"/></div>
+<p>Если вы подаете EOI для Express Entry, вы должны быть приняты в пул Express Entry IRCC, иметь номер профиля Express Entry и код проверки соискателя (Job Seeker Validation Code). Для соответствия требованиям вы должны иметь не менее одного года оплачиваемого опыта работы за последние десять лет в сфере вашего образования или обучения.</p>
+<div class="shot"><img src="images/img-p11-03.png" alt="" style="max-width:900px"/></div>
+<p><strong>Примечание:</strong> Обратите внимание, что профессии в этом выпадающем списке могут меняться в зависимости от прогноза спроса на рабочую силу в Саскачеване.</p>
+<p>Ваша предполагаемая профессия может быть регулируемой или требовать профессиональной сертификации. Пожалуйста, ознакомьтесь со следующими ссылками относительно этого требования:</p>
+<ul>
+<li>Регулируемые профессии и требования к лицензированию: <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">saskatchewan.ca — Regulated Occupations and Licensing Requirements</a></li>
+<li>Требования SINP, связанные с профессиональным статусом или лицензированием: <a href="https://publications.saskatchewan.ca/#/products/102710" target="_blank" rel="noopener">publications.saskatchewan.ca/#/products/102710</a></li>
+</ul>
+<p>Если вас пригласят подать заявку, SINP рассмотрит ваше образование, опыт работы и предполагаемую профессию и, при необходимости, уведомит вас о необходимости предоставления требуемой документации. Если ваша профессия требует наличия этой документации, рассмотрение вашей заявки будет приостановлено до тех пор, пока вы ее не получите.</p>
+<p>Вы должны ответить на все оставшиеся вопросы ниже, прежде чем сможете продолжить.</p>
+<div class="shot"><img src="images/img-p12-01.png" alt="" style="max-width:575px"/></div>
+<p>Вы не сможете продолжить, пока все обязательные ответы не будут сохранены. Пожалуйста, ответьте на все обязательные вопросы и нажмите кнопку <strong>Save</strong> (Сохранить), чтобы продолжить.</p>
+<p>Полный набор шагов для Выражения заинтересованности (EOI) можно найти по адресу: <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-eoi-system" target="_blank" rel="noopener">saskatchewan.ca — International Skilled Worker EOI System</a></p>
+<h4 id="s3-1-jos" class="sec-h3">Направления с предложением работы (Job Offer Streams)</h4>
+<p>Если у вас есть предложение постоянной работы на полный рабочий день в Саскачеване, вы должны получить одобрение оценки должности работодателя (Employer Position Assessment - EPA Approval) в качестве доказательства этого. Как только ваш работодатель добавит ваше имя, вы получите одобрение EPA, которое включает детали предложения работы и сроки, отправленные на ваш личный адрес электронной почты.</p>
+<p>Вы также должны соответствовать критериям подкатегории, чтобы иметь право на участие.</p>
+<p>На странице «Право на подачу заявки» (Eligibility for Application) укажите, есть ли у вас действующее предложение работы и одобрение EPA.</p>
+<div class="shot"><img src="images/img-p13-07.png" alt="" style="max-width:900px"/><div class="img-cap">Пример: страница «Eligibility for Application»</div></div>
+<p>Вы должны ввести ID работодателя и ID EPA. Система проверит эту информацию, включая вашу дату рождения. Если вся информация совпадает, при выборе “View Job Offer” (Посмотреть предложение о работе) откроется страница информации о предложении работы.</p>
+<div class="highlight-box"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div>Важно: У вас есть 10 дней, чтобы подтвердить предложение о работе в Части 2 вашей заявки SINP, и 60 дней, чтобы подать полную заявку — оба срока отсчитываются с даты получения одобрения EPA.</div></div>
+<p>Если вы НЕ подаете заявку по направлениям Agriculture Talent Pathway, Innovation and Tech Talent Pathway или Health Talent Pathway, пожалуйста, ответьте NO (Нет) на следующие вопросы:</p>
+<div class="shot"><img src="images/img-p13-03.png" alt="" style="max-width:870px"/></div>
+<p>После подтверждения того, что у вас есть действующее предложение работы, следующая серия ответов приведет вас к:</p>
+<p class="lead-bold">Подкатегория «Иностранный квалифицированный работник – с предложением трудоустройства» (International Skilled Worker – With Employment Offer Sub-Category)</p>
+<div class="shot"><img src="images/img-p13-01.png" alt="" style="max-width:870px"/></div>
+<p>Если вы в настоящее время не находитесь в Саскачеване по действующему разрешению на работу и имеете не менее одного года опыта работы за последние десять лет по предполагаемой профессии.</p>
+<div class="shot"><img src="images/img-p14-03.png" alt="" style="max-width:444px"/></div>
+<p>Если вы в настоящее время работаете в Саскачеване по действующему разрешению на работу, НЕ являетесь иностранным студентом с разрешением на работу после окончания учебы (Post-Graduation Work Permit) и имеете не менее одного года опыта работы за последние десять лет по предполагаемой профессии.</p>
+<div class="shot"><img src="images/img-p14-01.png" alt="" style="max-width:438px"/></div>
+<p>Если вы иностранный студент, работающий по действующему разрешению на работу, окончивший учебное заведение за пределами Саскачевана:</p>
+<div class="shot"><img src="images/img-p15-03.png" alt="" style="max-width:675px"/></div>
+<p>Если вы иностранный студент, работающий по действующему разрешению на работу, окончивший учебное заведение в Саскачеване, но не соответствующий критериям категории “Студент” (Student category):</p>
+<div class="shot"><img src="images/img-p15-01.png" alt="" style="max-width:660px"/></div>
+<h4 id="s3-1-agri" class="sec-h3">Направление Agriculture Talent Pathway</h4>
+<p>Выберите «Yes» (Да), если вы подаете заявку по этой категории, а затем выберите NOC вашей предполагаемой профессии в выпадающем списке:</p>
+<div class="shot"><img src="images/img-p16-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-tech" class="sec-h3">Направление Innovation and Tech Talent Pathway</h4>
+<p>Выберите «Yes» (Да), если вы подаете заявку по подкатегории Innovation and Tech Talent Pathway.</p>
+<div class="shot"><img src="images/img-p16-05.png" alt="" style="max-width:900px"/></div>
+<p>Выберите NOC вашей предполагаемой профессии в выпадающем списке:</p>
+<div class="shot"><img src="images/img-p16-03.png" alt="" style="max-width:800px"/></div>
+<p>У вас должно быть высшее или среднее специальное образование (post-secondary education), относящееся к предложенной вам работе (степень магистра или бакалавра; или трехлетняя степень в университете или колледже; или диплом, требующий двух лет обучения в университете, колледже, ремесленном или техническом училище, или другом высшем учебном заведении).</p>
+<div class="shot"><img src="images/img-p17-03.png" alt="" style="max-width:787px"/></div>
+<p>Выберите «Yes» (Да) для подачи заявки по подкатегории Innovation and Tech Talent Pathway, а затем выберите «Yes» (Да) на вопрос «Были ли вы приняты в пул Express Entry Министерства иммиграции, беженцев и гражданства Канады (IRCC) и есть ли у вас номер профиля?». Затем вы сможете ввести свой номер профиля Express Entry и код проверки соискателя (Job Seeker Validation Code).</p>
+<div class="shot"><img src="images/img-p17-01.png" alt="" style="max-width:900px"/></div>
+<p>Выберите NOC вашей предполагаемой профессии в выпадающем списке:</p>
+<div class="shot"><img src="images/img-p18-01.png" alt="" style="max-width:900px"/></div>
+<p>У вас должно быть высшее или среднее специальное образование (post-secondary education), относящееся к предложенной вам работе (степень магистра или бакалавра; или трехлетняя степень в университете или колледже; или диплом, требующий двух лет обучения в университете, колледже, ремесленном или техническом училище, или другом высшем учебном заведении).</p>
+<div class="shot"><img src="images/img-p18-03.png" alt="" style="max-width:787px"/></div>
+<h4 id="s3-1-health" class="sec-h3">Направление Health Talent Pathway – Non-Express Entry</h4>
+<p>Выберите «Yes» (Да), если вы подаете заявку по направлению Health Talent Pathway.</p>
+<p>Затем выберите NOC вашей предполагаемой профессии в выпадающем меню:</p>
+<div class="shot"><img src="images/img-p18-05.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p19-00.png" alt="" style="max-width:900px"/></div>
+<p>Имеете профиль Express Entry, и NOC — 44101. Примечание: NOC 44101 не подходит для Express Entry.</p>
+<div class="shot"><img src="images/img-p19-02.png" alt="" style="max-width:900px"/></div>
+<p>Имеете профиль Express Entry, ваш NOC НЕ 44101, и вы подаете заявку, находясь на территории Саскачевана.</p>
+<div class="shot"><img src="images/img-p20-01.png" alt="" style="max-width:900px"/></div>
+<p>Имеете профиль Express Entry, ваш NOC НЕ 44101, и вы подаете заявку, находясь на территории Канады или за ее пределами:</p>
+<div class="shot"><img src="images/img-p21-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-work" class="sec-h3">Опыт работы в Саскачеване – Действующее разрешение на работу (Saskatchewan Experience – Existing Work Permit)</h4>
+<p>Имеете опыт работы не менее шести месяцев (780 часов) на условиях полной занятости (более 30 часов в неделю) на должности у работодателя, который предоставил вам одобрение EPA, при наличии действующего разрешения на работу. Опыт работы должен быть непрерывным.</p>
+<p>Выберите подходящий вариант из выпадающего списка для NOC профессии, по которой вы работаете.</p>
+<p>*** Эта категория предназначена для тех, кто подает заявку по любому из критериев в выпадающем списке «Я работаю» (I am working), включая профессии в сфере гостеприимства и водителей-дальнобойщиков.</p>
+<div class="shot"><img src="images/img-p22-09.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-student" class="sec-h3">Опыт работы в Саскачеване – Студент (Saskatchewan Experience – Student)</h4>
+<p>Высшее или среднее специальное образование (Post-secondary education), полученное в Саскачеване: У вас должно быть не менее шести (6) месяцев работы на условиях полной занятости (или 960 часов) в Саскачеване по специальности, связанной с вашей областью обучения, и разрешение на работу после окончания учебы (Post Graduation Work Permit), выданное Министерством иммиграции, беженцев и гражданства Канады (IRCC).</p>
+<div class="shot"><img src="images/img-p22-07.png" alt="" style="max-width:900px"/></div>
+<p>Владельцы разрешения на работу после окончания учебы (PGWP), окончившие назначенное учебное заведение (Designated Learning Institute) за пределами Саскачевана, могут подавать заявки только по направлениям Health Talent Pathway, Agriculture Talent Pathway, Innovation and Tech Talent Pathway и International Skilled Worker: Employment Offer по подходящей профессии.</p>
+<p>Нажмите кнопку сохранения, чтобы сохранить ваши ответы, и нажмите кнопку проверки, чтобы проверить категорию заявки, по которой вы подаетесь.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-01.png" alt="" style="max-width:54px"/><img src="images/img-p22-03.png" alt="" style="max-width:218px"/></div>
+<p>Если показанная категория не та, по которой вы намереваетесь подать заявку, вы можете изменить свои ответы, нажав на соответствующую кнопку, или нажав «No» (Нет) для получения дополнительной информации.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-00.png" alt="" style="max-width:36px"/><img src="images/img-p22-05.png" alt="" style="max-width:242px"/></div>
+<p>Если показанная категория верна, нажмите кнопку «Yes» (Да) и продолжите оформление заявки.</p>
+<h2 id="s3-2" class="sec-h1">3.2 Сетка баллов для квалифицированных работников (Skilled Worker Points Grid)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-04.png" alt=""/><div class="callout-text">Это применимо только к заявителям по категории International Skilled Worker.</div></div>
+<div class="shot"><img src="images/img-p23-03.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+<h2 id="s3-3" class="sec-h1">3.3 Текущее место жительства и место поселения (Current Residency and Settlement Destination)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-05.png" alt=""/><div class="callout-text">В выпадающем списке выберите текущую страну проживания, статус резидента, продолжительность проживания и предполагаемое место поселения в Саскачеване. Эти данные должны совпадать с вашими ответами в Общей форме заявки для Канады (Generic Application Form for Canada).</div></div>
+<div class="shot"><img src="images/img-p23-01.png" alt="" style="max-width:900px"/></div>
+<div class="note-box"><strong>Статус в Канаде</strong> – если вы в настоящее время находитесь в Канаде в качестве посетителя (Visitor) или студента (Student), вы должны предоставить копию вашей гостевой или студенческой визы (Visitor or Study permit). Прикрепите этот документ в разделе записей паспорта в качестве дополнительного документа (Additional Document).</div>
+<h2 id="s3-4" class="sec-h1">3.4 Данные заявителя (Applicant Details)</h2>
+<ul>
+<li>Ваш возраст рассчитывается системой OASIS на основе даты вашего рождения.</li>
+<li>Введите город/населенный пункт рождения (Birth City/Town).</li>
+<li>Выберите страну рождения (Birth Country).</li>
+<li>Выберите наивысший завершенный уровень образования (Highest Education Level completed).</li>
+<li>NOC предполагаемой профессии (Intended Occupation NOC): Для заявок по программам Express Entry и Occupation In-Demand в этом поле будет указан NOC, который вы выбрали ранее в своем Выражении заинтересованности (EOI), и его нельзя изменить. Для направлений Agriculture Talent, Innovation and Tech Talent, Health Talent Pathways, Employment Offer, Student и Existing Work Permit выберите NOC вашей предполагаемой профессии.</li>
+</ul>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+<h2 id="s3-5" class="sec-h1">3.5 Загрузка ваших документов (Uploading your documents)</h2>
+<p>Не забудьте загрузить отсканированную (<strong>читаемую</strong>) копию вашего документа в соответствии с требованиями. По возможности используйте имя файла, описывающее каждый документ, например passport (паспорт), birth certificate (свидетельство о рождении) – это поможет нам ускорить время обработки заявки.</p>
+<p>Если вы ранее загружали документы в разделе <strong>Files</strong> (Файлы), вы можете только просматривать и скачивать эти документы. Любая новая загрузка должна осуществляться с помощью кнопки «Upload File» (Загрузить файл).</p>
+<div class="shot plain"><img src="images/img-p24-03.png" alt="" style="max-width:58px"/></div>
+<p>Вы не сможете продвинуться дальше в оформлении заявки, пока ваши документы не будут загружены для каждого раздела.</p>
+<div class="note-box">Если ваш документ не на английском или французском языке, пожалуйста, предоставьте перевод на английский (или французский) язык, включая письменное присяжное показание переводчика (Translator's Affidavit), и отправьте их вместе с оригиналом документа. Пожалуйста, прикрепите оригинал, перевод и аффидевит к соответствующей записи в OASIS.</div>
+<p>Чтобы загрузить документ в OASIS, пожалуйста, нажмите кнопку 'Upload File'.</p>
+<div class="shot"><img src="images/img-p24-01.png" alt="" style="max-width:900px"/></div>
+<p>Появится всплывающее окно, как показано ниже. Нажмите кнопку 'Browse' (Обзор), выберите документ, который хотите загрузить, а затем нажмите 'Upload File' (Загрузить файл).</p>
+<div class="shot"><img src="images/img-p25-03.png" alt="" style="max-width:900px"/></div>
+<p>Как только документ будет загружен, в правом нижнем углу экрана появится всплывающее сообщение с подтверждением:</p>
+<div class="shot plain"><img src="images/img-p25-09.png" alt="" style="max-width:317px"/></div>
+<p>Вы можете скачать прикрепленный документ, выбрав «Download File» (Скачать файл). Если вы прикрепили не тот документ, удалите его, нажав кнопку «Remove File» (Удалить файл).</p>
+<div class="shot"><img src="images/img-p25-01.png" alt="" style="max-width:900px"/></div>
+<p>Вы можете загрузить больше файлов/документов, нажав на кнопку ниже. Пожалуйста, посмотрите пример скриншота.</p>
+<div class="shot plain"><img src="images/img-p25-05.png" alt="" style="max-width:520px"/></div>
+<div class="shot"><img src="images/img-p25-07.png" alt="" style="max-width:900px"/></div>
+<p>Пожалуйста, прочитайте и примите условия и положения для подачи данной заявки в SINP и нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+<h2 id="s3-6" class="sec-h1">3.6 Раскрытие информации (Information Disclosure)</h2>
+<div class="shot"><img src="images/img-p26-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s3-7" class="sec-h1">3.7 Гражданство (Citizenship)</h2>
+<p>Выберите вашу страну гражданства (Country of Citizenship): Создайте еще одну запись о гражданстве, если у вас более одного гражданства.</p>
+<div class="shot"><img src="images/img-p26-01.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+<h2 id="s3-8" class="sec-h1">3.8 Документ о рождении (Birth Document)</h2>
+<p>Выберите тип документа о рождении (Birth Document Type) из выпадающего списка.</p>
+<div class="shot"><img src="images/img-p26-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Введите ваше имя (First Name), второе имя/отчество (Middle Name, если применимо) и фамилию (Family/Last Name) при рождении так, как они указаны в вашем документе о рождении. Вы можете оставить поле пустым, если оно к вам не относится (например, Middle Name).</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im0.png" alt=""/><div class="callout-text">Пожалуйста, загрузите отсканированную копию вашего документа о рождении. Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл). Аффидевит или паспорт не принимаются в качестве документа о рождении. Нажмите Save (Сохранить), затем Next (Далее).</div></div>
+<div class="shot plain"><img src="images/img-p27-Im7.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-9" class="sec-h1">3.9 Паспорт (Passport)</h2>
+<ul>
+<li>Выберите страну, выдавшую паспорт, из выпадающего списка.</li>
+<li>Номер паспорта (Passport Number) и дата окончания срока действия паспорта (Passport Expiry Date) будут заполнены автоматически из экрана “Дата рождения и адрес” (Birthdate and Address Screen).</li>
+</ul>
+<div class="shot"><img src="images/img-p27-Im11.png" alt="" style="max-width:900px"/></div>
+<p>Обратите внимание, что вам не нужно создавать записи для ваших старых/истекших паспортов.</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im1.png" alt=""/><div class="callout-text">Пожалуйста, загрузите отсканированную копию вашего паспорта (и гостевой или студенческой визы / Visitor or Study Permit, если применимо). Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл). Нажмите Save (Сохранить), затем Next (Далее).</div></div>
+<div class="shot plain"><img src="images/img-p27-Im9.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-10" class="sec-h1">3.10 Семейное положение (Marital Status)</h2>
+<p>Выберите ваше текущее семейное положение из выпадающего списка:</p>
+<div class="shot"><img src="images/img-p27-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Если вы холосты/не замужем (Single), брак аннулирован (Annulled Marriage), проживаете раздельно на законных основаниях (Legally Separated) или вдовец/вдова (Widowed), ваш экран должен выглядеть так:</p>
+<div class="shot"><img src="images/img-p27-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Для гражданского брака (Common-Law), разведенных (Divorced) или состоящих в браке (Married):</p>
+<ul>
+<li>Введите ваши предыдущие имя и фамилию так, как они указаны в документе о семейном положении, и введите дату, когда вы и ваш супруг(а) вступили в выбранное семейное положение.</li>
+</ul>
+<div class="shot"><img src="images/img-p28-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Вы должны создать еще один экран семейного положения, если у вас более одного (1) статуса (например, если вы были разведены, а сейчас состоите в браке), нажав на эту кнопку:</p>
+<div class="shot plain"><img src="images/img-p28-Im4.png" alt="" style="max-width:363px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p28-Im0.png" alt=""/><div class="callout-text">Пожалуйста, загрузите отсканированную копию вашего документа о семейном положении. Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл). Нажмите Save (Сохранить), затем Next (Далее).</div></div>
+<div class="shot plain"><img src="images/img-p28-Im6.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-11" class="sec-h1">3.11 Образование (Education)</h2>
+<p>В разделе “Образование” вы должны ответить на следующие вопросы: Выберите ваш наивысший уровень образования (highest level of Education).</p>
+<div class="shot"><img src="images/img-p28-Im8.png" alt="" style="max-width:900px"/></div>
+<p>Если ваша предполагаемая профессия или предложение о работе требует профессиональной сертификации или лицензирования, выберите «Yes» (Да) на следующий вопрос; в противном случае выберите «No» (Нет).</p>
+<p>Если у вас есть предложение о работе и вы хотите узнать о требованиях к лицензированию, пожалуйста, ознакомьтесь со следующими ссылками:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">Saskatchewan Regulatory Bodies</a></li>
+</ul>
+<p>Если у вас нет предложения о работе и вы хотите узнать о требованиях к лицензированию, пожалуйста, посетите:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/Residents/Moving-to-Saskatchewan/Live-in-Saskatchewan/By-Immigrating/Saskatchewan-Immigrant-Nominee-Program/Browse-SINP-Programs/Applicants-International-Skilled-Workers/Occupation-Restrictions-and-Requirements" target="_blank" rel="noopener">Occupation Restrictions and Requirements</a></li>
+</ul>
+<p>Вы найдете дополнительную информацию о профессиональной сертификации или лицензировании в разделе 3.12 (следующий раздел) данного руководства.</p>
+<p>Если вы подаете заявку по категории, которая не требует образования (например, Existing Work Permit или ISW-With Employment Offer, и не претендуете на баллы за образование), вы можете нажать «Not Applicable» (Неприменимо) на следующий вопрос. В противном случае следуйте шагам «Ввод/Изменение образования» (Enter/Change Education) ниже. После ввода всех данных о вашем образовании выберите «Yes» (Да) и нажмите Save.</p>
+<div class="shot"><img src="images/img-p29-Im3.png" alt="" style="max-width:820px"/></div>
+<h3 id="s3-11-enter" class="sec-h2">Ввод/Изменение образования (Enter/Change Education)</h3>
+<p>Чтобы ввести данные о вашем образовании (Education Credentials), нажмите на значок в правом верхнем углу экрана.</p>
+<div class="shot plain"><img src="images/img-p29-Im1.png" alt="" style="max-width:448px"/></div>
+<div class="note-box">Вы должны предоставить документы для подтверждения вашей подготовки и/или высшего/среднего специального образования (post-secondary education), используя один или несколько из следующих документов: сертификаты об образовании/профессии, степени или дипломы с копией официальных транскриптов (где применимо), показывающих посещаемые учебные заведения или пройденные курсы; профессиональные звания, профессиональные лицензии и/или членство в профессиональных ассоциациях; и сертификат о прохождении ученичества/эквивалентный сертификат (который поддается проверке и сопоставим с программами канадской системы образования) с подробным описанием структуры программы, курсов, продолжительности и органа, ее проводящего или регулирующего.</div>
+<p>На экране “Образование” введите следующую информацию так, как она указана в вашем дипломе о высшем/среднем специальном образовании, профильном дипломе или сертификате: <strong>Country</strong> (Страна), <strong>Start Date</strong> (Дата начала) и <strong>End Date</strong> (Дата окончания) в формате ДД-Мес-ГГГГ (DD-Mon-YYYY), <strong>Institution</strong> (Учебное заведение, где было получено образование), и <strong>Specialty</strong> (Специальность / программа обучения).</p>
+<div class="shot"><img src="images/img-p30-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Если вы находитесь в Канаде, выберите провинцию, в которой было получено ваше высшее/среднее специальное образование.</p>
+<p>Нажмите <strong>Upload File</strong>, затем выберите Browse (Обзор), чтобы загрузить копию ваших документов об образовании. Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл). Пожалуйста, загрузите ваш документ там, где это применимо, как показано ниже:</p>
+<div class="shot plain"><img src="images/img-p30-Im5.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p30-Im7.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p30-Im13.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить).</p>
+<p>Нажмите кнопку ниже, чтобы добавить еще одну запись.</p>
+<div class="shot plain"><img src="images/img-p30-Im3.png" alt="" style="max-width:286px"/></div>
+<p>Нажмите кнопку ниже, чтобы вернуться на главный экран.</p>
+<div class="shot plain"><img src="images/img-p30-Im9.png" alt="" style="max-width:326px"/></div>
+<p>Нажмите кнопку ниже, чтобы проверить полноту записей об образовании.</p>
+<div class="shot plain"><img src="images/img-p30-Im11.png" alt="" style="max-width:285px"/></div>
+<h2 id="s3-12" class="sec-h1">3.12 Документы о регулировании или лицензировании и Оценка документов об образовании (Regulatory or Licensing Credentials and Education Credentials Assessment)</h2>
+<p class="lead-bold">Документы о регулировании или лицензировании (Regulatory or Licensing Credentials)</p>
+<p>Если вы намерены работать по профессии, которая регулируется в Саскачеване и требует обязательной (принудительной) сертификации или лицензирования в Саскачеване, вы должны получить подтверждение права на получение лицензии Саскачевана для работы по этой профессии до подачи заявки в SINP. Подтверждение права на получение лицензии Саскачевана от регулирующего органа требуется как часть вашей заявки в SINP. Если ваша заявка не включает это подтверждение, то SINP может отклонить вашу заявку, и вы сможете подать ее повторно, когда получите это подтверждение.</p>
+<p>Если вы намерены работать по КВАЛИФИЦИРОВАННОЙ РАБОЧЕЙ СПЕЦИАЛЬНОСТИ (SKILLED TRADE), вы должны иметь квалификационный сертификат (также известный как письмо-приглашение) по вашей специальности от Комиссии по ученичеству и торговой сертификации Саскачевана (Saskatchewan Apprenticeship &amp; Trade Certification Commission).</p>
+<p>Пожалуйста, перейдите по ссылке ниже для получения дополнительной информации о регулируемых профессиях или требованиях к лицензированию:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+</ul>
+<p class="lead-bold">Оценка документов об образовании (Education Credentials Assessment - ECA)</p>
+<p>Заявители, подающие заявку через Express Entry, Occupation in Demand, International Skilled Worker with Employment Offer и Health Talent Pathway (исключая рабочие специальности), должны предоставить Оценку документов об образовании (ECA) от уполномоченной организации.</p>
+<p>Пожалуйста, перейдите по ссылке ниже для получения информации о получении Оценки документов об образовании (ECA):</p>
+<ul>
+<li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessed/how.html" target="_blank" rel="noopener">Obtaining an Educational Credentials Assessment (ECA)</a></li>
+</ul>
+<p>Для подкатегорий, требующих ECA, вы должны загрузить копию вашего ECA на главной странице “Образование” для всего образования, полученного за пределами Канады.</p>
+<p>Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<div class="shot plain"><img src="images/img-p32-Im3.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p32-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Сделайте то же самое для ваших Документов о регулировании или лицензировании (лицензия Саскачевана), если применимо.</p>
+<div class="shot"><img src="images/img-p32-Im7.png" alt="" style="max-width:710px"/></div>
+<p>Чтобы проверить полноту экранов образования, в главной записи “Образование” нажмите значок.</p>
+<div class="shot plain"><img src="images/img-p32-Im5.png" alt="" style="max-width:320px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+<h2 id="s3-13" class="sec-h1">3.13 Опыт работы (Work Experience)</h2>
+<p>Укажите свой опыт работы, ответив «Yes» (Да) на вопрос:</p>
+<div class="shot"><img src="images/img-p32x-gp0-Im0.png" alt="" style="max-width:869px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить).</p>
+<div class="shot plain"><img src="images/img-p32x-gp0-Im1.png" alt="" style="max-width:331px"/></div>
+<p>Нажмите <strong>Enter/Change Work Experience</strong>, чтобы создать экран опыта работы.</p>
+<p>Заполните обязательные поля:</p>
+<ul>
+<li>Выберите страну (Country).</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im2.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Найдите и выберите NOC ID, который соответствует вашему опыту работы, введя не менее трех символов.</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im3.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Если страной вашего опыта работы является Канада, вам необходимо заполнить поле «Провинция» (Province).</li>
+<li>Введите дату начала (Start Date) и дату окончания (End Date) в формате ДД-Мес-ГГГГ (DD-Mon-YYYY).</li>
+<li>Введите Employer — имя работодателя (название компании).</li>
+<li>Введите Employer Contact Name — контактное лицо работодателя.</li>
+<li>Введите City/Town — место работы (город/населенный пункт).</li>
+<li>Введите вашу должность (Position Title) во время работы у этого работодателя.</li>
+</ul>
+<p>Выберите тип документа, выданного государством (который вы будете предоставлять), из выпадающего меню:</p>
+<p>Загрузите документ, выданный государством (Government issued documentation):</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im0.png" alt="" style="max-width:900px"/></div>
+<p>Загрузите ваше рекомендательное письмо с места работы (Work Experience reference letter):</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Чтобы загрузить документы, нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Вы можете загрузить больше файлов/документов, нажав на кнопку значок.</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить).</p>
+<p>Если ваш опыт работы был получен в Саскачеване, вы должны предоставить доказательства проживания и трудоустройства в провинции.</p>
+<div class="shot"><img src="images/img-p33-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Чтобы загрузить документы, нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<div class="shot plain"><img src="images/img-p33-Im11.png" alt="" style="max-width:153px"/></div>
+<p>Вы можете загрузить больше файлов/документов, нажав на кнопку значок.</p>
+<div class="shot plain"><img src="images/img-p33-Im5.png" alt="" style="max-width:520px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить).</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Обязательные документы для подтверждения опыта работы:</p>
+<ul style="margin-bottom:0;">
+<li>официальное рекомендательное письмо от работодателя, распечатанное на фирменном бланке компании, которое включает:
+<ul>
+<li>имя заявителя, контактную информацию компании (адрес, номер телефона и адрес электронной почты), а также имя, должность и подпись непосредственного руководителя или сотрудника отдела кадров компании, вместе с их номером телефона и адресом электронной почты.</li>
+<li>все должности, занимаемые во время работы в компании, вместе с названием должности, обязанностями и ответственностью, статусом работы (если это текущая работа), датами работы в компании, количеством рабочих часов в неделю (общее количество часов, отработанных в Саскачеване для заявителей-студентов) и годовой зарплатой плюс льготы.</li>
+</ul>
+</li>
+<li>если заявитель является самозанятым: учредительные документы или другие доказательства владения бизнесом, доказательства дохода от самозанятости и документация от третьих лиц с указанием предоставленных услуг вместе с деталями оплаты.</li>
+</ul>
+</div>
+<p>Самостоятельно заявленные основные обязанности или аффидевиты не принимаются в качестве доказательства опыта работы или самозанятости.</p>
+<div class="shot plain"><img src="images/img-p33-Im1.png" alt="" style="max-width:281px"/></div>
+<p>Нажмите значок, чтобы создать еще одну запись.</p>
+<div class="shot plain"><img src="images/img-p33-Im3.png" alt="" style="max-width:321px"/></div>
+<p>Нажмите значок, чтобы продолжить работу с вашей заявкой.</p>
+<p>Чтобы проверить полноту записей об опыте работы, на главном экране опыта работы нажмите значок.</p>
+<div class="shot plain"><img src="images/img-p33-Im7.png" alt="" style="max-width:378px"/></div>
+<p>Как только этот раздел будет заполнен, отметьте «Yes» (Да) на вопрос об опыте работы:</p>
+<div class="shot"><img src="images/img-p34-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+
+<h2 id="s3-14" class="sec-h1">3.14 Владение английским/французским языком (English/French Ability)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p34-Im8.png" alt=""/><div class="callout-text">Действительные результаты языкового теста обязательны для некоторых категорий SINP.</div></div>
+<p>Выберите тип подтверждения языка (Language Proof Type):</p>
+<div class="shot"><img src="images/img-p34-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Заполните обязательные поля так, как они указаны в вашем документе:</p>
+<div class="shot"><img src="images/img-p34-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Перейдите по ссылке ниже для получения информации о языковых требованиях для SINP:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/language-requirements-for-sinp" target="_blank" rel="noopener">Language Requirements for SINP</a></li>
+</ul>
+<p>Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<div class="shot plain"><img src="images/img-p34-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Если у вас есть действительный языковой тест для второго официального языка, выберите «Yes» (Да). В противном случае выберите «No» (Нет).</p>
+<div class="shot"><img src="images/img-p35-Im11.png" alt="" style="max-width:608px"/></div>
+<p>Если вы выбрали «Yes» (Да), пожалуйста, укажите баллы языкового теста в предоставленных полях, и вы должны прикрепить копию официальных результатов языкового теста.</p>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+
+<h2 id="s3-15" class="sec-h1">3.15 Последняя страница Части 1 (Final Page of Part 1)</h2>
+<p>Выберите «Yes» (Да), если у вас есть родственник в Саскачеване, в противном случае выберите «No» (Нет).</p>
+<div class="shot"><img src="images/img-p35-Im3.png" alt="" style="max-width:741px"/></div>
+<p>Выберите «Yes» (Да), если вы подавали провинциальную или федеральную заявку на иммиграцию в Канаду, в противном случае выберите «No» (Нет).</p>
+<div class="shot"><img src="images/img-p35-Im1.png" alt="" style="max-width:742px"/></div>
+<p>На данном этапе вам не требуется загружать какую-либо документацию.</p>
+<div class="shot plain"><img src="images/img-p35-Im7.png" alt="" style="max-width:297px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем нажмите значок.</p>
+<p>Если вы все сделали правильно, появится это сообщение:</p>
+<div class="shot"><img src="images/img-p35-Im5.png" alt="" style="max-width:446px"/></div>
+<div class="shot plain"><img src="images/img-p35-Im9.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок, чтобы продолжить работу с вашей заявкой.</p>
+
+<h2 id="s3-16" class="sec-h1">3.16 Внесение изменений в Часть 1 и Данные заявителя (Making a Change on Part 1 and Applicant Details)</h2>
+<p>Если вам нужно внести изменения в вашу предварительную заявку и/или данные заявителя:</p>
+<ol>
+<li>Нажмите кнопку Home (Главная), если требуется.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im7.png" alt="" style="max-width:45px"/></div>
+<ol start="2">
+<li>Нажмите Continue (Продолжить) в разделе Applicant Details заявки SINP.</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im9.png" alt="" style="max-width:680px"/></div>
+<ol start="3">
+<li>Нажмите на запись Applicant Details-Final Page, нажмите Make Changes to Part 1 (Внести изменения в Часть 1).</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im1.png" alt="" style="max-width:900px"/></div>
+<ol start="4">
+<li>Внесите ваши изменения или загрузите документы.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im5.png" alt="" style="max-width:297px"/></div>
+<ol start="5">
+<li>Когда вы закончите, убедитесь, что нажали значок.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im3.png" alt="" style="max-width:167px"/></div>
+<p>Нажмите значок, чтобы продолжить.</p>
+
+<h2 id="s4-0" class="sec-h1">4.0 Экраны заявки для квалифицированных специалистов (Skilled Worker Application Screens)</h2>
+<p>После того как вы нажмете кнопку <strong>Create Part 2</strong> (Создать Часть 2), экран Application (Заявка) появится в левой части экрана.</p>
+
+<h2 id="s4-1" class="sec-h1">4.1 Экран заявки (Application Screen)</h2>
+<p>Первый экран покажет категорию заявки. Ниже приведен пример экрана для категории International Skilled Worker – Express Entry:</p>
+<div class="shot"><img src="images/img-p37-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Сбор в размере 500 долларов США требуется для всех категорий SINP. Вы должны указать, принадлежит ли кредитная карта, использованная для оплаты регистрационного сбора, основному заявителю или супругу(е), указанному(ой) в заявке:</p>
+<div class="shot"><img src="images/img-p37-Im6.png" alt="" style="max-width:748px"/></div>
+<p>Если использованная кредитная карта принадлежит другому лицу, пожалуйста, укажите родство владельца кредитной карты с заявителем и причину оплаты:</p>
+<div class="shot"><img src="images/img-p37-Im8.png" alt="" style="max-width:900px"/></div>
+
+<h2 id="s4-2" class="sec-h1">4.2 Связь с Саскачеваном (Connection to Saskatchewan)</h2>
+<div class="shot plain"><img src="images/img-p37-Im1.png" alt="" style="max-width:722px"/></div>
+<p>Выберите «Yes» (Да) на приведенный выше вопрос, если к вам относится один из следующих пунктов:</p>
+<ul>
+<li>Учились в Саскачеване (Studied in Saskatchewan)</li>
+<li>Работали в Саскачеване (Worked in Saskatchewan)</li>
+<li>Близкий родственник в Саскачеване (Close Relative in Saskatchewan)</li>
+</ul>
+<p>В противном случае выберите «No» (Нет) и нажмите «Next» (Далее).</p>
+
+<h3 id="s4-2-study" class="sec-h2">Обучение в Саскачеване</h3>
+<p>Если вы учились в Саскачеване и претендуете на баллы, заполните поля, как показано ниже:</p>
+<div class="shot"><img src="images/img-p38-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Если вы претендуете на баллы за обучение в Саскачеване, вы должны предоставить следующие документы:</p>
+<ul style="margin-bottom:0;">
+<li>сертификаты об образовании/профессии, степени или дипломы с официальными транскриптами (где применимо), с указанием посещаемых учебных заведений или пройденных курсов; или</li>
+<li>письмо от регистратора с подтверждением того, что вы учились в учебном заведении Саскачевана.</li>
+</ul>
+</div>
+<div class="shot"><img src="images/img-p38-Im5.png" alt="" style="max-width:900px"/></div>
+
+<h3 id="s4-2-work" class="sec-h2">Опыт работы в Саскачеване</h3>
+<p>Если у вас есть опыт работы в Саскачеване, заполните поля, как показано ниже:</p>
+<div class="shot"><img src="images/img-p38-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Если вы претендуете на баллы за работу в Саскачеване, вы должны предоставить документы для подтверждения того, что вы ранее работали в Саскачеване минимум 12 месяцев за последние пять лет. Вам необходимо предоставить следующее:</p>
+<ul style="margin-bottom:0;">
+<li>Рекомендательные письма от вашего(их) предыдущего(их) работодателя(ей), написанные на официальном бланке компании и подписанные уполномоченным представителем компании с указанием его имени и должности, а также контактной информации. В каждом письме должно быть указано следующее:
+<ul>
+<li>ваша должность;</li>
+<li>даты работы; и</li>
+<li>ваши основные обязанности/ответственность.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Чтобы подтвердить свой опыт работы в Саскачеване, вы должны загрузить рекомендательное письмо.</p>
+<div class="shot"><img src="images/img-p39-Im3.png" alt="" style="max-width:900px"/></div>
+
+<h3 id="s4-2-relative" class="sec-h2">Близкий родственник в Саскачеване</h3>
+<p>Если у вас есть близкий родственник в Саскачеване и вы претендуете на баллы, заполните обязательное(ые) поле(я), как показано ниже:</p>
+<div class="shot"><img src="images/img-p39-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p40-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Если вы претендуете на баллы за близкого члена семьи, вы должны предоставить от него следующее:</p>
+<ul style="margin-bottom:0;">
+<li>свидетельство о рождении, свидетельство о браке и/или любые другие официальные государственные документы об образовании или религиозные документы, подтверждающие ваше родство с близким родственником. Пожалуйста, обратите внимание: SINP не принимает аффидевиты.</li>
+<li>копию карты постоянного резидента или гражданина Канады вашего родственника, либо канадского паспорта;</li>
+<li>доказательство того, что они проживают в Саскачеване последние двенадцать месяцев и финансово независимы:
+<ul>
+<li>счета за коммунальные услуги за последние двенадцать месяцев от SaskPower, SaskEnergy или городского/муниципального управления. (Мы не принимаем счета за телефон, мобильную связь или кабельное телевидение);</li>
+<li>Медицинская карта Саскачевана (Saskatchewan Health Card) или Водительское удостоверение Саскачевана (Saskatchewan Driver's license);</li>
+<li>доказательство того, что член семьи является зарегистрированным арендатором по адресу в Саскачеване (договор аренды и квитанции об оплате аренды ИЛИ документ, подтверждающий право собственности) и имена других жильцов по этому адресу, включая их родственные связи; и</li>
+<li>доказательство получения дохода за последние три месяца.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Если ваш близкий родственник поддержал другого заявителя, вы можете получить предупреждающее сообщение. Близкие члены семьи могут поддерживать только одну заявку одновременно (одно домохозяйство может поддерживать одну заявку одновременно). Если ваш близкий член семьи уже поддерживает заявку SINP, он не может поддержать вашу заявку, пока предыдущий номинант, которого он поддерживает, не проживет и не проработает в Саскачеване не менее шести месяцев.</p>
+<p>Если ваш близкий родственник поддержал другого заявителя, вы должны указать, въехал ли предыдущий заявитель в Канаду и прожил ли в Саскачеване не менее шести месяцев. Если да, вам потребуется загрузить доказательства того, что предыдущий заявитель успешно обосновался в Саскачеване не менее шести месяцев назад.</p>
+<p>Если ваш близкий родственник в настоящее время поддерживает другую заявку, и этот заявитель не обосновался в Саскачеване в течение как минимум шести месяцев, вы не можете претендовать на получение или получить 20 баллов за этого родственника. Если вы выберете «Нет» (No), вы получите предупреждающее сообщение ниже. Обратите внимание, если вы продолжите подачу заявки без близкого родственника после того, как заявили баллы за родственника в своем Выражении заинтересованности (Expression of Interest), ваше дело будет возвращено, а сбор не будет возмещен.</p>
+<p>Если OASIS не обнаружит, что ваш родственник в настоящее время поддерживает другого родственника, вы не получите предупреждающее сообщение. Обратите внимание, что даже если вы не получите предупреждение, ваш близкий родственник все еще может поддерживать более старую заявку. В вашу ответственность входит обеспечение того, чтобы ваш близкий родственник имел право поддержать вашу заявку.</p>
+<div class="shot"><img src="images/img-p41-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p42-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите кнопку создания записи, чтобы создать запись для вашего родственника, в настоящее время проживающего в Канаде.</p>
+<div class="shot plain"><img src="images/img-p42-Im1.png" alt="" style="max-width:244px"/></div>
+<p>Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<div class="shot plain"><img src="images/img-p42-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Вы можете загрузить дополнительные файлы/документы, нажав на кнопку значок.</p>
+<div class="shot plain"><img src="images/img-p42-Im5.png" alt="" style="max-width:520px"/></div>
+
+<h2 id="s4-3" class="sec-h1">4.3 Федеральные формы (Federal Forms)</h2>
+<p>Ниже приведены обязательные федеральные формы:</p>
+<ul>
+<li>IMM 0008 – Generic Application Form for Canada (Общая форма заявки в Канаду)</li>
+</ul>
+<div class="shot plain"><img src="images/img-p42-Im7.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее).</p>
+<p class="lead-bold"><em>Сделайте то же самое для остальных форм.</em></p>
+<ul>
+<li>IMM 5406 – Additional Family Information (Дополнительная информация о семье)</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<p>В правом верхнем углу экрана создайте следующие формы, если они к вам относятся:</p>
+<ul>
+<li>IMM 5476 – Использование услуг представителя (Use of Representative)</li>
+<li>IMM 5475 – Разрешение на разглашение личной информации (Authority to Release Personal Information)</li>
+</ul>
+<div class="shot plain"><img src="images/img-p43-Im9.png" alt="" style="max-width:227px"/></div>
+<p>Нажмите значок удаления, если вы добавили форму по ошибке. Вы можете скачать формы по следующим ссылкам:</p>
+<ul>
+<li>Иностранные квалифицированные специалисты (International Skilled Workers) <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">ссылка</a>, затем выберите подкатегорию. Или</li>
+<li>Опыт работы в Саскачеване (Saskatchewan Experience) <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">ссылка</a>, затем выберите подкатегорию.</li>
+</ul>
+
+<h2 id="s4-4" class="sec-h1">4.4 Шаг 1: Кнопки создания (Step 1 Create Buttons)</h2>
+<p>Нажмите кнопку(и) <strong>Create…</strong> (Создать), если это к вам относится:</p>
+<div class="shot"><img src="images/img-p43-Im1.png" alt="" style="max-width:717px"/></div>
+<p>Нажмите кнопку <strong>Create</strong>, если вы в настоящее время работаете в Канаде.</p>
+<div class="shot plain"><img src="images/img-p43-Im3.png" alt="" style="max-width:334px"/></div>
+<p>Нажмите кнопку <strong>Create</strong>, если у вас есть родственник, в настоящее время проживающий в Канаде.</p>
+<div class="shot plain"><img src="images/img-p43-Im5.png" alt="" style="max-width:378px"/></div>
+<p>Нажмите кнопку <strong>Create</strong>, если с вами в Канаду едут члены семьи.</p>
+<div class="shot plain"><img src="images/img-p43-Im7.png" alt="" style="max-width:322px"/></div>
+
+<h2 id="s4-5" class="sec-h1">4.5 Разрешение на работу (Work Permit)</h2>
+<p>Запись о разрешении на работу будет создана автоматически, если вы подаете заявку по категории «Опыт работы в Саскачеване» (Saskatchewan Experience). Если вы подаете заявку по категории «Иностранные квалифицированные специалисты — с предложением о трудоустройстве» (International Skilled Category – With Employment Offer), но в настоящее время работаете в Канаде, пожалуйста, создайте запись о разрешении на работу.</p>
+<p>Заполните обязательные поля в точности так, как указано в вашем документе:</p>
+<div class="shot"><img src="images/img-p44-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p44-Im5.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<div class="shot"><img src="images/img-p44-Im7.png" alt="" style="max-width:801px"/></div>
+<p>Если у вас есть открытое разрешение на работу для супругов (open spousal work permit), пожалуйста, выберите «Да» (Yes).</p>
+<p>Нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее) для продолжения.</p>
+
+<h2 id="s4-6" class="sec-h1">4.6 Родственник в Канаде (In-Canada Relative)</h2>
+<p>Запись «Родственник, в настоящее время проживающий в Канаде» (Relative currently residing in Canada) будет создана автоматически, если вы ответили «Да» (Yes) на этот вопрос:</p>
+<div class="shot"><img src="images/img-p44-Im1.png" alt="" style="max-width:741px"/></div>
+<p>Заполните обязательные поля, как показано ниже:</p>
+<div class="shot"><img src="images/img-p45-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p45-Im7.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<p>Нажмите <strong>Save</strong> (Сохранить).</p>
+<div class="shot plain"><img src="images/img-p45-Im3.png" alt="" style="max-width:282px"/></div>
+<p>Нажмите значок, чтобы добавить еще одного родственника в Канаде.</p>
+<div class="shot plain"><img src="images/img-p45-Im5.png" alt="" style="max-width:230px"/></div>
+<p>Нажмите значок, чтобы удалить экран, если он был добавлен по ошибке.</p>
+
+<h2 id="s4-7" class="sec-h1">4.7 Средства на обустройство и План обустройства (Settlement Funds and Settlement Plan)</h2>
+<h3 id="s4-7-plan" class="sec-h2">План обустройства (Settlement Plan)</h3>
+<p>Вам необходимо создать и прикрепить план обустройства.</p>
+<div class="shot plain"><img src="images/img-p45-Im9.png" alt="" style="max-width:153px"/></div>
+<p>Загрузите ваш План обустройства, нажав на кнопку значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+
+<h3 id="s4-7-funds" class="sec-h2">Средства на обустройство (Settlement Funds)</h3>
+<p>Вы должны сохранять минимальную сумму средств, требуемую для размера вашей семьи, в течение минимум трех месяцев до подачи заявки.</p>
+<div class="shot"><img src="images/img-p46-Im11.png" alt="" style="max-width:763px"/></div>
+<p>Заполните обязательные поля в каждой последовательности, как показано ниже:</p>
+<div class="shot"><img src="images/img-p46-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Вы должны прикрепить копию выписки(ок) с вашего счета.</p>
+<div class="shot plain"><img src="images/img-p46-Im1.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок, затем выберите Browse (Обзор). Найдите документ в вашей файловой директории, выберите документ и нажмите Upload File (Загрузить файл).</p>
+<div class="shot"><img src="images/img-p46-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Список приемлемых документов, подтверждающих наличие средств на обустройство, показан под кнопкой загрузки, включая количество месяцев, в течение которых необходимо наличие средств.</p>
+<p>Если вы предоставляете дополнительные документы, относящиеся к счету в определенной последовательности, нажмите кнопку <strong>Add an Additional Document</strong> и загрузите документ.</p>
+<div class="shot plain"><img src="images/img-p46-Im7.png" alt="" style="max-width:214px"/></div>
+<p>Если вы предоставляете информацию о другом счете со средствами на обустройство, нажмите кнопку <strong>Add another Settlement Funds</strong>, чтобы создать следующую последовательность.</p>
+<div class="shot plain"><img src="images/img-p46-Im9.png" alt="" style="max-width:243px"/></div>
+<p>После того как вы закончите ввод данных Плана обустройства и Средств на обустройство, нажмите <strong>Save</strong> (Сохранить), затем <strong>Next</strong> (Далее), чтобы продолжить.</p>
+
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Требуемая документация для Средств на обустройство:</p>
+<p>Минимально требуемая сумма для вашей заявки опубликована на нашем сайте. Пожалуйста, перейдите по <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">ссылке</a>, выберите категорию, по которой вы подаете заявку, нажмите на вкладку «Required Documents» (Обязательные документы) и найдите «Required Documents, Settlement Funds» (Обязательные документы, Средства на обустройство).</p>
+<p>Доказательства наличия средств должны:</p>
+<ul>
+<li>представлять собой официальные письма, официальные выписки и/или сертификаты от одного или нескольких финансовых учреждений.</li>
+<li>показывать, что средства находились на счету не менее 3 месяцев до подачи заявки и сохранялись в течение всего иммиграционного процесса (срок действия не должен истечь после подачи заявки).</li>
+<li>быть на имя главного заявителя или супруга(и) или находиться в совместном владении.</li>
+</ul>
+<p>Выписки по счетам должны содержать подробную историю транзакций по крайней мере за три месяца, предшествующих подаче заявки, и включать тип валюты, имя владельца счета, контактную информацию финансового учреждения, номера счетов, транзакции и остатки.</p>
+<p>Все документы, выданные не на английском или французском языках, должны сопровождаться сертифицированным переводом.</p>
+<p>Для того чтобы определить, достаточны ли средства на обустройство, выписка со счета должна показывать, что когда баланс счета находился на самом низком уровне, он соответствовал требованию к средствам на обустройство для указанного размера семьи.</p>
+<p>Принимаются следующие виды средств:</p>
+<ul>
+<li>Личные расчетные или сберегательные счета</li>
+<li>Облигации</li>
+<li>Полисы страхования жизни с денежной стоимостью</li>
+<li>Гарантированные инвестиционные сертификаты (GIC) или депозитные сертификаты</li>
+<li>Взаимные фонды (ПИФы)</li>
+<li>Резервные фонды (требуется официальное письмо от организации резервного фонда, с указанием суммы доступных средств)</li>
+<li>Зарегистрированные пенсионные сберегательные планы (RRSP)</li>
+<li>Акции</li>
+<li>Необлагаемые налогом сберегательные счета (TFSA)</li>
+<li>Срочные вклады и срочные депозиты (должны быть действительны на момент подачи заявки и оставаться действительными в течение всего процесса рассмотрения заявки)</li>
+<li>Казначейские векселя</li>
+</ul>
+<p style="margin-bottom:0;">Долговые обязательства, кредитные карты, кредитные линии, золото, наличные деньги, недвижимость или бизнес НЕ принимаются в качестве средств на обустройство.</p>
+</div>
+
+<h2 id="s4-8" class="sec-h1">4.8 Сопровождающие и не сопровождающие члены семьи (Accompanying and Non-Accompanying Family Member)</h2>
+<div class="note-box">Физическое лицо (супруг/супруга, гражданский партнер или зависимый ребенок), которое планирует иммигрировать вместе с вами в Саскачеван. Сопровождающие взрослые зависимые дети могут быть включены в Сертификат номинации SINP, если вы утверждены в качестве провинциального номинанта и если взрослый зависимый ребенок соответствует хотя бы одному из следующих критериев:
+<ul style="margin:10px 0 0;">
+<li>младше 22 лет и не имеет супруга или гражданского партнера; и/или</li>
+<li>находился на вашем финансовом обеспечении из-за психического или физического заболевания.</li>
+</ul>
+<p style="margin:10px 0 0;">Родители и братья/сестры главного заявителя не могут быть включены в заявку SINP.</p>
+</div>
+<p>На Шаге 1 нажмите кнопку <strong>Create a Family Member</strong>, если с вами в Канаду едут члены семьи.</p>
+<div class="shot plain"><img src="images/img-p48-Im7.png" alt="" style="max-width:322px"/></div>
+<p>Заполните обязательные поля, как показано ниже:</p>
+<div class="shot"><img src="images/img-p48-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите <strong>Save</strong> (Сохранить).</p>
+<div class="shot plain"><img src="images/img-p48-Im5.png" alt="" style="max-width:227px"/></div>
+<p>Нажмите значок, если этот экран был создан по ошибке.</p>
+<div class="shot plain"><img src="images/img-p48-Im3.png" alt="" style="max-width:427px"/></div>
+<p>Нажмите кнопку <strong>Create/Change Application Screens for Family Member</strong>, чтобы добавить экраны для:</p>
+
+<h4 id="s4-8-a1" class="sec-h3">Сопровождающий иждивенец младше 18 лет (Accompanying Dependant under 18 years of age)</h4>
+<ul>
+<li>Документ о рождении (Birth Document)</li>
+<li>Паспорт (Passport)</li>
+</ul>
+
+<h4 id="s4-8-a2" class="sec-h3">Сопровождающий иждивенец от 18 до 21 года (Accompanying Dependant 18-21 years old)</h4>
+<ul>
+<li>Документ о рождении (Birth Document)</li>
+<li>Паспорт (Passport)</li>
+<li>IMM 5406 - Дополнительная информация о семье (Additional Family Information)</li>
+<li>Schedule A – История/Декларация (Background/Declaration)</li>
+</ul>
+
+<h4 id="s4-8-a3" class="sec-h3">Сопровождающий супруг/супруга (Accompanying Spouse)</h4>
+<ul>
+<li>Документ о рождении (Birth Document)</li>
+<li>Паспорт (Passport)</li>
+<li>IMM 5406 - Дополнительная информация о семье (Additional Family Information)</li>
+<li>Schedule A – История/Декларация (Background/Declaration)</li>
+</ul>
+
+<h4 id="s4-8-n1" class="sec-h3">Не сопровождающий супруг/супруга (Non-Accompanying Spouse)</h4>
+<ul>
+<li>Экран не требуется (No screen required)</li>
+</ul>
+
+<h4 id="s4-8-n2" class="sec-h3">Не сопровождающий иждивенец старше 18 лет (Non-Accompanying Dependant 18 years old or older)</h4>
+<ul>
+<li>Экран не требуется (No screen required)</li>
+</ul>
+
+<h4 id="s4-8-n3" class="sec-h3">Не сопровождающий иждивенец младше 18 лет (Non-Accompanying Dependant under 18 years of age)</h4>
+<ul>
+<li>Опека/Алименты (Custody/Child Support)</li>
+</ul>
+<p>Вы должны заполнить следующий экран и прикрепить необходимый(е) документ(ы).</p>
+<div class="shot"><img src="images/img-p49-Im1.png" alt="" style="max-width:900px"/></div>
+
+<p><strong>Документ о рождении</strong> (Birth Document) – Заполните Имя (First Name), Второе имя (Middle Name) (если применимо) и Фамилию при рождении (Family Name at Birth) — так, как они указаны в документе о рождении.</p>
+<p>Если у вас есть член семьи, родившийся в Канаде, вы должны создать запись и прикрепить Свидетельство о рождении, чтобы подтвердить канадское гражданство. Паспорт не требуется.</p>
+<p><strong>Паспорт</strong> (Passport) – Заполните Страну (Country), Номер паспорта (Passport Number) (без пробелов) и Дату окончания срока действия паспорта (Passport Expiry Date) (в формате ДД-Мес-ГГГГ) так, как они указаны в вашем документе.</p>
+<div class="shot plain"><img src="images/img-p50-Im3.png" alt="" style="max-width:248px"/></div>
+<p>Для Супруга/Супруги (Spouse) заполните Предыдущее Имя (Previous First Name), Предыдущую Фамилию (Previous Last Name) и Дату вступления Супруга/Супруги в выбранный семейный статус и прикрепите необходимый(е) документ(ы). Нажмите кнопку <strong>Create another Marital Status</strong>, чтобы добавить еще одну запись о семейном статусе.</p>
+
+<h4 id="s4-8-imm5406" class="sec-h3">IMM 5406 – Дополнительная информация о членах семьи (Additional Family Member Information)</h4>
+<p><em>Вы должны скачать, заполнить и прикрепить эту федеральную форму.</em></p>
+
+<h4 id="s4-8-schedulea" class="sec-h3">Schedule A – История/Декларация (Background Declaration)</h4>
+<p><em>Вы должны скачать, заполнить и прикрепить эту федеральную форму.</em></p>
+<p>Для каждого экрана нажмите значок <strong>Save</strong>, чтобы сохранить введенные данные, и значок <strong>Attach</strong>, чтобы прикрепить необходимый(е) документ(ы).</p>
+<div class="shot plain"><img src="images/img-p50-Im7.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p50-Im9.png" alt="" style="max-width:153px"/></div>
+<div class="shot plain"><img src="images/img-p50-Im11.png" alt="" style="max-width:435px"/></div>
+<p>Нажмите значок, затем нажмите значок для продолжения вашей заявки.</p>
+<div class="shot plain"><img src="images/img-p50-Im5.png" alt="" style="max-width:420px"/></div>
+
+<h2 id="s4-9" class="sec-h1">4.9 Предложение о работе (Job Offer)</h2>
+<p>В записи «Предложение о работе» поля будут заполнены автоматически на основе значений EPA, которые вы ввели в разделе «Соответствие требованиям» (Eligibility). Вы должны ввести дату Предложения о работе, загрузить Письмо с предложением о работе и нажать «validate» (проверить/подтвердить).</p>
+<div class="shot"><img src="images/img-p50-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Обратите внимание, что вы не сможете подать заявку SINP, если проверка предложения о работе не будет пройдена или если вы пропустите крайний срок подачи, указанный в вашем Утверждении EPA (EPA Approval).</p>
+<div class="shot"><img src="images/img-p51-Im4.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Письмо с предложением о работе (Letter of Offer) должно:</p>
+<ul style="margin-bottom:0;">
+<li>быть адресовано главному заявителю;</li>
+<li>содержать название должности, обязанности и ответственность, заработную плату, льготы и контактную информацию компании;</li>
+<li>указывать местоположение (т.е. город/поселок) вашей должности в Саскачеване;</li>
+<li>быть оформлено на фирменном бланке компании; и,</li>
+<li>быть подписано работодателем.</li>
+</ul>
+</div>
+<div class="shot plain"><img src="images/img-p51-Im3.png" alt="" style="max-width:721px"/></div>
+<p>Вы также должны нажать на кнопку <strong>Validate</strong> перед тем, как перейти к следующему шагу, в противном случае вы не сможете подать заявку, так как она будет отмечена как неполная.</p>
+<div class="shot"><img src="images/img-p51-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите <strong>Next</strong> (Далее) для продолжения.</p>
+<p>Загрузите копию вашего Письма с предложением о работе и нажмите значок <strong>Save</strong>, чтобы сохранить введенные данные.</p>
+<div class="shot plain"><img src="images/img-p51-Im1.png" alt="" style="max-width:44px"/></div>
+
+<h2 id="s4-10" class="sec-h1">4.10 Подтверждение лицензии (Proof of Licensure)</h2>
+<p>Если вы подаете заявку по направлению «Поиск медицинских талантов» (Health Talent Pathways), вы должны предоставить копию своей медицинской лицензии и заполнить следующие поля:</p>
+<div class="shot"><img src="images/img-p52-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Обратите внимание, что SRNA теперь называется Колледжем зарегистрированных медсестер Саскачевана (College of Registered Nurses of Saskatchewan - CRNS).</p>
+<div class="shot plain"><img src="images/img-p52-Im1.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p52-Im5.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок <strong>Save</strong>, чтобы сохранить введенные данные, и значок <strong>Attach</strong>, чтобы прикрепить необходимый(е) документ(ы).</p>
+<p>Нажмите <strong>Next</strong> (Далее) для продолжения.</p>
+
+<h2 id="s4-11" class="sec-h1">4.11 Водительское удостоверение (Driver's License)</h2>
+<p>Если вы подаете заявку в качестве водителя грузовика в подкатегории «Существующее разрешение на работу» (Existing Work Permit Sub-Category), вы должны иметь действующее водительское удостоверение Саскачевана класса 1A (Class 1A Saskatchewan Driver's License).</p>
+<p>Заполните следующие обязательные поля:</p>
+<div class="shot"><img src="images/img-p52-Im3.png" alt="" style="max-width:900px"/></div>
+
+<h4 id="s4-11-1" class="sec-h3">4.11.1 Категория/Разрешение (Endorsement)</h4>
+<p>Добавьте запись о разрешении. Это можно найти в вашем водительском удостоверении:</p>
+<div class="shot"><img src="images/img-p52-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите кнопку <strong>Create a Licence Endorsement</strong>, чтобы добавить еще одну запись о разрешении.</p>
+<div class="shot plain"><img src="images/img-p52-Im11.png" alt="" style="max-width:258px"/></div>
+
+<h4 id="s4-11-2" class="sec-h3">4.11.2 Ограничение (Restriction) (если применимо)</h4>
+<p>Добавьте запись об ограничении, если это к вам относится. Это можно найти в вашем водительском удостоверении.</p>
+<div class="shot"><img src="images/img-p53-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите кнопку <strong>Create a Licence Restriction</strong>, чтобы добавить еще одну запись об ограничении.</p>
+<div class="shot plain"><img src="images/img-p53-Im11.png" alt="" style="max-width:240px"/></div>
+<p>Прикрепите копию вашего водительского удостоверения Саскачевана класса 1A (Class 1A Saskatchewan Driver's License).</p>
+<div class="shot plain"><img src="images/img-p53-Im9.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p53-Im13.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок <strong>Save</strong>, чтобы сохранить введенные данные, и значок <strong>Attach</strong>, чтобы прикрепить необходимый(е) документ(ы).</p>
+
+<h2 id="s4-12" class="sec-h1">4.12 Предыдущая заявка (Previous Application)</h2>
+<p>Если у вас есть предыдущие провинциальные или федеральные канадские заявки, вы должны заполнить следующие обязательные поля:</p>
+<div class="shot"><img src="images/img-p53-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Прикрепите окончательный(е) документ(ы), полученный(е) в отношении вашей предыдущей заявки, например, Письмо об отказе IRCC (IRCC Refusal Letter), Письмо о несоответствии требованиям SINP (SINP Ineligible Letter) и т.д.</p>
+<div class="shot plain"><img src="images/img-p53-Im5.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p53-Im15.png" alt="" style="max-width:153px"/></div>
+<p>Нажмите значок <strong>Save</strong>, чтобы сохранить введенные данные, и значок <strong>Attach</strong>, чтобы прикрепить необходимый(е) документ(ы).</p>
+<div class="shot plain"><img src="images/img-p53-Im7.png" alt="" style="max-width:298px"/></div>
+<p>Нажмите значок, чтобы создать еще одну запись.</p>
+<p>Нажмите <strong>Next</strong> (Далее) для продолжения.</p>
+
+<h2 id="s4-13" class="sec-h1">4.13 Необходимые экраны заявки для каждой категории (Required Application Screens for Each Category)</h2>
+
+<h2 id="s4-13-1" class="sec-h1">4.13.1 Иностранный квалифицированный специалист (International Skilled Worker)</h2>
+<p><strong>a. Востребованные профессии (Occupations In-Demand):</strong></p>
+<ul>
+<li>Средства на обустройство и План обустройства (Settlement Funds and Settlement Plan)</li>
+<li>Родственник, в настоящее время проживающий в Канаде (Relative Currently Residing in Canada) (если применимо)</li>
+<li>Связь с Саскачеваном (Connection to Saskatchewan)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>b. Express Entry:</strong></p>
+<ul>
+<li>Средства на обустройство и План обустройства (Settlement Funds and Settlement Plan)</li>
+<li>Родственник, в настоящее время проживающий в Канаде (Relative Currently Residing in Canada) (если применимо)</li>
+<li>Связь с Саскачеваном (Connection to Saskatchewan)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>c. С предложением о работе (With Employment Offer):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Разрешение на работу (Work Permit) (если применимо)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>d. Направление талантов в сельском хозяйстве (Agriculture Talent Pathway):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Разрешение на работу (Work Permit)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>e. Направление талантов в сфере инноваций и технологий (Innovation and Tech Talent Pathway):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Разрешение на работу (Work Permit) (если применимо)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>f. Направление талантов в сфере инноваций и технологий – Express Entry (Innovation and Tech Talent Pathway – Express Entry):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Разрешение на работу (Work Permit) (если применимо)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>g. Направление медицинских талантов (Health Talent Pathway):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Медицинская лицензия (Medical License)</li>
+<li>Разрешение на работу (Work Permit) (если применимо)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>h. Направление медицинских талантов – Express Entry (Health Talent Pathway – Express Entry):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Медицинская лицензия (Medical License)</li>
+<li>Разрешение на работу (Work Permit) (если применимо)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+
+<h2 id="s4-13-2" class="sec-h1">4.13.2 Опыт работы в Саскачеване (Saskatchewan Experience)</h2>
+<p><strong>a. Существующее разрешение на работу (Existing Work Permit):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Разрешение на работу (Work Permit)</li>
+<li>Водительское удостоверение (Driver's License) (если применимо)</li>
+<li>Категория/Разрешение водительского удостоверения (Driver's License Endorsement) (если применимо)</li>
+<li>Ограничение водительского удостоверения (Driver's License Restriction) (если применимо)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+<p><strong>b. Студенты (Students):</strong></p>
+<ul>
+<li>Предложение о работе (Job Offer)</li>
+<li>Разрешение на работу (Work Permit)</li>
+<li>Члены семьи (Family Members) (если применимо)</li>
+<li>Федеральные формы (Federal Forms)</li>
+</ul>
+
+<h2 id="s5-0" class="sec-h1">5.0 Проверка экранов заявки и подача (Check Application Screens and Submit)</h2>
+<p>Нажмите кнопку <strong>Check All Application Screens and Submit</strong>, чтобы подать вашу заявку. Убедитесь, что вы проверили все предупреждения и ошибки перед подачей.</p>
+<div class="shot plain"><img src="images/img-p55-Im1.png" alt="" style="max-width:340px"/></div>
+<p><strong>Важно, чтобы все необходимые документы были прикреплены к вашей заявке. Если вы подадите неполную заявку, в которой отсутствуют документы, ваша заявка будет отклонена, а ваш сбор не будет возвращен. Дополнительные документы, отправленные после подачи заявки, не будут приняты, если только они не были запрошены.</strong></p>
+
+<h2 id="s6-0" class="sec-h1">6.0 Оплата сбора – Все категории SINP (Fee Payment – All SINP Categories)</h2>
+<p class="warn-red">Пожалуйста, обратите внимание, что вы не сможете вносить изменения в свою заявку после совершения платежа. Как только сбор будет оплачен, ваша заявка будет отправлена автоматически. Дополнительные документы, отправленные после подачи, не будут приняты.</p>
+<p>После нажатия кнопки «Check All Application Screens and Submit» (Проверить все экраны заявки и подать) отображается страница счета (Invoice Page) с указанием суммы к оплате. Статус счета находится в состоянии «Pending» (В ожидании) до успешного завершения платежа.</p>
+<div class="shot"><img src="images/img-p56-Im1.png" alt="" style="max-width:900px"/></div>
+<p>После ввода данных вашей кредитной карты и проверки суммы к оплате нажмите «Pay» (Оплатить).</p>
+<p>После успешной оплаты статус изменится на «Payment Received» (Платеж получен), и ваша заявка будет подана.</p>
+<div class="shot"><img src="images/img-p57-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Нажмите кнопку «Go to Home Page» (На главную страницу), чтобы вернуться к вашей заявке. Вы можете просмотреть счет, нажав на значок.</p>
+<div class="shot plain"><img src="images/img-p57-Im3.png" alt="" style="max-width:533px"/></div>
+
+<h2 id="s7-0" class="sec-h1">7.0 Заявка получена (Application Received)</h2>
+<p>Вы получите номер файла после подачи заявки:</p>
+<div class="shot"><img src="images/img-p58-Im1.png" alt="" style="max-width:766px"/></div>
+<p>Вы получите письмо-квитанцию в течение 24–48 часов после подачи (например: 9999999).</p>
+
+<h2 id="s8-0" class="sec-h1">8.0 Запрос на предоставление дополнительной информации (Request for Additional Information)</h2>
+<p>Если для обработки вашей заявки требуются дополнительные документы, вы получите сообщение от SINP через OASIS. Чтобы проверить вашу корреспонденцию, вы можете нажать на ссылку, указанную в электронном письме, или войти в учетную запись OASIS.</p>
+<p>Чтобы отправить документы, пожалуйста, войдите в свою учетную запись OASIS и нажмите «Submit Requested Documents» (Отправить запрошенные документы). Загрузите запрошенный(е) документ(ы) в записи «Request Additional Information» (Запрос дополнительной информации) и нажмите кнопку «Submit» (Отправить).</p>
+<p>Вы также можете получить доступ к записи «Request Additional Information», нажав View Submitted Part 2 (Просмотр поданной Части 2).</p>
+<p>Пожалуйста, обратите внимание, что документы, полученные по электронной почте, не принимаются. Вы должны прикрепить все документы через свою учетную запись OASIS.</p>
+<div style="text-align:center; margin:20px 0 8px; font-weight:bold; color:#333;">
+<span style="display:inline-block; width:46%; min-width:220px;">Главный экран заявителя<br>(Applicant home screen):</span>
+<span style="display:inline-block; width:46%; min-width:220px;">Главный экран представителя<br>(Representative home screen):</span>
+</div>
+<div class="shot-row">
+<img src="images/img-p58-Im7.png" alt="" style="max-width:421px"/>
+<img src="images/img-p58-Im3.png" alt="" style="max-width:387px"/>
+</div>
+<div class="shot"><img src="images/img-p58-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Если вам требуется дополнительное время для отправки документов, вы можете отправить запрос, заполнив форму ниже и нажав «Request Extension to Submit Documents» (Запросить продление срока подачи документов).</p>
+<div class="shot"><img src="images/img-p59-Im5.png" alt="" style="max-width:805px"/></div>
+<p>Ваш запрос на продление может быть одобрен или отклонен. Вы получите уведомление о том, был ли ваш запрос на продление одобрен или отклонен. Пожалуйста, перед отправкой запроса на продление загрузите все имеющиеся у вас на данный момент документы, чтобы частично или полностью удовлетворить запрос на предоставление информации.</p>
+
+<h2 id="s9-0" class="sec-h1">9.0 Обновление номера профиля Express Entry и кода валидации соискателя (Update Express Entry Profile Number and Job Seeker Validation Code)</h2>
+<p>Если во время обработки ваш номер профиля Express Entry (Express Entry Profile Number) и код валидации соискателя (Job Seeker Validation Code) изменились, вы можете обновить их, открыв свою заявку. В Части 2 вашей заявки SINP (или на главной странице заявки) нажмите кнопку значок.</p>
+<div class="shot"><img src="images/img-p59-Im1.png" alt="" style="max-width:458px"/></div>
+<p>Отобразится страница с названием «Information Changes» (Изменения информации), и вы сможете изменить данные своего профиля Express Entry, заполнив соответствующие поля. После ввода информации нажмите кнопку «Save» (Сохранить), затем «Submit Changes» (Отправить изменения).</p>
+<div class="shot"><img src="images/img-p59-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Если вы решите отменить этот шаг, нажмите «Move to Part 2» (Перейти к Части 2) без сохранения или нажмите «Cancel Changes» (Отменить изменения).</p>
+<p>Вы можете вернуться к основным разделам заявки, нажав «Move to Part 2». Вы можете редактировать эту информацию в любое время, пока ваш файл активен.</p>
+
+<h2 id="s10-0" class="sec-h1">10.0 Процесс второго рассмотрения (Second Review Process)</h2>
+<p>Если ваша заявка была признана SINP несоответствующей требованиям (ineligible), и вы считаете, что во время обработки заявки или при ее оценке на основе критериев, действовавших на момент подачи, была допущена ошибка, вы можете запросить второе рассмотрение. У вас будет 30 дней с даты выдачи SINP письма о несоответствии требованиям (ineligible letter), чтобы сделать запрос. Система не примет ни один запрос по истечении 30 дней.</p>
+<p>Чтобы запросить второе рассмотрение, под Частью 2 вашей заявки, пожалуйста, нажмите кнопку «Request for Second Review» (Запрос на второе рассмотрение).</p>
+<div class="shot"><img src="images/img-p60-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Появится окно подтверждения, и если вы согласны с указанными условиями и положениями, пожалуйста, нажмите кнопку «Create Appeal Request» (Создать запрос на апелляцию).</p>
+<div class="shot"><img src="images/img-p60-Im1.png" alt="" style="max-width:554px"/></div>
+<p>Будет создана запись запроса на апелляцию для заполнения, и вы сможете прикрепить документацию в поддержку вашего запроса.</p>
+<div class="shot"><img src="images/img-p61-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Если вы еще не подали апелляцию, с главного экрана заявки вы можете просмотреть ожидающий запрос на второе рассмотрение, нажав кнопку «View Second Review Request» (Просмотр запроса на второе рассмотрение).</p>
+<div class="shot"><img src="images/img-p61-Im3.png" alt="" style="max-width:896px"/></div>
+<p class="warn-red">У вас будет 30 дней с даты выдачи SINP письма о несоответствии требованиям (ineligible letter), чтобы сделать запрос. Система не примет ни один запрос по истечении 30 дней.</p>
+<p>После истечения 30-дневного окна вы не сможете запросить второе рассмотрение.</p>
+<div class="shot"><img src="images/img-p62-Im1.png" alt="" style="max-width:484px"/></div>
+<p>Если вы не подали апелляцию, а 30-дневное окно прошло, вы не сможете отправить ожидающий запрос.</p>
+<div class="shot"><img src="images/img-p62-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Чтобы подать апелляцию в течение 30-дневного окна, пожалуйста, нажмите «Submit Appeal Request» (Отправить запрос на апелляцию).</p>
+<div class="shot"><img src="images/img-p62-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Появится предупреждающее сообщение, информирующее о том, что вы будете перенаправлены для оплаты сбора за второе рассмотрение.</p>
+<div class="shot"><img src="images/img-p63-Im3.png" alt="" style="max-width:648px"/></div>
+<p>Если вы нажмете «Yes, Continue» (Да, продолжить), вы будете перенаправлены на страницу оплаты. <em>Примечание: Если вы нажмете «No, Go Back» (Нет, вернуться), вы будете перенаправлены обратно на страницу запроса апелляции.</em></p>
+<div class="shot"><img src="images/img-p63-Im1.png" alt="" style="max-width:900px"/></div>
+<p>После ввода данных вашей кредитной карты нажмите «Pay» (Оплатить).</p>
+<div class="shot"><img src="images/img-p64-Im1.png" alt="" style="max-width:900px"/></div>
+<p>После успешной оплаты ваш запрос на второе рассмотрение будет отправлен автоматически. Вы получите сообщение, информирующее о том, что ваш запрос на второе рассмотрение получен.</p>
+<p>Запрос на второе рассмотрение может быть отклонен, если вы не сможете обосновать причину для пересмотра. Как только запрос будет отклонен, ваше дело будет закрыто. Если ваш запрос будет принят, будет создано дело о втором рассмотрении, и вы получите уведомление по электронной почте о том, что ваша заявка передана на второе рассмотрение.</p>
+<div class="shot"><img src="images/img-p64-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Если вы решите отозвать свой запрос на второе рассмотрение, пожалуйста, нажмите кнопку «Withdraw Second Review Request» (Отозвать запрос на второе рассмотрение).</p>
+<p>Появится предупреждающее сообщение для подтверждения того, что вы отзываете свой запрос на второе рассмотрение.</p>
+<div class="shot"><img src="images/img-p65-Im1.png" alt="" style="max-width:461px"/></div>
+
+<p style="text-align:center; margin-top:40px;"><em>- Конец руководства -</em></p>
+<p style="text-align:center;"><strong>Благодарим вас за интерес к Программе иммигрантов-номинантов Саскачевана (Saskatchewan Immigrant Nominee Program).</strong></p>
+
+<footer class="doc-footer">SINP – OASIS Руководство пользователя для заявителей · Апрель 2026</footer>
+</div>
+</body>
+</html>
