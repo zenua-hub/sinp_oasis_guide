@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SINP – OASIS Gabay ng Gumagamit para sa mga Aplikante</title>
+<style>
+:root {
+  --ink: #1a1a1a;
+  --green: #1a5632;
+  --green-dark: #123d23;
+  --paper: #ffffff;
+  --page-bg: #e9e9e4;
+  --rule: #c9c9c0;
+  --note-bg: #eef4fb;
+  --note-border: #9db8d8;
+  --callout-border: #d8b3b3;
+  --highlight-bg: #fff6df;
+  --highlight-border: #d9a441;
+  --warn-red: #b12727;
+}
+* { box-sizing: border-box; }
+html { background: var(--page-bg); }
+body {
+  margin: 0;
+  padding: 40px 16px 100px;
+  background: var(--page-bg);
+  font-family: "Times New Roman", Georgia, "Liberation Serif", serif;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 56px 64px 72px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 8px 30px rgba(0,0,0,0.12);
+}
+/* Cover */
+.cover { text-align: center; padding-top: 20px; padding-bottom: 48px; border-bottom: 3px solid var(--green); margin-bottom: 40px;}
+.cover img.logo { height: 92px; margin-bottom: 6px; }
+.cover h1 { font-size: 30px; color: var(--green); margin: 28px 0 6px; line-height: 1.3; }
+.cover .subtitle { font-size: 19px; color: #444; margin-bottom: 30px; font-style: italic; }
+.cover .contact { font-size: 15px; color: #333; margin-top: 30px; line-height: 1.7; }
+.cover .contact a { color: var(--green); }
+.cover .datestamp { margin-top: 18px; font-size: 15px; color: #555; }
+.cover .brief-note { margin-top: 34px; font-size: 13.5px; color: #8a8a8a; border-top: 1px dashed var(--rule); padding-top: 16px; }
+
+/* TOC */
+.toc { margin: 0 0 48px; padding: 24px 28px; background: #f7f7f3; border: 1px solid var(--rule); }
+.toc-title { color: var(--green); font-size: 20px; margin: 0 0 14px; border-bottom: 2px solid var(--green); padding-bottom: 8px; }
+.toc-list { list-style: none; margin: 0; padding: 0; column-count: 1; }
+.toc-list li { padding: 3px 0; font-size: 15px; }
+.toc-list li.toc-lvl1 { font-weight: bold; margin-top: 10px; }
+.toc-list li.toc-lvl2 { padding-left: 22px; }
+.toc-list li.toc-lvl3 { padding-left: 42px; font-size: 14px; }
+.toc-list li a { color: var(--green-dark); text-decoration: none; }
+.toc-list li a:hover { text-decoration: underline; }
+.toc-list li.toc-inactive { color: #aaa; font-style: italic; }
+.toc-list li.toc-inactive.toc-lvl1 { color: #999; }
+
+/* Headings */
+h2.sec-h1 { color: var(--green); font-size: 24px; margin: 46px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--green); scroll-margin-top: 20px;}
+h3.sec-h2 { color: var(--green); font-size: 19px; margin: 34px 0 12px; scroll-margin-top: 20px;}
+h4.sec-h3 { color: var(--green-dark); font-size: 16px; text-decoration: underline; margin: 26px 0 10px; scroll-margin-top: 20px;}
+
+/* Text */
+p { margin: 0 0 14px; text-align: left; }
+p.lead-bold { font-weight: bold; }
+p.warn-red { color: var(--warn-red); font-weight: bold; }
+ul, ol { margin: 0 0 16px; padding-left: 28px; }
+li { margin-bottom: 8px; }
+a { color: #1155aa; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/* Callout (warning icon + italic text) */
+.callout { display: flex; align-items: flex-start; gap: 14px; margin: 18px 0 22px; padding: 14px 18px; background: #fdfaf5; border: 1px solid var(--callout-border); border-left: 4px solid #c0392b; }
+.callout-icon { width: 30px; height: 30px; flex: none; margin-top: 2px; }
+.callout-text { font-style: italic; color: #333; }
+
+/* Note box (dashed, blue-ish, matches original's tip/status boxes) */
+.note-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--note-bg); border: 1.5px dashed var(--note-border); font-size: 15.5px; }
+
+/* Highlight box - the user's own 10/60-day emphasis */
+.highlight-box { display:flex; align-items:center; gap: 16px; margin: 24px 0 26px; padding: 18px 22px; background: var(--highlight-bg); border: 2px solid var(--highlight-border); border-radius: 3px; box-shadow: 0 2px 8px rgba(217,164,65,0.25); }
+.highlight-box img.callout-icon { width: 34px; height: 34px; }
+.highlight-box div { font-weight: bold; font-size: 18px; color: #6b4a12; line-height: 1.4; }
+
+/* Screenshots */
+.shot { text-align: center; margin: 20px 0 26px; }
+.shot img { max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+.shot-row { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; }
+.shot-row img { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+.img-cap { font-size: 13.5px; color: #666; margin-top: 8px; font-style: italic; }
+
+/* Small inline button-style images get no heavy border/shadow */
+.shot.plain img { box-shadow: none; border: none; }
+
+footer.doc-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 13px; color: #888; text-align: center; }
+
+@media (max-width: 700px) {
+  .page { padding: 28px 20px 50px; }
+  body { font-size: 16px; padding: 16px 8px 60px; }
+  .cover h1 { font-size: 24px; }
+}
+
+/* --- Idinagdag noong pagsasanib sa Bahagi 2: sa orihinal na PDF, ang mga block na
+   "Required documentation for..." ay nakapaloob sa PULANG dashed border (na-verify sa
+   vector outline ng PDF), hindi asul gaya ng .note-box. Ginagamit ang hiwalay na class
+   na ito base sa .note-box. */
+:root { --req-border: #c0504d; --req-bg: #fdf6f5; }
+.req-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--req-bg); border: 1.5px dashed var(--req-border); font-size: 15.5px; }
+
+.lang-switch { text-align:right; max-width:1300px; margin:0 auto 8px; font-size:14px; }
+.lang-switch a { color:#1a5632; text-decoration:none; font-weight:bold; }
+.lang-switch a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="lang-switch"><a href="sinp_oasis_guide.html">Русский (RU)</a> &nbsp;|&nbsp; <a href="sinp_oasis_guide_ua.html">Українською (UA)</a> &nbsp;|&nbsp; <a href="guide_en.html">English (EN)</a></div>
+<div class="page"><div class="cover"><img class="logo" src="images/img-p00-Im0.png" alt="Government of Saskatchewan"/><h1>SINP – OASIS Gabay ng Gumagamit para sa mga Aplikante<br><span style="font-size:0.7em;font-weight:normal;color:#555">(User Guide for Applicants)</span></h1><div class="subtitle">Ministri ng Imigrasyon at Pagsasanay sa Karera<br>(Ministry of Immigration and Career Training)</div><div class="contact">Para sa karagdagang impormasyon, mangyaring makipag-ugnayan sa:<br>Government of Saskatchewan &mdash; Ministry of Immigration and Career Training<br>Immigration Services Branch &mdash; Saskatchewan Immigrant Nominee Program<br>7th Floor, 1945 Hamilton Street, Regina, Saskatchewan S4P 2C8<br>Telepono: (Canada 001) 833-613-0485 &nbsp;&middot;&nbsp; Fax: (Canada 001) 306-798-0713<br>Mga Katanungan (Inquiries): <a href="mailto:immigration@gov.sk.ca">immigration@gov.sk.ca</a><br>Website: <a href="https://www.saskatchewan.ca/sinp" target="_blank">www.saskatchewan.ca/sinp</a></div><div class="datestamp">Abril 2026</div></div><nav class="toc"><h2 class="toc-title">Talaan ng Nilalaman</h2><ol class="toc-list"><li class="toc-lvl1"><a href="#s1-0">1.0 Panimula at Pag-log On (Introduction and Log On)</a></li>
+<li class="toc-lvl2"><a href="#s1-1">1.1 Magrehistro sa OASIS (Register on OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-2">1.2 Mag-login sa OASIS (Login to OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-3">1.3 Awtoridad na Ibunyag ang Personal na Impormasyon (Authority to Disclose Personal Information)</a></li>
+<li class="toc-lvl2"><a href="#s1-4">1.4 Pagbawi ng User ID o Password (User ID or Password Recovery)</a></li>
+<li class="toc-lvl1"><a href="#s2-0">2.0 Simulan ang Iyong Aplikasyon (Start your application)</a></li>
+<li class="toc-lvl2"><a href="#s2-1">2.1 Impormasyon ng Aplikante / Detalye ng Pasaporte (Applicant Information / Passport Details)</a></li>
+<li class="toc-lvl2"><a href="#s2-2">2.2 Address ng Tirahan/Bahay (Residential/Home Address)</a></li>
+<li class="toc-lvl2"><a href="#s2-3">2.3 Address Pangkoreo at Impormasyon sa Pakikipag-ugnayan (Mailing Address and Contact Information)</a></li>
+<li class="toc-lvl2"><a href="#s2-4">2.4 Kinatawan (Representative)</a></li>
+<li class="toc-lvl1"><a href="#s3-0">3.0 Pre-Application at Detalye ng Aplikante (Pre-Application and Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-1">3.1 Pagiging Kwalipikado para sa Aplikasyon (Eligibility for Application)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-eoi">3.1.a Expression of Interest (Pahayag ng Interes)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-jos">3.1.b Job Offer Streams (Mga Kategorya ng Alok ng Trabaho)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-agri">3.1.c Agriculture Talent Pathway (Landas para sa Talento sa Agrikultura)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway (Landas para sa Talento sa Inobasyon at Teknolohiya)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Non-Express Entry (Landas para sa Talento sa Kalusugan)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-work">3.1.f Saskatchewan Experience – Existing Work Permit (Umiiral na Work Permit)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-student">3.1.g Saskatchewan Experience – Student (Mag-aaral)</a></li>
+<li class="toc-lvl2"><a href="#s3-2">3.2 Grid ng Puntos para sa Manggagawang May Kasanayan (Skilled Worker Points Grid)</a></li>
+<li class="toc-lvl2"><a href="#s3-3">3.3 Kasalukuyang Paninirahan at Patutunguhang Pananahanan (Current Residency and Settlement Destination)</a></li>
+<li class="toc-lvl2"><a href="#s3-4">3.4 Detalye ng Aplikante (Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-5">3.5 Pag-upload ng mga Dokumento Mo (Uploading your documents)</a></li>
+<li class="toc-lvl2"><a href="#s3-6">3.6 Pagbubunyag ng Impormasyon (Information Disclosure)</a></li>
+<li class="toc-lvl2"><a href="#s3-7">3.7 Pagkamamamayan (Citizenship)</a></li>
+<li class="toc-lvl2"><a href="#s3-8">3.8 Dokumento ng Kapanganakan (Birth Document)</a></li>
+<li class="toc-lvl2"><a href="#s3-9">3.9 Pasaporte (Passport)</a></li>
+<li class="toc-lvl2"><a href="#s3-10">3.10 Katayuang Sibil (Marital Status)</a></li>
+<li class="toc-lvl2"><a href="#s3-11">3.11 Edukasyon (Education)</a></li>
+<li class="toc-lvl3"><a href="#s3-11-enter">3.11.a Ilagay/Baguhin ang Edukasyon (Enter/Change Education)</a></li>
+<li class="toc-lvl2"><a href="#s3-12">3.12 Mga Kredensyal sa Regulasyon o Lisensya at Pagtatasa ng Kredensyal sa Edukasyon</a></li>
+<li class="toc-lvl2"><a href="#s3-13">3.13 Karanasan sa Trabaho (Work Experience)</a></li>
+<li class="toc-lvl2"><a href="#s3-14">3.14 Kakayahan sa Ingles/Pranses (English/French Ability)</a></li>
+<li class="toc-lvl2"><a href="#s3-15">3.15 Huling Pahina ng Bahagi 1 (Final Page of Part 1)</a></li>
+<li class="toc-lvl2"><a href="#s3-16">3.16 Paggawa ng Pagbabago sa Bahagi 1 at Detalye ng Aplikante</a></li>
+<li class="toc-lvl1"><a href="#s4-0">4.0 Mga Screen ng Aplikasyon ng Manggagawang May Kasanayan (Skilled Worker Application Screens)</a></li>
+<li class="toc-lvl2"><a href="#s4-1">4.1 Screen ng Aplikasyon (Application Screen)</a></li>
+<li class="toc-lvl2"><a href="#s4-2">4.2 Koneksyon sa Saskatchewan (Connection to Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-study">4.2.a Nag-aral sa Saskatchewan (Studied in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-work">4.2.b Nagtrabaho sa Saskatchewan (Worked in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-relative">4.2.c Malapit na Kamag-anak sa Saskatchewan (Close Relative in Saskatchewan)</a></li>
+<li class="toc-lvl2"><a href="#s4-3">4.3 Mga Pederal na Porma (Federal Forms)</a></li>
+<li class="toc-lvl2"><a href="#s4-4">4.4 Hakbang 1: Mga Buton ng Paglikha (Step 1 Create Buttons)</a></li>
+<li class="toc-lvl2"><a href="#s4-5">4.5 Work Permit (Permiso sa Trabaho)</a></li>
+<li class="toc-lvl2"><a href="#s4-6">4.6 Kamag-anak na Nasa Canada (In-Canada Relative)</a></li>
+<li class="toc-lvl2"><a href="#s4-7">4.7 Pondo at Plano sa Pananahanan (Settlement Funds and Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-plan">4.7.a Plano sa Pananahanan (Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-funds">4.7.b Pondo sa Pananahanan (Settlement Funds)</a></li>
+<li class="toc-lvl2"><a href="#s4-8">4.8 Kasamang at Hindi Kasamang Miyembro ng Pamilya</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a1">4.8.a Kasamang Dependent na Wala pang 18 Taong Gulang</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a2">4.8.b Kasamang Dependent na 18-21 Taong Gulang</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a3">4.8.c Kasamang Asawa (Accompanying Spouse)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n1">4.8.d Hindi Kasamang Asawa (Non-Accompanying Spouse)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n2">4.8.e Hindi Kasamang Dependent na 18 Taong Gulang Pataas</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n3">4.8.f Hindi Kasamang Dependent na Wala pang 18 Taong Gulang</a></li>
+<li class="toc-lvl3"><a href="#s4-8-imm5406">4.8.g IMM 5406 – Karagdagang Impormasyon ng Miyembro ng Pamilya</a></li>
+<li class="toc-lvl3"><a href="#s4-8-schedulea">4.8.h Schedule A – Deklarasyon ng Background</a></li>
+<li class="toc-lvl2"><a href="#s4-9">4.9 Alok ng Trabaho (Job Offer)</a></li>
+<li class="toc-lvl2"><a href="#s4-10">4.10 Patunay ng Lisensya (Proof of Licensure)</a></li>
+<li class="toc-lvl2"><a href="#s4-11">4.11 Lisensya sa Pagmamaneho (Driver's License)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-1">4.11.1 Endorsement (Pagpapatibay)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-2">4.11.2 Restriction (Paghihigpit, kung naaangkop)</a></li>
+<li class="toc-lvl2"><a href="#s4-12">4.12 Nakaraang Aplikasyon (Previous Application)</a></li>
+<li class="toc-lvl2"><a href="#s4-13">4.13 Mga Kinakailangang Screen ng Aplikasyon para sa Bawat Kategorya</a></li>
+<li class="toc-lvl3"><a href="#s4-13-1">4.13.1 Internasyonal na Manggagawang May Kasanayan</a></li>
+<li class="toc-lvl3"><a href="#s4-13-2">4.13.2 Karanasan sa Saskatchewan (Saskatchewan Experience)</a></li>
+<li class="toc-lvl1"><a href="#s5-0">5.0 Suriin ang mga Screen ng Aplikasyon at Isumite</a></li>
+<li class="toc-lvl1"><a href="#s6-0">6.0 Pagbabayad ng Bayad – Lahat ng Kategorya ng SINP</a></li>
+<li class="toc-lvl1"><a href="#s7-0">7.0 Natanggap ang Aplikasyon (Application Received)</a></li>
+<li class="toc-lvl1"><a href="#s8-0">8.0 Kahilingan para sa Karagdagang Impormasyon</a></li>
+<li class="toc-lvl1"><a href="#s9-0">9.0 Pag-update ng Numero ng Profile sa Express Entry at Job Seeker Validation Code</a></li>
+<li class="toc-lvl1"><a href="#s10-0">10.0 Proseso ng Ikalawang Pagsusuri (Second Review Process)</a></li>
+</ol></nav><h2 id="s1-0" class="sec-h1">1.0 Panimula at Pag-log On (Introduction and Log On)</h2>
+<p>Ipinapaliwanag ng gabay na ito kung paano ma-access at magamit ang iba't ibang screen na nauugnay sa mga Online Application ng SINP sa sistemang OASIS.</p>
+<div class="shot"><img src="images/img-p03-01.png" alt="" style="max-width:794px"/></div>
+<p>I-click ang sumusunod na link para ma-access ang SINP Online: <a href="https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231" target="_blank" rel="noopener">https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231</a></p>
+<p>Lalabas ang screen na "Welcome" (Maligayang Pagdating) na nasa itaas. Kailangan mo munang lumikha ng account bago ma-access ang sistema.</p>
+<p>Hinihikayat ka naming suriin ang lahat ng requirement para sa dokumentasyon at mga porma na kailangan mong ilakip sa iyong aplikasyon, at repasuhin ang pamantayan sa ibaba bago mo simulan ang iyong aplikasyon.</p>
+<p>I-click ang link sa ibaba para sa International Skilled Worker Category (Kategorya ng Internasyonal na Manggagawang May Kasanayan): <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">International Skilled Worker Category</a></p>
+<p>I-click ang link sa ibaba para sa Saskatchewan Experience Category (Kategorya ng Karanasan sa Saskatchewan): <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">Saskatchewan Experience Category</a></p>
+<h2 id="s1-1" class="sec-h1">1.1 Magrehistro sa OASIS (Register on OASIS)</h2>
+<ul>
+<li>I-click ang <strong>Create an Account</strong> (Lumikha ng Account).</li>
+<li>I-click ang <strong>Select a Registration Type</strong> (Piliin ang Uri ng Rehistrasyon).</li>
+</ul>
+<div class="shot"><img src="images/img-p04-04.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Piliin ang <strong>SINP Applicant or Expression of Interest Candidate</strong> (Aplikante ng SINP o Kandidato na may Expression of Interest) at i-click ang <strong>Continue</strong> (Magpatuloy).</li>
+<li>Gumawa ng username. Hindi dapat maglaman ang username ng mga espasyo o anumang espesyal na karakter maliban sa underscore ('_'). Gagamitin ang iyong username para ma-access ang iyong OASIS account.</li>
+</ul>
+<div class="note-box">Mangyaring i-type ang username sa nakalaang espasyo. I-type ang lahat ng iba pang entry sa Title Case (unang letra ng bawat salita ay malaki).</div>
+<ul>
+<li>Ilagay ang iyong First Name (Unang Pangalan), Middle Name (Gitnang Pangalan), at Family (Last) Name (Apelyido) gaya ng nakasaad sa iyong pasaporte.</li>
+<li>Ilagay ang iyong Date of Birth (Petsa ng Kapanganakan) sa format na DD-Mon-YYYY.</li>
+<li>Ilagay ang iyong Email address (Email address).</li>
+</ul>
+<div class="callout"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div class="callout-text">Gagamitin ang email address na ito para sa lahat ng susunod na komunikasyon tungkol sa iyong aplikasyon sa OASIS, kabilang ang pagbawi ng password.</div></div>
+<div class="shot"><img src="images/img-p04-01.png" alt="" style="max-width:797px"/></div>
+<p>I-click ang <strong>Submit</strong> (Isumite).</p>
+<p>Ipapadala sa iyo ang email na naglalaman ng iyong username at password. Kakailanganin mo ang impormasyong ito para mag-login sa OASIS.</p>
+<h2 id="s1-2" class="sec-h1">1.2 Mag-login sa OASIS (Login to OASIS)</h2>
+<ul>
+<li>Sa login page, i-type ang username at password na ipinadala sa email, at i-click ang <strong>Login</strong> (Mag-login).</li>
+</ul>
+<div class="shot"><img src="images/img-p05-05.png" alt="" style="max-width:636px"/></div>
+<ul>
+<li>Hihilingin sa iyo ng sistema na baguhin ang iyong password.</li>
+</ul>
+<div class="note-box">Pakitandaan ang sumusunod na requirement para sa password: dapat may hindi bababa sa walong (8) karakter; naglalaman ng mga karakter mula sa hindi bababa sa tatlong kategorya: malalaking letrang Ingles (A – Z); maliliit na letrang Ingles (a – z); mga numero (0 – 9); mga hindi alpanumerikong simbolo (hal.: !, #, $, %); hindi dapat naglalaman ng pangalan ng account ng user.</div>
+<div class="shot"><img src="images/img-p05-01.png" alt="" style="max-width:875px"/></div>
+<div class="shot"><img src="images/img-p05-03.png" alt="" style="max-width:726px"/></div>
+<h2 id="s1-3" class="sec-h1">1.3 Awtoridad na Ibunyag ang Personal na Impormasyon (Authority to Disclose Personal Information)</h2>
+<p>Upang magpatuloy sa unang pag-log on sa OASIS, dapat sumang-ayon ang lahat ng user na ibunyag ang impormasyon sa pamamagitan ng pag-click sa buton na "I AGREE" (SUMASANG-AYON AKO).</p>
+<div class="shot"><img src="images/img-p06-03.png" alt="" style="max-width:764px"/></div>
+<h2 id="s1-4" class="sec-h1">1.4 Pagbawi ng User ID o Password (User ID or Password Recovery)</h2>
+<p>Upang mabawi ang access sa iyong account, sa login page, i-click ang "Forgot your User ID or Password?" (Nakalimutan ang User ID o Password?), pagkatapos ay piliin ang Recovery Method (Paraan ng Pagbawi).</p>
+<div class="shot"><img src="images/img-p06-01.png" alt="" style="max-width:736px"/></div>
+<p>Piliin ang "User ID" upang i-reset ang password. Hihilingin sa iyo na ilagay ang username na ginamit noong ginawa mo ang account. Ipapadala ang email na naglalaman ng username at pansamantalang password sa email address na naka-link sa iyong User ID (o username).</p>
+<p>Kung nais mong bawiin ang iyong account gamit ang email address, i-click ang "Email" bilang paraan ng pagbawi. Ipapadala sa iyo sa pamamagitan ng email ang listahan ng mga username na naka-link sa iyong email address. Upang i-reset ang password, kakailanganin mong isagawa ang naunang hakbang gamit ang paraan ng pagbawi na "User ID".</p>
+<h2 id="s2-0" class="sec-h1">2.0 Simulan ang Iyong Aplikasyon (Start your application)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p07-02.png" alt=""/><div class="callout-text">Tiyaking na-scan mo na ang lahat ng kinakailangang dokumento at porma, mas mainam sa format na pdf, bago mo simulan ang iyong aplikasyon.</div></div>
+<div class="shot"><img src="images/img-p07-01.png" alt="" style="max-width:497px"/></div>
+<ul>
+<li>Kapag nagsa-scan ng mga dokumentong isinalin, mangyaring i-scan bilang isang dokumento ang orihinal na dokumento, ang salin sa Ingles o Pranses, at ang SINP Translator Affidavit. Hanapin ang porma ng affidavit sa: <a href="https://publications.saskatchewan.ca/#/products/76058" target="_blank" rel="noopener">https://publications.saskatchewan.ca/#/products/76058</a></li>
+<li>Upang mabawasan ang laki ng mga na-scan na dokumento, hindi kinakailangan ng SINP ang mga blangkong pahina mula sa iyong pasaporte.</li>
+<li>Tiyaking malinaw at madaling basahin ang lahat ng na-scan na kopya.</li>
+<li>Mangyaring repasuhin ang checklist na tukoy sa kategorya upang matiyak na kumpleto ang iyong aplikasyon kasama ang lahat ng kinakailangang dokumento.</li>
+</ul>
+<p><strong>Mahalagang Paalala:</strong> Kung mayroon kang mga katanungan, problema sa iyong username o password, o upang i-reset ang iyong password; mangyaring mag-email sa immigration@gov.sk.ca o tumawag sa 1-833-613-0485.</p>
+<p class="warn-red">Upang protektahan ang iyong personal na impormasyon, mangyaring mag-log out sa SINP Online Application at tiyaking isara nang lubusan ang iyong web browser kapag natapos mo na ang iyong session.</p>
+<h2 id="s2-1" class="sec-h1">2.1 Impormasyon ng Aplikante / Detalye ng Pasaporte (Applicant Information / Passport Details)</h2>
+<p>Punan ang lahat ng Applicant Information (Impormasyon ng Aplikante) at Passport Details (Detalye ng Pasaporte) na kinakailangan sa ibaba:</p>
+<div class="shot"><img src="images/img-p08-01.png" alt="" style="max-width:900px"/></div>
+<p>Piliin ang Intended Destination for Settlement (Nilalayong Patutunguhan para Panirahan), pagkatapos ay ilagay ang bansa at kasalukuyang lungsod/bayan ng iyong kasalukuyang tirahan.</p>
+<div class="shot"><img src="images/img-p08-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-2" class="sec-h1">2.2 Address ng Tirahan/Bahay (Residential/Home Address)</h2>
+<p>Punan ang Residential/Home Address (Address ng Tirahan/Bahay):</p>
+<div class="shot"><img src="images/img-p08-03.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Kung ang iyong Home Address ay nasa labas ng Canada, sa ilalim ng Province/State, piliin ang International/Outside Canada at i-type ang iyong probinsya.</li>
+</ul>
+<div class="shot"><img src="images/img-p09-01.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Kung ang iyong Home Address ay kapareho ng iyong mailing address, piliin ang 'Yes' (Oo) sa tanong na 'Is the mailing address the same as the Residential/Home Address?' (Ang mailing address ba ay kapareho ng Residential/Home Address?).</li>
+</ul>
+<div class="shot"><img src="images/img-p09-03.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-3" class="sec-h1">2.3 Address Pangkoreo at Impormasyon sa Pakikipag-ugnayan (Mailing Address and Contact Information)</h2>
+<p>Punan ang mailing address at numero ng telepono kung iba ito sa iyong home address:</p>
+<div class="shot"><img src="images/img-p09-05.png" alt="" style="max-width:900px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p09-06.png" alt=""/><div class="callout-text">Ang Applicant's Email Address (Email Address ng Aplikante) ay isang kinakailangang field at dapat naglalaman ng email address ng aplikante upang ituring na kumpleto ang aplikasyon. Ang aplikasyon ay maaaring sailalim sa integrity review (pagsusuri sa integridad) para sa maling representasyon kung ang email address na inilagay sa Applicant's Email Address ay hindi email address ng aplikante.</div></div>
+<p>Pagkatapos, piliin ang isa na naaangkop sa iyo:</p>
+<div class="shot"><img src="images/img-p09-08.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-4" class="sec-h1">2.4 Kinatawan (Representative)</h2>
+<p>Piliin ang 'Yes' (Oo) kung magtatalaga ka ng kinatawan, kung hindi ay piliin ang 'No' (Hindi).</p>
+<div class="shot"><img src="images/img-p10-01.png" alt="" style="max-width:870px"/></div>
+<p>Punan ang email address para sa Consultant (Konsultant) kung pipiliin mo ang 'Yes'.</p>
+<div class="shot"><img src="images/img-p10-05.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang link sa ibaba para sa impormasyon tungkol sa paggamit ng kinatawan sa iyong aplikasyon sa SINP:</p>
+<p><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities" target="_blank" rel="noopener">https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities</a></p>
+<p>I-click ang buton sa ibaba upang magpatuloy sa iyong aplikasyon.</p>
+<div class="shot plain"><img src="images/img-p10-03.png" alt="" style="max-width:236px"/></div>
+<h2 id="s3-0" class="sec-h1">3.0 Pre-Application at Detalye ng Aplikante (Pre-Application and Applicant Details)</h2>
+<p class="lead-bold">Ang mga tanong sa pre-application tungkol sa alok ng trabaho o pagtatrabaho ay idinisenyo upang gabayan ka sa naaangkop na kategorya ng aplikasyon.</p>
+<h2 id="s3-1" class="sec-h1">3.1 Pagiging Kwalipikado para sa Aplikasyon (Eligibility for Application)</h2>
+<p>Dapat mong sagutin ang serye ng mga tanong sa pahinang ito upang matukoy ang pagiging kwalipikado at kategorya ng aplikasyon.</p>
+<h4 id="s3-1-eoi" class="sec-h3">3.1.a Expression of Interest (Pahayag ng Interes)</h4>
+<p>Kung ikaw ay kwalipikado sa ilalim ng mga subcategory na Occupations In-Demand o Express Entry, magagawa mong magsumite ng Expression of Interest (EOI).</p>
+<p>Kung ikaw ay magsusumite ng EOI para sa Occupations In-Demand, dapat mong sagutin ang mga tanong na ipinapakita sa ibaba at piliin ang iyong nilalayong NOC ng trabaho. Dapat mayroon kang hindi bababa sa isang taong bayad na karanasan sa trabaho sa nakalipas na sampung taon sa larangan ng iyong edukasyon o pagsasanay upang maging kwalipikado.</p>
+<div class="shot"><img src="images/img-p11-01.png" alt="" style="max-width:900px"/></div>
+<p>Kung ikaw ay magsusumite ng EOI para sa Express Entry, dapat kang tanggapin sa Express Entry Pool ng IRCC, mayroong Express Entry Profile Number at Job Seeker Validation Code. Dapat mayroon kang hindi bababa sa isang taong bayad na karanasan sa trabaho sa nakalipas na sampung taon sa larangan ng iyong edukasyon o pagsasanay upang maging kwalipikado.</p>
+<div class="shot"><img src="images/img-p11-03.png" alt="" style="max-width:900px"/></div>
+<p><strong>Paalala:</strong> Mangyaring tandaan na ang mga trabaho sa dropdown list na ito ay maaaring magbago batay sa forecast ng pangangailangan sa trabaho ng Saskatchewan.</p>
+<p>Ang iyong nilalayong trabaho ay maaaring regulated (kinokontrol) o mangailangan ng propesyonal na sertipikasyon. Mangyaring tingnan ang sumusunod na link para sa requirement na ito:</p>
+<ul>
+<li>Regulated Occupations and Licensing Requirements: <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">saskatchewan.ca — Regulated Occupations and Licensing Requirements</a></li>
+<li>SINP Requirements Related to Professional Status or Licensure: <a href="https://publications.saskatchewan.ca/#/products/102710" target="_blank" rel="noopener">publications.saskatchewan.ca/#/products/102710</a></li>
+</ul>
+<p>Kung ika'y aanyayahang mag-apply, susuriin ng SINP ang iyong edukasyon, karanasan sa trabaho, at nilalayong trabaho, at kung kinakailangan, aabisuhan ka na magbigay ng kinakailangang dokumentasyon. Kung ang iyong trabaho ay nangangailangan ng dokumentasyong ito, ipapahinto ang pagproseso ng iyong aplikasyon hanggang makuha mo ang kinakailangang dokumentasyon.</p>
+<p>Dapat mong sagutin ang lahat ng natitirang tanong sa ibaba bago ka makapagpatuloy.</p>
+<div class="shot"><img src="images/img-p12-01.png" alt="" style="max-width:575px"/></div>
+<p>Hindi ka makakapagpatuloy hangga't hindi na-save ang lahat ng kinakailangang sagot. Mangyaring sagutin ang lahat ng kinakailangang tanong at i-click ang buton na <strong>Save</strong> upang magpatuloy.</p>
+<p>Ang kumpletong hakbang para sa Expression of Interest (EOI) ay makikita sa <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-eoi-system" target="_blank" rel="noopener">saskatchewan.ca — International Skilled Worker EOI System</a></p>
+<h4 id="s3-1-jos" class="sec-h3">3.1.b Job Offer Streams (Mga Kategorya ng Alok ng Trabaho)</h4>
+<p>Kung mayroon kang alok ng permanente, full-time na trabaho sa Saskatchewan, dapat mong natanggap ang Employer Position Assessment (EPA) Approval bilang patunay nito. Sa sandaling idagdag ng iyong employer ang iyong pangalan, matatanggap mo ang EPA Approval na naglalaman ng mga detalye at deadline ng alok ng trabaho na ipapadala sa iyong personal na email address.</p>
+<p>Dapat mo ring matugunan ang pamantayan ng subcategory upang maging kwalipikado.</p>
+<p>Sa pahina ng Eligibility for Application, ipahiwatig kung mayroon o wala kang wastong alok ng trabaho at EPA Approval:</p>
+<div class="shot"><img src="images/img-p13-07.png" alt="" style="max-width:900px"/><div class="img-cap">Halimbawa: pahina ng "Eligibility for Application"</div></div>
+<p>Dapat mong ilagay ang Employer ID at EPA ID. Bebe-verify ng sistema ang impormasyong ito kasama ang iyong petsa ng kapanganakan. Kung tugma ang lahat ng impormasyon, ang pag-click sa "View Job Offer" ay magpapakita ng pahina ng Job Offer Information.</p>
+<div class="highlight-box"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div>Mahalaga: Mayroon kang 10 araw upang kumpirmahin ang alok ng trabaho sa Bahagi 2 ng iyong aplikasyon sa SINP, at 60 araw upang isumite ang iyong kumpletong aplikasyon — parehong binibilang mula sa petsa ng natanggap na EPA Approval.</div></div>
+<p>Kung hindi ka nag-a-apply sa ilalim ng Agriculture Talent Pathway, Innovation and Tech Talent Pathway, o Health Talent Pathway, mangyaring sagutin ng NO (Hindi) ang sumusunod na mga tanong:</p>
+<div class="shot"><img src="images/img-p13-03.png" alt="" style="max-width:870px"/></div>
+<p>Matapos kumpirmahin na mayroon kang wastong alok ng trabaho, ang sumusunod na serye ng mga sagot ay hahantong sa:</p>
+<p class="lead-bold">International Skilled Worker – With Employment Offer Sub-Category (Subcategory na may Alok ng Trabaho)</p>
+<div class="shot"><img src="images/img-p13-01.png" alt="" style="max-width:870px"/></div>
+<p>Kung hindi ka kasalukuyang nasa Saskatchewan na may wastong work permit at mayroon kang hindi bababa sa isang taong karanasan sa trabaho sa nakalipas na sampung taon sa iyong nilalayong trabaho:</p>
+<div class="shot"><img src="images/img-p14-03.png" alt="" style="max-width:444px"/></div>
+<p>Kung ikaw ay kasalukuyang nagtatrabaho sa Saskatchewan na may wastong work permit, HINDI isang international student na may post-graduation work permit, at mayroon kang hindi bababa sa isang taong karanasan sa trabaho sa nakalipas na sampung taon sa iyong nilalayong trabaho:</p>
+<div class="shot"><img src="images/img-p14-01.png" alt="" style="max-width:438px"/></div>
+<p>Kung ikaw ay isang international student na nagtatrabaho na may wastong work permit at nagtapos sa labas ng Saskatchewan:</p>
+<div class="shot"><img src="images/img-p15-03.png" alt="" style="max-width:675px"/></div>
+<p>Kung ikaw ay isang international student na nagtatrabaho na may wastong work permit at nagtapos sa Saskatchewan ngunit hindi natugunan ang pamantayan ng Student category:</p>
+<div class="shot"><img src="images/img-p15-01.png" alt="" style="max-width:660px"/></div>
+<h4 id="s3-1-agri" class="sec-h3">3.1.c Agriculture Talent Pathway (Landas para sa Talento sa Agrikultura)</h4>
+<p>Piliin ang "Yes" kung ikaw ay nag-a-apply sa ilalim ng kategoryang ito, at pagkatapos ay piliin ang iyong nilalayong NOC ng trabaho sa drop-down:</p>
+<div class="shot"><img src="images/img-p16-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-tech" class="sec-h3">3.1.d Innovation and Tech Talent Pathway (Landas para sa Talento sa Inobasyon at Teknolohiya)</h4>
+<p>Piliin ang "Yes" kung ikaw ay nag-a-apply sa ilalim ng subcategory na Innovation and Tech Talent Pathway.</p>
+<div class="shot"><img src="images/img-p16-05.png" alt="" style="max-width:900px"/></div>
+<p>Piliin ang iyong nilalayong NOC ng trabaho sa drop-down:</p>
+<div class="shot"><img src="images/img-p16-03.png" alt="" style="max-width:800px"/></div>
+<p>Dapat mayroon kang post-secondary na edukasyon na may kaugnayan sa trabahong inialok sa iyo (Master's o Bachelor's degree; o tatlong-taong degree sa unibersidad o kolehiyo; o diploma na nangangailangan ng dalawang taon sa unibersidad, kolehiyo, trade o teknikal na paaralan, o iba pang post-secondary institution).</p>
+<div class="shot"><img src="images/img-p17-03.png" alt="" style="max-width:787px"/></div>
+<p>Piliin ang "Yes" para mag-apply sa ilalim ng subcategory na Innovation and Tech Talent Pathway at pagkatapos ay piliin ang "Yes" sa "Have you been accepted into Immigration, Refugees and Citizenship Canada's Express Entry Pool and have a Profile Number." (Tinanggap ka ba sa Express Entry Pool ng IRCC at mayroon kang Profile Number?). Maaari mo na ngayong ilagay ang iyong Express Entry profile number at Job Seeker Validation Code.</p>
+<div class="shot"><img src="images/img-p17-01.png" alt="" style="max-width:900px"/></div>
+<p>Piliin ang iyong nilalayong NOC ng trabaho sa drop-down:</p>
+<div class="shot"><img src="images/img-p18-01.png" alt="" style="max-width:900px"/></div>
+<p>Dapat mayroon kang post-secondary na edukasyon na may kaugnayan sa trabahong inialok sa iyo (Master's o Bachelor's degree; o tatlong-taong degree sa unibersidad o kolehiyo; o diploma na nangangailangan ng dalawang taon sa unibersidad, kolehiyo, trade o teknikal na paaralan, o iba pang post-secondary institution).</p>
+<div class="shot"><img src="images/img-p18-03.png" alt="" style="max-width:787px"/></div>
+<h4 id="s3-1-health" class="sec-h3">3.1.e Health Talent Pathway – Non-Express Entry (Landas para sa Talento sa Kalusugan)</h4>
+<p>Piliin ang "Yes" kung ikaw ay nag-a-apply sa ilalim ng Health Talent Pathway.</p>
+<div class="shot"><img src="images/img-p18-05.png" alt="" style="max-width:900px"/></div>
+<p>Pagkatapos, piliin ang iyong nilalayong NOC ng trabaho sa drop down menu:</p>
+<div class="shot"><img src="images/img-p19-00.png" alt="" style="max-width:900px"/></div>
+<p>May Express Entry profile at ang NOC ay 44101. Paalala: Ang NOC 44101 ay hindi kwalipikado para sa Express Entry.</p>
+<div class="shot"><img src="images/img-p19-02.png" alt="" style="max-width:900px"/></div>
+<p>May Express Entry profile, at ang iyong NOC ay HINDI 44101, at ikaw ay nag-a-apply mula sa loob ng Saskatchewan.</p>
+<div class="shot"><img src="images/img-p20-01.png" alt="" style="max-width:900px"/></div>
+<p>May Express Entry profile, at ang iyong NOC ay HINDI 44101, at ikaw ay nag-a-apply mula sa loob o labas ng Canada:</p>
+<div class="shot"><img src="images/img-p21-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-work" class="sec-h3">3.1.f Saskatchewan Experience – Existing Work Permit (Umiiral na Work Permit)</h4>
+<p>Nagtrabaho nang hindi bababa sa anim na buwan (780 oras) ng full-time (30+ oras kada linggo) na karanasan sa trabaho sa employer na nagbigay sa iyo ng EPA Approval, na may wastong work permit. Dapat sunud-sunod (consecutive) ang karanasan sa trabaho.</p>
+<p>Piliin ang naaangkop na drop-down para sa NOC ng trabahong kinatatrabahuhan mo.</p>
+<p>***Ang kategoryang ito ay para sa mga nag-a-apply na may alinman sa pamantayan sa ilalim ng drop-down na "I am working" (Ako'y nagtatrabaho), kasama ang mga trabaho sa hospitality at long-haul truck driver.</p>
+<div class="shot"><img src="images/img-p22-09.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-student" class="sec-h3">3.1.g Saskatchewan Experience – Student (Mag-aaral)</h4>
+<p>Nakumpleto ang post-secondary na edukasyon sa Saskatchewan: Dapat mayroon kang hindi bababa sa anim (6) na buwan ng full-time na trabaho (o 960 oras) sa Saskatchewan na may kaugnayan sa iyong larangan ng pag-aaral, at mayroong Post Graduation Work Permit na inisyu ng Immigration, Refugees and Citizenship Canada (IRCC).</p>
+<div class="shot"><img src="images/img-p22-07.png" alt="" style="max-width:900px"/></div>
+<p>Ang mga May-hawak ng Post Graduation Work Permit (PGWP) na nagtapos mula sa Designated Learning Institute sa labas ng Saskatchewan ay limitado lamang sa pag-a-apply sa Health Talent Pathway, Agriculture Talent Pathway, Innovation and Tech Talent Pathway, at International Skilled Worker: Employment Offer sa isang kwalipikadong trabaho.</p>
+<p>I-click upang i-save ang iyong mga sagot, at i-click ang buton upang tingnan kung anong kategorya ng aplikasyon ang iyong pinag-a-applyan.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-01.png" alt="" style="max-width:54px"/><img src="images/img-p22-03.png" alt="" style="max-width:218px"/></div>
+<p>Kung ang kategoryang ipinakita ay hindi kung ano ang iyong nilalayong ipag-apply, maaari mong baguhin ang iyong mga sagot sa pamamagitan ng pag-click sa buton sa ibaba, o i-click ang "No" para sa karagdagang impormasyon.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-00.png" alt="" style="max-width:36px"/><img src="images/img-p22-05.png" alt="" style="max-width:242px"/></div>
+<p>Kung tama ang kategoryang ipinakita, i-click ang buton na "Yes" at magpatuloy sa iyong aplikasyon.</p>
+<h2 id="s3-2" class="sec-h1">3.2 Grid ng Puntos para sa Manggagawang May Kasanayan (Skilled Worker Points Grid)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-04.png" alt=""/><div class="callout-text">Naaangkop lamang ito sa mga Aplikante sa ilalim ng International Skilled Worker Category.</div></div>
+<div class="shot"><img src="images/img-p23-03.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+<h2 id="s3-3" class="sec-h1">3.3 Kasalukuyang Paninirahan at Patutunguhang Pananahanan (Current Residency and Settlement Destination)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-05.png" alt=""/><div class="callout-text">Sa drop-down, piliin ang iyong kasalukuyang bansa ng paninirahan, katayuan sa paninirahan, haba ng paninirahan, at patutunguhang pananahanan sa Saskatchewan. Dapat tumugma ang mga item na ito sa iyong mga sagot sa Generic Application Form for Canada.</div></div>
+<div class="shot"><img src="images/img-p23-01.png" alt="" style="max-width:900px"/></div>
+<div class="note-box"><strong>Katayuan sa Canada (Status in Canada)</strong> – kung ikaw ay kasalukuyang nasa Canada bilang Visitor (Bisita) o Student (Mag-aaral), dapat kang magbigay ng kopya ng iyong Visitor o Study permit. Ilakip ang dokumentong ito sa ilalim ng record ng Passport bilang Additional Document.</div>
+<h2 id="s3-4" class="sec-h1">3.4 Detalye ng Aplikante (Applicant Details)</h2>
+<ul>
+<li>Awtomatikong kinakalkula ng OASIS ang iyong edad batay sa iyong petsa ng kapanganakan.</li>
+<li>I-type ang Birth City/Town (Lungsod/Bayan ng Kapanganakan).</li>
+<li>Piliin ang Birth Country (Bansa ng Kapanganakan).</li>
+<li>Piliin ang Highest Education Level completed (Pinakamataas na Antas ng Edukasyong Natapos).</li>
+<li>Intended Occupation NOC (Nilalayong NOC ng Trabaho): Para sa Express Entry at Occupation In-Demand na aplikasyon, ipapakita ng field na ito ang NOC na pinili mo noon sa iyong Expression of Interest, na hindi na maaaring baguhin. Para sa Agriculture Talent, Innovation and Tech Talent at Health Talent Pathways, Employment Offer, Student, at Existing Work Permit Categories, piliin ang iyong Intended Occupation NOC.</li>
+</ul>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+<h2 id="s3-5" class="sec-h1">3.5 Pag-upload ng mga Dokumento Mo (Uploading your documents)</h2>
+<p>Huwag kalimutang mag-upload ng na-scan (<strong>malinaw na mababasa</strong>) na kopya ng iyong dokumento gaya ng kinakailangan. Kung maaari, gumamit ng filename na naglalarawan sa bawat dokumento, hal. passport, birth certificate – makakatulong ito sa amin na paunlarin ang oras ng pagproseso ng aplikasyon.</p>
+<p>Kung nakapag-upload ka na dati ng mga dokumento sa ilalim ng seksyong <strong>Files</strong>, tanging makikita at ma-download mo lamang ang mga dokumentong ito. Anumang pag-upload ay dapat gawin gamit ang "Upload File".</p>
+<div class="shot plain"><img src="images/img-p24-03.png" alt="" style="max-width:58px"/></div>
+<p>Hindi ka makakapagpatuloy sa iyong aplikasyon hangga't hindi pa naiu-upload ang iyong mga dokumento para sa bawat seksyon.</p>
+<div class="note-box">Kung ang iyong dokumento ay hindi nasa Ingles o Pranses, mangyaring magbigay ng salin sa Ingles (o Pranses) kasama ang Translator's Affidavit at isumite ang mga ito kasama ng orihinal na dokumento. Ilakip ang orihinal, salin, at affidavit sa kaukulang record sa OASIS.</div>
+<p>Upang i-upload ang iyong dokumento sa OASIS, mangyaring i-click ang buton na 'Upload File'.</p>
+<div class="shot"><img src="images/img-p24-01.png" alt="" style="max-width:900px"/></div>
+<p>Lalabas ang isang pop-up window gaya ng ipinapakita sa ibaba. I-click ang buton na 'Browse', piliin ang dokumentong nais mong i-upload, at pagkatapos ay i-click ang 'Upload File'.</p>
+<div class="shot"><img src="images/img-p25-03.png" alt="" style="max-width:900px"/></div>
+<p>Kapag na-upload na ang isang dokumento, lalabas ang isang pop-up confirmation message sa ibabang kanang sulok ng iyong screen:</p>
+<div class="shot plain"><img src="images/img-p25-09.png" alt="" style="max-width:317px"/></div>
+<p>Maaari mong i-download ang naka-attach na dokumento sa pamamagitan ng pagpili sa 'Download File'. Kung nailakip mo ang maling dokumento, alisin ito sa pamamagitan ng pag-click sa buton na 'Remove File'.</p>
+<div class="shot"><img src="images/img-p25-01.png" alt="" style="max-width:900px"/></div>
+<p>Maaari kang mag-upload ng mas maraming file/dokumento sa pamamagitan ng pag-click sa buton sa ibaba. Pakitingnan ang halimbawang screenshot sa ibaba.</p>
+<div class="shot plain"><img src="images/img-p25-05.png" alt="" style="max-width:520px"/></div>
+<div class="shot"><img src="images/img-p25-07.png" alt="" style="max-width:900px"/></div>
+<p>Mangyaring basahin at tanggapin ang mga tuntunin at kundisyon para sa aplikasyong ito sa SINP, at i-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+<h2 id="s3-6" class="sec-h1">3.6 Pagbubunyag ng Impormasyon (Information Disclosure)</h2>
+<div class="shot"><img src="images/img-p26-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s3-7" class="sec-h1">3.7 Pagkamamamayan (Citizenship)</h2>
+<p>Piliin ang iyong Country of Citizenship (Bansa ng Pagkamamamayan). Gumawa ng isa pang Citizenship record kung mayroon kang higit sa isang pagkamamamayan.</p>
+<div class="shot"><img src="images/img-p26-01.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+<h2 id="s3-8" class="sec-h1">3.8 Dokumento ng Kapanganakan (Birth Document)</h2>
+<p>Piliin ang Birth Document Type (Uri ng Dokumento ng Kapanganakan) mula sa drop-down list.</p>
+<div class="shot"><img src="images/img-p26-Im3.png" alt="" style="max-width:900px"/></div>
+<p>I-type ang iyong First Name, Middle Name (kung naaangkop), at Family (Last) Name at Birth gaya ng nakasaad sa iyong dokumento ng kapanganakan. Maaari mong iwanang blangko ang field kung hindi ito naaangkop sa iyo, hal. Middle Name.</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im0.png" alt=""/><div class="callout-text">Mangyaring mag-upload ng na-scan na kopya ng iyong Birth Document. I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File. Hindi katanggap-tanggap ang affidavit o pasaporte bilang Birth Document. I-click ang Save, pagkatapos ay Next.</div></div>
+<div class="shot plain"><img src="images/img-p27-Im7.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-9" class="sec-h1">3.9 Pasaporte (Passport)</h2>
+<ul>
+<li>Piliin ang bansa na nag-isyu ng pasaporte mula sa drop-down list.</li>
+<li>Awtomatikong ipapasok ang Passport Number at Passport Expiry Date mula sa Birthdate and Address Screen.</li>
+</ul>
+<div class="shot"><img src="images/img-p27-Im11.png" alt="" style="max-width:900px"/></div>
+<p>Pakitandaan na hindi mo na kailangang gumawa ng record para sa iyong luma/expired na pasaporte.</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im1.png" alt=""/><div class="callout-text">Mangyaring mag-upload ng na-scan na kopya ng iyong Passport (at Visitor o Study Permit, kung naaangkop). I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File. I-click ang Save, pagkatapos ay Next.</div></div>
+<div class="shot plain"><img src="images/img-p27-Im9.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-10" class="sec-h1">3.10 Katayuang Sibil (Marital Status)</h2>
+<p>Piliin ang iyong kasalukuyang Marital Status mula sa drop-down list:</p>
+<div class="shot"><img src="images/img-p27-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Kung ikaw ay Single, Annulled Marriage, Legally Separated, o Widowed, dapat itong hitsura ng iyong screen:</p>
+<div class="shot"><img src="images/img-p27-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Para sa Common-Law, Divorced, o Married:</p>
+<ul>
+<li>Ilagay ang iyong dating First Name at Last Name gaya ng nakasaad sa dokumento ng marital status, at ilagay ang petsa kung kailan ka at ang iyong asawa pumasok sa napiling marital status.</li>
+</ul>
+<div class="shot"><img src="images/img-p28-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Dapat kang gumawa ng isa pang marital status screen kung mayroon kang higit sa isang (1) marital status (halimbawa, kung ikaw ay diborsyado noon at kasal na ngayon) sa pamamagitan ng pag-click sa buton na ito:</p>
+<div class="shot plain"><img src="images/img-p28-Im4.png" alt="" style="max-width:363px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p28-Im0.png" alt=""/><div class="callout-text">Mangyaring mag-upload ng na-scan na kopya ng iyong Marital Status Document. I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File. I-click ang Save, pagkatapos ay Next.</div></div>
+<div class="shot plain"><img src="images/img-p28-Im6.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-11" class="sec-h1">3.11 Edukasyon (Education)</h2>
+<p>Sa ilalim ng Education, dapat mong sagutin ang sumusunod na mga tanong. Piliin ang iyong pinakamataas na antas ng Edukasyon.</p>
+<div class="shot"><img src="images/img-p28-Im8.png" alt="" style="max-width:900px"/></div>
+<p>Kung ang iyong nilalayong trabaho o alok ng trabaho ay nangangailangan ng Professional Certification o Licensure, piliin ang "Yes" sa susunod na tanong; kung hindi, piliin ang "No."</p>
+<p>Kung mayroon kang alok ng trabaho at nais mong malaman ang mga requirement sa lisensya, mangyaring tingnan ang sumusunod na link:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">Saskatchewan Regulatory Bodies</a></li>
+</ul>
+<p>Kung wala kang alok ng trabaho at nais mong malaman ang mga requirement sa lisensya, mangyaring bisitahin:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/Residents/Moving-to-Saskatchewan/Live-in-Saskatchewan/By-Immigrating/Saskatchewan-Immigrant-Nominee-Program/Browse-SINP-Programs/Applicants-International-Skilled-Workers/Occupation-Restrictions-and-Requirements" target="_blank" rel="noopener">Occupation Restrictions and Requirements</a></li>
+</ul>
+<p>Makikita mo ang karagdagang impormasyon tungkol sa Professional Certification o Licensure sa ilalim ng seksyon 3.12 (susunod na seksyon) ng gabay na ito.</p>
+<p>Kung ikaw ay nag-a-apply sa ilalim ng kategoryang hindi nangangailangan ng Education (hal. Existing Work Permit, o ISW-With Employment Offer, at hindi humihingi ng puntos para sa edukasyon), maaari mong piliin ang 'Not Applicable' sa sumusunod na tanong. Kung hindi, sundin ang mga hakbang na "Enter/Change Education" sa ibaba. Matapos ilagay ang lahat ng iyong Edukasyon, piliin ang 'Yes' at i-Save.</p>
+<div class="shot"><img src="images/img-p29-Im3.png" alt="" style="max-width:820px"/></div>
+<h3 id="s3-11-enter" class="sec-h2">3.11.a Ilagay/Baguhin ang Edukasyon (Enter/Change Education)</h3>
+<p>Upang ilagay ang iyong Education Credentials, i-click ang icon sa itaas na kanang sulok ng iyong screen.</p>
+<div class="shot plain"><img src="images/img-p29-Im1.png" alt="" style="max-width:448px"/></div>
+<div class="note-box">Dapat magsumite ka ng mga dokumento upang patunayan ang iyong pagsasanay at/o post-secondary na edukasyon gamit ang isa o higit pa sa sumusunod: education/trade certificates, degree, o diploma na may kopya ng opisyal na transcript kung naaangkop, na nagpapakita ng paaralan(g) pinasukan o kurso(ng) kinuha; propesyonal na designation, lisensya, at/o membership sa propesyonal na asosasyon; at, sertipikasyon ng apprenticeship/katumbas na sertipiko (na maaaring i-verify at maihahambing sa mga programa ng sistemang pang-edukasyon ng Canada) na may detalye ng istruktura ng programa, mga kurso, tagal, at ang namamahalang awtoridad o regulatory body nito.</div>
+<p>Sa Education screen, ilagay ang sumusunod na impormasyon gaya ng nakasaad sa iyong post-secondary o trade-related na degree, diploma, o sertipiko: <strong>Country</strong>, <strong>Start Date</strong>, at <strong>End Date</strong> sa format na DD-Mon-YYYY, <strong>Institution</strong> (kung saan natanggap ang edukasyon), at <strong>Specialty</strong> (programa ng pag-aaral).</p>
+<div class="shot"><img src="images/img-p30-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Kung sa Canada, piliin ang probinsyang kinumpletuhan ng iyong post-secondary na edukasyon.</p>
+<p>I-click ang <strong>Upload File</strong>, pagkatapos ay piliin ang Browse upang mag-upload ng kopya ng iyong mga dokumento sa edukasyon. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File. Mangyaring i-upload ang iyong dokumento kung naaangkop, gaya ng ipinapakita sa ibaba:</p>
+<div class="shot plain"><img src="images/img-p30-Im5.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p30-Im7.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p30-Im13.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Save</strong>.</p>
+<p>I-click ang buton sa ibaba upang magdagdag ng isa pang record.</p>
+<div class="shot plain"><img src="images/img-p30-Im3.png" alt="" style="max-width:286px"/></div>
+<p>I-click ang buton sa ibaba upang bumalik sa pangunahing Education screen.</p>
+<div class="shot plain"><img src="images/img-p30-Im9.png" alt="" style="max-width:326px"/></div>
+<p>I-click ang buton sa ibaba upang suriin kung kumpleto ang mga entry para sa edukasyon.</p>
+<div class="shot plain"><img src="images/img-p30-Im11.png" alt="" style="max-width:285px"/></div>
+<h2 id="s3-12" class="sec-h1">3.12 Mga Kredensyal sa Regulasyon o Lisensya at Pagtatasa ng Kredensyal sa Edukasyon (Regulatory or Licensing Credentials and Education Credentials Assessment)</h2>
+<p class="lead-bold">Mga Kredensyal sa Regulasyon o Lisensya (Regulatory or Licensing Credentials)</p>
+<p>Kung nilalayon mong magtrabaho sa isang trabahong regulated sa Saskatchewan at nangangailangan ng sapilitang sertipikasyon o lisensya sa Saskatchewan, kailangan mong makakuha ng patunay ng pagiging kwalipikado para sa Saskatchewan licensure upang makapagtrabaho sa propesyong iyon bago ka mag-apply sa SINP. Kinakailangan ang patunay ng pagiging kwalipikado para sa Saskatchewan licensure mula sa regulatory body bilang bahagi ng iyong aplikasyon sa SINP. Kung hindi kasama sa iyong aplikasyon ang patunay ng pagiging kwalipikadong ito, maaaring tanggihan ng SINP ang iyong aplikasyon at maaari kang mag-apply muli kapag nakuha mo na ang patunay na ito.</p>
+<p>Kung nilalayon mong magtrabaho sa isang SKILLED TRADE, kailangan mong magkaroon ng certificate of qualification (kilala rin bilang letter of invitation) sa iyong skilled trade mula sa Saskatchewan Apprenticeship &amp; Trade Certification Commission.</p>
+<p>Mangyaring i-click ang link sa ibaba para sa karagdagang impormasyon tungkol sa mga regulated occupation o requirement sa lisensya:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+</ul>
+<p class="lead-bold">Pagtatasa ng Kredensyal sa Edukasyon (Education Credentials Assessment - ECA)</p>
+<p>Ang mga aplikanteng nag-a-apply sa pamamagitan ng Express Entry, Occupation in Demand, International Skilled Worker with Employment Offer, at Health Talent Pathway (maliban sa mga trade occupation) ay dapat maglakip ng Educational Credential Assessment (ECA) mula sa isang designated organization.</p>
+<p>Mangyaring i-click ang link sa ibaba para sa impormasyon tungkol sa pagkuha ng Educational Credentials Assessment (ECA):</p>
+<ul>
+<li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessed/how.html" target="_blank" rel="noopener">Obtaining an Educational Credentials Assessment (ECA)</a></li>
+</ul>
+<p>Para sa mga subcategory na nangangailangan ng ECA, dapat kang mag-upload ng kopya ng iyong ECA sa pangunahing pahina ng Education para sa lahat ng edukasyong natamo sa labas ng Canada.</p>
+<p>I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<div class="shot plain"><img src="images/img-p32-Im3.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p32-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Gawin ang parehong hakbang para sa iyong Regulatory or Licensing Credentials (Saskatchewan Licensure), kung naaangkop.</p>
+<div class="shot"><img src="images/img-p32-Im7.png" alt="" style="max-width:710px"/></div>
+<p>Upang suriin ang mga education screen para sa pagkakumpleto, sa pangunahing Education record, i-click ang buton sa ibaba.</p>
+<div class="shot plain"><img src="images/img-p32-Im5.png" alt="" style="max-width:320px"/></div>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+<h2 id="s3-13" class="sec-h1">3.13 Karanasan sa Trabaho (Work Experience)</h2>
+<p>Ibunyag ang iyong karanasan sa trabaho sa pamamagitan ng pagsagot ng "Yes" sa tanong:</p>
+<div class="shot"><img src="images/img-p32x-gp0-Im0.png" alt="" style="max-width:869px"/></div>
+<p>I-click ang <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p32x-gp0-Im1.png" alt="" style="max-width:331px"/></div>
+<p>I-click ang <strong>Enter/Change Work Experience</strong> upang gumawa ng work experience screen.</p>
+<p>Punan ang mga kinakailangang field:</p>
+<ul>
+<li>Piliin ang Country (Bansa).</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im2.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Hanapin at piliin ang NOC ID na tumutugma sa iyong karanasan sa trabaho, sa pamamagitan ng paglalagay ng hindi bababa sa tatlong karakter.</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im3.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Kung ang iyong bansa ng karanasan sa trabaho ay Canada, kailangan mong punan ang field na Province.</li>
+<li>Ilagay ang Start Date at End Date bilang DD-Mon-YYYY.</li>
+<li>Ilagay ang Employer — ang pangalan ng iyong employer (pangalan ng kumpanya).</li>
+<li>Ilagay ang Employer Contact Name — ang katatagpo ng employer.</li>
+<li>Ilagay ang City/Town — ang lokasyon ng trabaho.</li>
+<li>Ilagay ang iyong Position Title na hawak habang nagtatrabaho sa Employer na ito.</li>
+</ul>
+<p>Piliin ang uri ng government-issued na dokumento (na iyong ibibigay) mula sa drop-down menu:</p>
+<p>I-upload ang government issued documentation:</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im0.png" alt="" style="max-width:900px"/></div>
+<p>I-upload ang iyong reference letter para sa Work Experience:</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Upang mag-upload ng mga dokumento, i-click ang icon pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Maaari kang mag-upload ng mas maraming file/dokumento sa pamamagitan ng pag-click sa icon.</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im3.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Save</strong>.</p>
+<p>Kung ang iyong karanasan sa trabaho ay nakuha sa loob ng Saskatchewan, dapat kang magbigay ng patunay ng paninirahan at pagtatrabaho sa probinsya.</p>
+<div class="shot"><img src="images/img-p33-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Upang mag-upload ng mga dokumento, i-click ang icon pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<div class="shot plain"><img src="images/img-p33-Im11.png" alt="" style="max-width:153px"/></div>
+<p>Maaari kang mag-upload ng mas maraming file/dokumento sa pamamagitan ng pag-click sa buton sa ibaba.</p>
+<div class="shot plain"><img src="images/img-p33-Im5.png" alt="" style="max-width:520px"/></div>
+<p>I-click ang <strong>Save</strong>.</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Kinakailangang dokumentasyon para sa karanasan sa trabaho:</p>
+<ul style="margin-bottom:0;">
+<li>isang opisyal na sulat ng reference mula sa employer na naka-print sa letterhead ng kumpanya, na naglalaman ng
+<ul>
+<li>pangalan ng aplikante, impormasyon sa pakikipag-ugnayan ng kumpanya (address, numero ng telepono, at email address), at ang pangalan, titulo, at lagda ng agarang superbisor o personnel officer sa kumpanya, kasama ang kanilang numero ng telepono at email address.</li>
+<li>lahat ng posisyong hawak habang nagtatrabaho sa kumpanya, kasama ang job title, mga tungkulin at responsibilidad, katayuan ng trabaho (kung kasalukuyang trabaho), mga petsa ng pagtatrabaho sa kumpanya, bilang ng oras ng trabaho kada linggo (kabuuang bilang ng oras na nagtrabaho sa SK para sa mga aplikanteng estudyante), at taunang sahod kasama ang mga benepisyo.</li>
+</ul>
+</li>
+<li>kung ang aplikante ay self-employed, mga articles of incorporation o iba pang katibayan ng pagmamay-ari ng negosyo, katibayan ng kita mula sa self-employment, at dokumentasyon mula sa mga third-party na indibidwal na nagpapakita ng serbisyong ibinigay kasama ang mga detalye ng bayad.</li>
+</ul>
+</div>
+<p>Hindi katanggap-tanggap bilang patunay ng karanasan sa trabaho o self-employment ang mga self-declared na tungkulin o affidavit.</p>
+<div class="shot plain"><img src="images/img-p33-Im1.png" alt="" style="max-width:281px"/></div>
+<p>I-click ang buton sa ibaba upang gumawa ng isa pang record.</p>
+<div class="shot plain"><img src="images/img-p33-Im3.png" alt="" style="max-width:321px"/></div>
+<p>I-click ang buton sa ibaba upang magpatuloy sa iyong aplikasyon.</p>
+<p>Upang suriin ang mga record ng work experience para sa pagkakumpleto, sa pangunahing work experience screen, i-click ang buton sa ibaba.</p>
+<div class="shot plain"><img src="images/img-p33-Im7.png" alt="" style="max-width:378px"/></div>
+<p>Kapag nakumpleto na ang seksyong ito, markahan ng "Yes" ang tanong tungkol sa work experience:</p>
+<div class="shot"><img src="images/img-p34-Im5.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+
+<h2 id="s3-14" class="sec-h1">3.14 Kakayahan sa Ingles/Pranses (English/French Ability)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p34-Im8.png" alt=""/><div class="callout-text">Mandatory ang wastong resulta ng language test para sa ilang kategorya ng SINP.</div></div>
+<p>Piliin ang Language Proof Type:</p>
+<div class="shot"><img src="images/img-p34-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Punan ang mga kinakailangang field gaya ng nakasaad sa iyong dokumento:</p>
+<div class="shot"><img src="images/img-p34-Im1.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang link sa ibaba para sa Language Requirements for SINP:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/language-requirements-for-sinp" target="_blank" rel="noopener">Language Requirements for SINP</a></li>
+</ul>
+<p>I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<div class="shot plain"><img src="images/img-p34-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Kung mayroon kang wastong language test para sa pangalawang opisyal na wika, piliin ang "Yes". Kung hindi, piliin ang "No".</p>
+<div class="shot"><img src="images/img-p35-Im11.png" alt="" style="max-width:608px"/></div>
+<p>Kung pinili mo ang "Yes", mangyaring ibigay ang mga marka ng language test sa mga field na ibinigay, at dapat mong ilakip ang kopya ng opisyal na resulta ng language test.</p>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+
+<h2 id="s3-15" class="sec-h1">3.15 Huling Pahina ng Bahagi 1 (Final Page of Part 1)</h2>
+<p>Piliin ang "Yes" kung mayroon kang kamag-anak sa Saskatchewan, kung wala ay piliin ang "No".</p>
+<div class="shot"><img src="images/img-p35-Im3.png" alt="" style="max-width:741px"/></div>
+<p>Piliin ang "Yes" kung nakapagsumite ka na ng provincial o federal na aplikasyon sa imigrasyon ng Canada, kung wala ay piliin ang "No".</p>
+<div class="shot"><img src="images/img-p35-Im1.png" alt="" style="max-width:742px"/></div>
+<p>Hindi mo kinakailangang mag-upload ng anumang dokumentasyon sa puntong ito.</p>
+<div class="shot plain"><img src="images/img-p35-Im7.png" alt="" style="max-width:297px"/></div>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay i-click ang buton sa ibaba.</p>
+<p>Kung ginawa mo nang tama ang lahat, lalabas ang mensaheng ito:</p>
+<div class="shot"><img src="images/img-p35-Im5.png" alt="" style="max-width:446px"/></div>
+<div class="shot plain"><img src="images/img-p35-Im9.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang buton sa ibaba upang magpatuloy sa iyong aplikasyon.</p>
+
+<h2 id="s3-16" class="sec-h1">3.16 Paggawa ng Pagbabago sa Bahagi 1 at Detalye ng Aplikante (Making a Change on Part 1 and Applicant Details)</h2>
+<p>Kung kailangan mong gumawa ng pagbabago sa iyong pre-application at/o detalye ng aplikante:</p>
+<ol>
+<li>I-click ang buton na Home, kung kinakailangan.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im7.png" alt="" style="max-width:45px"/></div>
+<ol start="2">
+<li>I-click ang Continue Applicant Details section ng SINP Application.</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im9.png" alt="" style="max-width:680px"/></div>
+<ol start="3">
+<li>I-click ang record na Applicant Details-Final Page, pagkatapos ay i-click ang Make Changes to Part 1.</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im1.png" alt="" style="max-width:900px"/></div>
+<ol start="4">
+<li>Gawin ang iyong mga pagbabago o mag-upload ng mga dokumento.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im5.png" alt="" style="max-width:297px"/></div>
+<ol start="5">
+<li>Kapag tapos ka na, tiyaking i-click ang buton sa ibaba.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im3.png" alt="" style="max-width:167px"/></div>
+<p>I-click ang buton sa ibaba upang magpatuloy.</p>
+<h2 id="s4-0" class="sec-h1">4.0 Mga Screen ng Aplikasyon ng Manggagawang May Kasanayan (Skilled Worker Application Screens)</h2>
+<p>Pagkatapos mong i-click ang buton na <strong>Create Part 2</strong>, lalabas ang Application screen sa kaliwang bahagi ng iyong screen.</p>
+<h2 id="s4-1" class="sec-h1">4.1 Screen ng Aplikasyon (Application Screen)</h2>
+<p>Ipapakita ng unang screen ang kategorya ng aplikasyon. Sa ibaba ay isang halimbawang screen para sa International Skilled Worker – Express Entry:</p>
+<div class="shot"><img src="images/img-p37-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Kinakailangan ang bayad na $500 para sa lahat ng kategorya ng SINP. Dapat mong ipahiwatig kung ang credit card na ginamit upang bayaran ang application fee ay pag-aari ng principal applicant o asawang nakalista sa aplikasyon:</p>
+<div class="shot"><img src="images/img-p37-Im6.png" alt="" style="max-width:748px"/></div>
+<p>Kung ang credit card na ginamit ay pag-aari ng ibang tao, mangyaring ilagay ang relasyon ng may-ari ng credit card sa aplikante at ang dahilan ng pagbabayad:</p>
+<div class="shot"><img src="images/img-p37-Im8.png" alt="" style="max-width:900px"/></div>
+<h2 id="s4-2" class="sec-h1">4.2 Koneksyon sa Saskatchewan (Connection to Saskatchewan)</h2>
+<div class="shot plain"><img src="images/img-p37-Im1.png" alt="" style="max-width:722px"/></div>
+<p>Piliin ang "Yes" sa tanong sa itaas kung ang isa sa mga item na ito ay naaangkop sa iyo:</p>
+<ul>
+<li>Nag-aral sa Saskatchewan</li>
+<li>Nagtrabaho sa Saskatchewan</li>
+<li>May Malapit na Kamag-anak sa Saskatchewan</li>
+</ul>
+<p>Kung hindi, piliin ang "No" at i-click ang "Next".</p>
+<h3 id="s4-2-study" class="sec-h2">4.2.a Nag-aral sa Saskatchewan (Studied in Saskatchewan)</h3>
+<p>Kung nag-aral ka sa Saskatchewan at humihingi ng puntos, punan ang mga field gaya ng ipinapakita sa ibaba:</p>
+<div class="shot"><img src="images/img-p38-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Kung humihingi ka ng puntos para sa pag-aaral sa Saskatchewan, dapat kang magsumite ng sumusunod na mga dokumento:</p>
+<ul style="margin-bottom:0;">
+<li>education/trade certificate, degree, o diploma na may opisyal na transcript kung naaangkop, na nagpapakita ng paaralan(g) pinasukan o kurso(ng) kinuha; o</li>
+<li>sulat mula sa registrar na nagsasaad na nag-aral ka sa isang Saskatchewan Institute.</li>
+</ul>
+</div>
+<div class="shot"><img src="images/img-p38-Im5.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-work" class="sec-h2">4.2.b Nagtrabaho sa Saskatchewan (Worked in Saskatchewan)</h3>
+<p>Kung mayroon kang karanasan sa trabaho sa Saskatchewan at humihingi ng puntos, punan ang mga field gaya ng ipinapakita sa ibaba:</p>
+<div class="shot"><img src="images/img-p38-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Kung humihingi ka ng puntos para sa pagtatrabaho sa Saskatchewan, dapat kang magsumite ng mga dokumento upang patunayan na nagtrabaho ka noon sa Saskatchewan nang hindi bababa sa 12 buwan sa nakalipas na limang taon. Kakailanganin mong magbigay ng sumusunod:</p>
+<ul style="margin-bottom:0;">
+<li>Mga sulat ng reference mula sa iyong dating employer(s) na nakasulat sa opisyal na letterhead ng kumpanya at nilagdaan ng isang awtorisadong kinatawan ng kumpanya na kinilala sa pamamagitan ng pangalan at titulo kasama ang impormasyon sa pakikipag-ugnayan. Dapat isaad ng bawat sulat ang sumusunod:
+<ul>
+<li>iyong posisyon sa trabaho;</li>
+<li>mga petsa ng pagtatrabaho; at,</li>
+<li>iyong pangunahing tungkulin/responsibilidad.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Upang patunayan ang iyong karanasan sa trabaho sa Saskatchewan, dapat kang mag-upload ng sulat ng reference.</p>
+<div class="shot"><img src="images/img-p39-Im3.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-relative" class="sec-h2">4.2.c Malapit na Kamag-anak sa Saskatchewan (Close Relative in Saskatchewan)</h3>
+<p>Kung mayroon kang malapit na kamag-anak sa Saskatchewan at humihingi ng puntos, punan ang mga kinakailangang field gaya ng ipinapakita:</p>
+<div class="shot"><img src="images/img-p39-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p40-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Kung humihingi ka ng puntos para sa isang malapit na miyembro ng pamilya, dapat kang magbigay ng sumusunod mula sa miyembro ng pamilya:</p>
+<ul style="margin-bottom:0;">
+<li>birth certificate, marriage certificate, at/o anumang iba pang opisyal na dokumento ng gobyerno, edukasyon, o relihiyon na nagpapatunay ng iyong relasyon sa iyong malapit na kamag-anak. Pakitandaan: hindi tinatanggap ng SINP ang mga affidavit.</li>
+<li>kopya ng Canadian permanent resident o citizenship card ng kamag-anak, o Canadian passport;</li>
+<li>patunay na sila ay nanirahan sa Saskatchewan sa nakalipas na labindalawang buwan at may sapat na kita para sa sarili:
+<ul>
+<li>utility bill mula sa nakalipas na labindalawang buwan mula sa SaskPower; SaskEnergy; o opisina ng lungsod o bayan. (Hindi tatanggapin ang telepono, cellular, o cable bill);</li>
+<li>Saskatchewan Health Card o Saskatchewan Driver's License;</li>
+<li>patunay na ang miyembro ng pamilya ay rehistradong nangungupahan ng isang address sa Saskatchewan (lease agreement at resibo ng upa O patunay ng pagmamay-ari) at mga pangalan ng ibang naninirahan sa address na ito kasama ang kanilang relasyon; at,</li>
+<li>patunay ng natanggap na kita para sa nakalipas na tatlong buwan.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Kung ang iyong malapit na kamag-anak ay sumuporta na sa ibang aplikante, maaari kang makatanggap ng warning message. Ang malapit na miyembro ng pamilya ay maaari lamang sumuporta sa isang aplikasyon sa isang pagkakataon (isang sambahayan ay maaaring sumuporta sa isang aplikasyon sa isang pagkakataon). Kung ang iyong malapit na miyembro ng pamilya ay sumusuporta na sa isang aplikasyon sa SINP, hindi nila masusuportahan ang iyong aplikasyon hanggang ang naunang nominado na kanilang sinusuportahan ay nanirahan at nagtrabaho sa Saskatchewan nang hindi bababa sa anim na buwan.</p>
+<p>Kung ang iyong malapit na kamag-anak ay sumuporta na sa ibang aplikante, dapat mong ipahiwatig kung ang naunang aplikante ay dumating na sa Canada at nanirahan sa Saskatchewan nang hindi bababa sa anim na buwan. Kung oo, kakailanganin mong mag-upload ng patunay na matagumpay na nakapanirahan ang naunang aplikante sa Saskatchewan nang hindi bababa sa anim na buwan.</p>
+<p>Kung ang iyong malapit na kamag-anak ay kasalukuyang sumusuporta sa ibang aplikasyon at ang aplikanteng iyon ay hindi pa nanirahan sa Saskatchewan nang hindi bababa sa anim na buwan, hindi mo maaaring hingin o matanggap ang 20 puntos para sa kamag-anak na iyon. Kung pipiliin mong "No", makakatanggap ka ng warning message sa ibaba. Pakitandaan, kung magpapatuloy kang magsumite ng aplikasyon nang wala ang malapit na kamag-anak matapos humingi ng puntos para sa kamag-anak sa iyong Expression of Interest, ibabalik ang iyong file at hindi ka bibigyan ng refund.</p>
+<p>Kung hindi na-detect ng OASIS na ang iyong kamag-anak ay kasalukuyang sumusuporta sa ibang kamag-anak, hindi ka makakatanggap ng warning message. Pakitandaan na kahit hindi ka makatanggap ng babala, maaaring sumusuporta pa rin ang iyong malapit na kamag-anak sa isang mas lumang aplikasyon. Responsibilidad mo na tiyakin na kwalipikado ang iyong malapit na kamag-anak na suportahan ang iyong aplikasyon.</p>
+<div class="shot"><img src="images/img-p41-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p42-Im9.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang buton sa ibaba upang gumawa ng record para sa iyong kamag-anak na kasalukuyang naninirahan sa Canada.</p>
+<div class="shot plain"><img src="images/img-p42-Im1.png" alt="" style="max-width:244px"/></div>
+<p>I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<div class="shot plain"><img src="images/img-p42-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Maaari kang mag-upload ng karagdagang file/dokumento sa pamamagitan ng pag-click sa buton sa ibaba.</p>
+<div class="shot plain"><img src="images/img-p42-Im5.png" alt="" style="max-width:520px"/></div>
+<h2 id="s4-3" class="sec-h1">4.3 Mga Pederal na Porma (Federal Forms)</h2>
+<p>Ang sumusunod ay ang kinakailangang (mandatory) pederal na porma:</p>
+<ul>
+<li>IMM 0008 – Generic Application Form for Canada</li>
+</ul>
+<div class="shot plain"><img src="images/img-p42-Im7.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>.</p>
+<p class="lead-bold"><em>Gawin ang parehong hakbang para sa iba pang porma.</em></p>
+<ul>
+<li>IMM 5406 – Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<p>Sa itaas na kanang sulok ng iyong screen, gumawa ng sumusunod na porma kung naaangkop sa iyo:</p>
+<ul>
+<li>IMM 5476 – Use of Representative</li>
+<li>IMM 5475 – Authority to Release Personal Information</li>
+</ul>
+<div class="shot plain"><img src="images/img-p43-Im9.png" alt="" style="max-width:227px"/></div>
+<p>I-click ang delete icon kung nagkamali kang magdagdag ng porma. Maaari mong i-download ang mga porma sa:</p>
+<ul>
+<li>International Skilled Workers <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">link</a>, pagkatapos ay piliin ang subcategory. O kaya</li>
+<li>Saskatchewan Experience <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">link</a>, pagkatapos ay piliin ang subcategory.</li>
+</ul>
+<h2 id="s4-4" class="sec-h1">4.4 Hakbang 1: Mga Buton ng Paglikha (Step 1 Create Buttons)</h2>
+<p>I-click ang mga buton na <strong>Create…</strong> kung naaangkop sa iyo:</p>
+<div class="shot"><img src="images/img-p43-Im1.png" alt="" style="max-width:717px"/></div>
+<p>I-click ang <strong>Create</strong> kung ikaw ay kasalukuyang nagtatrabaho sa Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im3.png" alt="" style="max-width:334px"/></div>
+<p>I-click ang <strong>Create</strong> kung mayroon kang kamag-anak na kasalukuyang naninirahan sa Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im5.png" alt="" style="max-width:378px"/></div>
+<p>I-click ang <strong>Create</strong> kung mayroon kang miyembro ng pamilya na sasama sa iyo sa Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im7.png" alt="" style="max-width:322px"/></div>
+<h2 id="s4-5" class="sec-h1">4.5 Work Permit (Permiso sa Trabaho)</h2>
+<p>Awtomatikong gagawin ang record ng Work Permit kung ikaw ay nag-a-apply sa ilalim ng Saskatchewan Experience category. Kung ikaw ay nag-a-apply sa ilalim ng International Skilled Category – With Employment Offer ngunit kasalukuyang nagtatrabaho sa Canada, mangyaring gumawa ng record ng work permit.</p>
+<p>Punan ang mga kinakailangang field gaya ng nakasaad sa iyong dokumento:</p>
+<div class="shot"><img src="images/img-p44-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p44-Im5.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<div class="shot"><img src="images/img-p44-Im7.png" alt="" style="max-width:801px"/></div>
+<p>Kung ikaw ay may open spousal work permit, mangyaring i-click ang yes.</p>
+<p>I-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong> upang magpatuloy.</p>
+<h2 id="s4-6" class="sec-h1">4.6 Kamag-anak na Nasa Canada (In-Canada Relative)</h2>
+<p>Awtomatikong gagawin ang record na 'Relative currently residing in Canada' kung sinagot mong 'Yes' ang tanong na ito:</p>
+<div class="shot"><img src="images/img-p44-Im1.png" alt="" style="max-width:741px"/></div>
+<p>Punan ang mga kinakailangang field gaya ng ipinapakita sa ibaba:</p>
+<div class="shot"><img src="images/img-p45-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p45-Im7.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<p>I-click ang <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p45-Im3.png" alt="" style="max-width:282px"/></div>
+<p>I-click ang buton sa ibaba upang magdagdag ng isa pang In-Canada relative.</p>
+<div class="shot plain"><img src="images/img-p45-Im5.png" alt="" style="max-width:230px"/></div>
+<p>I-click ang buton sa ibaba upang burahin ang screen kung ito ay naidagdag nang mali.</p>
+<h2 id="s4-7" class="sec-h1">4.7 Pondo at Plano sa Pananahanan (Settlement Funds and Settlement Plan)</h2>
+<h3 id="s4-7-plan" class="sec-h2">4.7.a Plano sa Pananahanan (Settlement Plan)</h3>
+<p>Kailangan mong gumawa at maglakip ng settlement plan.</p>
+<div class="shot plain"><img src="images/img-p45-Im9.png" alt="" style="max-width:153px"/></div>
+<p>I-upload ang iyong Settlement Plan sa pamamagitan ng pag-click sa buton sa ibaba, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<h3 id="s4-7-funds" class="sec-h2">4.7.b Pondo sa Pananahanan (Settlement Funds)</h3>
+<p>Kailangan mong panatilihin ang minimum na pondo na kinakailangan para sa laki ng iyong pamilya nang hindi bababa sa tatlong buwan bago ang iyong aplikasyon.</p>
+<div class="shot"><img src="images/img-p46-Im11.png" alt="" style="max-width:763px"/></div>
+<p>Punan ang mga kinakailangang field sa bawat sequence gaya ng ipinapakita sa ibaba:</p>
+<div class="shot"><img src="images/img-p46-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Dapat kang maglakip ng kopya ng iyong account statement(s).</p>
+<div class="shot plain"><img src="images/img-p46-Im1.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang icon, pagkatapos ay piliin ang Browse. Hanapin ang dokumento sa iyong file directory, piliin ang dokumento, at i-click ang Upload File.</p>
+<div class="shot"><img src="images/img-p46-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Ipinapakita sa ibaba ng buton ng upload ang listahan ng mga katanggap-tanggap na dokumento ng proof of funds, kasama ang bilang ng buwan na kinakailangan para sa pondo.</p>
+<p>Kung nagbibigay ka ng karagdagang dokumento na may kaugnayan sa account sa isang partikular na sequence, i-click ang <strong>Add an Additional Document</strong> at i-upload ang dokumento.</p>
+<div class="shot plain"><img src="images/img-p46-Im7.png" alt="" style="max-width:214px"/></div>
+<p>Kung nagbibigay ka ng isa pang Settlement Fund account, i-click ang <strong>Add another Settlement Funds</strong> upang gumawa ng susunod na sequence.</p>
+<div class="shot plain"><img src="images/img-p46-Im9.png" alt="" style="max-width:243px"/></div>
+<p>Kapag tapos ka na sa paglalagay ng iyong Settlement Plan at Settlement Funds, i-click ang <strong>Save</strong>, pagkatapos ay <strong>Next</strong>, upang magpatuloy.</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Kinakailangang dokumentasyon para sa Settlement Funds:</p>
+<p>Ang minimum na kinakailangang halaga para sa iyong aplikasyon ay nakapost sa aming website. Mangyaring i-click ang <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">link na ito</a>, piliin ang kategoryang iyong pinag-a-applyan, i-click ang tab na "Required Documents", at hanapin ang "Required Documents, Settlement Funds".</p>
+<p>Dapat ang proof of funds:</p>
+<ul>
+<li>ay opisyal na sulat, opisyal na statement, at/o sertipiko mula sa isa o higit pang institusyong pampinansyal.</li>
+<li>napanatili nang hindi bababa sa 3 buwan bago magsumite ng iyong aplikasyon at napanatili sa buong proseso ng imigrasyon (hindi mag-eexpire matapos maisumite ang aplikasyon).</li>
+<li>ay nasa pangalan ng principal applicant o asawa, o hawak nang magkasama.</li>
+</ul>
+<p>Dapat ipakita ng fund statement ang detalyadong transaction history nang hindi bababa sa tatlong buwan bago magsumite ng aplikasyon, at isama ang uri ng currency, pangalan ng may-hawak ng pondo, impormasyon sa pakikipag-ugnayan ng institusyong pampinansyal, mga numero ng account, transaksyon, at balanse.</p>
+<p>Ang lahat ng dokumentong hindi inisyu sa Ingles o Pranses ay dapat may kasamang certified translation.</p>
+<p>Upang matukoy kung sapat ang settlement funds, dapat ipakita ng account na noong ito ay nasa pinakamababang halaga, natugunan pa rin nito ang settlement requirement para sa laki ng sambahayan.</p>
+<p>Ang sumusunod na uri ng pondo ay tatanggapin:</p>
+<ul>
+<li>Personal na chequing o savings account</li>
+<li>Bonds</li>
+<li>Cash value life insurance</li>
+<li>Guaranteed Investment Certificate (GICs) o Certificates of Deposit</li>
+<li>Mutual Funds</li>
+<li>Provident Funds (kinakailangan ang opisyal na sulat mula sa provident fund organization na nagsasaad ng halagang ma-access)</li>
+<li>Registered Retirement Savings Plans (RRSPs)</li>
+<li>Stocks</li>
+<li>Tax Free Savings Accounts (TFSAs)</li>
+<li>Term deposit at time deposit (dapat wasto sa oras ng aplikasyon at mananatiling wasto sa buong proseso ng aplikasyon)</li>
+<li>Treasury Bills</li>
+</ul>
+<p style="margin-bottom:0;">Ang mga Debenture, credit card, lines of credit, ginto, cash, ari-arian, o negosyo ay HINDI tinatanggap bilang settlement funds.</p>
+</div>
+<h2 id="s4-8" class="sec-h1">4.8 Kasamang at Hindi Kasamang Miyembro ng Pamilya (Accompanying and Non-Accompanying Family Member)</h2>
+<div class="note-box">Isang indibidwal (asawa, common-law partner, o dependent na anak) na nagbabalak na mangibang-bansa kasama ka patungong Saskatchewan. Ang mga kasamang adult child dependent ay maaaring isama sa SINP Certificate of Nomination kung ikaw ay naaprubahan bilang provincial nominee at kung ang adult child dependent ay natutugunan ang hindi bababa sa <strong>isa</strong> sa sumusunod na pamantayan:
+<ul style="margin:10px 0 0;">
+<li>wala pang 22 taong gulang at walang asawa o common-law partner; at/o</li>
+<li>umaasa sa iyong suportang pinansyal dahil sa isang kondisyong pangkaisipan o pisikal.</li>
+</ul>
+<p style="margin:10px 0 0;">Hindi maaaring isama sa aplikasyon ng SINP ang mga magulang at kapatid ng principal applicant.</p>
+</div>
+<p>Sa ilalim ng Hakbang 1, i-click ang <strong>Create a Family Member</strong> kung mayroon kang miyembro ng pamilya na sasama sa iyo sa Canada.</p>
+<div class="shot plain"><img src="images/img-p48-Im7.png" alt="" style="max-width:322px"/></div>
+<p>Punan ang mga kinakailangang field gaya ng ipinapakita sa ibaba:</p>
+<div class="shot"><img src="images/img-p48-Im1.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p48-Im5.png" alt="" style="max-width:227px"/></div>
+<p>I-click ang icon kung ang screen na ito ay ginawa nang mali.</p>
+<div class="shot plain"><img src="images/img-p48-Im3.png" alt="" style="max-width:427px"/></div>
+<p>I-click ang <strong>Create/Change Application Screens for Family Member</strong> upang magdagdag ng mga screen para sa:</p>
+<h4 id="s4-8-a1" class="sec-h3">4.8.a Kasamang Dependent na Wala pang 18 Taong Gulang (Accompanying Dependant under 18)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+</ul>
+<h4 id="s4-8-a2" class="sec-h3">4.8.b Kasamang Dependent na 18-21 Taong Gulang (Accompanying Dependant 18-21)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-a3" class="sec-h3">4.8.c Kasamang Asawa (Accompanying Spouse)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-n1" class="sec-h3">4.8.d Hindi Kasamang Asawa (Non-Accompanying Spouse)</h4>
+<ul>
+<li>Walang kinakailangang screen</li>
+</ul>
+<h4 id="s4-8-n2" class="sec-h3">4.8.e Hindi Kasamang Dependent na 18 Taong Gulang Pataas</h4>
+<ul>
+<li>Walang kinakailangang screen</li>
+</ul>
+<h4 id="s4-8-n3" class="sec-h3">4.8.f Hindi Kasamang Dependent na Wala pang 18 Taong Gulang</h4>
+<ul>
+<li>Custody/Child Support</li>
+</ul>
+<p>Dapat mong punan ang sumusunod na screen at ilakip ang mga kinakailangang dokumento.</p>
+<div class="shot"><img src="images/img-p49-Im1.png" alt="" style="max-width:900px"/></div>
+<p><strong>Birth Document</strong> – Punan ang First Name, Middle Name (kung naaangkop), at Family Name at Birth – gaya ng nakasaad sa dokumento ng kapanganakan.</p>
+<p>Kung mayroon kang miyembro ng pamilya na ipinanganak sa Canada, dapat kang gumawa ng record at ilakip ang Birth Certificate upang patunayan ang Canadian citizenship. Hindi na kailangan ang pasaporte.</p>
+<p><strong>Passport</strong> – Punan ang Country, Passport Number (walang espasyo), at Passport Expiry Date (sa format na DD-Mon-YYYY) gaya ng nakasaad sa iyong dokumento.</p>
+<div class="shot plain"><img src="images/img-p50-Im3.png" alt="" style="max-width:248px"/></div>
+<p>Para sa Asawa, punan ang Previous First Name, Previous Last Name, at Petsa kung kailan pumasok ang Asawa sa napiling marital status, at ilakip ang mga kinakailangang dokumento. I-click ang <strong>Create another Marital Status</strong> upang magdagdag ng isa pang marital status record.</p>
+<h4 id="s4-8-imm5406" class="sec-h3">4.8.g IMM 5406 – Karagdagang Impormasyon ng Miyembro ng Pamilya (Additional Family Member Information)</h4>
+<p><em>Dapat mong i-download, punan, at ilakip ang pederal na porma na ito.</em></p>
+<h4 id="s4-8-schedulea" class="sec-h3">4.8.h Schedule A – Deklarasyon ng Background (Background Declaration)</h4>
+<p><em>Dapat mong i-download, punan, at ilakip ang pederal na porma na ito.</em></p>
+<p>Sa bawat screen, i-click ang icon na <strong>Save</strong> upang i-save ang iyong mga entry, at ang icon na Attach upang ilakip ang mga kinakailangang dokumento.</p>
+<div class="shot plain"><img src="images/img-p50-Im7.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p50-Im9.png" alt="" style="max-width:153px"/></div>
+<div class="shot plain"><img src="images/img-p50-Im11.png" alt="" style="max-width:435px"/></div>
+<p>I-click ang icon, pagkatapos ay i-click ang icon upang magpatuloy sa iyong aplikasyon.</p>
+<div class="shot plain"><img src="images/img-p50-Im5.png" alt="" style="max-width:420px"/></div>
+<h2 id="s4-9" class="sec-h1">4.9 Alok ng Trabaho (Job Offer)</h2>
+<p>Sa record ng Job Offer, awtomatikong mapupunan ang mga field batay sa mga halagang EPA na ilalagay mo sa seksyong Eligibility. Dapat mong ilagay ang petsa ng Job Offer, i-upload ang Job Offer Letter, at piliin ang validate.</p>
+<div class="shot"><img src="images/img-p50-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Pakitandaan na hindi mo maisusumite ang iyong aplikasyon sa SINP kung mabigo ang pag-validate ng job offer o kung hindi mo naabot ang deadline ng pagsusumite gaya ng nakasaad sa iyong EPA Approval.</p>
+<div class="shot"><img src="images/img-p51-Im4.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Dapat ang Letter of Offer:</p>
+<ul style="margin-bottom:0;">
+<li>ay nakaalam sa principal applicant;</li>
+<li>magsaad ng job title, mga tungkulin at responsibilidad, sahod, benepisyo, at impormasyon sa pakikipag-ugnayan ng kumpanya;</li>
+<li>ilista ang lokasyon (hal., bayan/lungsod) ng iyong posisyon sa Saskatchewan;</li>
+<li>ay inisyu sa letterhead ng kumpanya; at,</li>
+<li>lagdaan ng employer.</li>
+</ul>
+</div>
+<div class="shot plain"><img src="images/img-p51-Im3.png" alt="" style="max-width:721px"/></div>
+<p>Dapat mo ring i-click ang buton na <strong>Validate</strong> bago ka magpatuloy sa susunod na hakbang, kung hindi ay hindi mo maisusumite ang iyong aplikasyon dahil ito ay mamamarkahan bilang hindi kumpleto.</p>
+<div class="shot"><img src="images/img-p51-Im5.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Next</strong> upang magpatuloy.</p>
+<p>I-upload ang kopya ng iyong Job Offer Letter at i-click ang icon na <strong>Save</strong> upang i-save ang iyong mga entry.</p>
+<div class="shot plain"><img src="images/img-p51-Im1.png" alt="" style="max-width:44px"/></div>
+<h2 id="s4-10" class="sec-h1">4.10 Patunay ng Lisensya (Proof of Licensure)</h2>
+<p>Kung ikaw ay nag-a-apply sa ilalim ng Health Talent Pathways, dapat kang magbigay ng kopya ng iyong medical license, at punan ang mga field na ito:</p>
+<div class="shot"><img src="images/img-p52-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Pakitandaan na ang SRNA ay kilala na ngayon bilang College of Registered Nurses of Saskatchewan (CRNS).</p>
+<div class="shot plain"><img src="images/img-p52-Im1.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p52-Im5.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang icon na <strong>Save</strong> upang i-save ang iyong mga entry, at ang icon na Attach upang ilakip ang mga kinakailangang dokumento.</p>
+<p>I-click ang <strong>Next</strong> upang magpatuloy.</p>
+<h2 id="s4-11" class="sec-h1">4.11 Lisensya sa Pagmamaneho (Driver's License)</h2>
+<p>Kung ikaw ay nag-a-apply bilang Truck Driver sa ilalim ng Existing Work Permit Sub-Category, dapat kang magkaroon ng wastong Class 1A Saskatchewan Driver's License.</p>
+<p>Punan ang mga kinakailangang field na ito:</p>
+<div class="shot"><img src="images/img-p52-Im3.png" alt="" style="max-width:900px"/></div>
+<h4 id="s4-11-1" class="sec-h3">4.11.1 Endorsement (Pagpapatibay)</h4>
+<p>Magdagdag ng endorsement record. Makikita ito sa iyong driver's license:</p>
+<div class="shot"><img src="images/img-p52-Im9.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Create a Licence Endorsement</strong> upang magdagdag ng isa pang endorsement record.</p>
+<div class="shot plain"><img src="images/img-p52-Im11.png" alt="" style="max-width:258px"/></div>
+<h4 id="s4-11-2" class="sec-h3">4.11.2 Restriction (Paghihigpit, kung naaangkop)</h4>
+<p>Magdagdag ng restriction record kung naaangkop ito sa iyo. Makikita ito sa iyong driver's license.</p>
+<div class="shot"><img src="images/img-p53-Im1.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang <strong>Create a Licence Restriction</strong> upang magdagdag ng isa pang restriction record.</p>
+<div class="shot plain"><img src="images/img-p53-Im11.png" alt="" style="max-width:240px"/></div>
+<p>Ilakip ang kopya ng iyong Class 1A Saskatchewan Driver's License.</p>
+<div class="shot plain"><img src="images/img-p53-Im9.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p53-Im13.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang icon na <strong>Save</strong> upang i-save ang iyong mga entry, at ang icon na Attach upang ilakip ang mga kinakailangang dokumento.</p>
+<h2 id="s4-12" class="sec-h1">4.12 Nakaraang Aplikasyon (Previous Application)</h2>
+<p>Kung mayroon kang nakaraang provincial o federal na aplikasyon sa Canada, dapat mong punan ang mga kinakailangang field na ito:</p>
+<div class="shot"><img src="images/img-p53-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Ilakip ang huling dokumento(ng) natanggap kaugnay sa iyong nakaraang aplikasyon, hal. IRCC Refusal Letter, SINP Ineligible Letter, atbp.</p>
+<div class="shot plain"><img src="images/img-p53-Im5.png" alt="" style="max-width:44px"/></div>
+<div class="shot plain"><img src="images/img-p53-Im15.png" alt="" style="max-width:153px"/></div>
+<p>I-click ang icon na <strong>Save</strong> upang i-save ang iyong mga entry, at ang icon na Attach upang ilakip ang mga kinakailangang dokumento.</p>
+<div class="shot plain"><img src="images/img-p53-Im7.png" alt="" style="max-width:298px"/></div>
+<p>I-click ang icon upang gumawa ng isa pang record.</p>
+<p>I-click ang <strong>Next</strong> upang magpatuloy.</p>
+<h2 id="s4-13" class="sec-h1">4.13 Mga Kinakailangang Screen ng Aplikasyon para sa Bawat Kategorya (Required Application Screens for Each Category)</h2>
+<h2 id="s4-13-1" class="sec-h1">4.13.1 Internasyonal na Manggagawang May Kasanayan (International Skilled Worker)</h2>
+<p><strong>a. Occupations In-Demand:</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (kung naaangkop)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Express Entry:</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (kung naaangkop)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>c. With Employment Offer:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (kung naaangkop)</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>d. Agriculture Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>e. Innovation and Tech Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (kung naaangkop)</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>f. Innovation and Tech Talent Pathway – Express Entry:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (kung naaangkop)</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>g. Health Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (kung naaangkop)</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>h. Health Talent Pathway – Express Entry:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (kung naaangkop)</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s4-13-2" class="sec-h1">4.13.2 Karanasan sa Saskatchewan (Saskatchewan Experience)</h2>
+<p><strong>a. Existing Work Permit:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Driver's License (kung naaangkop)</li>
+<li>Driver's License Endorsement (kung naaangkop)</li>
+<li>Driver's License Restriction (kung naaangkop)</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Students:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (kung naaangkop)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s5-0" class="sec-h1">5.0 Suriin ang mga Screen ng Aplikasyon at Isumite (Check Application Screens and Submit)</h2>
+<p>I-click ang <strong>Check All Application Screens and Submit</strong> upang isumite ang iyong aplikasyon. Tiyaking suriin ang lahat ng babala at error bago isumite.</p>
+<div class="shot plain"><img src="images/img-p55-Im1.png" alt="" style="max-width:340px"/></div>
+<p><strong>Mahalagang nakalakip ang lahat ng kinakailangang dokumento sa iyong aplikasyon. Kung magsusumite ka ng hindi kumpletong aplikasyon na may nawawalang dokumento, tatanggihan ang iyong aplikasyon at hindi na maisasauli ang iyong bayad. Hindi na tatanggapin ang mga karagdagang dokumentong ipapadala matapos mong isumite ang iyong aplikasyon, maliban kung hiningi ito.</strong></p>
+<h2 id="s6-0" class="sec-h1">6.0 Pagbabayad ng Bayad – Lahat ng Kategorya ng SINP (Fee Payment – All SINP Categories)</h2>
+<p class="warn-red">Pakitandaan na hindi ka na makakagawa ng pagbabago sa iyong aplikasyon matapos gawin ang pagbabayad. Sa sandaling mabayaran ang bayad, awtomatikong maisusumite ang iyong aplikasyon. Hindi na tatanggapin ang mga karagdagang dokumentong ipapadala matapos ang pagsusumite.</p>
+<p>Matapos i-click ang buton na "Check All Application Screens and Submit", lalabas ang Invoice Page na nagsasaad ng bayad na dapat bayaran. Nasa katayuang "Pending" ang invoice hanggang matagumpay ang pagbabayad.</p>
+<div class="shot"><img src="images/img-p56-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Matapos ilagay ang impormasyon ng iyong credit card at suriin ang halagang babayaran, i-click ang "Pay".</p>
+<p>Matapos ang matagumpay na pagbabayad, ipapakita ng katayuan ang "Payment Received" at naisumite na ang iyong aplikasyon.</p>
+<div class="shot"><img src="images/img-p57-Im1.png" alt="" style="max-width:900px"/></div>
+<p>I-click ang buton na "Go to Home Page" upang bumalik sa iyong aplikasyon. Maaari mong tingnan ang invoice sa pamamagitan ng pag-click sa buton sa ibaba.</p>
+<div class="shot plain"><img src="images/img-p57-Im3.png" alt="" style="max-width:533px"/></div>
+<h2 id="s7-0" class="sec-h1">7.0 Natanggap ang Aplikasyon (Application Received)</h2>
+<p>Makakatanggap ka ng file number matapos mong isumite ang iyong aplikasyon:</p>
+<div class="shot"><img src="images/img-p58-Im1.png" alt="" style="max-width:766px"/></div>
+<p>Makakatanggap ka ng resibong sulat (receipt letter) sa loob ng 24–48 oras matapos ang pagsusumite (halimbawa: 9999999).</p>
+<h2 id="s8-0" class="sec-h1">8.0 Kahilingan para sa Karagdagang Impormasyon (Request for Additional Information)</h2>
+<p>Kung ang iyong aplikasyon ay nangangailangan ng karagdagang dokumento upang maproseso, makakatanggap ka ng komunikasyon mula sa SINP sa pamamagitan ng OASIS. Upang tingnan ang iyong komunikasyon, maaari kang mag-click sa link na ibinigay sa email, o mag-login sa OASIS.</p>
+<p>Upang isumite ang iyong mga dokumento, mangyaring mag-login sa iyong OASIS account at i-click ang 'Submit Requested Documents'. I-upload ang hiniling na dokumento(ng) sa record na 'Request Additional Information' at i-click ang buton na 'Submit'.</p>
+<p>Maaari mo ring ma-access ang record na 'Request Additional Information' sa pamamagitan ng pag-click sa View Submitted Part 2.</p>
+<p>Pakitandaan na hindi tatanggapin ang mga dokumentong natanggap sa pamamagitan ng email. Dapat mong ilakip ang lahat ng dokumento sa pamamagitan ng iyong OASIS account.</p>
+<div style="text-align:center; margin:20px 0 8px; font-weight:bold; color:#333;">
+<span style="display:inline-block; width:46%; min-width:220px;">Applicant home screen:</span>
+<span style="display:inline-block; width:46%; min-width:220px;">Representative home screen:</span>
+</div>
+<div class="shot-row">
+<img src="images/img-p58-Im7.png" alt="" style="max-width:421px"/>
+<img src="images/img-p58-Im3.png" alt="" style="max-width:387px"/>
+</div>
+<div class="shot"><img src="images/img-p58-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Kung kailangan mo ng karagdagang oras upang isumite ang iyong mga dokumento, maaari mong ipadala ang iyong kahilingan sa pamamagitan ng pagpuno sa porma sa ibaba at pag-click sa 'Request Extension to Submit Documents'.</p>
+<div class="shot"><img src="images/img-p59-Im5.png" alt="" style="max-width:805px"/></div>
+<p>Ang iyong kahilingan para sa extension ay maaaring o hindi maaprubahan. Makakatanggap ka ng komunikasyon kung ang iyong kahilingan para sa extension ay naaprubahan o tinanggihan. Mangyaring i-upload ang lahat ng dokumentasyong kasalukuyang mayroon ka upang masagot ang kahilingan para sa impormasyon bago magsumite ng kahilingan para sa extension.</p>
+<h2 id="s9-0" class="sec-h1">9.0 Pag-update ng Numero ng Profile sa Express Entry at Job Seeker Validation Code (Update Express Entry Profile Number and Job Seeker Validation Code)</h2>
+<p>Kung sa panahon ng pagproseso, nagbago ang iyong Express Entry Profile Number at Job Seeker Validation Code, maaari mo itong i-update sa pamamagitan ng pagbukas sa iyong aplikasyon. Sa ilalim ng Bahagi 2 ng iyong aplikasyon sa SINP (o Main Application Page), i-click ang buton sa ibaba.</p>
+<div class="shot"><img src="images/img-p59-Im1.png" alt="" style="max-width:458px"/></div>
+<p>Lalabas ang pahinang pinamagatang "Information Changes", at maaari mong baguhin ang impormasyon ng iyong Express Entry Profile sa pamamagitan ng pagpuno sa mga field na ibinigay. Matapos ilagay ang impormasyon, i-click ang 'Save' pagkatapos ay ang buton na 'Submit Changes'.</p>
+<div class="shot"><img src="images/img-p59-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Kung magpasya kang kanselahin ang hakbang na ito, i-click ang 'Move to Part 2' nang hindi nagse-save, o i-click ang 'Cancel Changes'.</p>
+<p>Maaari kang bumalik sa mga pangunahing seksyon ng aplikasyon sa pamamagitan ng pag-click sa 'Move to Part 2'. Maaari mong baguhin ang impormasyong ito anumang oras habang aktibo ang iyong file.</p>
+<h2 id="s10-0" class="sec-h1">10.0 Proseso ng Ikalawang Pagsusuri (Second Review Process)</h2>
+<p>Kung itinuring na hindi kwalipikado (ineligible) ang iyong aplikasyon ng SINP at naniniwala kang may nagkamali sa pagproseso ng aplikasyon o sa pagtatasa ng aplikasyon batay sa pamantayang umiiral noong panahon ng aplikasyon, maaari kang humiling ng ikalawang pagsusuri (second review). Mayroon kang 30 araw mula sa petsa ng pag-isyu ng SINP ng ineligible letter upang gawin ang kahilingan. Hindi na tatanggapin ng sistema ang anumang kahilingan matapos mag-expire ang 30 araw.</p>
+<p>Upang humiling ng ikalawang pagsusuri, sa ilalim ng Bahagi 2 ng iyong aplikasyon, mangyaring i-click ang buton na 'Request for Second Review'.</p>
+<div class="shot"><img src="images/img-p60-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Lalabas ang isang confirmation window at kung sumasang-ayon ka sa mga tuntunin at kundisyong nakasaad, mangyaring i-click ang buton na 'Create Appeal Request'.</p>
+<div class="shot"><img src="images/img-p60-Im1.png" alt="" style="max-width:554px"/></div>
+<p>Gagawa ng record ng Appeal Request na iyong pupunan, at maaari kang maglakip ng dokumentasyon upang suportahan ang iyong kahilingan.</p>
+<div class="shot"><img src="images/img-p61-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Kung hindi mo pa naisusumite ang apela, mula sa pangunahing application screen, maaari mong tingnan ang iyong nakabinbing kahilingan para sa ikalawang pagsusuri sa pamamagitan ng pag-click sa buton na 'View Second Review Request'.</p>
+<div class="shot"><img src="images/img-p61-Im3.png" alt="" style="max-width:896px"/></div>
+<p class="warn-red">Mayroon kang 30 araw mula sa petsa ng pag-isyu ng SINP ng ineligible letter upang gawin ang kahilingan. Hindi na tatanggapin ng sistema ang anumang kahilingan matapos mag-expire ang 30 araw.</p>
+<p>Matapos ang 30-araw na palugit, hindi ka na makakahiling ng ikalawang pagsusuri.</p>
+<div class="shot"><img src="images/img-p62-Im1.png" alt="" style="max-width:484px"/></div>
+<p>Kung hindi mo naisumite ang apela at lumipas na ang 30-araw na palugit, hindi mo na maisusumite ang nakabinbing kahilingan.</p>
+<div class="shot"><img src="images/img-p62-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Upang isumite ang iyong apela sa loob ng 30-araw na palugit, mangyaring i-click ang 'Submit Appeal Request'.</p>
+<div class="shot"><img src="images/img-p62-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Lalabas ang isang warning message na nagpapaalam na iri-redirect ka upang bayaran ang bayad sa ikalawang pagsusuri.</p>
+<div class="shot"><img src="images/img-p63-Im3.png" alt="" style="max-width:648px"/></div>
+<p>Kung i-click mo ang "Yes, Continue" ire-redirect ka sa payment page. <em>Paalala: Kung i-click mo ang "No, Go Back" ire-redirect ka pabalik sa appeal request page.</em></p>
+<div class="shot"><img src="images/img-p63-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Kapag nailagay mo na ang impormasyon ng iyong credit card, i-click ang "Pay".</p>
+<div class="shot"><img src="images/img-p64-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Matapos ang matagumpay na pagbabayad, awtomatikong maisusumite ang iyong kahilingan para sa ikalawang pagsusuri. Makakatanggap ka ng komunikasyon na nagpapaalam na natanggap ang iyong kahilingan para sa ikalawang pagsusuri.</p>
+<p>Maaaring tanggihan ang kahilingan para sa ikalawang pagsusuri kung hindi mo maipaliwanag ang dahilan ng pagsusuri. Kapag tinanggihan ang kahilingan, isasara ang iyong kaso. Kung tinanggap ang iyong kahilingan, gagawa ng kaso para sa ikalawang pagsusuri, at aabisuhan ka sa pamamagitan ng email na ang iyong aplikasyon ay inilagay sa ilalim ng ikalawang pagsusuri.</p>
+<div class="shot"><img src="images/img-p64-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Kung magpasya kang bawiin ang iyong kahilingan para sa ikalawang pagsusuri, mangyaring i-click ang buton na 'Withdraw Second Review Request'.</p>
+<p>Lalabas ang isang warning message upang kumpirmahin na binabawi mo ang iyong kahilingan para sa ikalawang pagsusuri.</p>
+<div class="shot"><img src="images/img-p65-Im1.png" alt="" style="max-width:461px"/></div>
+<p style="text-align:center; margin-top:40px;"><em>- Katapusan ng Gabay -</em></p>
+<p style="text-align:center;"><strong>Salamat sa iyong interes sa Saskatchewan Immigrant Nominee Program.</strong></p>
+<footer class="doc-footer">SINP – OASIS Gabay ng Gumagamit para sa mga Aplikante · Abril 2026</footer>
+</div>
+</body>
+</html>
