@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SINP – OASIS Hướng dẫn Sử dụng cho Người nộp đơn</title>
+<style>
+:root {
+  --ink: #1a1a1a;
+  --green: #1a5632;
+  --green-dark: #123d23;
+  --paper: #ffffff;
+  --page-bg: #e9e9e4;
+  --rule: #c9c9c0;
+  --note-bg: #eef4fb;
+  --note-border: #9db8d8;
+  --callout-border: #d8b3b3;
+  --highlight-bg: #fff6df;
+  --highlight-border: #d9a441;
+  --warn-red: #b12727;
+}
+* { box-sizing: border-box; }
+html { background: var(--page-bg); }
+body {
+  margin: 0;
+  padding: 40px 16px 100px;
+  background: var(--page-bg);
+  font-family: "Times New Roman", Georgia, "Liberation Serif", serif;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 56px 64px 72px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 8px 30px rgba(0,0,0,0.12);
+}
+/* Cover */
+.cover { text-align: center; padding-top: 20px; padding-bottom: 48px; border-bottom: 3px solid var(--green); margin-bottom: 40px;}
+.cover img.logo { height: 92px; margin-bottom: 6px; }
+.cover h1 { font-size: 30px; color: var(--green); margin: 28px 0 6px; line-height: 1.3; }
+.cover .subtitle { font-size: 19px; color: #444; margin-bottom: 30px; font-style: italic; }
+.cover .contact { font-size: 15px; color: #333; margin-top: 30px; line-height: 1.7; }
+.cover .contact a { color: var(--green); }
+.cover .datestamp { margin-top: 18px; font-size: 15px; color: #555; }
+.cover .brief-note { margin-top: 34px; font-size: 13.5px; color: #8a8a8a; border-top: 1px dashed var(--rule); padding-top: 16px; }
+
+/* TOC */
+.toc { margin: 0 0 48px; padding: 24px 28px; background: #f7f7f3; border: 1px solid var(--rule); }
+.toc-title { color: var(--green); font-size: 20px; margin: 0 0 14px; border-bottom: 2px solid var(--green); padding-bottom: 8px; }
+.toc-list { list-style: none; margin: 0; padding: 0; column-count: 1; }
+.toc-list li { padding: 3px 0; font-size: 15px; }
+.toc-list li.toc-lvl1 { font-weight: bold; margin-top: 10px; }
+.toc-list li.toc-lvl2 { padding-left: 22px; }
+.toc-list li.toc-lvl3 { padding-left: 42px; font-size: 14px; }
+.toc-list li a { color: var(--green-dark); text-decoration: none; }
+.toc-list li a:hover { text-decoration: underline; }
+.toc-list li.toc-inactive { color: #aaa; font-style: italic; }
+.toc-list li.toc-inactive.toc-lvl1 { color: #999; }
+
+/* Headings */
+h2.sec-h1 { color: var(--green); font-size: 24px; margin: 46px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--green); scroll-margin-top: 20px;}
+h3.sec-h2 { color: var(--green); font-size: 19px; margin: 34px 0 12px; scroll-margin-top: 20px;}
+h4.sec-h3 { color: var(--green-dark); font-size: 16px; text-decoration: underline; margin: 26px 0 10px; scroll-margin-top: 20px;}
+
+/* Text */
+p { margin: 0 0 14px; text-align: left; }
+p.lead-bold { font-weight: bold; }
+p.warn-red { color: var(--warn-red); font-weight: bold; }
+ul, ol { margin: 0 0 16px; padding-left: 28px; }
+li { margin-bottom: 8px; }
+a { color: #1155aa; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/* Callout (warning icon + italic text) */
+.callout { display: flex; align-items: flex-start; gap: 14px; margin: 18px 0 22px; padding: 14px 18px; background: #fdfaf5; border: 1px solid var(--callout-border); border-left: 4px solid #c0392b; }
+.callout-icon { width: 30px; height: 30px; flex: none; margin-top: 2px; }
+.callout-text { font-style: italic; color: #333; }
+
+/* Note box (dashed, blue-ish, matches original's tip/status boxes) */
+.note-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--note-bg); border: 1.5px dashed var(--note-border); font-size: 15.5px; }
+
+/* Highlight box - the user's own 10/60-day emphasis */
+.highlight-box { display:flex; align-items:center; gap: 16px; margin: 24px 0 26px; padding: 18px 22px; background: var(--highlight-bg); border: 2px solid var(--highlight-border); border-radius: 3px; box-shadow: 0 2px 8px rgba(217,164,65,0.25); }
+.highlight-box img.callout-icon { width: 34px; height: 34px; }
+.highlight-box div { font-weight: bold; font-size: 18px; color: #6b4a12; line-height: 1.4; }
+
+/* Screenshots */
+.shot { text-align: center; margin: 20px 0 26px; }
+.shot img { max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+.inline-icon { display: inline-block; height: 1.3em; width: auto; vertical-align: middle; margin: 0 3px; position: relative; top: -1px; }
+.shot-row { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; }
+.shot-row img { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+.img-cap { font-size: 13.5px; color: #666; margin-top: 8px; font-style: italic; }
+
+/* Small inline button-style images get no heavy border/shadow */
+.shot.plain img { box-shadow: none; border: none; }
+
+footer.doc-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 13px; color: #888; text-align: center; }
+
+@media (max-width: 700px) {
+  .page { padding: 28px 20px 50px; }
+  body { font-size: 16px; padding: 16px 8px 60px; }
+  .cover h1 { font-size: 24px; }
+}
+
+/* --- Добавлено при слиянии с Частью 2: в оригинале блоки "Required documentation for..."
+   заключены в рамку с КРАСНЫМ пунктиром (проверено по векторной обводке в PDF), а не в синюю,
+   как .note-box. Заводим для него отдельный класс на основе .note-box. */
+:root { --req-border: #c0504d; --req-bg: #fdf6f5; }
+.req-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--req-bg); border: 1.5px dashed var(--req-border); font-size: 15.5px; }
+
+.lang-switch { text-align:right; max-width:1300px; margin:0 auto 8px; font-size:14px; }
+.lang-switch a { color:#1a5632; text-decoration:none; font-weight:bold; }
+.lang-switch a:hover { text-decoration:underline; }
+</style>
+.inline-icon { display: inline-block; height: 1.3em; width: auto; vertical-align: middle; margin: 0 3px; position: relative; top: -1px; }
+</head>
+<body>
+<div class="lang-switch"><a href="guide_ru.html">Русский (RU)</a> &nbsp;|&nbsp; <a href="guide_ua.html">Українською (UA)</a> &nbsp;|&nbsp; <a href="index.html">English (EN)</a> &nbsp;|&nbsp; <a href="guide_fr.html">Français (FR)</a> &nbsp;|&nbsp; <a href="guide_tl.html">Tagalog (TL)</a> &nbsp;|&nbsp; <a href="guide_pa.html">ਪੰਜਾਬੀ (PA)</a> &nbsp;|&nbsp; <a href="guide_zh.html">简体中文 (ZH)</a></div>
+<div class="page"><div class="cover"><img class="logo" src="images/img-p00-Im0.png" alt="Government of Saskatchewan"/><h1>SINP – OASIS Hướng dẫn Sử dụng cho Người nộp đơn<br><span style="font-size:0.7em;font-weight:normal;color:#555">(User Guide for Applicants)</span></h1><div class="subtitle">Bộ Di trú và Đào tạo Nghề nghiệp<br>(Ministry of Immigration and Career Training)</div><div class="contact">Để biết thêm thông tin, vui lòng liên hệ:<br>Government of Saskatchewan &mdash; Ministry of Immigration and Career Training<br>Immigration Services Branch &mdash; Saskatchewan Immigrant Nominee Program<br>7th Floor, 1945 Hamilton Street, Regina, Saskatchewan S4P 2C8<br>Điện thoại: (Canada 001) 833-613-0485 &nbsp;&middot;&nbsp; Fax: (Canada 001) 306-798-0713<br>Thắc mắc (Inquiries): <a href="mailto:immigration@gov.sk.ca">immigration@gov.sk.ca</a><br>Trang web: <a href="https://www.saskatchewan.ca/sinp" target="_blank">www.saskatchewan.ca/sinp</a></div><div class="datestamp">Tháng 4 năm 2026</div></div><nav class="toc"><h2 class="toc-title">Mục lục (Table of Contents)</h2><ol class="toc-list"><li class="toc-lvl1"><a href="#s1-0">1.0 Giới thiệu và Đăng nhập (Introduction and Log On)</a></li>
+<li class="toc-lvl2"><a href="#s1-1">1.1 Đăng ký trên OASIS (Register on OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-2">1.2 Đăng nhập vào OASIS (Login to OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-3">1.3 Quyền Tiết lộ Thông tin Cá nhân (Authority to Disclose Personal Information)</a></li>
+<li class="toc-lvl2"><a href="#s1-4">1.4 Khôi phục User ID hoặc Mật khẩu (User ID or Password Recovery)</a></li>
+<li class="toc-lvl1"><a href="#s2-0">2.0 Bắt đầu Đơn xin của Bạn (Start your application)</a></li>
+<li class="toc-lvl2"><a href="#s2-1">2.1 Thông tin Người nộp đơn / Chi tiết Hộ chiếu (Applicant Information / Passport Details)</a></li>
+<li class="toc-lvl2"><a href="#s2-2">2.2 Địa chỉ Cư trú/Nhà ở (Residential/Home Address)</a></li>
+<li class="toc-lvl2"><a href="#s2-3">2.3 Địa chỉ Thư tín và Thông tin Liên lạc (Mailing Address and Contact Information)</a></li>
+<li class="toc-lvl2"><a href="#s2-4">2.4 Người đại diện (Representative)</a></li>
+<li class="toc-lvl1"><a href="#s3-0">3.0 Trước khi Nộp đơn và Chi tiết Người nộp đơn (Pre-Application and Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-1">3.1 Điều kiện Đủ tư cách Nộp đơn (Eligibility for Application)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-eoi">3.1.a Expression of Interest (Bày tỏ Nguyện vọng)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-jos">3.1.b Job Offer Streams (Các Diện Có Lời mời Làm việc)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-agri">3.1.c Agriculture Talent Pathway (Con đường Nhân tài Nông nghiệp)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway (Con đường Nhân tài Đổi mới và Công nghệ)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Non-Express Entry (Con đường Nhân tài Y tế)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-work">3.1.f Saskatchewan Experience – Existing Work Permit (Giấy phép Lao động Hiện có)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-student">3.1.g Saskatchewan Experience – Student (Sinh viên)</a></li>
+<li class="toc-lvl2"><a href="#s3-2">3.2 Bảng Điểm Lao động Tay nghề (Skilled Worker Points Grid)</a></li>
+<li class="toc-lvl2"><a href="#s3-3">3.3 Nơi Cư trú Hiện tại và Điểm đến Định cư (Current Residency and Settlement Destination)</a></li>
+<li class="toc-lvl2"><a href="#s3-4">3.4 Chi tiết Người nộp đơn (Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-5">3.5 Tải lên Tài liệu của Bạn (Uploading your documents)</a></li>
+<li class="toc-lvl2"><a href="#s3-6">3.6 Tiết lộ Thông tin (Information Disclosure)</a></li>
+<li class="toc-lvl2"><a href="#s3-7">3.7 Quốc tịch (Citizenship)</a></li>
+<li class="toc-lvl2"><a href="#s3-8">3.8 Giấy tờ Khai sinh (Birth Document)</a></li>
+<li class="toc-lvl2"><a href="#s3-9">3.9 Hộ chiếu (Passport)</a></li>
+<li class="toc-lvl2"><a href="#s3-10">3.10 Tình trạng Hôn nhân (Marital Status)</a></li>
+<li class="toc-lvl2"><a href="#s3-11">3.11 Học vấn (Education)</a></li>
+<li class="toc-lvl3"><a href="#s3-11-enter">3.11.a Nhập/Thay đổi Thông tin Học vấn (Enter/Change Education)</a></li>
+<li class="toc-lvl2"><a href="#s3-12">3.12 Chứng chỉ Quản lý hoặc Giấy phép và Đánh giá Học vấn</a></li>
+<li class="toc-lvl2"><a href="#s3-13">3.13 Kinh nghiệm Làm việc (Work Experience)</a></li>
+<li class="toc-lvl2"><a href="#s3-14">3.14 Khả năng Tiếng Anh/Tiếng Pháp (English/French Ability)</a></li>
+<li class="toc-lvl2"><a href="#s3-15">3.15 Trang Cuối của Phần 1 (Final Page of Part 1)</a></li>
+<li class="toc-lvl2"><a href="#s3-16">3.16 Thay đổi Phần 1 và Chi tiết Người nộp đơn</a></li>
+<li class="toc-lvl1"><a href="#s4-0">4.0 Màn hình Đơn xin cho Lao động Tay nghề (Skilled Worker Application Screens)</a></li>
+<li class="toc-lvl2"><a href="#s4-1">4.1 Màn hình Đơn xin (Application Screen)</a></li>
+<li class="toc-lvl2"><a href="#s4-2">4.2 Mối liên hệ với Saskatchewan (Connection to Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-study">4.2.a Đã học tại Saskatchewan (Studied in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-work">4.2.b Đã làm việc tại Saskatchewan (Worked in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-relative">4.2.c Người thân Ruột thịt tại Saskatchewan (Close Relative in Saskatchewan)</a></li>
+<li class="toc-lvl2"><a href="#s4-3">4.3 Mẫu đơn Liên bang (Federal Forms)</a></li>
+<li class="toc-lvl2"><a href="#s4-4">4.4 Bước 1: Các Nút Tạo (Step 1 Create Buttons)</a></li>
+<li class="toc-lvl2"><a href="#s4-5">4.5 Work Permit (Giấy phép Lao động)</a></li>
+<li class="toc-lvl2"><a href="#s4-6">4.6 Người thân Đang ở Canada (In-Canada Relative)</a></li>
+<li class="toc-lvl2"><a href="#s4-7">4.7 Quỹ Định cư và Kế hoạch Định cư (Settlement Funds and Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-plan">4.7.a Kế hoạch Định cư (Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-funds">4.7.b Quỹ Định cư (Settlement Funds)</a></li>
+<li class="toc-lvl2"><a href="#s4-8">4.8 Thành viên Gia đình Đi cùng và Không Đi cùng</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a1">4.8.a Accompanying Dependant under 18 years of age</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a2">4.8.b Accompanying Dependant 18-21 years old</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a3">4.8.c Accompanying Spouse (Vợ/chồng Đi cùng)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n1">4.8.d Non-Accompanying Spouse (Vợ/chồng Không Đi cùng)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n2">4.8.e Non-Accompanying Dependant 18 years old or older</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n3">4.8.f Non-Accompanying Dependant under 18 years of age</a></li>
+<li class="toc-lvl3"><a href="#s4-8-imm5406">4.8.g IMM 5406 – Additional Family Member Information</a></li>
+<li class="toc-lvl3"><a href="#s4-8-schedulea">4.8.h Schedule A – Background Declaration</a></li>
+<li class="toc-lvl2"><a href="#s4-9">4.9 Lời mời Làm việc (Job Offer)</a></li>
+<li class="toc-lvl2"><a href="#s4-10">4.10 Bằng chứng về Giấy phép Hành nghề (Proof of Licensure)</a></li>
+<li class="toc-lvl2"><a href="#s4-11">4.11 Bằng Lái xe (Driver's License)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-1">4.11.1 Endorsement (Chứng nhận Bổ sung)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-2">4.11.2 Restriction (Hạn chế, nếu có)</a></li>
+<li class="toc-lvl2"><a href="#s4-12">4.12 Đơn xin Trước đây (Previous Application)</a></li>
+<li class="toc-lvl2"><a href="#s4-13">4.13 Các Màn hình Đơn xin Cần thiết cho Từng Diện</a></li>
+<li class="toc-lvl3"><a href="#s4-13-1">4.13.1 Lao động Tay nghề Quốc tế (International Skilled Worker)</a></li>
+<li class="toc-lvl3"><a href="#s4-13-2">4.13.2 Kinh nghiệm Saskatchewan (Saskatchewan Experience)</a></li>
+<li class="toc-lvl1"><a href="#s5-0">5.0 Kiểm tra Màn hình Đơn xin và Nộp đơn (Check Application Screens and Submit)</a></li>
+<li class="toc-lvl1"><a href="#s6-0">6.0 Thanh toán Lệ phí – Tất cả các Diện SINP (Fee Payment)</a></li>
+<li class="toc-lvl1"><a href="#s7-0">7.0 Đã nhận Đơn xin (Application Received)</a></li>
+<li class="toc-lvl1"><a href="#s8-0">8.0 Yêu cầu Bổ sung Thông tin (Request for Additional Information)</a></li>
+<li class="toc-lvl1"><a href="#s9-0">9.0 Cập nhật Số Hồ sơ Express Entry và Mã Xác thực Người tìm việc</a></li>
+<li class="toc-lvl1"><a href="#s10-0">10.0 Quy trình Xét duyệt Lần hai (Second Review Process)</a></li>
+</ol></nav><h2 id="s1-0" class="sec-h1">1.0 Giới thiệu và Đăng nhập (Introduction and Log On)</h2>
+<p>Hướng dẫn này giải thích cách truy cập và sử dụng các màn hình khác nhau liên quan đến Đơn xin Trực tuyến SINP trên hệ thống OASIS.</p>
+<div class="shot"><img src="images/img-p03-01.png" alt="" style="max-width:794px"/></div>
+<p>Nhấp vào liên kết sau để truy cập SINP Online: <a href="https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231" target="_blank" rel="noopener">https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231</a></p>
+<p>Màn hình Welcome (Chào mừng) ở trên sẽ hiển thị. Bạn cần tạo tài khoản trước để truy cập hệ thống.</p>
+<p>Chúng tôi khuyến khích bạn xem lại tất cả các yêu cầu về tài liệu và mẫu đơn cần đính kèm với đơn xin của bạn, và xem lại các tiêu chí dưới đây trước khi bắt đầu đơn xin của bạn.</p>
+<p>Nhấp vào liên kết dưới đây để biết về International Skilled Worker Category (Diện Lao động Tay nghề Quốc tế): <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">International Skilled Worker Category</a></p>
+<p>Nhấp vào liên kết dưới đây để biết về Saskatchewan Experience Category (Diện Kinh nghiệm Saskatchewan): <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">Saskatchewan Experience Category</a></p>
+<h2 id="s1-1" class="sec-h1">1.1 Đăng ký trên OASIS (Register on OASIS)</h2>
+<ul>
+<li>Nhấp vào <strong>Create an Account</strong> (Tạo Tài khoản).</li>
+<li>Nhấp vào <strong>Select a Registration Type</strong> (Chọn Loại Đăng ký).</li>
+</ul>
+<div class="shot"><img src="images/img-p04-04.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Chọn <strong>SINP Applicant or Expression of Interest Candidate</strong> và nhấp vào <strong>Continue</strong> (Tiếp tục).</li>
+<li>Tạo tên đăng nhập (username). Tên đăng nhập không được chứa khoảng trắng hoặc bất kỳ ký tự đặc biệt nào ngoài dấu gạch dưới ('_'). Tên đăng nhập của bạn sẽ được dùng để truy cập tài khoản OASIS của bạn.</li>
+</ul>
+<div class="note-box">Vui lòng nhập tên đăng nhập vào ô được cung cấp. Vui lòng nhập tất cả các mục khác theo Title Case (viết hoa chữ cái đầu mỗi từ).</div>
+<ul>
+<li>Nhập First Name (Tên), Middle Name (Tên đệm), và Family (Last) Name (Họ) của bạn, đúng như trên hộ chiếu của bạn.</li>
+<li>Nhập Date of Birth (Ngày sinh) của bạn theo định dạng DD-Mon-YYYY.</li>
+<li>Nhập Email address (Địa chỉ email) của bạn.</li>
+</ul>
+<div class="callout"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div class="callout-text">Địa chỉ email này sẽ được dùng cho mọi liên lạc trong tương lai liên quan đến đơn xin OASIS của bạn, bao gồm cả việc khôi phục mật khẩu.</div></div>
+<div class="shot"><img src="images/img-p04-01.png" alt="" style="max-width:797px"/></div>
+<p>Nhấp vào <strong>Submit</strong> (Nộp).</p>
+<p>Một email chứa tên đăng nhập và mật khẩu của bạn sẽ được gửi đến bạn. Bạn sẽ cần thông tin này để đăng nhập vào OASIS.</p>
+<h2 id="s1-2" class="sec-h1">1.2 Đăng nhập vào OASIS (Login to OASIS)</h2>
+<ul>
+<li>Trên trang đăng nhập, nhập tên đăng nhập và mật khẩu đã được gửi trong email, và nhấp vào <strong>Login</strong> (Đăng nhập).</li>
+</ul>
+<div class="shot"><img src="images/img-p05-05.png" alt="" style="max-width:636px"/></div>
+<ul>
+<li>Hệ thống sau đó sẽ yêu cầu bạn thay đổi mật khẩu.</li>
+</ul>
+<div class="note-box">Vui lòng lưu ý các yêu cầu sau đây đối với mật khẩu: có ít nhất tám ký tự; chứa các ký tự từ ít nhất ba trong số các loại sau: chữ hoa tiếng Anh (A – Z); chữ thường tiếng Anh (a – z); chữ số (0 – 9); các ký hiệu không phải chữ và số (ví dụ: !, #, $, %); không được chứa tên tài khoản người dùng của bạn.</div>
+<div class="shot"><img src="images/img-p05-01.png" alt="" style="max-width:875px"/></div>
+<div class="shot"><img src="images/img-p05-03.png" alt="" style="max-width:726px"/></div>
+<h2 id="s1-3" class="sec-h1">1.3 Quyền Tiết lộ Thông tin Cá nhân (Authority to Disclose Personal Information)</h2>
+<p>Để tiếp tục đăng nhập vào OASIS lần đầu tiên, tất cả người dùng phải đồng ý tiết lộ thông tin bằng cách nhấp vào nút "I AGREE" (Tôi Đồng ý).</p>
+<div class="shot"><img src="images/img-p06-03.png" alt="" style="max-width:764px"/></div>
+<h2 id="s1-4" class="sec-h1">1.4 Khôi phục User ID hoặc Mật khẩu (User ID or Password Recovery)</h2>
+<p>Để khôi phục quyền truy cập vào tài khoản của bạn, trên trang đăng nhập, nhấp vào "Forgot your User ID or Password?" (Quên User ID hoặc Mật khẩu?), sau đó chọn Recovery Method (Phương thức Khôi phục).</p>
+<div class="shot"><img src="images/img-p06-01.png" alt="" style="max-width:736px"/></div>
+<p>Chọn "User ID" để đặt lại mật khẩu. Bạn sẽ được yêu cầu nhập tên đăng nhập đã dùng khi tạo tài khoản. Một email chứa tên đăng nhập và mật khẩu tạm thời sẽ được gửi đến địa chỉ email liên kết với User ID (hoặc tên đăng nhập) của bạn.</p>
+<p>Nếu bạn muốn khôi phục tài khoản bằng địa chỉ email, hãy nhấp vào "Email" làm phương thức khôi phục. Danh sách các tên đăng nhập liên kết với địa chỉ email của bạn sẽ được gửi đến bạn qua email. Để đặt lại mật khẩu, bạn sẽ cần thực hiện bước trước đó bằng phương thức khôi phục "User ID".</p>
+<h2 id="s2-0" class="sec-h1">2.0 Bắt đầu Đơn xin của Bạn (Start your application)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p07-02.png" alt=""/><div class="callout-text">Đảm bảo rằng bạn đã quét (scan) tất cả các tài liệu và mẫu đơn cần thiết, tốt nhất là ở định dạng pdf, trước khi bắt đầu đơn xin của bạn.</div></div>
+<div class="shot"><img src="images/img-p07-01.png" alt="" style="max-width:497px"/></div>
+<ul>
+<li>Khi quét các tài liệu đã dịch, vui lòng quét tài liệu gốc và bản dịch tiếng Anh hoặc tiếng Pháp, cùng với SINP Translator Affidavit (Bản khai của Người dịch SINP) thành một tài liệu duy nhất. Vui lòng tìm mẫu đơn khai tại: <a href="https://publications.saskatchewan.ca/#/products/76058" target="_blank" rel="noopener">https://publications.saskatchewan.ca/#/products/76058</a></li>
+<li>Để giảm kích thước tài liệu quét, SINP không yêu cầu các trang trống trong hộ chiếu của bạn.</li>
+<li>Đảm bảo tất cả các bản sao đã quét đều rõ ràng và dễ đọc.</li>
+<li>Vui lòng xem lại danh sách kiểm tra theo từng diện để đảm bảo đơn xin của bạn đầy đủ với tất cả các tài liệu cần thiết.</li>
+</ul>
+<p><strong>Lưu ý Quan trọng:</strong> Nếu bạn có bất kỳ câu hỏi nào, gặp sự cố với tên đăng nhập hoặc mật khẩu, hoặc muốn đặt lại mật khẩu, vui lòng gửi email đến immigration@gov.sk.ca hoặc gọi 1-833-613-0485.</p>
+<p class="warn-red">Để bảo mật thông tin cá nhân của bạn, vui lòng đăng xuất khỏi SINP Online Application và đảm bảo đóng hoàn toàn trình duyệt web của bạn khi kết thúc phiên làm việc.</p>
+<h2 id="s2-1" class="sec-h1">2.1 Thông tin Người nộp đơn / Chi tiết Hộ chiếu (Applicant Information / Passport Details)</h2>
+<p>Điền tất cả Applicant Information (Thông tin Người nộp đơn) và Passport Details (Chi tiết Hộ chiếu) cần thiết dưới đây:</p>
+<div class="shot"><img src="images/img-p08-01.png" alt="" style="max-width:900px"/></div>
+<p>Chọn Intended Destination for Settlement (Điểm đến Định cư Dự định), sau đó nhập quốc gia và thành phố/thị trấn nơi bạn đang cư trú hiện tại.</p>
+<div class="shot"><img src="images/img-p08-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-2" class="sec-h1">2.2 Địa chỉ Cư trú/Nhà ở (Residential/Home Address)</h2>
+<p>Điền Residential/Home Address (Địa chỉ Cư trú/Nhà ở):</p>
+<div class="shot"><img src="images/img-p08-03.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Nếu Home Address của bạn ở ngoài Canada, tại mục Province/State, chọn International/Outside Canada và nhập tên tỉnh/bang của bạn.</li>
+</ul>
+<div class="shot"><img src="images/img-p09-01.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Nếu Home Address của bạn giống với địa chỉ thư tín, hãy chọn 'Yes' (Có) cho câu hỏi 'Is the mailing address the same as the Residential/Home Address?' (Địa chỉ thư tín có giống với Địa chỉ Cư trú/Nhà ở không?).</li>
+</ul>
+<div class="shot"><img src="images/img-p09-03.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-3" class="sec-h1">2.3 Địa chỉ Thư tín và Thông tin Liên lạc (Mailing Address and Contact Information)</h2>
+<p>Điền địa chỉ thư tín và số điện thoại nếu khác với địa chỉ nhà của bạn:</p>
+<div class="shot"><img src="images/img-p09-05.png" alt="" style="max-width:900px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p09-06.png" alt=""/><div class="callout-text">Applicant's Email Address (Địa chỉ Email của Người nộp đơn) là mục bắt buộc và phải là địa chỉ email của chính người nộp đơn để đơn xin được coi là đầy đủ. Đơn xin có thể bị đưa vào integrity review (xét duyệt tính trung thực) do khai gian nếu địa chỉ email nhập trong Applicant's Email Address không phải là địa chỉ email của người nộp đơn.</div></div>
+<p>Sau đó, chọn mục phù hợp với bạn:</p>
+<div class="shot"><img src="images/img-p09-08.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-4" class="sec-h1">2.4 Người đại diện (Representative)</h2>
+<p>Chọn 'Yes' (Có) nếu bạn ủy quyền cho người đại diện, nếu không thì chọn 'No' (Không).</p>
+<div class="shot"><img src="images/img-p10-01.png" alt="" style="max-width:870px"/></div>
+<p>Điền địa chỉ email của Consultant (Cố vấn) nếu bạn chọn 'Yes'.</p>
+<div class="shot"><img src="images/img-p10-05.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào liên kết dưới đây để biết thông tin về việc sử dụng người đại diện trong đơn xin SINP của bạn:</p>
+<p><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities" target="_blank" rel="noopener">https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities</a></p>
+<p>Nhấp vào nút dưới đây để tiếp tục đơn xin của bạn.</p>
+<div class="shot plain"><img src="images/img-p10-03.png" alt="" style="max-width:236px"/></div>
+<h2 id="s3-0" class="sec-h1">3.0 Trước khi Nộp đơn và Chi tiết Người nộp đơn (Pre-Application and Applicant Details)</h2>
+<p class="lead-bold">Các câu hỏi trước khi nộp đơn về lời mời làm việc hoặc tình trạng việc làm được thiết kế để hướng bạn đến diện đơn xin phù hợp.</p>
+<h2 id="s3-1" class="sec-h1">3.1 Điều kiện Đủ tư cách Nộp đơn (Eligibility for Application)</h2>
+<p>Bạn phải trả lời một loạt câu hỏi trên trang này để xác định điều kiện đủ tư cách và diện đơn xin.</p>
+<h4 id="s3-1-eoi" class="sec-h3">3.1.a Expression of Interest (Bày tỏ Nguyện vọng)</h4>
+<p>Nếu bạn đủ điều kiện theo các diện phụ Occupations In-Demand hoặc Express Entry, bạn sẽ có thể nộp Expression of Interest (EOI).</p>
+<p>Nếu bạn nộp EOI cho Occupations In-Demand, bạn phải trả lời các câu hỏi được hiển thị dưới đây và chọn nghề nghiệp NOC dự định của bạn. Bạn phải có ít nhất một năm kinh nghiệm làm việc có trả lương trong mười năm qua thuộc lĩnh vực học vấn hoặc đào tạo của bạn để đủ điều kiện.</p>
+<div class="shot"><img src="images/img-p11-01.png" alt="" style="max-width:900px"/></div>
+<p>Nếu bạn nộp EOI cho Express Entry, bạn phải được chấp nhận vào Express Entry Pool của IRCC, có Express Entry Profile Number và Job Seeker Validation Code. Bạn phải có ít nhất một năm kinh nghiệm làm việc có trả lương trong mười năm qua thuộc lĩnh vực học vấn hoặc đào tạo của bạn để đủ điều kiện.</p>
+<div class="shot"><img src="images/img-p11-03.png" alt="" style="max-width:900px"/></div>
+<p><strong>Lưu ý:</strong> Vui lòng lưu ý rằng các nghề nghiệp trong danh sách thả xuống (dropdown) này có thể thay đổi tùy theo dự báo nhu cầu lao động của Saskatchewan.</p>
+<p>Nghề nghiệp dự định của bạn có thể là nghề bị quản lý (regulated) hoặc yêu cầu chứng nhận chuyên môn. Vui lòng xem các liên kết sau đây về yêu cầu này:</p>
+<ul>
+<li>Regulated Occupations and Licensing Requirements: <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">saskatchewan.ca — Regulated Occupations and Licensing Requirements</a></li>
+<li>SINP Requirements Related to Professional Status or Licensure: <a href="https://publications.saskatchewan.ca/#/products/102710" target="_blank" rel="noopener">publications.saskatchewan.ca/#/products/102710</a></li>
+</ul>
+<p>Nếu bạn được mời nộp đơn, SINP sẽ xem xét học vấn, kinh nghiệm làm việc và nghề nghiệp dự định của bạn, và nếu cần, sẽ thông báo để bạn cung cấp tài liệu cần thiết. Nếu nghề nghiệp của bạn yêu cầu loại tài liệu này, việc xử lý đơn xin của bạn sẽ bị tạm dừng cho đến khi bạn có được tài liệu cần thiết.</p>
+<p>Bạn phải trả lời tất cả các câu hỏi còn lại dưới đây trước khi có thể tiếp tục.</p>
+<div class="shot"><img src="images/img-p12-01.png" alt="" style="max-width:575px"/></div>
+<p>Bạn không thể tiếp tục cho đến khi tất cả các câu trả lời bắt buộc đã được lưu. Vui lòng trả lời tất cả các câu hỏi bắt buộc và nhấp vào nút <strong>Save</strong> để tiếp tục.</p>
+<p>Bộ các bước đầy đủ cho Expression of Interest (EOI) có thể được tìm thấy tại <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-eoi-system" target="_blank" rel="noopener">saskatchewan.ca — International Skilled Worker EOI System</a></p>
+<h4 id="s3-1-jos" class="sec-h3">3.1.b Job Offer Streams (Các Diện Có Lời mời Làm việc)</h4>
+<p>Nếu bạn có lời mời làm việc toàn thời gian, lâu dài tại Saskatchewan, bạn phải nhận được Employer Position Assessment (EPA) Approval để chứng minh điều này. Khi chủ lao động của bạn thêm tên bạn, bạn sẽ nhận được EPA Approval, trong đó bao gồm chi tiết lời mời làm việc và thời hạn, gửi đến địa chỉ email cá nhân của bạn.</p>
+<p>Bạn cũng phải đáp ứng các tiêu chí của diện phụ để đủ điều kiện.</p>
+<p>Trên trang Eligibility for Application, cho biết bạn có hay không có lời mời làm việc hợp lệ và EPA Approval:</p>
+<div class="shot"><img src="images/img-p13-07.png" alt="" style="max-width:900px"/><div class="img-cap">Ví dụ: trang "Eligibility for Application"</div></div>
+<p>Bạn phải nhập Employer ID và EPA ID. Hệ thống sẽ xác minh thông tin này bao gồm cả ngày sinh của bạn. Nếu tất cả thông tin khớp nhau, chọn "View Job Offer" sẽ hiển thị trang Job Offer Information.</p>
+<div class="highlight-box"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div>Quan trọng: Bạn có 10 ngày để xác nhận lời mời làm việc trong Part 2 của đơn xin SINP, và có 60 ngày để nộp đơn xin đầy đủ — cả hai đều được tính từ ngày nhận được EPA Approval.</div></div>
+<p>Nếu bạn KHÔNG nộp đơn theo Agriculture Talent Pathway, Innovation and Tech Talent Pathway, hoặc Health Talent Pathway, vui lòng trả lời NO (Không) cho các câu hỏi sau:</p>
+<div class="shot"><img src="images/img-p13-03.png" alt="" style="max-width:870px"/></div>
+<p>Sau khi xác nhận rằng bạn có lời mời làm việc hợp lệ, chuỗi các câu trả lời sau đây sẽ dẫn bạn đến:</p>
+<p class="lead-bold">International Skilled Worker – With Employment Offer Sub-Category (Diện phụ Có Lời mời Việc làm)</p>
+<div class="shot"><img src="images/img-p13-01.png" alt="" style="max-width:870px"/></div>
+<p>Nếu bạn hiện không có giấy phép lao động hợp lệ tại Saskatchewan và có ít nhất một năm kinh nghiệm làm việc trong mười năm qua thuộc nghề nghiệp dự định của bạn:</p>
+<div class="shot"><img src="images/img-p14-03.png" alt="" style="max-width:444px"/></div>
+<p>Nếu bạn hiện đang làm việc tại Saskatchewan với giấy phép lao động hợp lệ, KHÔNG phải là sinh viên quốc tế có giấy phép lao động sau tốt nghiệp, và có ít nhất một năm kinh nghiệm làm việc trong mười năm qua thuộc nghề nghiệp dự định của bạn:</p>
+<div class="shot"><img src="images/img-p14-01.png" alt="" style="max-width:438px"/></div>
+<p>Nếu bạn là sinh viên quốc tế đang làm việc với giấy phép lao động hợp lệ, tốt nghiệp ở ngoài Saskatchewan:</p>
+<div class="shot"><img src="images/img-p15-03.png" alt="" style="max-width:675px"/></div>
+<p>Nếu bạn là sinh viên quốc tế đang làm việc với giấy phép lao động hợp lệ, tốt nghiệp tại Saskatchewan nhưng không đáp ứng tiêu chí của diện Student:</p>
+<div class="shot"><img src="images/img-p15-01.png" alt="" style="max-width:660px"/></div>
+<h4 id="s3-1-agri" class="sec-h3">3.1.c Agriculture Talent Pathway (Con đường Nhân tài Nông nghiệp)</h4>
+<p>Chọn "Yes" nếu bạn nộp đơn theo diện này, sau đó chọn nghề nghiệp NOC dự định của bạn trong danh sách thả xuống:</p>
+<div class="shot"><img src="images/img-p16-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-tech" class="sec-h3">3.1.d Innovation and Tech Talent Pathway (Con đường Nhân tài Đổi mới và Công nghệ)</h4>
+<p>Chọn "Yes" nếu bạn nộp đơn theo diện phụ Innovation and Tech Talent Pathway.</p>
+<div class="shot"><img src="images/img-p16-05.png" alt="" style="max-width:900px"/></div>
+<p>Chọn nghề nghiệp NOC dự định của bạn trong danh sách thả xuống:</p>
+<div class="shot"><img src="images/img-p16-03.png" alt="" style="max-width:800px"/></div>
+<p>Bạn phải có trình độ học vấn sau trung học (post-secondary) liên quan đến công việc bạn được mời (bằng Master's hoặc Bachelor's; hoặc bằng ba năm tại trường đại học hoặc cao đẳng; hoặc bằng cấp yêu cầu hai năm học tại trường đại học, cao đẳng, trường nghề hoặc kỹ thuật, hoặc cơ sở giáo dục sau trung học khác).</p>
+<div class="shot"><img src="images/img-p17-03.png" alt="" style="max-width:787px"/></div>
+<p>Chọn "Yes" để nộp đơn theo diện phụ Innovation and Tech Talent Pathway, sau đó chọn "Yes" cho "Have you been accepted into Immigration, Refugees and Citizenship Canada's Express Entry Pool and have a Profile Number." (Bạn đã được chấp nhận vào Express Entry Pool của IRCC và có Profile Number chưa?). Sau đó bạn có thể nhập Express Entry profile number và Job Seeker Validation Code của mình.</p>
+<div class="shot"><img src="images/img-p17-01.png" alt="" style="max-width:900px"/></div>
+<p>Chọn nghề nghiệp NOC dự định của bạn trong danh sách thả xuống:</p>
+<div class="shot"><img src="images/img-p18-01.png" alt="" style="max-width:900px"/></div>
+<p>Bạn phải có trình độ học vấn sau trung học liên quan đến công việc bạn được mời (bằng Master's hoặc Bachelor's; hoặc bằng ba năm tại trường đại học hoặc cao đẳng; hoặc bằng cấp yêu cầu hai năm học tại trường đại học, cao đẳng, trường nghề hoặc kỹ thuật, hoặc cơ sở giáo dục sau trung học khác).</p>
+<div class="shot"><img src="images/img-p18-03.png" alt="" style="max-width:787px"/></div>
+<h4 id="s3-1-health" class="sec-h3">3.1.e Health Talent Pathway – Non-Express Entry (Con đường Nhân tài Y tế)</h4>
+<p>Chọn "Yes" nếu bạn nộp đơn theo Health Talent Pathway.</p>
+<div class="shot"><img src="images/img-p18-05.png" alt="" style="max-width:900px"/></div>
+<p>Sau đó chọn nghề nghiệp NOC dự định của bạn trong menu thả xuống:</p>
+<div class="shot"><img src="images/img-p19-00.png" alt="" style="max-width:900px"/></div>
+<p>Có Express Entry profile và NOC là 44101. Lưu ý: NOC 44101 không đủ điều kiện cho Express Entry.</p>
+<div class="shot"><img src="images/img-p19-02.png" alt="" style="max-width:900px"/></div>
+<p>Có Express Entry profile, và NOC của bạn KHÔNG phải là 44101, và bạn đang nộp đơn từ trong Saskatchewan.</p>
+<div class="shot"><img src="images/img-p20-01.png" alt="" style="max-width:900px"/></div>
+<p>Có Express Entry profile, và NOC của bạn KHÔNG phải là 44101, và bạn đang nộp đơn từ trong hoặc ngoài Canada:</p>
+<div class="shot"><img src="images/img-p21-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-work" class="sec-h3">3.1.f Saskatchewan Experience – Existing Work Permit (Giấy phép Lao động Hiện có)</h4>
+<p>Đã làm việc ít nhất sáu tháng (780 giờ) toàn thời gian (30+ giờ mỗi tuần) tại nơi làm việc của chủ lao động đã cấp cho bạn EPA Approval, với giấy phép lao động hợp lệ. Kinh nghiệm làm việc phải liên tục.</p>
+<p>Chọn danh sách thả xuống phù hợp cho nghề nghiệp NOC mà bạn đang làm việc.</p>
+<p>***Diện này dành cho những người nộp đơn theo bất kỳ tiêu chí nào trong danh sách thả xuống "I am working" (Tôi đang làm việc), bao gồm các nghề nghiệp hospitality (dịch vụ khách sạn) và long-haul truck driver (tài xế xe tải đường dài).</p>
+<div class="shot"><img src="images/img-p22-09.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-student" class="sec-h3">3.1.g Saskatchewan Experience – Student (Sinh viên)</h4>
+<p>Hoàn thành giáo dục sau trung học tại Saskatchewan: Bạn phải có ít nhất sáu (6) tháng làm việc toàn thời gian (hoặc 960 giờ) tại Saskatchewan liên quan đến lĩnh vực học tập của bạn, và có Post Graduation Work Permit do Immigration, Refugees and Citizenship Canada (IRCC) cấp.</p>
+<div class="shot"><img src="images/img-p22-07.png" alt="" style="max-width:900px"/></div>
+<p>Những người có Post Graduation Work Permit (PGWP) tốt nghiệp từ một Designated Learning Institute ngoài Saskatchewan chỉ được nộp đơn theo Health Talent Pathway, Agriculture Talent Pathway, Innovation and Tech Talent Pathway, và International Skilled Worker: Employment Offer trong một nghề nghiệp đủ điều kiện.</p>
+<p>Nhấp để lưu câu trả lời của bạn, và nhấp vào nút để kiểm tra diện đơn xin mà bạn đang nộp.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-01.png" alt="" style="max-width:54px"/><img src="images/img-p22-03.png" alt="" style="max-width:218px"/></div>
+<p>Nếu diện được hiển thị không phải là diện bạn dự định nộp đơn, bạn có thể thay đổi câu trả lời của mình bằng cách nhấp vào nút bên dưới, hoặc nhấp vào "No" để biết thêm thông tin.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-00.png" alt="" style="max-width:36px"/><img src="images/img-p22-05.png" alt="" style="max-width:242px"/></div>
+<p>Nếu diện được hiển thị chính xác, nhấp vào nút "Yes" và tiếp tục đơn xin của bạn.</p>
+<h2 id="s3-2" class="sec-h1">3.2 Bảng Điểm Lao động Tay nghề (Skilled Worker Points Grid)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-04.png" alt=""/><div class="callout-text">Mục này chỉ áp dụng cho Người nộp đơn theo International Skilled Worker Category.</div></div>
+<div class="shot"><img src="images/img-p23-03.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong>.</p>
+<h2 id="s3-3" class="sec-h1">3.3 Nơi Cư trú Hiện tại và Điểm đến Định cư (Current Residency and Settlement Destination)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-05.png" alt=""/><div class="callout-text">Từ danh sách thả xuống, chọn quốc gia cư trú hiện tại của bạn, tình trạng cư trú, thời gian cư trú, và điểm đến định cư tại Saskatchewan. Những mục này phải khớp với câu trả lời của bạn trong Generic Application Form for Canada.</div></div>
+<div class="shot"><img src="images/img-p23-01.png" alt="" style="max-width:900px"/></div>
+<div class="note-box"><strong>Tình trạng tại Canada (Status in Canada)</strong> – nếu bạn hiện đang ở Canada với tư cách Visitor (Khách thăm) hoặc Student (Sinh viên), bạn phải cung cấp bản sao Visitor hoặc Study permit của mình. Đính kèm tài liệu này vào mục Passport dưới dạng Additional Document.</div>
+<h2 id="s3-4" class="sec-h1">3.4 Chi tiết Người nộp đơn (Applicant Details)</h2>
+<ul>
+<li>Tuổi của bạn được OASIS tự động tính dựa trên ngày sinh của bạn.</li>
+<li>Nhập Birth City/Town (Thành phố/Thị trấn nơi sinh).</li>
+<li>Chọn Birth Country (Quốc gia nơi sinh).</li>
+<li>Chọn Highest Education Level completed (Trình độ học vấn cao nhất đã hoàn thành).</li>
+<li>Intended Occupation NOC (Nghề nghiệp Dự định NOC): Đối với đơn xin Express Entry và Occupation In-Demand, mục này sẽ hiển thị NOC bạn đã chọn trước đó trong Expression of Interest và không thể chỉnh sửa. Đối với Agriculture Talent, Innovation and Tech Talent và Health Talent Pathways, Employment Offer, Student và Existing Work Permit Categories, hãy chọn Intended Occupation NOC của bạn.</li>
+</ul>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong>.</p>
+<h2 id="s3-5" class="sec-h1">3.5 Tải lên Tài liệu của Bạn (Uploading your documents)</h2>
+<p>Đừng quên tải lên bản sao đã quét (<strong>dễ đọc</strong>) của tài liệu theo yêu cầu. Nếu có thể, hãy sử dụng tên tệp mô tả từng tài liệu, ví dụ passport, birth certificate – điều này sẽ giúp chúng tôi cải thiện thời gian xử lý đơn xin.</p>
+<p>Nếu bạn đã tải lên tài liệu trước đó trong mục <strong>Files</strong> <img class="inline-icon" src="images/img-p24-03.png" alt=""/>, bạn chỉ có thể xem và tải xuống các tài liệu này. Mọi lần tải lên mới đều phải thực hiện qua "Upload File".</p>
+<p>Bạn sẽ không thể tiếp tục đơn xin của mình cho đến khi tài liệu được tải lên cho từng mục.</p>
+<div class="note-box">Nếu tài liệu của bạn không phải bằng tiếng Anh hoặc tiếng Pháp, vui lòng cung cấp bản dịch tiếng Anh (hoặc tiếng Pháp) kèm theo Translator's Affidavit, và nộp cùng với tài liệu gốc. Vui lòng đính kèm bản gốc, bản dịch và bản khai vào hồ sơ OASIS tương ứng.</div>
+<p>Để tải tài liệu lên OASIS, vui lòng nhấp vào nút 'Upload File'.</p>
+<div class="shot"><img src="images/img-p24-01.png" alt="" style="max-width:900px"/></div>
+<p>Một cửa sổ pop-up sẽ hiện ra như hình dưới đây. Nhấp vào nút 'Browse', chọn tài liệu bạn muốn tải lên, sau đó nhấp vào 'Upload File'.</p>
+<div class="shot"><img src="images/img-p25-03.png" alt="" style="max-width:900px"/></div>
+<p>Sau khi tải lên thành công một tài liệu, một thông báo xác nhận pop-up sẽ hiện ở góc dưới bên phải màn hình của bạn:</p>
+<div class="shot plain"><img src="images/img-p25-09.png" alt="" style="max-width:317px"/></div>
+<p>Bạn có thể tải xuống tài liệu đã đính kèm bằng cách chọn 'Download File'. Nếu bạn đính kèm nhầm tài liệu, hãy xóa bằng cách nhấp vào nút 'Remove File'.</p>
+<div class="shot"><img src="images/img-p25-01.png" alt="" style="max-width:900px"/></div>
+<p>Bạn có thể tải lên thêm tệp/tài liệu bằng cách nhấp vào nút bên dưới. Vui lòng xem hình chụp màn hình mẫu bên dưới.</p>
+<div class="shot plain"><img src="images/img-p25-05.png" alt="" style="max-width:520px"/></div>
+<div class="shot"><img src="images/img-p25-07.png" alt="" style="max-width:900px"/></div>
+<p>Vui lòng đọc và chấp nhận các điều khoản và điều kiện của đơn xin SINP này, sau đó nhấp vào <strong>Save</strong>, rồi <strong>Next</strong>.</p>
+<h2 id="s3-6" class="sec-h1">3.6 Tiết lộ Thông tin (Information Disclosure)</h2>
+<div class="shot"><img src="images/img-p26-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s3-7" class="sec-h1">3.7 Quốc tịch (Citizenship)</h2>
+<p>Chọn Country of Citizenship (Quốc gia mang Quốc tịch) của bạn. Tạo thêm một mục Citizenship nếu bạn có nhiều hơn một quốc tịch.</p>
+<div class="shot"><img src="images/img-p26-01.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong>.</p>
+<h2 id="s3-8" class="sec-h1">3.8 Giấy tờ Khai sinh (Birth Document)</h2>
+<p>Chọn Birth Document Type (Loại Giấy tờ Khai sinh) từ danh sách thả xuống.</p>
+<div class="shot"><img src="images/img-p26-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Nhập First Name, Middle Name (nếu có), và Family (Last) Name at Birth của bạn, đúng như trên giấy khai sinh. Bạn có thể để trống nếu không áp dụng cho bạn, ví dụ Middle Name.</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im0.png" alt=""/><div class="callout-text">Vui lòng tải lên bản sao đã quét Birth Document của bạn. Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File. Bản khai (affidavit) hoặc hộ chiếu không được chấp nhận làm Birth Document. Nhấp vào Save, sau đó Next.</div></div>
+<div class="shot plain"><img src="images/img-p27-Im7.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-9" class="sec-h1">3.9 Hộ chiếu (Passport)</h2>
+<ul>
+<li>Chọn quốc gia cấp hộ chiếu từ danh sách thả xuống.</li>
+<li>Passport Number và Passport Expiry Date sẽ tự động điền từ Birthdate and Address Screen.</li>
+</ul>
+<div class="shot"><img src="images/img-p27-Im11.png" alt="" style="max-width:900px"/></div>
+<p>Xin lưu ý rằng bạn không cần tạo mục cho các hộ chiếu cũ/đã hết hạn của mình.</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im1.png" alt=""/><div class="callout-text">Vui lòng tải lên bản sao đã quét Passport (và Visitor hoặc Study Permit, nếu có) của bạn. Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File. Nhấp vào Save, sau đó Next.</div></div>
+<div class="shot plain"><img src="images/img-p27-Im9.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-10" class="sec-h1">3.10 Tình trạng Hôn nhân (Marital Status)</h2>
+<p>Chọn Marital Status hiện tại của bạn từ danh sách thả xuống:</p>
+<div class="shot"><img src="images/img-p27-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Nếu bạn là Single (Độc thân), Annulled Marriage (Hôn nhân bị hủy), Legally Separated (Ly thân hợp pháp), hoặc Widowed (Góa), màn hình của bạn phải trông như sau:</p>
+<div class="shot"><img src="images/img-p27-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Đối với Common-Law (Sống chung như vợ chồng), Divorced (Ly hôn), hoặc Married (Đã kết hôn):</p>
+<ul>
+<li>Nhập First Name và Last Name trước đây của bạn, đúng như trên tài liệu về tình trạng hôn nhân, và nhập ngày mà bạn và vợ/chồng bước vào tình trạng hôn nhân đã chọn.</li>
+</ul>
+<div class="shot"><img src="images/img-p28-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Bạn phải tạo thêm một màn hình tình trạng hôn nhân nếu bạn có nhiều hơn một (1) tình trạng hôn nhân (ví dụ, nếu bạn đã ly hôn và hiện đã tái hôn) bằng cách nhấp vào nút này:</p>
+<div class="shot plain"><img src="images/img-p28-Im4.png" alt="" style="max-width:363px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p28-Im0.png" alt=""/><div class="callout-text">Vui lòng tải lên bản sao đã quét Marital Status Document của bạn. Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File. Nhấp vào Save, sau đó Next.</div></div>
+<div class="shot plain"><img src="images/img-p28-Im6.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-11" class="sec-h1">3.11 Học vấn (Education)</h2>
+<p>Trong mục Education, bạn phải trả lời các câu hỏi sau. Chọn trình độ Học vấn cao nhất của bạn.</p>
+<div class="shot"><img src="images/img-p28-Im8.png" alt="" style="max-width:900px"/></div>
+<p>Nếu nghề nghiệp dự định hoặc lời mời làm việc của bạn yêu cầu Professional Certification hoặc Licensure, chọn "Yes" cho câu hỏi tiếp theo; nếu không, chọn "No."</p>
+<p>Nếu bạn có lời mời làm việc và muốn tìm hiểu về yêu cầu cấp phép, vui lòng xem các liên kết sau đây:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">Saskatchewan Regulatory Bodies</a></li>
+</ul>
+<p>Nếu bạn không có lời mời làm việc và muốn tìm hiểu về yêu cầu cấp phép, vui lòng truy cập:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/Residents/Moving-to-Saskatchewan/Live-in-Saskatchewan/By-Immigrating/Saskatchewan-Immigrant-Nominee-Program/Browse-SINP-Programs/Applicants-International-Skilled-Workers/Occupation-Restrictions-and-Requirements" target="_blank" rel="noopener">Occupation Restrictions and Requirements</a></li>
+</ul>
+<p>Bạn sẽ tìm thấy thêm thông tin về Professional Certification hoặc Licensure trong mục 3.12 (mục tiếp theo) của hướng dẫn này.</p>
+<p>Nếu bạn nộp đơn theo diện không yêu cầu Education (ví dụ Existing Work Permit, hoặc ISW-With Employment Offer, và không yêu cầu điểm cho học vấn), bạn có thể chọn 'Not Applicable' (Không áp dụng) cho câu hỏi sau. Nếu không, hãy làm theo các bước "Enter/Change Education" bên dưới. Sau khi nhập toàn bộ thông tin Học vấn, chọn 'Yes' và Save.</p>
+<div class="shot"><img src="images/img-p29-Im3.png" alt="" style="max-width:820px"/></div>
+<h3 id="s3-11-enter" class="sec-h2">3.11.a Nhập/Thay đổi Thông tin Học vấn (Enter/Change Education)</h3>
+<p>Để nhập Education Credentials (Chứng chỉ Học vấn) của bạn, nhấp vào biểu tượng ở góc trên bên phải màn hình của bạn.</p>
+<div class="shot plain"><img src="images/img-p29-Im1.png" alt="" style="max-width:448px"/></div>
+<div class="note-box">Bạn phải nộp tài liệu để xác minh việc đào tạo và/hoặc học vấn sau trung học của bạn, với một hoặc nhiều loại sau: education/trade certificates (chứng chỉ giáo dục/nghề), bằng cấp hoặc văn bằng kèm bản sao bảng điểm chính thức nếu có, thể hiện (các) trường đã theo học hoặc (các) khóa học đã hoàn thành; các chức danh chuyên môn, giấy phép hành nghề và/hoặc tư cách thành viên hiệp hội nghề nghiệp; và chứng nhận tương đương apprenticeship/certificate (có thể xác minh và tương đương với các chương trình trong hệ thống giáo dục Canada) kèm chi tiết về cấu trúc chương trình, các môn học, thời lượng, và cơ quan quản lý hoặc điều hành chương trình.</div>
+<p>Trên màn hình Education, nhập thông tin sau đây đúng như trên bằng cấp, văn bằng hoặc chứng chỉ sau trung học hoặc liên quan đến nghề của bạn: <strong>Country</strong>, <strong>Start Date</strong> và <strong>End Date</strong> theo định dạng DD-Mon-YYYY, <strong>Institution</strong> (nơi tiếp nhận giáo dục), và <strong>Specialty</strong> (chuyên ngành học).</p>
+<div class="shot"><img src="images/img-p30-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Nếu ở Canada, chọn tỉnh nơi bạn hoàn thành chương trình giáo dục sau trung học.</p>
+<p>Nhấp vào <strong>Upload File</strong>, sau đó chọn Browse để tải lên bản sao tài liệu học vấn của bạn. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File. Vui lòng tải tài liệu lên tại các mục có liên quan, như minh họa dưới đây:</p>
+<div class="shot plain"><img src="images/img-p30-Im5.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p30-Im7.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p30-Im13.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Save</strong>.</p>
+<p>Nhấp vào nút bên dưới để thêm một mục khác.</p>
+<div class="shot plain"><img src="images/img-p30-Im3.png" alt="" style="max-width:286px"/></div>
+<p>Nhấp vào nút bên dưới để quay lại màn hình Education chính.</p>
+<div class="shot plain"><img src="images/img-p30-Im9.png" alt="" style="max-width:326px"/></div>
+<p>Nhấp vào nút bên dưới để kiểm tra tính đầy đủ của các mục học vấn.</p>
+<div class="shot plain"><img src="images/img-p30-Im11.png" alt="" style="max-width:285px"/></div>
+<h2 id="s3-12" class="sec-h1">3.12 Chứng chỉ Quản lý hoặc Giấy phép và Đánh giá Học vấn (Regulatory or Licensing Credentials and Education Credentials Assessment)</h2>
+<p class="lead-bold">Chứng chỉ Quản lý hoặc Giấy phép (Regulatory or Licensing Credentials)</p>
+<p>Nếu bạn dự định làm việc trong một nghề nghiệp bị quản lý (regulated) tại Saskatchewan và yêu cầu chứng nhận hoặc giấy phép bắt buộc tại Saskatchewan, bạn phải có được bằng chứng đủ điều kiện để lấy giấy phép hành nghề (Saskatchewan licensure) trước khi nộp đơn cho SINP. Bằng chứng đủ điều kiện lấy giấy phép hành nghề Saskatchewan từ cơ quan quản lý (regulatory body) là bắt buộc, và là một phần của đơn xin SINP của bạn. Nếu đơn xin của bạn không bao gồm bằng chứng đủ điều kiện này, SINP có thể từ chối đơn xin của bạn và bạn có thể nộp lại khi có được bằng chứng đó.</p>
+<p>Nếu bạn dự định làm việc trong một SKILLED TRADE (nghề thủ công có tay nghề), bạn phải có certificate of qualification (còn gọi là letter of invitation) trong nghề của mình do Saskatchewan Apprenticeship & Trade Certification Commission cấp.</p>
+<p>Về thêm thông tin liên quan đến các nghề bị quản lý hoặc yêu cầu cấp phép, vui lòng nhấp vào liên kết sau đây:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+</ul>
+<p class="lead-bold">Đánh giá Chứng chỉ Học vấn (Education Credentials Assessment - ECA)</p>
+<p>Người nộp đơn theo Express Entry, Occupation in Demand, International Skilled Worker with Employment Offer, và Health Talent Pathway (trừ các nghề thủ công có tay nghề) phải bao gồm Educational Credential Assessment (ECA) từ một tổ chức được chỉ định.</p>
+<p>Về thông tin cách lấy Educational Credentials Assessment (ECA), vui lòng nhấp vào liên kết sau đây:</p>
+<ul>
+<li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessed/how.html" target="_blank" rel="noopener">Obtaining an Educational Credentials Assessment (ECA)</a></li>
+</ul>
+<p>Đối với các diện phụ yêu cầu ECA, bạn phải tải lên bản sao ECA của mình trên trang Education chính cho tất cả các trình độ học vấn có được ngoài Canada.</p>
+<p>Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<div class="shot plain"><img src="images/img-p32-Im3.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p32-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Làm tương tự cho Regulatory or Licensing Credentials (Saskatchewan Licensure) của bạn, nếu có.</p>
+<div class="shot"><img src="images/img-p32-Im7.png" alt="" style="max-width:710px"/></div>
+<p>Để kiểm tra các màn hình education có đầy đủ hay không, trên mục Education chính, nhấp vào nút bên dưới.</p>
+<div class="shot plain"><img src="images/img-p32-Im5.png" alt="" style="max-width:320px"/></div>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong>.</p>
+<h2 id="s3-13" class="sec-h1">3.13 Kinh nghiệm Làm việc (Work Experience)</h2>
+<p>Khai báo kinh nghiệm làm việc của bạn bằng cách trả lời "Yes" cho câu hỏi:</p>
+<div class="shot"><img src="images/img-p32x-gp0-Im0.png" alt="" style="max-width:869px"/></div>
+<p>Nhấp vào <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p32x-gp0-Im1.png" alt="" style="max-width:331px"/></div>
+<p>Nhấp vào <strong>Enter/Change Work Experience</strong> để tạo màn hình kinh nghiệm làm việc.</p>
+<p>Điền vào các trường bắt buộc:</p>
+<ul>
+<li>Chọn Country (Quốc gia).</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im2.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Nhập ít nhất ba ký tự để tìm và chọn NOC ID tương ứng với kinh nghiệm làm việc của bạn.</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im3.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Nếu quốc gia nơi bạn có kinh nghiệm làm việc là Canada, bạn cần điền vào trường Province.</li>
+<li>Nhập Start Date và End Date theo định dạng DD-Mon-YYYY.</li>
+<li>Nhập Employer — tên chủ lao động của bạn (tên công ty).</li>
+<li>Nhập Employer Contact Name — tên người liên hệ của chủ lao động.</li>
+<li>Nhập City/Town — địa điểm làm việc.</li>
+<li>Nhập Position Title (Chức danh) mà bạn đảm nhiệm khi làm việc cho Employer này.</li>
+</ul>
+<p>Chọn loại tài liệu government-issued (do chính phủ cấp) mà bạn sẽ cung cấp, từ menu thả xuống:</p>
+<p>Tải lên government issued documentation (tài liệu do chính phủ cấp):</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im0.png" alt="" style="max-width:900px"/></div>
+<p>Tải lên thư giới thiệu (reference letter) về Kinh nghiệm Làm việc của bạn:</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Để tải tài liệu lên, nhấp vào biểu tượng rồi chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Bạn có thể tải lên thêm tệp/tài liệu bằng cách nhấp vào biểu tượng.</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Save</strong>.</p>
+<p>Nếu kinh nghiệm làm việc của bạn có được tại Saskatchewan, bạn phải cung cấp bằng chứng cư trú và việc làm tại tỉnh này.</p>
+<div class="shot"><img src="images/img-p33-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Để tải tài liệu lên, nhấp vào biểu tượng rồi chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<div class="shot plain"><img src="images/img-p33-Im11.png" alt="" style="max-width:153px"/></div>
+<p>Bạn có thể tải lên thêm tệp/tài liệu bằng cách nhấp vào nút bên dưới.</p>
+<div class="shot plain"><img src="images/img-p33-Im5.png" alt="" style="max-width:520px"/></div>
+<p>Nhấp vào <strong>Save</strong>.</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Tài liệu cần thiết cho kinh nghiệm làm việc:</p>
+<ul style="margin-bottom:0;">
+<li>một thư giới thiệu chính thức từ chủ lao động, in trên letterhead (tiêu đề thư) của công ty, bao gồm:
+<ul>
+<li>tên của người nộp đơn, thông tin liên hệ của công ty (địa chỉ, số điện thoại và địa chỉ email), và tên, chức danh, chữ ký của người giám sát trực tiếp hoặc nhân viên nhân sự tại công ty, cùng với số điện thoại và địa chỉ email của họ.</li>
+<li>tất cả các vị trí đã đảm nhiệm trong thời gian làm việc tại công ty, kèm chức danh công việc, nhiệm vụ và trách nhiệm, tình trạng công việc (nếu là công việc hiện tại), ngày làm việc tại công ty, số giờ làm việc mỗi tuần (tổng số giờ làm việc tại SK đối với người nộp đơn là sinh viên), và mức lương hàng năm cùng các phúc lợi.</li>
+</ul>
+</li>
+<li>nếu người nộp đơn tự kinh doanh (self-employed), cần có articles of incorporation hoặc bằng chứng khác về quyền sở hữu doanh nghiệp, bằng chứng thu nhập từ việc tự kinh doanh, và tài liệu từ bên thứ ba cho biết dịch vụ đã cung cấp cùng chi tiết thanh toán.</li>
+</ul>
+</div>
+<p>Các nhiệm vụ tự khai báo hoặc bản khai (affidavit) không được chấp nhận làm bằng chứng về kinh nghiệm làm việc hoặc tự kinh doanh.</p>
+<div class="shot plain"><img src="images/img-p33-Im1.png" alt="" style="max-width:281px"/></div>
+<p>Nhấp vào nút bên dưới để tạo một mục khác.</p>
+<div class="shot plain"><img src="images/img-p33-Im3.png" alt="" style="max-width:321px"/></div>
+<p>Nhấp vào nút bên dưới để tiếp tục đơn xin của bạn.</p>
+<p>Để kiểm tra tính đầy đủ của các mục kinh nghiệm làm việc, trên màn hình work experience chính, nhấp vào nút bên dưới.</p>
+<div class="shot plain"><img src="images/img-p33-Im7.png" alt="" style="max-width:378px"/></div>
+<p>Sau khi hoàn thành mục này, đánh dấu "Yes" cho câu hỏi về kinh nghiệm làm việc:</p>
+<div class="shot"><img src="images/img-p34-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong>.</p>
+
+<h2 id="s3-14" class="sec-h1">3.14 Khả năng Tiếng Anh/Tiếng Pháp (English/French Ability)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p34-Im8.png" alt=""/><div class="callout-text">Kết quả language test (bài kiểm tra ngôn ngữ) hợp lệ là bắt buộc đối với một số diện SINP.</div></div>
+<p>Chọn Language Proof Type (Loại Bằng chứng Ngôn ngữ):</p>
+<div class="shot"><img src="images/img-p34-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Điền các trường bắt buộc đúng như trên tài liệu của bạn:</p>
+<div class="shot"><img src="images/img-p34-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào liên kết dưới đây để xem Language Requirements for SINP (Yêu cầu Ngôn ngữ cho SINP):</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/language-requirements-for-sinp" target="_blank" rel="noopener">Language Requirements for SINP</a></li>
+</ul>
+<p>Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<div class="shot plain"><img src="images/img-p34-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Nếu bạn có kết quả language test hợp lệ cho ngôn ngữ chính thức thứ hai, chọn "Yes". Nếu không, chọn "No".</p>
+<div class="shot"><img src="images/img-p35-Im11.png" alt="" style="max-width:608px"/></div>
+<p>Nếu bạn chọn "Yes", vui lòng cung cấp điểm số language test trong các trường được cung cấp, và bạn phải đính kèm bản sao kết quả language test chính thức.</p>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong>.</p>
+
+<h2 id="s3-15" class="sec-h1">3.15 Trang Cuối của Phần 1 (Final Page of Part 1)</h2>
+<p>Chọn "Yes" nếu bạn có người thân tại Saskatchewan, nếu không thì chọn "No".</p>
+<div class="shot"><img src="images/img-p35-Im3.png" alt="" style="max-width:741px"/></div>
+<p>Chọn "Yes" nếu bạn đã từng nộp đơn xin di trú cấp tỉnh hoặc liên bang Canada, nếu không thì chọn "No".</p>
+<div class="shot"><img src="images/img-p35-Im1.png" alt="" style="max-width:742px"/></div>
+<p>Bạn không cần tải lên bất kỳ tài liệu nào tại thời điểm này.</p>
+<div class="shot plain"><img src="images/img-p35-Im7.png" alt="" style="max-width:297px"/></div>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào nút bên dưới.</p>
+<p>Nếu bạn đã thực hiện đúng mọi thứ, thông báo sau sẽ xuất hiện:</p>
+<div class="shot"><img src="images/img-p35-Im5.png" alt="" style="max-width:446px"/></div>
+<div class="shot plain"><img src="images/img-p35-Im9.png" alt="" style="max-width:153px"/></div>
+<p>Nhấp vào nút bên dưới để tiếp tục đơn xin của bạn.</p>
+
+<h2 id="s3-16" class="sec-h1">3.16 Thay đổi Phần 1 và Chi tiết Người nộp đơn (Making a Change on Part 1 and Applicant Details)</h2>
+<p>Nếu bạn cần thay đổi thông tin trước khi nộp đơn và/hoặc chi tiết người nộp đơn:</p>
+<ol>
+<li>Nhấp vào nút Home <img class="inline-icon" src="images/img-p36-Im7.png" alt=""/>, nếu cần.</li>
+</ol>
+<ol start="2">
+<li>Nhấp vào mục Continue Applicant Details trong đơn xin SINP.</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im9.png" alt="" style="max-width:680px"/></div>
+<ol start="3">
+<li>Nhấp vào mục Applicant Details-Final Page, sau đó nhấp vào Make Changes to Part 1.</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im1.png" alt="" style="max-width:900px"/></div>
+<ol start="4">
+<li>Thực hiện các thay đổi hoặc tải lên tài liệu.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im5.png" alt="" style="max-width:297px"/></div>
+<ol start="5">
+<li>Khi bạn hoàn tất, hãy đảm bảo nhấp vào nút bên dưới.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im3.png" alt="" style="max-width:167px"/></div>
+<p>Nhấp vào nút bên dưới để tiếp tục.</p>
+<h2 id="s4-0" class="sec-h1">4.0 Màn hình Đơn xin cho Lao động Tay nghề (Skilled Worker Application Screens)</h2>
+<p>Sau khi nhấp vào nút <strong>Create Part 2</strong>, màn hình Application sẽ xuất hiện ở bên trái màn hình của bạn.</p>
+<h2 id="s4-1" class="sec-h1">4.1 Màn hình Đơn xin (Application Screen)</h2>
+<p>Màn hình đầu tiên sẽ hiển thị diện đơn xin. Dưới đây là màn hình mẫu cho International Skilled Worker – Express Entry:</p>
+<div class="shot"><img src="images/img-p37-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Lệ phí $500 là bắt buộc đối với tất cả các diện SINP. Bạn phải cho biết thẻ tín dụng dùng để thanh toán lệ phí đơn xin là của người nộp đơn chính (principal applicant) hay của vợ/chồng được liệt kê trong đơn xin:</p>
+<div class="shot"><img src="images/img-p37-Im6.png" alt="" style="max-width:748px"/></div>
+<p>Nếu thẻ tín dụng dùng là của người khác, vui lòng cho biết mối quan hệ của chủ thẻ tín dụng với người nộp đơn và lý do thanh toán:</p>
+<div class="shot"><img src="images/img-p37-Im8.png" alt="" style="max-width:900px"/></div>
+<h2 id="s4-2" class="sec-h1">4.2 Mối liên hệ với Saskatchewan (Connection to Saskatchewan)</h2>
+<div class="shot plain"><img src="images/img-p37-Im1.png" alt="" style="max-width:722px"/></div>
+<p>Chọn "Yes" cho câu hỏi trên nếu một trong các mục sau áp dụng cho bạn:</p>
+<ul>
+<li>Đã học tại Saskatchewan</li>
+<li>Đã làm việc tại Saskatchewan</li>
+<li>Có Người thân Ruột thịt tại Saskatchewan</li>
+</ul>
+<p>Nếu không, chọn "No" và nhấp vào "Next".</p>
+<h3 id="s4-2-study" class="sec-h2">4.2.a Đã học tại Saskatchewan (Studied in Saskatchewan)</h3>
+<p>Nếu bạn đã học tại Saskatchewan và đang yêu cầu điểm, điền vào các trường được hiển thị dưới đây:</p>
+<div class="shot"><img src="images/img-p38-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Nếu bạn đang yêu cầu điểm cho việc học tại Saskatchewan, bạn phải nộp các tài liệu sau:</p>
+<ul style="margin-bottom:0;">
+<li>education/trade certificates, bằng cấp hoặc văn bằng kèm bảng điểm chính thức nếu có, thể hiện (các) trường đã theo học hoặc (các) khóa học đã hoàn thành; hoặc</li>
+<li>thư từ registrar (phòng đào tạo) xác nhận rằng bạn đã học tại một Saskatchewan Institute.</li>
+</ul>
+</div>
+<div class="shot"><img src="images/img-p38-Im5.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-work" class="sec-h2">4.2.b Đã làm việc tại Saskatchewan (Worked in Saskatchewan)</h3>
+<p>Nếu bạn có kinh nghiệm làm việc tại Saskatchewan và đang yêu cầu điểm, điền vào các trường được hiển thị dưới đây:</p>
+<div class="shot"><img src="images/img-p38-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Nếu bạn đang yêu cầu điểm cho việc làm việc tại Saskatchewan, bạn phải nộp tài liệu xác minh rằng bạn đã từng làm việc tại Saskatchewan ít nhất 12 tháng trong năm năm qua. Bạn sẽ cần cung cấp:</p>
+<ul style="margin-bottom:0;">
+<li>Thư giới thiệu từ (các) chủ lao động trước đây của bạn, được viết trên letterhead chính thức của công ty và ký bởi người đại diện được ủy quyền của công ty, có ghi rõ tên và chức danh cùng thông tin liên hệ. Mỗi thư phải nêu rõ:
+<ul>
+<li>chức vụ của bạn;</li>
+<li>ngày làm việc; và,</li>
+<li>nhiệm vụ chính của bạn.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Để chứng minh kinh nghiệm làm việc tại Saskatchewan, bạn phải tải lên một thư giới thiệu.</p>
+<div class="shot"><img src="images/img-p39-Im3.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-relative" class="sec-h2">4.2.c Người thân Ruột thịt tại Saskatchewan (Close Relative in Saskatchewan)</h3>
+<p>Nếu bạn có người thân ruột thịt tại Saskatchewan và đang yêu cầu điểm, điền vào các trường bắt buộc được hiển thị:</p>
+<div class="shot"><img src="images/img-p39-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p40-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Nếu bạn đang yêu cầu điểm cho một thành viên gia đình ruột thịt, bạn phải cung cấp những giấy tờ sau từ thành viên gia đình đó:</p>
+<ul style="margin-bottom:0;">
+<li>giấy khai sinh, giấy chứng nhận kết hôn, và/hoặc bất kỳ tài liệu chính thức nào khác của chính phủ, giáo dục hoặc tôn giáo, chứng minh mối quan hệ của bạn với người thân ruột thịt đó. Xin lưu ý: SINP không chấp nhận bản khai (affidavit).</li>
+<li>bản sao thẻ Canadian permanent resident hoặc citizenship, hoặc Canadian passport của người thân;</li>
+<li>bằng chứng rằng họ đã sống tại Saskatchewan trong mười hai tháng qua và tự chủ về tài chính:
+<ul>
+<li>hóa đơn tiện ích (utility) trong mười hai tháng qua từ SaskPower; SaskEnergy; hoặc văn phòng thành phố/thị trấn. (Không chấp nhận hóa đơn điện thoại, di động, hoặc truyền hình cáp);</li>
+<li>Saskatchewan Health Card hoặc Saskatchewan Driver's License;</li>
+<li>bằng chứng rằng thành viên gia đình đó là người thuê nhà đăng ký hợp pháp tại một địa chỉ ở Saskatchewan (lease agreement và biên lai tiền thuê nhà, hoặc bằng chứng sở hữu) và tên của những người khác cư trú tại địa chỉ đó cùng mối quan hệ với họ; và,</li>
+<li>bằng chứng về thu nhập nhận được trong ba tháng qua.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Nếu người thân ruột thịt của bạn đã từng bảo lãnh cho người nộp đơn khác, bạn có thể nhận được thông báo cảnh báo (warning). Thành viên gia đình ruột thịt chỉ có thể bảo lãnh cho một đơn xin tại một thời điểm (một hộ gia đình chỉ có thể bảo lãnh một đơn xin tại một thời điểm). Nếu thành viên gia đình ruột thịt của bạn đang bảo lãnh cho một đơn xin SINP, họ không thể bảo lãnh cho đơn xin của bạn cho đến khi người được đề cử trước đó mà họ đang bảo lãnh đã sống và làm việc tại Saskatchewan ít nhất sáu tháng.</p>
+<p>Nếu người thân ruột thịt của bạn đã từng bảo lãnh cho người nộp đơn khác, bạn phải cho biết liệu người nộp đơn trước đó đã đến Canada và sống tại Saskatchewan ít nhất sáu tháng hay chưa. Nếu có, bạn sẽ cần tải lên bằng chứng rằng người nộp đơn trước đó đã định cư thành công tại Saskatchewan ít nhất sáu tháng.</p>
+<p>Nếu người thân ruột thịt của bạn hiện đang bảo lãnh cho một đơn xin khác và người nộp đơn đó chưa định cư tại Saskatchewan ít nhất sáu tháng, bạn không thể yêu cầu hoặc nhận 20 điểm cho người thân đó. Nếu bạn chọn "No", bạn sẽ nhận được thông báo cảnh báo bên dưới. Xin lưu ý, nếu bạn tiếp tục nộp đơn mà không có người thân ruột thịt đó sau khi đã yêu cầu điểm cho người thân này trong Expression of Interest của bạn, hồ sơ của bạn sẽ bị trả lại và bạn sẽ không được hoàn lại lệ phí.</p>
+<p>Nếu OASIS không phát hiện rằng người thân của bạn hiện đang bảo lãnh cho một người thân khác, bạn sẽ không nhận được thông báo cảnh báo. Xin lưu ý rằng ngay cả khi không nhận được cảnh báo, người thân ruột thịt của bạn vẫn có thể đang bảo lãnh cho một đơn xin cũ hơn. Việc đảm bảo rằng người thân ruột thịt của bạn đủ điều kiện để bảo lãnh cho đơn xin của bạn là trách nhiệm của bạn.</p>
+<div class="shot"><img src="images/img-p41-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p42-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào nút bên dưới để tạo mục cho người thân hiện đang cư trú tại Canada của bạn.</p>
+<div class="shot plain"><img src="images/img-p42-Im1.png" alt="" style="max-width:244px"/></div>
+<p>Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<div class="shot plain"><img src="images/img-p42-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Bạn có thể tải lên thêm tệp/tài liệu bằng cách nhấp vào nút bên dưới.</p>
+<div class="shot plain"><img src="images/img-p42-Im5.png" alt="" style="max-width:520px"/></div>
+<h2 id="s4-3" class="sec-h1">4.3 Mẫu đơn Liên bang (Federal Forms)</h2>
+<p>Sau đây là các mẫu đơn liên bang bắt buộc (mandatory):</p>
+<ul>
+<li>IMM 0008 – Generic Application Form for Canada</li>
+</ul>
+<div class="shot plain"><img src="images/img-p42-Im7.png" alt="" style="max-width:153px"/></div>
+<p>Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong>.</p>
+<p class="lead-bold"><em>Làm tương tự cho các mẫu đơn còn lại.</em></p>
+<ul>
+<li>IMM 5406 – Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<p>Ở góc trên bên phải màn hình của bạn, tạo các mẫu đơn sau nếu phù hợp với bạn:</p>
+<ul>
+<li>IMM 5476 – Use of Representative</li>
+<li>IMM 5475 – Authority to Release Personal Information</li>
+</ul>
+<div class="shot plain"><img src="images/img-p43-Im9.png" alt="" style="max-width:227px"/></div>
+<p>Nhấp vào biểu tượng xóa nếu bạn thêm nhầm một mẫu đơn. Bạn có thể tải các mẫu đơn tại:</p>
+<ul>
+<li>International Skilled Workers <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">link</a>, sau đó chọn diện phụ. Hoặc</li>
+<li>Saskatchewan Experience <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">link</a>, sau đó chọn diện phụ.</li>
+</ul>
+<h2 id="s4-4" class="sec-h1">4.4 Bước 1: Các Nút Tạo (Step 1 Create Buttons)</h2>
+<p>Nhấp vào (các) nút <strong>Create…</strong> nếu phù hợp với bạn:</p>
+<div class="shot"><img src="images/img-p43-Im1.png" alt="" style="max-width:717px"/></div>
+<p>Nhấp vào <strong>Create</strong> nếu bạn hiện đang làm việc tại Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im3.png" alt="" style="max-width:334px"/></div>
+<p>Nhấp vào <strong>Create</strong> nếu bạn có người thân hiện đang cư trú tại Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im5.png" alt="" style="max-width:378px"/></div>
+<p>Nhấp vào <strong>Create</strong> nếu có thành viên gia đình sẽ đi cùng bạn đến Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im7.png" alt="" style="max-width:322px"/></div>
+<h2 id="s4-5" class="sec-h1">4.5 Work Permit (Giấy phép Lao động)</h2>
+<p>Mục Work Permit sẽ được tạo tự động nếu bạn nộp đơn theo diện Saskatchewan Experience. Nếu bạn nộp đơn theo diện International Skilled Category – With Employment Offer nhưng hiện đang làm việc tại Canada, vui lòng tự tạo mục work permit.</p>
+<p>Điền vào các trường bắt buộc đúng như trên tài liệu của bạn:</p>
+<div class="shot"><img src="images/img-p44-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p44-Im5.png" alt="" style="max-width:153px"/></div>
+<p>Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<div class="shot"><img src="images/img-p44-Im7.png" alt="" style="max-width:801px"/></div>
+<p>Nếu bạn có open spousal work permit (giấy phép lao động cho vợ/chồng dạng mở), vui lòng nhấp vào yes.</p>
+<p>Nhấp vào <strong>Save</strong>, sau đó nhấp vào <strong>Next</strong> để tiếp tục.</p>
+<h2 id="s4-6" class="sec-h1">4.6 Người thân Đang ở Canada (In-Canada Relative)</h2>
+<p>Mục 'Relative currently residing in Canada' sẽ được tạo tự động, nếu bạn trả lời 'Yes' cho câu hỏi này:</p>
+<div class="shot"><img src="images/img-p44-Im1.png" alt="" style="max-width:741px"/></div>
+<p>Điền vào các trường bắt buộc được hiển thị dưới đây:</p>
+<div class="shot"><img src="images/img-p45-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p45-Im7.png" alt="" style="max-width:153px"/></div>
+<p>Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<p>Nhấp vào <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p45-Im3.png" alt="" style="max-width:282px"/></div>
+<p>Nhấp vào nút bên dưới để thêm một In-Canada relative khác.</p>
+<div class="shot plain"><img src="images/img-p45-Im5.png" alt="" style="max-width:230px"/></div>
+<p>Nhấp vào nút bên dưới để xóa màn hình nếu được thêm vào do nhầm lẫn.</p>
+<h2 id="s4-7" class="sec-h1">4.7 Quỹ Định cư và Kế hoạch Định cư (Settlement Funds and Settlement Plan)</h2>
+<h3 id="s4-7-plan" class="sec-h2">4.7.a Kế hoạch Định cư (Settlement Plan)</h3>
+<p>Bạn cần lập và đính kèm một settlement plan (kế hoạch định cư).</p>
+<div class="shot plain"><img src="images/img-p45-Im9.png" alt="" style="max-width:153px"/></div>
+<p>Tải lên Settlement Plan của bạn bằng cách nhấp vào nút bên dưới, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<h3 id="s4-7-funds" class="sec-h2">4.7.b Quỹ Định cư (Settlement Funds)</h3>
+<p>Bạn cần duy trì số tiền tối thiểu theo yêu cầu cho quy mô gia đình của bạn trong ít nhất ba tháng trước khi nộp đơn.</p>
+<div class="shot"><img src="images/img-p46-Im11.png" alt="" style="max-width:763px"/></div>
+<p>Điền vào các trường bắt buộc trong mỗi sequence (chuỗi) như minh họa dưới đây:</p>
+<div class="shot"><img src="images/img-p46-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Bạn phải đính kèm bản sao (các) account statement (sao kê tài khoản) của mình.</p>
+<div class="shot plain"><img src="images/img-p46-Im1.png" alt="" style="max-width:153px"/></div>
+<p>Nhấp vào biểu tượng, sau đó chọn Browse. Tìm tài liệu trong thư mục tệp của bạn, chọn tài liệu, và nhấp vào Upload File.</p>
+<div class="shot"><img src="images/img-p46-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Danh sách các tài liệu settlement proof of fund (bằng chứng quỹ định cư) hợp lệ được hiển thị bên dưới nút tải lên, bao gồm cả số tháng quỹ được yêu cầu.</p>
+<p>Nếu bạn cung cấp tài liệu bổ sung liên quan đến tài khoản trong một sequence cụ thể, nhấp vào <strong>Add an Additional Document</strong> và tải lên tài liệu đó.</p>
+<div class="shot plain"><img src="images/img-p46-Im7.png" alt="" style="max-width:214px"/></div>
+<p>Nếu bạn cung cấp thêm một tài khoản Settlement Fund khác, nhấp vào <strong>Add another Settlement Funds</strong> để tạo sequence tiếp theo.</p>
+<div class="shot plain"><img src="images/img-p46-Im9.png" alt="" style="max-width:243px"/></div>
+<p>Sau khi hoàn tất nhập Settlement Plan và Settlement Funds, nhấp vào <strong>Save</strong>, sau đó <strong>Next</strong>, để tiếp tục.</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Tài liệu cần thiết cho Settlement Funds:</p>
+<p>Số tiền tối thiểu yêu cầu cho đơn xin của bạn được đăng trên trang web của chúng tôi. Vui lòng nhấp vào <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">liên kết này</a>, chọn diện bạn đang nộp đơn, nhấp vào tab "Required Documents", và tìm "Required Documents, Settlement Funds".</p>
+<p>proof of funds (bằng chứng quỹ) phải:</p>
+<ul>
+<li>là thư chính thức, sao kê chính thức, và/hoặc chứng nhận từ một hoặc nhiều tổ chức tài chính.</li>
+<li>đã được duy trì ít nhất 3 tháng trước khi nộp đơn và được duy trì trong suốt quá trình di trú (không hết hạn sau khi nộp đơn).</li>
+<li>đứng tên người nộp đơn chính hoặc vợ/chồng, hoặc đứng tên chung.</li>
+</ul>
+<p>Sao kê quỹ phải thể hiện lịch sử giao dịch chi tiết ít nhất ba tháng trước khi nộp đơn, và bao gồm loại tiền tệ, tên chủ tài khoản, thông tin liên hệ của tổ chức tài chính, số tài khoản, các giao dịch và số dư.</p>
+<p>Tất cả tài liệu không được cấp bằng tiếng Anh hoặc tiếng Pháp phải kèm theo certified translation (bản dịch được chứng nhận).</p>
+<p>Để xác định liệu quỹ định cư có đủ hay không, tài khoản phải thể hiện rằng khi ở mức thấp nhất, tài khoản vẫn đáp ứng yêu cầu định cư cho quy mô hộ gia đình.</p>
+<p>Các loại quỹ sau đây sẽ được chấp nhận:</p>
+<ul>
+<li>Tài khoản chequing hoặc savings cá nhân</li>
+<li>Bonds (Trái phiếu)</li>
+<li>Cash value life insurance (Bảo hiểm nhân thọ có giá trị tiền mặt)</li>
+<li>Guaranteed Investment Certificate (GICs) hoặc Certificates of Deposit</li>
+<li>Mutual Funds (Quỹ tương hỗ)</li>
+<li>Provident Funds (Quỹ dự phòng; cần có thư chính thức từ tổ chức quỹ dự phòng ghi rõ số tiền có thể sử dụng)</li>
+<li>Registered Retirement Savings Plans (RRSPs)</li>
+<li>Stocks (Cổ phiếu)</li>
+<li>Tax Free Savings Accounts (TFSAs)</li>
+<li>Term deposit và time deposit (phải còn hiệu lực tại thời điểm nộp đơn và duy trì hiệu lực trong suốt quá trình nộp đơn)</li>
+<li>Treasury Bills (Tín phiếu kho bạc)</li>
+</ul>
+<p style="margin-bottom:0;">Debenture, thẻ tín dụng, lines of credit (hạn mức tín dụng), vàng, tiền mặt, bất động sản hoặc doanh nghiệp KHÔNG được chấp nhận làm settlement funds.</p>
+</div>
+<h2 id="s4-8" class="sec-h1">4.8 Thành viên Gia đình Đi cùng và Không Đi cùng (Accompanying and Non-Accompanying Family Member)</h2>
+<div class="note-box">Một cá nhân (vợ/chồng, common-law partner, hoặc con dependent) dự định di trú cùng bạn đến Saskatchewan. Con dependent trưởng thành đi cùng có thể được đưa vào SINP Certificate of Nomination nếu bạn được chấp thuận là provincial nominee (người được đề cử cấp tỉnh) và nếu con dependent trưởng thành đáp ứng ít nhất <strong>một</strong> trong các tiêu chí sau:
+<ul style="margin:10px 0 0;">
+<li>dưới 22 tuổi và không có vợ/chồng hoặc common-law partner; và/hoặc</li>
+<li>phụ thuộc vào sự hỗ trợ tài chính của bạn do tình trạng bệnh tâm thần hoặc thể chất.</li>
+</ul>
+<p style="margin:10px 0 0;">Cha mẹ và anh chị em ruột của người nộp đơn chính không thể được đưa vào đơn xin SINP.</p>
+</div>
+<p>Trong Bước 1, nhấp vào <strong>Create a Family Member</strong> nếu có thành viên gia đình sẽ đi cùng bạn đến Canada.</p>
+<div class="shot plain"><img src="images/img-p48-Im7.png" alt="" style="max-width:322px"/></div>
+<p>Điền vào các trường bắt buộc được hiển thị dưới đây:</p>
+<div class="shot"><img src="images/img-p48-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p48-Im5.png" alt="" style="max-width:227px"/></div>
+<p>Nhấp vào biểu tượng nếu màn hình này được tạo do nhầm lẫn.</p>
+<div class="shot plain"><img src="images/img-p48-Im3.png" alt="" style="max-width:427px"/></div>
+<p>Nhấp vào <strong>Create/Change Application Screens for Family Member</strong> để thêm màn hình cho:</p>
+<h4 id="s4-8-a1" class="sec-h3">4.8.a Accompanying Dependant under 18 years of age (Con dependent đi cùng dưới 18 tuổi)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+</ul>
+<h4 id="s4-8-a2" class="sec-h3">4.8.b Accompanying Dependant 18-21 years old (Con dependent đi cùng từ 18-21 tuổi)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-a3" class="sec-h3">4.8.c Accompanying Spouse (Vợ/chồng Đi cùng)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-n1" class="sec-h3">4.8.d Non-Accompanying Spouse (Vợ/chồng Không Đi cùng)</h4>
+<ul>
+<li>Không cần màn hình</li>
+</ul>
+<h4 id="s4-8-n2" class="sec-h3">4.8.e Non-Accompanying Dependant 18 years old or older (Con dependent không đi cùng từ 18 tuổi trở lên)</h4>
+<ul>
+<li>Không cần màn hình</li>
+</ul>
+<h4 id="s4-8-n3" class="sec-h3">4.8.f Non-Accompanying Dependant under 18 years of age (Con dependent không đi cùng dưới 18 tuổi)</h4>
+<ul>
+<li>Custody/Child Support</li>
+</ul>
+<p>Bạn phải điền màn hình sau đây và đính kèm các tài liệu cần thiết.</p>
+<div class="shot"><img src="images/img-p49-Im1.png" alt="" style="max-width:900px"/></div>
+<p><strong>Birth Document</strong> – Điền First Name, Middle Name (nếu có), và Family Name at Birth – đúng như trên giấy khai sinh.</p>
+<p>Nếu bạn có thành viên gia đình sinh ra tại Canada, bạn phải tạo một mục và đính kèm Birth Certificate để chứng minh quốc tịch Canada. Không cần cung cấp hộ chiếu.</p>
+<p><strong>Passport</strong> – Điền Country, Passport Number (không có khoảng trắng), và Passport Expiry Date (theo định dạng DD-Mon-YYYY) đúng như trên tài liệu của bạn.</p>
+<div class="shot plain"><img src="images/img-p50-Im3.png" alt="" style="max-width:248px"/></div>
+<p>Đối với vợ/chồng, điền Previous First Name, Previous Last Name, và Ngày mà vợ/chồng bước vào tình trạng hôn nhân đã chọn, và đính kèm các tài liệu cần thiết. Nhấp vào <strong>Create another Marital Status</strong> để thêm một mục tình trạng hôn nhân khác.</p>
+<h4 id="s4-8-imm5406" class="sec-h3">4.8.g IMM 5406 – Additional Family Member Information (Thông tin Bổ sung về Thành viên Gia đình)</h4>
+<p><em>Bạn phải tải xuống, điền và đính kèm mẫu đơn liên bang này.</em></p>
+<h4 id="s4-8-schedulea" class="sec-h3">4.8.h Schedule A – Background Declaration (Khai báo Lý lịch)</h4>
+<p><em>Bạn phải tải xuống, điền và đính kèm mẫu đơn liên bang này.</em></p>
+<p>Đối với mỗi màn hình, nhấp vào biểu tượng <strong>Save</strong> <img class="inline-icon" src="images/img-p50-Im7.png" alt=""/> để lưu các mục của bạn, và biểu tượng Attach <img class="inline-icon" src="images/img-p50-Im9.png" alt=""/> để đính kèm tài liệu cần thiết.</p>
+<div class="shot plain"><img src="images/img-p50-Im11.png" alt="" style="max-width:435px"/></div>
+<p>Nhấp vào biểu tượng để tiếp tục đơn xin của bạn, sau đó nhấp vào biểu tượng.</p>
+<div class="shot plain"><img src="images/img-p50-Im5.png" alt="" style="max-width:420px"/></div>
+<h2 id="s4-9" class="sec-h1">4.9 Lời mời Làm việc (Job Offer)</h2>
+<p>Trong mục Job Offer, các trường sẽ tự động điền dựa trên giá trị EPA bạn đã nhập trong mục Eligibility. Bạn phải nhập ngày Job Offer, tải lên Job Offer Letter, và chọn validate.</p>
+<div class="shot"><img src="images/img-p50-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Xin lưu ý rằng bạn không thể nộp đơn SINP nếu việc xác thực (validation) lời mời làm việc không thành công, hoặc nếu bạn bỏ lỡ thời hạn nộp đơn được nêu trong EPA Approval của bạn.</p>
+<div class="shot"><img src="images/img-p51-Im4.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Letter of Offer (Thư mời làm việc) phải:</p>
+<ul style="margin-bottom:0;">
+<li>gửi đến người nộp đơn chính;</li>
+<li>nêu rõ chức danh công việc, nhiệm vụ và trách nhiệm, mức lương, phúc lợi, và thông tin liên hệ của công ty;</li>
+<li>liệt kê địa điểm (tức là thị trấn/thành phố) nơi bạn làm việc tại Saskatchewan;</li>
+<li>được cấp trên letterhead của công ty; và,</li>
+<li>được ký bởi chủ lao động.</li>
+</ul>
+</div>
+<div class="shot plain"><img src="images/img-p51-Im3.png" alt="" style="max-width:721px"/></div>
+<p>Bạn cũng phải nhấp vào nút <strong>Validate</strong> trước khi tiếp tục sang bước tiếp theo, nếu không bạn sẽ không thể nộp đơn của mình vì nó sẽ được đánh dấu là chưa hoàn chỉnh.</p>
+<div class="shot"><img src="images/img-p51-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Next</strong> để tiếp tục.</p>
+<p>Tải lên bản sao Job Offer Letter của bạn và nhấp vào biểu tượng <strong>Save</strong> <img class="inline-icon" src="images/img-p51-Im1.png" alt=""/> để lưu các mục của bạn.</p>
+<h2 id="s4-10" class="sec-h1">4.10 Bằng chứng về Giấy phép Hành nghề (Proof of Licensure)</h2>
+<p>Nếu bạn nộp đơn theo Health Talent Pathways, bạn phải cung cấp bản sao medical license (giấy phép hành nghề y tế) của mình, và điền vào các trường sau:</p>
+<div class="shot"><img src="images/img-p52-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Xin lưu ý rằng SRNA nay được gọi là College of Registered Nurses of Saskatchewan (CRNS).</p>
+<p>Nhấp vào biểu tượng <strong>Save</strong> <img class="inline-icon" src="images/img-p52-Im1.png" alt=""/> để lưu các mục của bạn, và biểu tượng Attach <img class="inline-icon" src="images/img-p52-Im5.png" alt=""/> để đính kèm tài liệu cần thiết.</p>
+<p>Nhấp vào <strong>Next</strong> để tiếp tục.</p>
+<h2 id="s4-11" class="sec-h1">4.11 Bằng Lái xe (Driver's License)</h2>
+<p>Nếu bạn nộp đơn với tư cách Truck Driver theo Existing Work Permit Sub-Category, bạn phải có Class 1A Saskatchewan Driver's License hợp lệ.</p>
+<p>Điền vào các trường bắt buộc này:</p>
+<div class="shot"><img src="images/img-p52-Im3.png" alt="" style="max-width:900px"/></div>
+<h4 id="s4-11-1" class="sec-h3">4.11.1 Endorsement (Chứng nhận Bổ sung)</h4>
+<p>Thêm một mục endorsement. Thông tin này có thể tìm thấy trên bằng lái xe của bạn:</p>
+<div class="shot"><img src="images/img-p52-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Create a Licence Endorsement</strong> để thêm một mục endorsement khác.</p>
+<div class="shot plain"><img src="images/img-p52-Im11.png" alt="" style="max-width:258px"/></div>
+<h4 id="s4-11-2" class="sec-h3">4.11.2 Restriction (Hạn chế, nếu có)</h4>
+<p>Thêm một mục restriction nếu áp dụng cho bạn. Thông tin này có thể tìm thấy trên bằng lái xe của bạn.</p>
+<div class="shot"><img src="images/img-p53-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào <strong>Create a Licence Restriction</strong> để thêm một mục restriction khác.</p>
+<div class="shot plain"><img src="images/img-p53-Im11.png" alt="" style="max-width:240px"/></div>
+<p>Đính kèm bản sao Class 1A Saskatchewan Driver's License của bạn.</p>
+<p>Nhấp vào biểu tượng <strong>Save</strong> <img class="inline-icon" src="images/img-p53-Im9.png" alt=""/> để lưu các mục của bạn, và biểu tượng Attach <img class="inline-icon" src="images/img-p53-Im13.png" alt=""/> để đính kèm tài liệu cần thiết.</p>
+<h2 id="s4-12" class="sec-h1">4.12 Đơn xin Trước đây (Previous Application)</h2>
+<p>Nếu bạn từng có đơn xin cấp tỉnh hoặc liên bang Canada trước đây, bạn phải điền vào các trường bắt buộc này:</p>
+<div class="shot"><img src="images/img-p53-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Đính kèm (các) tài liệu cuối cùng nhận được liên quan đến đơn xin trước đây của bạn, ví dụ IRCC Refusal Letter, SINP Ineligible Letter, v.v.</p>
+<p>Nhấp vào biểu tượng <strong>Save</strong> <img class="inline-icon" src="images/img-p53-Im5.png" alt=""/> để lưu các mục của bạn, và biểu tượng Attach <img class="inline-icon" src="images/img-p53-Im15.png" alt=""/> để đính kèm tài liệu cần thiết.</p>
+<div class="shot plain"><img src="images/img-p53-Im7.png" alt="" style="max-width:298px"/></div>
+<p>Nhấp vào biểu tượng để tạo một mục khác.</p>
+<p>Nhấp vào <strong>Next</strong> để tiếp tục.</p>
+<h2 id="s4-13" class="sec-h1">4.13 Các Màn hình Đơn xin Cần thiết cho Từng Diện (Required Application Screens for Each Category)</h2>
+<h2 id="s4-13-1" class="sec-h1">4.13.1 Lao động Tay nghề Quốc tế (International Skilled Worker)</h2>
+<p><strong>a. Occupations In-Demand:</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (nếu có)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Express Entry:</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (nếu có)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>c. With Employment Offer:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (nếu có)</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>d. Agriculture Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>e. Innovation and Tech Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (nếu có)</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>f. Innovation and Tech Talent Pathway – Express Entry:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (nếu có)</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>g. Health Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (nếu có)</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>h. Health Talent Pathway – Express Entry:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (nếu có)</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s4-13-2" class="sec-h1">4.13.2 Kinh nghiệm Saskatchewan (Saskatchewan Experience)</h2>
+<p><strong>a. Existing Work Permit:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Driver's License (nếu có)</li>
+<li>Driver's License Endorsement (nếu có)</li>
+<li>Driver's License Restriction (nếu có)</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Students:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (nếu có)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s5-0" class="sec-h1">5.0 Kiểm tra Màn hình Đơn xin và Nộp đơn (Check Application Screens and Submit)</h2>
+<p>Nhấp vào <strong>Check All Application Screens and Submit</strong> để nộp đơn của bạn. Hãy chắc chắn rằng bạn đã xem lại tất cả các cảnh báo và lỗi trước khi nộp.</p>
+<div class="shot plain"><img src="images/img-p55-Im1.png" alt="" style="max-width:340px"/></div>
+<p><strong>Điều quan trọng là tất cả các tài liệu cần thiết phải được đính kèm trong đơn xin của bạn. Nếu bạn nộp một đơn xin không đầy đủ, thiếu tài liệu, đơn xin của bạn sẽ bị từ chối và lệ phí của bạn sẽ không được hoàn lại. Các tài liệu bổ sung gửi sau khi nộp đơn sẽ không được chấp nhận, trừ khi được yêu cầu.</strong></p>
+<h2 id="s6-0" class="sec-h1">6.0 Thanh toán Lệ phí – Tất cả các Diện SINP (Fee Payment – All SINP Categories)</h2>
+<p class="warn-red">Xin lưu ý rằng sau khi thanh toán, bạn sẽ không thể thay đổi đơn xin của mình. Khi lệ phí được thanh toán, đơn xin của bạn sẽ tự động được nộp. Các tài liệu bổ sung gửi sau khi nộp sẽ không được chấp nhận.</p>
+<p>Sau khi nhấp vào nút "Check All Application Screens and Submit", một Invoice Page (trang hóa đơn) nêu rõ số tiền cần thanh toán sẽ hiển thị. Trạng thái hóa đơn sẽ ở mức "Pending" (Đang chờ) cho đến khi thanh toán thành công.</p>
+<div class="shot"><img src="images/img-p56-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Sau khi nhập thông tin thẻ tín dụng của bạn và xem lại số tiền cần thanh toán, nhấp vào "Pay".</p>
+<p>Sau khi thanh toán thành công, trạng thái sẽ hiển thị "Payment Received" (Đã nhận Thanh toán) và đơn xin của bạn đã được nộp.</p>
+<div class="shot"><img src="images/img-p57-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Nhấp vào nút "Go to Home Page" để quay lại đơn xin của bạn. Bạn có thể xem hóa đơn bằng cách nhấp vào nút bên dưới.</p>
+<div class="shot plain"><img src="images/img-p57-Im3.png" alt="" style="max-width:533px"/></div>
+<h2 id="s7-0" class="sec-h1">7.0 Đã nhận Đơn xin (Application Received)</h2>
+<p>Bạn sẽ nhận được một file number (số hồ sơ) sau khi nộp đơn:</p>
+<div class="shot"><img src="images/img-p58-Im1.png" alt="" style="max-width:766px"/></div>
+<p>Bạn sẽ nhận được một receipt letter (thư biên nhận) trong vòng 24–48 giờ sau khi nộp đơn (ví dụ: 9999999).</p>
+<h2 id="s8-0" class="sec-h1">8.0 Yêu cầu Bổ sung Thông tin (Request for Additional Information)</h2>
+<p>Nếu đơn xin của bạn cần bổ sung tài liệu để xử lý, bạn sẽ nhận được thư từ liên lạc từ SINP qua OASIS. Để kiểm tra thư từ của bạn, bạn có thể nhấp vào liên kết được cung cấp trong email, hoặc đăng nhập vào OASIS.</p>
+<p>Để nộp tài liệu của bạn, vui lòng đăng nhập vào tài khoản OASIS của bạn và nhấp vào 'Submit Requested Documents'. Tải lên (các) tài liệu được yêu cầu trong mục 'Request Additional Information' và nhấp vào nút 'Submit'.</p>
+<p>Bạn cũng có thể truy cập mục 'Request Additional Information' bằng cách nhấp vào View Submitted Part 2.</p>
+<p>Xin lưu ý rằng các tài liệu nhận được qua email sẽ không được chấp nhận. Bạn phải đính kèm tất cả tài liệu qua tài khoản OASIS của mình.</p>
+<div style="text-align:center; margin:20px 0 8px; font-weight:bold; color:#333;">
+<span style="display:inline-block; width:46%; min-width:220px;">Applicant home screen:</span>
+<span style="display:inline-block; width:46%; min-width:220px;">Representative home screen:</span>
+</div>
+<div class="shot-row">
+<img src="images/img-p58-Im7.png" alt="" style="max-width:421px"/>
+<img src="images/img-p58-Im3.png" alt="" style="max-width:387px"/>
+</div>
+<div class="shot"><img src="images/img-p58-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Nếu bạn cần thêm thời gian để nộp tài liệu, bạn có thể gửi yêu cầu bằng cách điền vào mẫu đơn dưới đây và nhấp vào 'Request Extension to Submit Documents'.</p>
+<div class="shot"><img src="images/img-p59-Im5.png" alt="" style="max-width:805px"/></div>
+<p>Yêu cầu gia hạn của bạn có thể được chấp thuận hoặc không. Bạn sẽ nhận được thư từ liên lạc cho biết liệu yêu cầu gia hạn của bạn đã được chấp thuận hay bị từ chối. Vui lòng tải lên tất cả tài liệu hiện có của bạn để đáp ứng yêu cầu bổ sung thông tin trước khi nộp yêu cầu gia hạn.</p>
+<h2 id="s9-0" class="sec-h1">9.0 Cập nhật Số Hồ sơ Express Entry và Mã Xác thực Người tìm việc (Update Express Entry Profile Number and Job Seeker Validation Code)</h2>
+<p>Nếu trong quá trình xử lý, Express Entry Profile Number và Job Seeker Validation Code của bạn có thay đổi, bạn có thể cập nhật thông tin này bằng cách mở đơn xin của mình. Trong mục Part 2 của đơn xin SINP của bạn (hoặc Main Application Page), nhấp vào nút bên dưới.</p>
+<div class="shot"><img src="images/img-p59-Im1.png" alt="" style="max-width:458px"/></div>
+<p>Một trang có tên "Information Changes" sẽ hiển thị, và bạn có thể chỉnh sửa thông tin Express Entry Profile của mình bằng cách điền vào các trường được cung cấp. Sau khi nhập thông tin, nhấp vào 'Save' rồi nhấp vào nút 'Submit Changes'.</p>
+<div class="shot"><img src="images/img-p59-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Nếu bạn quyết định hủy bước này, nhấp vào 'Move to Part 2' mà không lưu, hoặc nhấp vào 'Cancel Changes'.</p>
+<p>Bạn có thể quay lại các mục đơn xin chính bằng cách nhấp vào 'Move to Part 2'. Bạn có thể chỉnh sửa thông tin này bất cứ lúc nào khi hồ sơ của bạn còn hoạt động.</p>
+<h2 id="s10-0" class="sec-h1">10.0 Quy trình Xét duyệt Lần hai (Second Review Process)</h2>
+<p>Nếu đơn xin của bạn bị SINP xác định là không đủ điều kiện (ineligible) và bạn tin rằng có sai sót trong quá trình xử lý đơn xin, hoặc trong việc đánh giá dựa trên tiêu chí có hiệu lực tại thời điểm nộp đơn, bạn có thể yêu cầu second review (xét duyệt lần hai). Bạn có 30 ngày kể từ ngày SINP ban hành ineligible letter (thư thông báo không đủ điều kiện) để đưa ra yêu cầu này. Hệ thống sẽ không chấp nhận bất kỳ yêu cầu nào sau khi hết thời hạn 30 ngày.</p>
+<p>Để yêu cầu xét duyệt lần hai, trong mục Part 2 của đơn xin của bạn, vui lòng nhấp vào nút 'Request for Second Review'.</p>
+<div class="shot"><img src="images/img-p60-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Một cửa sổ confirmation (xác nhận) sẽ hiển thị, và nếu bạn đồng ý với các điều khoản và điều kiện nêu ra, vui lòng nhấp vào nút 'Create Appeal Request'.</p>
+<div class="shot"><img src="images/img-p60-Im1.png" alt="" style="max-width:554px"/></div>
+<p>Một mục Appeal Request (Yêu cầu Khiếu nại) sẽ được tạo để bạn điền, và bạn có thể đính kèm tài liệu để hỗ trợ cho yêu cầu của mình.</p>
+<div class="shot"><img src="images/img-p61-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Nếu bạn chưa nộp đơn khiếu nại, từ màn hình đơn xin chính, bạn có thể xem yêu cầu xét duyệt lần hai đang chờ xử lý của mình bằng cách nhấp vào nút 'View Second Review Request'.</p>
+<div class="shot"><img src="images/img-p61-Im3.png" alt="" style="max-width:896px"/></div>
+<p class="warn-red">Bạn có 30 ngày kể từ ngày SINP ban hành ineligible letter để đưa ra yêu cầu này. Hệ thống sẽ không chấp nhận bất kỳ yêu cầu nào sau khi hết thời hạn 30 ngày.</p>
+<p>Sau thời hạn 30 ngày, bạn sẽ không thể yêu cầu xét duyệt lần hai.</p>
+<div class="shot"><img src="images/img-p62-Im1.png" alt="" style="max-width:484px"/></div>
+<p>Nếu bạn chưa nộp đơn khiếu nại và thời hạn 30 ngày đã qua, bạn sẽ không thể nộp yêu cầu đang chờ xử lý.</p>
+<div class="shot"><img src="images/img-p62-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Để nộp đơn khiếu nại của bạn trong thời hạn 30 ngày, vui lòng nhấp vào 'Submit Appeal Request'.</p>
+<div class="shot"><img src="images/img-p62-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Một thông báo cảnh báo sẽ hiển thị, cho biết rằng bạn sẽ được chuyển hướng để thanh toán lệ phí xét duyệt lần hai.</p>
+<div class="shot"><img src="images/img-p63-Im3.png" alt="" style="max-width:648px"/></div>
+<p>Nếu bạn nhấp vào "Yes, Continue", bạn sẽ được chuyển đến trang thanh toán. <em>Lưu ý: Nếu bạn nhấp vào "No, Go Back", bạn sẽ được chuyển về trang appeal request.</em></p>
+<div class="shot"><img src="images/img-p63-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Sau khi nhập thông tin thẻ tín dụng của bạn, nhấp vào "Pay".</p>
+<div class="shot"><img src="images/img-p64-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Sau khi thanh toán thành công, yêu cầu xét duyệt lần hai của bạn sẽ tự động được nộp. Bạn sẽ nhận được thư từ liên lạc thông báo rằng yêu cầu xét duyệt lần hai của bạn đã được nhận.</p>
+<p>Một yêu cầu xét duyệt lần hai có thể bị từ chối nếu bạn không thể chứng minh lý do chính đáng cho việc xét duyệt. Khi yêu cầu bị từ chối, hồ sơ của bạn sẽ được đóng lại. Nếu yêu cầu của bạn được chấp thuận, một hồ sơ xét duyệt lần hai sẽ được tạo, và bạn sẽ được thông báo qua email rằng đơn xin của bạn đã được đưa vào diện xét duyệt lần hai.</p>
+<div class="shot"><img src="images/img-p64-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Nếu bạn quyết định rút lại yêu cầu xét duyệt lần hai của mình, vui lòng nhấp vào nút 'Withdraw Second Review Request'.</p>
+<p>Một thông báo cảnh báo sẽ hiển thị để xác nhận rằng bạn đang rút lại yêu cầu xét duyệt lần hai.</p>
+<div class="shot"><img src="images/img-p65-Im1.png" alt="" style="max-width:461px"/></div>
+<p style="text-align:center; margin-top:40px;"><em>- Hết Hướng dẫn -</em></p>
+<p style="text-align:center;"><strong>Cảm ơn bạn đã quan tâm đến Saskatchewan Immigrant Nominee Program.</strong></p>
+<footer class="doc-footer">SINP – OASIS Hướng dẫn Sử dụng cho Người nộp đơn · Tháng 4 năm 2026</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SINP – OASIS Guide de l'utilisateur pour les demandeurs</title>
+<style>
+:root {
+  --ink: #1a1a1a;
+  --green: #1a5632;
+  --green-dark: #123d23;
+  --paper: #ffffff;
+  --page-bg: #e9e9e4;
+  --rule: #c9c9c0;
+  --note-bg: #eef4fb;
+  --note-border: #9db8d8;
+  --callout-border: #d8b3b3;
+  --highlight-bg: #fff6df;
+  --highlight-border: #d9a441;
+  --warn-red: #b12727;
+}
+* { box-sizing: border-box; }
+html { background: var(--page-bg); }
+body {
+  margin: 0;
+  padding: 40px 16px 100px;
+  background: var(--page-bg);
+  font-family: "Times New Roman", Georgia, "Liberation Serif", serif;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 56px 64px 72px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 8px 30px rgba(0,0,0,0.12);
+}
+/* Cover */
+.cover { text-align: center; padding-top: 20px; padding-bottom: 48px; border-bottom: 3px solid var(--green); margin-bottom: 40px;}
+.cover img.logo { height: 92px; margin-bottom: 6px; }
+.cover h1 { font-size: 30px; color: var(--green); margin: 28px 0 6px; line-height: 1.3; }
+.cover .subtitle { font-size: 19px; color: #444; margin-bottom: 30px; font-style: italic; }
+.cover .contact { font-size: 15px; color: #333; margin-top: 30px; line-height: 1.7; }
+.cover .contact a { color: var(--green); }
+.cover .datestamp { margin-top: 18px; font-size: 15px; color: #555; }
+.cover .brief-note { margin-top: 34px; font-size: 13.5px; color: #8a8a8a; border-top: 1px dashed var(--rule); padding-top: 16px; }
+
+/* TOC */
+.toc { margin: 0 0 48px; padding: 24px 28px; background: #f7f7f3; border: 1px solid var(--rule); }
+.toc-title { color: var(--green); font-size: 20px; margin: 0 0 14px; border-bottom: 2px solid var(--green); padding-bottom: 8px; }
+.toc-list { list-style: none; margin: 0; padding: 0; column-count: 1; }
+.toc-list li { padding: 3px 0; font-size: 15px; }
+.toc-list li.toc-lvl1 { font-weight: bold; margin-top: 10px; }
+.toc-list li.toc-lvl2 { padding-left: 22px; }
+.toc-list li.toc-lvl3 { padding-left: 42px; font-size: 14px; }
+.toc-list li a { color: var(--green-dark); text-decoration: none; }
+.toc-list li a:hover { text-decoration: underline; }
+.toc-list li.toc-inactive { color: #aaa; font-style: italic; }
+.toc-list li.toc-inactive.toc-lvl1 { color: #999; }
+
+/* Headings */
+h2.sec-h1 { color: var(--green); font-size: 24px; margin: 46px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--green); scroll-margin-top: 20px;}
+h3.sec-h2 { color: var(--green); font-size: 19px; margin: 34px 0 12px; scroll-margin-top: 20px;}
+h4.sec-h3 { color: var(--green-dark); font-size: 16px; text-decoration: underline; margin: 26px 0 10px; scroll-margin-top: 20px;}
+
+/* Text */
+p { margin: 0 0 14px; text-align: left; }
+p.lead-bold { font-weight: bold; }
+p.warn-red { color: var(--warn-red); font-weight: bold; }
+ul, ol { margin: 0 0 16px; padding-left: 28px; }
+li { margin-bottom: 8px; }
+a { color: #1155aa; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/* Callout (warning icon + italic text) */
+.callout { display: flex; align-items: flex-start; gap: 14px; margin: 18px 0 22px; padding: 14px 18px; background: #fdfaf5; border: 1px solid var(--callout-border); border-left: 4px solid #c0392b; }
+.callout-icon { width: 30px; height: 30px; flex: none; margin-top: 2px; }
+.callout-text { font-style: italic; color: #333; }
+
+/* Note box (dashed, blue-ish, matches original's tip/status boxes) */
+.note-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--note-bg); border: 1.5px dashed var(--note-border); font-size: 15.5px; }
+
+/* Highlight box - the user's own 10/60-day emphasis */
+.highlight-box { display:flex; align-items:center; gap: 16px; margin: 24px 0 26px; padding: 18px 22px; background: var(--highlight-bg); border: 2px solid var(--highlight-border); border-radius: 3px; box-shadow: 0 2px 8px rgba(217,164,65,0.25); }
+.highlight-box img.callout-icon { width: 34px; height: 34px; }
+.highlight-box div { font-weight: bold; font-size: 18px; color: #6b4a12; line-height: 1.4; }
+
+/* Screenshots */
+.shot { text-align: center; margin: 20px 0 26px; }
+.shot img { max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+.inline-icon { display: inline-block; height: 1.3em; width: auto; vertical-align: middle; margin: 0 3px; position: relative; top: -1px; }
+.shot-row { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; }
+.shot-row img { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+.img-cap { font-size: 13.5px; color: #666; margin-top: 8px; font-style: italic; }
+
+/* Small inline button-style images get no heavy border/shadow */
+.shot.plain img { box-shadow: none; border: none; }
+
+footer.doc-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 13px; color: #888; text-align: center; }
+
+@media (max-width: 700px) {
+  .page { padding: 28px 20px 50px; }
+  body { font-size: 16px; padding: 16px 8px 60px; }
+  .cover h1 { font-size: 24px; }
+}
+
+/* --- Добавлено при слиянии с Частью 2: в оригинале блоки "Required documentation for..."
+   заключены в рамку с КРАСНЫМ пунктиром (проверено по векторной обводке в PDF), а не в синюю,
+   как .note-box. Заводим для него отдельный класс на основе .note-box. */
+:root { --req-border: #c0504d; --req-bg: #fdf6f5; }
+.req-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--req-bg); border: 1.5px dashed var(--req-border); font-size: 15.5px; }
+
+.lang-switch { text-align:right; max-width:1300px; margin:0 auto 8px; font-size:14px; }
+.lang-switch a { color:#1a5632; text-decoration:none; font-weight:bold; }
+.lang-switch a:hover { text-decoration:underline; }
+</style>
+.inline-icon { display: inline-block; height: 1.3em; width: auto; vertical-align: middle; margin: 0 3px; position: relative; top: -1px; }
+</head>
+<body>
+<div class="lang-switch"><a href="guide_ru.html">Русский (RU)</a> &nbsp;|&nbsp; <a href="guide_ua.html">Українською (UA)</a> &nbsp;|&nbsp; <a href="index.html">English (EN)</a> &nbsp;|&nbsp; <a href="guide_vi.html">Tiếng Việt (VI)</a> &nbsp;|&nbsp; <a href="guide_tl.html">Tagalog (TL)</a> &nbsp;|&nbsp; <a href="guide_pa.html">ਪੰਜਾਬੀ (PA)</a> &nbsp;|&nbsp; <a href="guide_zh.html">简体中文 (ZH)</a></div>
+<div class="page"><div class="cover"><img class="logo" src="images/img-p00-Im0.png" alt="Government of Saskatchewan"/><h1>SINP – OASIS Guide de l'utilisateur pour les demandeurs<br><span style="font-size:0.7em;font-weight:normal;color:#555">(User Guide for Applicants)</span></h1><div class="subtitle">Ministère de l'Immigration et de la Formation professionnelle<br>(Ministry of Immigration and Career Training)</div><div class="contact">Pour de plus amples renseignements, veuillez communiquer avec :<br>Government of Saskatchewan &mdash; Ministry of Immigration and Career Training<br>Immigration Services Branch &mdash; Saskatchewan Immigrant Nominee Program<br>7th Floor, 1945 Hamilton Street, Regina, Saskatchewan S4P 2C8<br>Téléphone : (Canada 001) 833-613-0485 &nbsp;&middot;&nbsp; Télécopieur : (Canada 001) 306-798-0713<br>Demandes de renseignements : <a href="mailto:immigration@gov.sk.ca">immigration@gov.sk.ca</a><br>Site Web : <a href="https://www.saskatchewan.ca/sinp" target="_blank">www.saskatchewan.ca/sinp</a></div><div class="datestamp">Avril 2026</div></div><div class="note-box" style="margin:0 0 20px;"><strong>Remarque sur la traduction :</strong> Au moment de la rédaction, le gouvernement de la Saskatchewan n'a pas publié de version française officielle de ce guide et recommande aux utilisateurs francophones de recourir à la traduction automatique. Cette version française a donc été traduite à partir de l'original anglais et n'a pas de statut officiel. En cas de divergence, le texte anglais original du gouvernement de la Saskatchewan fait foi.</div><nav class="toc"><h2 class="toc-title">Table des matières (Table of Contents)</h2><ol class="toc-list"><li class="toc-lvl1"><a href="#s1-0">1.0 Introduction et Connexion (Introduction and Log On)</a></li>
+<li class="toc-lvl2"><a href="#s1-1">1.1 S'inscrire sur OASIS (Register on OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-2">1.2 Se connecter à OASIS (Login to OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-3">1.3 Autorisation de divulgation de renseignements personnels (Authority to Disclose Personal Information)</a></li>
+<li class="toc-lvl2"><a href="#s1-4">1.4 Récupération de l'identifiant ou du mot de passe (User ID or Password Recovery)</a></li>
+<li class="toc-lvl1"><a href="#s2-0">2.0 Commencer votre demande (Start your application)</a></li>
+<li class="toc-lvl2"><a href="#s2-1">2.1 Renseignements sur le demandeur / Détails du passeport (Applicant Information / Passport Details)</a></li>
+<li class="toc-lvl2"><a href="#s2-2">2.2 Adresse résidentielle/domicile (Residential/Home Address)</a></li>
+<li class="toc-lvl2"><a href="#s2-3">2.3 Adresse postale et coordonnées (Mailing Address and Contact Information)</a></li>
+<li class="toc-lvl2"><a href="#s2-4">2.4 Représentant (Representative)</a></li>
+<li class="toc-lvl1"><a href="#s3-0">3.0 Préalable à la demande et renseignements sur le demandeur (Pre-Application and Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-1">3.1 Admissibilité à la demande (Eligibility for Application)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-eoi">3.1.a Expression of Interest (Déclaration d'intérêt)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-jos">3.1.b Job Offer Streams (Volets liés à une offre d'emploi)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-agri">3.1.c Agriculture Talent Pathway (Volet Talents en agriculture)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway (Volet Talents en innovation et technologie)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Non-Express Entry (Volet Talents en santé)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-work">3.1.f Saskatchewan Experience – Existing Work Permit (Permis de travail existant)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-student">3.1.g Saskatchewan Experience – Student (Étudiant)</a></li>
+<li class="toc-lvl2"><a href="#s3-2">3.2 Grille de points pour travailleurs qualifiés (Skilled Worker Points Grid)</a></li>
+<li class="toc-lvl2"><a href="#s3-3">3.3 Résidence actuelle et destination d'établissement (Current Residency and Settlement Destination)</a></li>
+<li class="toc-lvl2"><a href="#s3-4">3.4 Renseignements sur le demandeur (Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-5">3.5 Téléverser vos documents (Uploading your documents)</a></li>
+<li class="toc-lvl2"><a href="#s3-6">3.6 Divulgation de renseignements (Information Disclosure)</a></li>
+<li class="toc-lvl2"><a href="#s3-7">3.7 Citoyenneté (Citizenship)</a></li>
+<li class="toc-lvl2"><a href="#s3-8">3.8 Document de naissance (Birth Document)</a></li>
+<li class="toc-lvl2"><a href="#s3-9">3.9 Passeport (Passport)</a></li>
+<li class="toc-lvl2"><a href="#s3-10">3.10 État civil (Marital Status)</a></li>
+<li class="toc-lvl2"><a href="#s3-11">3.11 Études (Education)</a></li>
+<li class="toc-lvl3"><a href="#s3-11-enter">3.11.a Saisir/Modifier les renseignements sur les études (Enter/Change Education)</a></li>
+<li class="toc-lvl2"><a href="#s3-12">3.12 Titres de compétences réglementaires ou permis et évaluation des diplômes</a></li>
+<li class="toc-lvl2"><a href="#s3-13">3.13 Expérience de travail (Work Experience)</a></li>
+<li class="toc-lvl2"><a href="#s3-14">3.14 Compétences en anglais/français (English/French Ability)</a></li>
+<li class="toc-lvl2"><a href="#s3-15">3.15 Dernière page de la Partie 1 (Final Page of Part 1)</a></li>
+<li class="toc-lvl2"><a href="#s3-16">3.16 Modifier la Partie 1 et les renseignements sur le demandeur</a></li>
+<li class="toc-lvl1"><a href="#s4-0">4.0 Écrans de demande pour travailleur qualifié (Skilled Worker Application Screens)</a></li>
+<li class="toc-lvl2"><a href="#s4-1">4.1 Écran de demande (Application Screen)</a></li>
+<li class="toc-lvl2"><a href="#s4-2">4.2 Lien avec la Saskatchewan (Connection to Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-study">4.2.a A étudié en Saskatchewan (Studied in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-work">4.2.b A travaillé en Saskatchewan (Worked in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-relative">4.2.c Parent proche en Saskatchewan (Close Relative in Saskatchewan)</a></li>
+<li class="toc-lvl2"><a href="#s4-3">4.3 Formulaires fédéraux (Federal Forms)</a></li>
+<li class="toc-lvl2"><a href="#s4-4">4.4 Étape 1 : Boutons de création (Step 1 Create Buttons)</a></li>
+<li class="toc-lvl2"><a href="#s4-5">4.5 Work Permit (Permis de travail)</a></li>
+<li class="toc-lvl2"><a href="#s4-6">4.6 Parent se trouvant au Canada (In-Canada Relative)</a></li>
+<li class="toc-lvl2"><a href="#s4-7">4.7 Fonds d'établissement et plan d'établissement (Settlement Funds and Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-plan">4.7.a Plan d'établissement (Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-funds">4.7.b Fonds d'établissement (Settlement Funds)</a></li>
+<li class="toc-lvl2"><a href="#s4-8">4.8 Membre de la famille accompagnant et n'accompagnant pas</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a1">4.8.a Accompanying Dependant under 18 years of age</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a2">4.8.b Accompanying Dependant 18-21 years old</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a3">4.8.c Accompanying Spouse (Époux/épouse accompagnant)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n1">4.8.d Non-Accompanying Spouse (Époux/épouse n'accompagnant pas)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n2">4.8.e Non-Accompanying Dependant 18 years old or older</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n3">4.8.f Non-Accompanying Dependant under 18 years of age</a></li>
+<li class="toc-lvl3"><a href="#s4-8-imm5406">4.8.g IMM 5406 – Additional Family Member Information</a></li>
+<li class="toc-lvl3"><a href="#s4-8-schedulea">4.8.h Schedule A – Background Declaration</a></li>
+<li class="toc-lvl2"><a href="#s4-9">4.9 Offre d'emploi (Job Offer)</a></li>
+<li class="toc-lvl2"><a href="#s4-10">4.10 Preuve de permis d'exercice (Proof of Licensure)</a></li>
+<li class="toc-lvl2"><a href="#s4-11">4.11 Permis de conduire (Driver's License)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-1">4.11.1 Endorsement (Mention)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-2">4.11.2 Restriction (le cas échéant)</a></li>
+<li class="toc-lvl2"><a href="#s4-12">4.12 Demande antérieure (Previous Application)</a></li>
+<li class="toc-lvl2"><a href="#s4-13">4.13 Écrans de demande requis pour chaque catégorie</a></li>
+<li class="toc-lvl3"><a href="#s4-13-1">4.13.1 Travailleur qualifié international (International Skilled Worker)</a></li>
+<li class="toc-lvl3"><a href="#s4-13-2">4.13.2 Expérience Saskatchewan (Saskatchewan Experience)</a></li>
+<li class="toc-lvl1"><a href="#s5-0">5.0 Vérifier les écrans de demande et soumettre (Check Application Screens and Submit)</a></li>
+<li class="toc-lvl1"><a href="#s6-0">6.0 Paiement des frais – Toutes les catégories du SINP (Fee Payment)</a></li>
+<li class="toc-lvl1"><a href="#s7-0">7.0 Demande reçue (Application Received)</a></li>
+<li class="toc-lvl1"><a href="#s8-0">8.0 Demande de renseignements supplémentaires (Request for Additional Information)</a></li>
+<li class="toc-lvl1"><a href="#s9-0">9.0 Mettre à jour le numéro de profil Entrée express et le code de validation du chercheur d'emploi</a></li>
+<li class="toc-lvl1"><a href="#s10-0">10.0 Processus de deuxième examen (Second Review Process)</a></li>
+</ol></nav><h2 id="s1-0" class="sec-h1">1.0 Introduction et Connexion (Introduction and Log On)</h2>
+<p>Ce guide explique comment accéder aux différents écrans associés aux demandes en ligne du SINP sur le système OASIS et comment les utiliser.</p>
+<div class="shot"><img src="images/img-p03-01.png" alt="" style="max-width:794px"/></div>
+<p>Cliquez sur le lien suivant pour accéder à SINP Online : <a href="https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231" target="_blank" rel="noopener">https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231</a></p>
+<p>L'écran Welcome (Bienvenue) ci-dessus s'affichera. Vous devez d'abord créer un compte pour accéder au système.</p>
+<p>Nous vous encourageons à passer en revue toutes les exigences relatives aux documents et formulaires que vous devez joindre à votre demande, et à examiner les critères ci-dessous avant de commencer votre demande.</p>
+<p>Cliquez sur le lien ci-dessous pour la International Skilled Worker Category (catégorie des travailleurs qualifiés à l'étranger) : <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">International Skilled Worker Category</a></p>
+<p>Cliquez sur le lien ci-dessous pour la Saskatchewan Experience Category (catégorie de l'expérience Saskatchewan) : <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">Saskatchewan Experience Category</a></p>
+<h2 id="s1-1" class="sec-h1">1.1 S'inscrire sur OASIS (Register on OASIS)</h2>
+<ul>
+<li>Cliquez sur <strong>Create an Account</strong> (Créer un compte).</li>
+<li>Cliquez sur <strong>Select a Registration Type</strong> (Sélectionner un type d'inscription).</li>
+</ul>
+<div class="shot"><img src="images/img-p04-04.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Choisissez <strong>SINP Applicant or Expression of Interest Candidate</strong> et cliquez sur <strong>Continue</strong> (Continuer).</li>
+<li>Créez un nom d'utilisateur. Le nom d'utilisateur ne doit contenir aucun espace ni caractère spécial autre qu'un trait de soulignement ('_'). Votre nom d'utilisateur servira à accéder à votre compte OASIS.</li>
+</ul>
+<div class="note-box">Veuillez taper le nom d'utilisateur dans l'espace prévu. Veuillez saisir toutes les autres entrées en Title Case (majuscule au début de chaque mot).</div>
+<ul>
+<li>Entrez votre First Name (Prénom), Middle Name (Deuxième prénom), et Family (Last) Name (Nom de famille), tels qu'ils figurent sur votre passeport.</li>
+<li>Entrez votre Date of Birth (Date de naissance) au format DD-Mon-YYYY.</li>
+<li>Entrez votre Email address (Adresse courriel).</li>
+</ul>
+<div class="callout"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div class="callout-text">Cette adresse courriel sera utilisée pour toute correspondance future relative à votre demande OASIS, y compris la récupération du mot de passe.</div></div>
+<div class="shot"><img src="images/img-p04-01.png" alt="" style="max-width:797px"/></div>
+<p>Cliquez sur <strong>Submit</strong> (Soumettre).</p>
+<p>Un courriel contenant votre nom d'utilisateur et votre mot de passe vous sera envoyé. Vous aurez besoin de ces renseignements pour vous connecter à OASIS.</p>
+<h2 id="s1-2" class="sec-h1">1.2 Se connecter à OASIS (Login to OASIS)</h2>
+<ul>
+<li>Sur la page de connexion, saisissez le nom d'utilisateur et le mot de passe envoyés par courriel, puis cliquez sur <strong>Login</strong> (Se connecter).</li>
+</ul>
+<div class="shot"><img src="images/img-p05-05.png" alt="" style="max-width:636px"/></div>
+<ul>
+<li>Le système vous demandera ensuite de changer votre mot de passe.</li>
+</ul>
+<div class="note-box">Veuillez tenir compte des exigences suivantes relatives au mot de passe : au moins huit caractères; comporter des caractères d'au moins trois des catégories suivantes : lettres majuscules anglaises (A – Z); lettres minuscules anglaises (a – z); chiffres (0 – 9); symboles non alphanumériques (p. ex. : !, #, $, %); ne pas contenir le nom de votre compte utilisateur.</div>
+<div class="shot"><img src="images/img-p05-01.png" alt="" style="max-width:875px"/></div>
+<div class="shot"><img src="images/img-p05-03.png" alt="" style="max-width:726px"/></div>
+<h2 id="s1-3" class="sec-h1">1.3 Autorisation de divulgation de renseignements personnels (Authority to Disclose Personal Information)</h2>
+<p>Pour continuer à se connecter à OASIS pour la première fois, tous les utilisateurs doivent accepter la divulgation de renseignements en cliquant sur le bouton "I AGREE" (J'ACCEPTE).</p>
+<div class="shot"><img src="images/img-p06-03.png" alt="" style="max-width:764px"/></div>
+<h2 id="s1-4" class="sec-h1">1.4 Récupération de l'identifiant ou du mot de passe (User ID or Password Recovery)</h2>
+<p>Pour récupérer l'accès à votre compte, sur la page de connexion, cliquez sur "Forgot your User ID or Password?" (Vous avez oublié votre identifiant ou votre mot de passe?), puis choisissez la méthode de récupération (Recovery Method).</p>
+<div class="shot"><img src="images/img-p06-01.png" alt="" style="max-width:736px"/></div>
+<p>Choisissez "User ID" pour réinitialiser votre mot de passe. On vous demandera de saisir le nom d'utilisateur employé lors de la création de votre compte. Un courriel contenant le nom d'utilisateur et un mot de passe temporaire sera envoyé à l'adresse courriel associée à votre User ID (ou nom d'utilisateur).</p>
+<p>Si vous souhaitez récupérer votre compte à l'aide de l'adresse courriel utilisée, cliquez sur "Email" comme méthode de récupération. Une liste des noms d'utilisateur associés à votre adresse courriel vous sera envoyée par courriel. Pour réinitialiser le mot de passe, vous devrez effectuer l'étape précédente en utilisant la méthode de récupération "User ID".</p>
+<h2 id="s2-0" class="sec-h1">2.0 Commencer votre demande (Start your application)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p07-02.png" alt=""/><div class="callout-text">Assurez-vous d'avoir numérisé tous les documents et formulaires requis, de préférence au format pdf, avant de commencer votre demande.</div></div>
+<div class="shot"><img src="images/img-p07-01.png" alt="" style="max-width:497px"/></div>
+<ul>
+<li>Lors de la numérisation de documents traduits, veuillez numériser le document original ainsi que la traduction en anglais ou en français, et le SINP Translator Affidavit (déclaration sous serment du traducteur) en un seul document. Vous trouverez le formulaire de déclaration à : <a href="https://publications.saskatchewan.ca/#/products/76058" target="_blank" rel="noopener">https://publications.saskatchewan.ca/#/products/76058</a></li>
+<li>Pour réduire la taille des documents numérisés, le SINP n'exige pas les pages vierges de votre passeport.</li>
+<li>Assurez-vous que toutes les copies numérisées sont claires et faciles à lire.</li>
+<li>Veuillez consulter la liste de vérification propre à votre catégorie pour vous assurer que votre demande est complète avec tous les documents requis.</li>
+</ul>
+<p><strong>Remarque importante :</strong> Si vous avez des questions, des problèmes avec votre nom d'utilisateur ou votre mot de passe, ou pour réinitialiser votre mot de passe, veuillez écrire à immigration@gov.sk.ca ou appeler le 1-833-613-0485.</p>
+<p class="warn-red">Pour protéger vos renseignements personnels, veuillez vous déconnecter de la SINP Online Application et vous assurer de fermer complètement votre navigateur Web une fois votre session terminée.</p>
+<h2 id="s2-1" class="sec-h1">2.1 Renseignements sur le demandeur / Détails du passeport (Applicant Information / Passport Details)</h2>
+<p>Remplissez tous les Applicant Information (renseignements sur le demandeur) et Passport Details (détails du passeport) requis ci-dessous :</p>
+<div class="shot"><img src="images/img-p08-01.png" alt="" style="max-width:900px"/></div>
+<p>Sélectionnez la Intended Destination for Settlement (destination d'établissement prévue), puis entrez le pays et la ville/le village de votre résidence actuelle.</p>
+<div class="shot"><img src="images/img-p08-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-2" class="sec-h1">2.2 Adresse résidentielle/domicile (Residential/Home Address)</h2>
+<p>Remplissez la Residential/Home Address (adresse résidentielle/domicile) :</p>
+<div class="shot"><img src="images/img-p08-03.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Si votre Home Address se trouve à l'extérieur du Canada, sous Province/State, sélectionnez International/Outside Canada et indiquez votre province.</li>
+</ul>
+<div class="shot"><img src="images/img-p09-01.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Si votre Home Address est identique à votre adresse postale, sélectionnez 'Yes' (Oui) à la question 'Is the mailing address the same as the Residential/Home Address?' (L'adresse postale est-elle la même que l'adresse résidentielle/domicile?).</li>
+</ul>
+<div class="shot"><img src="images/img-p09-03.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-3" class="sec-h1">2.3 Adresse postale et coordonnées (Mailing Address and Contact Information)</h2>
+<p>Remplissez l'adresse postale et le numéro de téléphone si différents de votre adresse résidentielle :</p>
+<div class="shot"><img src="images/img-p09-05.png" alt="" style="max-width:900px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p09-06.png" alt=""/><div class="callout-text">L'Applicant's Email Address (adresse courriel du demandeur) est un champ obligatoire et doit contenir l'adresse courriel du demandeur pour que la demande soit considérée comme complète. La demande peut faire l'objet d'un integrity review (examen d'intégrité) pour fausse déclaration si l'adresse courriel saisie dans Applicant's Email Address n'est pas celle du demandeur.</div></div>
+<p>Ensuite, sélectionnez l'option qui s'applique à vous :</p>
+<div class="shot"><img src="images/img-p09-08.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-4" class="sec-h1">2.4 Représentant (Representative)</h2>
+<p>Sélectionnez 'Yes' (Oui) si vous mandatez un représentant, sinon sélectionnez 'No' (Non).</p>
+<div class="shot"><img src="images/img-p10-01.png" alt="" style="max-width:870px"/></div>
+<p>Remplissez l'adresse courriel du Consultant (conseiller) si vous sélectionnez 'Yes'.</p>
+<div class="shot"><img src="images/img-p10-05.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur le lien ci-dessous pour obtenir des renseignements sur le recours à un représentant dans votre demande SINP :</p>
+<p><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities" target="_blank" rel="noopener">https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities</a></p>
+<p>Cliquez sur le bouton ci-dessous pour poursuivre votre demande.</p>
+<div class="shot plain"><img src="images/img-p10-03.png" alt="" style="max-width:236px"/></div>
+<h2 id="s3-0" class="sec-h1">3.0 Préalable à la demande et renseignements sur le demandeur (Pre-Application and Applicant Details)</h2>
+<p class="lead-bold">Les questions préalables à la demande concernant une offre d'emploi ou une situation d'emploi sont conçues pour vous orienter vers la catégorie de demande appropriée.</p>
+<h2 id="s3-1" class="sec-h1">3.1 Admissibilité à la demande (Eligibility for Application)</h2>
+<p>Vous devez répondre à la série de questions sur cette page pour déterminer votre admissibilité et la catégorie de demande.</p>
+<h4 id="s3-1-eoi" class="sec-h3">3.1.a Expression of Interest (Déclaration d'intérêt)</h4>
+<p>Si vous êtes admissible dans les sous-catégories Occupations In-Demand ou Express Entry, vous pourrez soumettre une Expression of Interest (EOI).</p>
+<p>Si vous soumettez une EOI pour Occupations In-Demand, vous devez répondre aux questions présentées ci-dessous et choisir votre profession NOC prévue. Vous devez avoir au moins un an d'expérience de travail rémunéré au cours des dix dernières années dans votre domaine d'études ou de formation pour être admissible.</p>
+<div class="shot"><img src="images/img-p11-01.png" alt="" style="max-width:900px"/></div>
+<p>Si vous soumettez une EOI pour Express Entry, vous devez avoir été accepté dans le Express Entry Pool d'IRCC, et posséder un Express Entry Profile Number ainsi qu'un Job Seeker Validation Code. Vous devez avoir au moins un an d'expérience de travail rémunéré au cours des dix dernières années dans votre domaine d'études ou de formation pour être admissible.</p>
+<div class="shot"><img src="images/img-p11-03.png" alt="" style="max-width:900px"/></div>
+<p><strong>Remarque :</strong> Veuillez noter que les professions figurant dans cette liste déroulante peuvent changer selon les prévisions de la demande de main-d'œuvre en Saskatchewan.</p>
+<p>Votre profession prévue peut être réglementée ou exiger une certification professionnelle. Veuillez consulter les liens suivants pour cette exigence :</p>
+<ul>
+<li>Regulated Occupations and Licensing Requirements : <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">saskatchewan.ca — Regulated Occupations and Licensing Requirements</a></li>
+<li>SINP Requirements Related to Professional Status or Licensure : <a href="https://publications.saskatchewan.ca/#/products/102710" target="_blank" rel="noopener">publications.saskatchewan.ca/#/products/102710</a></li>
+</ul>
+<p>Si vous êtes invité à présenter une demande, le SINP examinera vos études, votre expérience de travail et votre profession prévue et, si nécessaire, vous demandera de fournir les documents requis. Si votre profession exige cette documentation, le traitement de votre demande sera suspendu jusqu'à ce que vous ayez obtenu les documents requis.</p>
+<p>Vous devez répondre à toutes les questions restantes ci-dessous avant de pouvoir continuer.</p>
+<div class="shot"><img src="images/img-p12-01.png" alt="" style="max-width:575px"/></div>
+<p>Vous ne pouvez pas continuer tant que toutes les réponses obligatoires n'ont pas été enregistrées. Veuillez répondre à toutes les questions obligatoires et cliquer sur le bouton <strong>Save</strong> pour continuer.</p>
+<p>L'ensemble complet des étapes pour la Expression of Interest (EOI) se trouve à <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-eoi-system" target="_blank" rel="noopener">saskatchewan.ca — International Skilled Worker EOI System</a></p>
+<h4 id="s3-1-jos" class="sec-h3">3.1.b Job Offer Streams (Volets liés à une offre d'emploi)</h4>
+<p>Si vous avez une offre d'emploi permanent à temps plein en Saskatchewan, vous devez avoir reçu une Employer Position Assessment (EPA) Approval comme preuve. Une fois que votre employeur aura ajouté votre nom, vous recevrez l'EPA Approval, qui comprend les détails de l'offre d'emploi et les échéances, envoyée à votre adresse courriel personnelle.</p>
+<p>Vous devez également répondre aux critères de la sous-catégorie pour être admissible.</p>
+<p>Sur la page Eligibility for Application, indiquez si vous avez ou non une offre d'emploi valide et une EPA Approval :</p>
+<div class="shot"><img src="images/img-p13-07.png" alt="" style="max-width:900px"/><div class="img-cap">Exemple : la page « Eligibility for Application »</div></div>
+<p>Vous devez saisir le Employer ID et le EPA ID. Le système vérifiera ces renseignements, y compris votre date de naissance. Si tous les renseignements correspondent, en sélectionnant "View Job Offer" vous verrez apparaître la page Job Offer Information.</p>
+<div class="highlight-box"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div>Important : Vous disposez de 10 jours pour confirmer l'offre d'emploi dans la Part 2 de votre demande SINP, et de 60 jours pour soumettre votre demande complète — ces deux délais sont calculés à partir de la date de réception de l'EPA Approval.</div></div>
+<p>Si vous ne présentez pas de demande dans le cadre du Agriculture Talent Pathway, du Innovation and Tech Talent Pathway, ou du Health Talent Pathway, veuillez répondre NO (Non) aux questions suivantes :</p>
+<div class="shot"><img src="images/img-p13-03.png" alt="" style="max-width:870px"/></div>
+<p>Une fois que vous avez confirmé avoir une offre d'emploi valide, la série de réponses suivante vous mènera à :</p>
+<p class="lead-bold">International Skilled Worker – With Employment Offer Sub-Category (sous-catégorie avec offre d'emploi)</p>
+<div class="shot"><img src="images/img-p13-01.png" alt="" style="max-width:870px"/></div>
+<p>Si vous n'êtes pas actuellement en Saskatchewan avec un permis de travail valide et que vous avez au moins un an d'expérience de travail au cours des dix dernières années dans votre profession prévue :</p>
+<div class="shot"><img src="images/img-p14-03.png" alt="" style="max-width:444px"/></div>
+<p>Si vous travaillez actuellement en Saskatchewan avec un permis de travail valide, que vous N'êtes PAS un étudiant international titulaire d'un permis de travail post-diplôme, et que vous avez au moins un an d'expérience de travail au cours des dix dernières années dans votre profession prévue :</p>
+<div class="shot"><img src="images/img-p14-01.png" alt="" style="max-width:438px"/></div>
+<p>Si vous êtes un étudiant international titulaire d'un permis de travail valide et diplômé à l'extérieur de la Saskatchewan :</p>
+<div class="shot"><img src="images/img-p15-03.png" alt="" style="max-width:675px"/></div>
+<p>Si vous êtes un étudiant international titulaire d'un permis de travail valide et diplômé en Saskatchewan, mais que vous ne répondez pas aux critères de la catégorie Student :</p>
+<div class="shot"><img src="images/img-p15-01.png" alt="" style="max-width:660px"/></div>
+<h4 id="s3-1-agri" class="sec-h3">3.1.c Agriculture Talent Pathway (Volet Talents en agriculture)</h4>
+<p>Sélectionnez "Yes" si vous présentez une demande dans le cadre de cette catégorie, puis sélectionnez votre profession NOC prévue dans le menu déroulant :</p>
+<div class="shot"><img src="images/img-p16-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-tech" class="sec-h3">3.1.d Innovation and Tech Talent Pathway (Volet Talents en innovation et technologie)</h4>
+<p>Sélectionnez "Yes" si vous présentez une demande dans le cadre de la sous-catégorie Innovation and Tech Talent Pathway.</p>
+<div class="shot"><img src="images/img-p16-05.png" alt="" style="max-width:900px"/></div>
+<p>Sélectionnez votre profession NOC prévue dans le menu déroulant :</p>
+<div class="shot"><img src="images/img-p16-03.png" alt="" style="max-width:800px"/></div>
+<p>Vous devez avoir des études postsecondaires liées à l'emploi qui vous a été offert (diplôme de Master's ou Bachelor's; ou diplôme de trois ans dans une université ou un collège; ou un diplôme exigeant deux ans dans une université, un collège, une école de métier ou technique, ou tout autre établissement postsecondaire).</p>
+<div class="shot"><img src="images/img-p17-03.png" alt="" style="max-width:787px"/></div>
+<p>Sélectionnez "Yes" pour présenter une demande dans le cadre de la sous-catégorie Innovation and Tech Talent Pathway, puis sélectionnez "Yes" à la question "Have you been accepted into Immigration, Refugees and Citizenship Canada's Express Entry Pool and have a Profile Number." (Avez-vous été accepté dans le Express Entry Pool d'IRCC et possédez-vous un Profile Number?). Vous pourrez ensuite saisir votre Express Entry profile number et votre Job Seeker Validation Code.</p>
+<div class="shot"><img src="images/img-p17-01.png" alt="" style="max-width:900px"/></div>
+<p>Sélectionnez votre profession NOC prévue dans le menu déroulant :</p>
+<div class="shot"><img src="images/img-p18-01.png" alt="" style="max-width:900px"/></div>
+<p>Vous devez avoir des études postsecondaires liées à l'emploi qui vous a été offert (diplôme de Master's ou Bachelor's; ou diplôme de trois ans dans une université ou un collège; ou un diplôme exigeant deux ans dans une université, un collège, une école de métier ou technique, ou tout autre établissement postsecondaire).</p>
+<div class="shot"><img src="images/img-p18-03.png" alt="" style="max-width:787px"/></div>
+<h4 id="s3-1-health" class="sec-h3">3.1.e Health Talent Pathway – Non-Express Entry (Volet Talents en santé)</h4>
+<p>Sélectionnez "Yes" si vous présentez une demande dans le cadre du Health Talent Pathway.</p>
+<div class="shot"><img src="images/img-p18-05.png" alt="" style="max-width:900px"/></div>
+<p>Sélectionnez ensuite votre profession NOC prévue dans le menu déroulant :</p>
+<div class="shot"><img src="images/img-p19-00.png" alt="" style="max-width:900px"/></div>
+<p>Vous avez un Express Entry profile et le NOC est 44101. Remarque : Le NOC 44101 n'est pas admissible pour Express Entry.</p>
+<div class="shot"><img src="images/img-p19-02.png" alt="" style="max-width:900px"/></div>
+<p>Vous avez un Express Entry profile, et votre NOC N'EST PAS 44101, et vous présentez une demande depuis l'intérieur de la Saskatchewan.</p>
+<div class="shot"><img src="images/img-p20-01.png" alt="" style="max-width:900px"/></div>
+<p>Vous avez un Express Entry profile, et votre NOC N'EST PAS 44101, et vous présentez une demande depuis l'intérieur ou l'extérieur du Canada :</p>
+<div class="shot"><img src="images/img-p21-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-work" class="sec-h3">3.1.f Saskatchewan Experience – Existing Work Permit (Permis de travail existant)</h4>
+<p>Avoir travaillé au moins six mois (780 heures) à temps plein (30+ heures par semaine) chez l'employeur qui vous a fourni l'EPA Approval, avec un permis de travail valide. L'expérience de travail doit être continue (consecutive).</p>
+<p>Choisissez le menu déroulant approprié pour la profession NOC dans laquelle vous travaillez.</p>
+<p>***Cette catégorie s'applique à ceux qui présentent une demande selon l'un des critères du menu déroulant "I am working" (Je travaille), y compris les professions liées à l'hospitality (hôtellerie/restauration) et les professions de long-haul truck driver (camionneur longue distance).</p>
+<div class="shot"><img src="images/img-p22-09.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-student" class="sec-h3">3.1.g Saskatchewan Experience – Student (Étudiant)</h4>
+<p>Études postsecondaires terminées en Saskatchewan : Vous devez avoir au moins six (6) mois d'emploi à temps plein (ou 960 heures) en Saskatchewan lié à votre domaine d'études, et posséder un Post Graduation Work Permit délivré par Immigration, Refugees and Citizenship Canada (IRCC).</p>
+<div class="shot"><img src="images/img-p22-07.png" alt="" style="max-width:900px"/></div>
+<p>Les titulaires d'un Post Graduation Work Permit (PGWP) ayant obtenu leur diplôme d'un Designated Learning Institute à l'extérieur de la Saskatchewan sont limités à présenter une demande dans le cadre du Health Talent Pathway, du Agriculture Talent Pathway, du Innovation and Tech Talent Pathway, et du International Skilled Worker: Employment Offer, dans une profession admissible.</p>
+<p>Cliquez pour enregistrer vos réponses, et cliquez sur le bouton pour vérifier la catégorie de demande dans laquelle vous présentez votre demande.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-01.png" alt="" style="max-width:54px"/><img src="images/img-p22-03.png" alt="" style="max-width:218px"/></div>
+<p>Si la catégorie affichée n'est pas celle que vous avez l'intention de choisir, vous pouvez modifier vos réponses en cliquant sur le bouton ci-dessous, ou cliquer sur "No" pour plus de renseignements.</p>
+<div class="shot shot-row plain"><img src="images/img-p22-00.png" alt="" style="max-width:36px"/><img src="images/img-p22-05.png" alt="" style="max-width:242px"/></div>
+<p>Si la catégorie affichée est correcte, cliquez sur le bouton "Yes" et poursuivez votre demande.</p>
+<h2 id="s3-2" class="sec-h1">3.2 Grille de points pour travailleurs qualifiés (Skilled Worker Points Grid)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-04.png" alt=""/><div class="callout-text">Ceci s'applique uniquement aux demandeurs dans le cadre de la International Skilled Worker Category.</div></div>
+<div class="shot"><img src="images/img-p23-03.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>.</p>
+<h2 id="s3-3" class="sec-h1">3.3 Résidence actuelle et destination d'établissement (Current Residency and Settlement Destination)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-05.png" alt=""/><div class="callout-text">Dans le menu déroulant, choisissez votre pays de résidence actuel, votre statut de résidence, la durée de votre résidence, et votre destination d'établissement en Saskatchewan. Ces renseignements doivent correspondre à vos réponses dans le Generic Application Form for Canada.</div></div>
+<div class="shot"><img src="images/img-p23-01.png" alt="" style="max-width:900px"/></div>
+<div class="note-box"><strong>Statut au Canada (Status in Canada)</strong> – si vous êtes actuellement au Canada en tant que Visitor (visiteur) ou Student (étudiant), vous devez fournir une copie de votre Visitor ou Study permit. Joignez ce document au dossier Passport en tant que Additional Document.</div>
+<h2 id="s3-4" class="sec-h1">3.4 Renseignements sur le demandeur (Applicant Details)</h2>
+<ul>
+<li>Votre âge est calculé automatiquement par OASIS en fonction de votre date de naissance.</li>
+<li>Saisissez la Birth City/Town (ville de naissance).</li>
+<li>Sélectionnez le Birth Country (pays de naissance).</li>
+<li>Sélectionnez le Highest Education Level completed (niveau d'études le plus élevé atteint).</li>
+<li>Intended Occupation NOC (profession NOC prévue) : Pour les demandes Express Entry et Occupation In-Demand, ce champ affichera le NOC que vous avez choisi précédemment dans votre Expression of Interest, et il n'est pas modifiable. Pour les catégories Agriculture Talent, Innovation and Tech Talent et Health Talent Pathways, Employment Offer, Student et Existing Work Permit, sélectionnez votre Intended Occupation NOC.</li>
+</ul>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>.</p>
+<h2 id="s3-5" class="sec-h1">3.5 Téléverser vos documents (Uploading your documents)</h2>
+<p>N'oubliez pas de téléverser une copie numérisée (<strong>lisible</strong>) de votre document, tel que requis. Si possible, utilisez un nom de fichier qui décrit chaque document, p. ex. passport, birth certificate – cela nous aidera à améliorer les délais de traitement des demandes.</p>
+<p>Si vous avez déjà téléversé des documents dans la section <strong>Files</strong> <img class="inline-icon" src="images/img-p24-03.png" alt=""/>, vous ne pouvez que consulter et télécharger ces documents. Tout nouveau téléversement doit être effectué à l'aide de "Upload File".</p>
+<p>Vous ne pourrez pas avancer dans votre demande tant que vos documents n'auront pas été téléversés pour chaque section.</p>
+<div class="note-box">Si votre document n'est pas en anglais ou en français, veuillez fournir une traduction en anglais (ou en français), accompagnée du Translator's Affidavit, et la soumettre avec le document original. Veuillez joindre l'original, la traduction et la déclaration au dossier OASIS correspondant.</div>
+<p>Pour téléverser votre document dans OASIS, veuillez cliquer sur le bouton 'Upload File'.</p>
+<div class="shot"><img src="images/img-p24-01.png" alt="" style="max-width:900px"/></div>
+<p>Une fenêtre contextuelle apparaîtra comme illustré ci-dessous. Cliquez sur le bouton 'Browse', sélectionnez le document que vous souhaitez téléverser, puis cliquez sur 'Upload File'.</p>
+<div class="shot"><img src="images/img-p25-03.png" alt="" style="max-width:900px"/></div>
+<p>Une fois qu'un document est téléversé, un message de confirmation contextuel apparaîtra dans le coin inférieur droit de votre écran :</p>
+<div class="shot plain"><img src="images/img-p25-09.png" alt="" style="max-width:317px"/></div>
+<p>Vous pouvez télécharger le document joint en choisissant 'Download File'. Si vous avez joint le mauvais document, retirez-le en cliquant sur le bouton 'Remove File'.</p>
+<div class="shot"><img src="images/img-p25-01.png" alt="" style="max-width:900px"/></div>
+<p>Vous pouvez téléverser davantage de fichiers/documents en cliquant sur le bouton ci-dessous. Veuillez consulter la capture d'écran type ci-dessous.</p>
+<div class="shot plain"><img src="images/img-p25-05.png" alt="" style="max-width:520px"/></div>
+<div class="shot"><img src="images/img-p25-07.png" alt="" style="max-width:900px"/></div>
+<p>Veuillez lire et accepter les modalités de cette demande au SINP, puis cliquez sur <strong>Save</strong>, puis <strong>Next</strong>.</p>
+<h2 id="s3-6" class="sec-h1">3.6 Divulgation de renseignements (Information Disclosure)</h2>
+<div class="shot"><img src="images/img-p26-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s3-7" class="sec-h1">3.7 Citoyenneté (Citizenship)</h2>
+<p>Sélectionnez votre Country of Citizenship (pays de citoyenneté). Créez un autre dossier Citizenship si vous possédez plus d'une citoyenneté.</p>
+<div class="shot"><img src="images/img-p26-01.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>.</p>
+<h2 id="s3-8" class="sec-h1">3.8 Document de naissance (Birth Document)</h2>
+<p>Sélectionnez le Birth Document Type (type de document de naissance) dans le menu déroulant.</p>
+<div class="shot"><img src="images/img-p26-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Saisissez votre First Name, Middle Name (le cas échéant), et Family (Last) Name at Birth, tels qu'ils figurent sur votre document de naissance. Vous pouvez laisser le champ vide s'il ne s'applique pas à vous, p. ex. Middle Name.</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im0.png" alt=""/><div class="callout-text">Veuillez téléverser une copie numérisée de votre Birth Document. Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File. Une déclaration sous serment (affidavit) ou un passeport n'est pas acceptable comme Birth Document. Cliquez sur Save, puis sur Next.</div></div>
+<div class="shot plain"><img src="images/img-p27-Im7.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-9" class="sec-h1">3.9 Passeport (Passport)</h2>
+<ul>
+<li>Sélectionnez le pays émetteur du passeport dans le menu déroulant.</li>
+<li>Le Passport Number et la Passport Expiry Date seront remplis automatiquement à partir du Birthdate and Address Screen.</li>
+</ul>
+<div class="shot"><img src="images/img-p27-Im11.png" alt="" style="max-width:900px"/></div>
+<p>Veuillez noter que vous n'avez pas besoin de créer de dossier pour votre ou vos anciens passeports expirés.</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im1.png" alt=""/><div class="callout-text">Veuillez téléverser une copie numérisée de votre Passport (et de votre Visitor ou Study Permit, le cas échéant). Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File. Cliquez sur Save, puis sur Next.</div></div>
+<div class="shot plain"><img src="images/img-p27-Im9.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-10" class="sec-h1">3.10 État civil (Marital Status)</h2>
+<p>Sélectionnez votre Marital Status actuel dans le menu déroulant :</p>
+<div class="shot"><img src="images/img-p27-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Si vous êtes Single (célibataire), Annulled Marriage (mariage annulé), Legally Separated (séparé légalement) ou Widowed (veuf/veuve), votre écran doit ressembler à ceci :</p>
+<div class="shot"><img src="images/img-p27-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Pour Common-Law (union de fait), Divorced (divorcé) ou Married (marié) :</p>
+<ul>
+<li>Saisissez votre ancien First Name et Last Name, tels qu'ils figurent sur le document relatif à l'état civil, et indiquez la date à laquelle vous et votre conjoint(e) êtes entrés dans l'état civil sélectionné.</li>
+</ul>
+<div class="shot"><img src="images/img-p28-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Vous devez créer un autre écran d'état civil si vous avez eu plus d'un (1) état civil (par exemple, si vous étiez divorcé et êtes maintenant remarié) en cliquant sur ce bouton :</p>
+<div class="shot plain"><img src="images/img-p28-Im4.png" alt="" style="max-width:363px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p28-Im0.png" alt=""/><div class="callout-text">Veuillez téléverser une copie numérisée de votre Marital Status Document. Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File. Cliquez sur Save, puis sur Next.</div></div>
+<div class="shot plain"><img src="images/img-p28-Im6.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-11" class="sec-h1">3.11 Études (Education)</h2>
+<p>Dans la section Education, vous devez répondre aux questions suivantes. Sélectionnez votre niveau d'études le plus élevé.</p>
+<div class="shot"><img src="images/img-p28-Im8.png" alt="" style="max-width:900px"/></div>
+<p>Si votre profession prévue ou votre offre d'emploi exige une Professional Certification ou une Licensure, sélectionnez "Yes" à la question suivante; sinon, sélectionnez "No."</p>
+<p>Si vous avez une offre d'emploi et souhaitez connaître les exigences en matière de permis, veuillez consulter les liens suivants :</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">Saskatchewan Regulatory Bodies</a></li>
+</ul>
+<p>Si vous n'avez pas d'offre d'emploi et souhaitez connaître les exigences en matière de permis, veuillez consulter :</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/Residents/Moving-to-Saskatchewan/Live-in-Saskatchewan/By-Immigrating/Saskatchewan-Immigrant-Nominee-Program/Browse-SINP-Programs/Applicants-International-Skilled-Workers/Occupation-Restrictions-and-Requirements" target="_blank" rel="noopener">Occupation Restrictions and Requirements</a></li>
+</ul>
+<p>Vous trouverez plus de renseignements sur la Professional Certification ou la Licensure à la section 3.12 (section suivante) de ce guide.</p>
+<p>Si vous présentez une demande dans une catégorie qui n'exige pas de Education (p. ex. Existing Work Permit, ou ISW-With Employment Offer, et que vous ne réclamez pas de points pour les études), vous pouvez choisir de sélectionner 'Not Applicable' à la question suivante. Sinon, suivez les étapes "Enter/Change Education" ci-dessous. Après avoir saisi toutes vos études, sélectionnez 'Yes' et Save.</p>
+<div class="shot"><img src="images/img-p29-Im3.png" alt="" style="max-width:820px"/></div>
+<h3 id="s3-11-enter" class="sec-h2">3.11.a Saisir/Modifier les renseignements sur les études (Enter/Change Education)</h3>
+<p>Pour saisir vos Education Credentials, cliquez sur l'icône dans le coin supérieur droit de votre écran.</p>
+<div class="shot plain"><img src="images/img-p29-Im1.png" alt="" style="max-width:448px"/></div>
+<div class="note-box">Vous devez soumettre des documents pour vérifier votre formation et/ou vos études postsecondaires, avec un ou plusieurs des éléments suivants : education/trade certificates (certificats d'études/de métier), diplômes, avec une copie des relevés de notes officiels le cas échéant, montrant l'école ou les écoles fréquentées ou les cours suivis; les titres professionnels, les permis professionnels et/ou l'adhésion à une association professionnelle; et une certification d'apprenticeship/certificate équivalente (qui peut être vérifiée et comparée aux programmes du système d'éducation canadien), avec les détails de la structure du programme, des cours, de la durée, et de l'autorité qui administre ou réglemente le programme.</div>
+<p>Sur l'écran Education, saisissez les renseignements suivants tels qu'ils figurent sur votre diplôme, certificat ou attestation d'études postsecondaires ou de métier : <strong>Country</strong>, <strong>Start Date</strong>, et <strong>End Date</strong> au format DD-Mon-YYYY, <strong>Institution</strong> (où les études ont été reçues), et <strong>Specialty</strong> (programme d'études).</p>
+<div class="shot"><img src="images/img-p30-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Si au Canada, sélectionnez la province où vos études postsecondaires ont été complétées.</p>
+<p>Cliquez sur <strong>Upload File</strong>, puis sélectionnez Browse pour téléverser une copie de vos documents d'études. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File. Veuillez téléverser votre document là où c'est applicable, comme illustré ci-dessous :</p>
+<div class="shot plain"><img src="images/img-p30-Im5.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p30-Im7.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p30-Im13.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Save</strong>.</p>
+<p>Cliquez sur le bouton ci-dessous pour ajouter un autre dossier.</p>
+<div class="shot plain"><img src="images/img-p30-Im3.png" alt="" style="max-width:286px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour revenir à l'écran Education principal.</p>
+<div class="shot plain"><img src="images/img-p30-Im9.png" alt="" style="max-width:326px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour vérifier si les entrées relatives aux études sont complètes.</p>
+<div class="shot plain"><img src="images/img-p30-Im11.png" alt="" style="max-width:285px"/></div>
+<h2 id="s3-12" class="sec-h1">3.12 Titres de compétences réglementaires ou permis et évaluation des diplômes (Regulatory or Licensing Credentials and Education Credentials Assessment)</h2>
+<p class="lead-bold">Titres de compétences réglementaires ou permis (Regulatory or Licensing Credentials)</p>
+<p>Si vous prévoyez travailler dans une profession réglementée en Saskatchewan et exigeant une certification ou un permis obligatoire en Saskatchewan, vous devez obtenir une preuve d'admissibilité au permis d'exercice (Saskatchewan licensure) pour exercer cette profession avant de présenter une demande au SINP. La preuve d'admissibilité au Saskatchewan licensure de l'organisme de réglementation (regulatory body) est exigée dans le cadre de votre demande SINP. Si votre demande ne comprend pas cette preuve d'admissibilité, le SINP pourrait rejeter votre demande et vous pourrez présenter une nouvelle demande une fois que vous aurez obtenu cette preuve.</p>
+<p>Si vous prévoyez travailler dans un SKILLED TRADE (métier spécialisé), vous devez posséder un certificate of qualification (aussi appelé letter of invitation) dans votre métier, délivré par la Saskatchewan Apprenticeship & Trade Certification Commission.</p>
+<p>Pour plus de renseignements sur les professions réglementées ou les exigences en matière de permis, veuillez cliquer sur le lien ci-dessous :</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+</ul>
+<p class="lead-bold">Évaluation des diplômes (Education Credentials Assessment - ECA)</p>
+<p>Les demandeurs qui présentent une demande par le biais du Express Entry, de l'Occupation in Demand, du International Skilled Worker with Employment Offer, et du Health Talent Pathway (à l'exception des professions de métier) doivent inclure une Educational Credential Assessment (ECA) provenant d'un organisme désigné.</p>
+<p>Pour de plus amples renseignements sur la façon d'obtenir une Educational Credentials Assessment (ECA), veuillez cliquer sur le lien ci-dessous :</p>
+<ul>
+<li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessed/how.html" target="_blank" rel="noopener">Obtaining an Educational Credentials Assessment (ECA)</a></li>
+</ul>
+<p>Pour les sous-catégories exigeant une ECA, vous devez téléverser une copie de votre ECA sur la page Education principale pour toutes les études obtenues à l'extérieur du Canada.</p>
+<p>Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<div class="shot plain"><img src="images/img-p32-Im3.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p32-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Faites de même pour vos Regulatory or Licensing Credentials (Saskatchewan Licensure), le cas échéant.</p>
+<div class="shot"><img src="images/img-p32-Im7.png" alt="" style="max-width:710px"/></div>
+<p>Pour vérifier si les écrans d'education sont complets, sur le dossier Education principal, cliquez sur le bouton ci-dessous.</p>
+<div class="shot plain"><img src="images/img-p32-Im5.png" alt="" style="max-width:320px"/></div>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>.</p>
+<h2 id="s3-13" class="sec-h1">3.13 Expérience de travail (Work Experience)</h2>
+<p>Déclarez votre expérience de travail en répondant "Yes" à la question :</p>
+<div class="shot"><img src="images/img-p32x-gp0-Im0.png" alt="" style="max-width:869px"/></div>
+<p>Cliquez sur <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p32x-gp0-Im1.png" alt="" style="max-width:331px"/></div>
+<p>Cliquez sur <strong>Enter/Change Work Experience</strong> pour créer l'écran d'expérience de travail.</p>
+<p>Remplissez les champs obligatoires :</p>
+<ul>
+<li>Sélectionnez le Country (pays).</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im2.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Recherchez et sélectionnez le NOC ID correspondant à votre expérience de travail en saisissant au moins trois caractères.</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im3.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>Si le pays de votre expérience de travail est le Canada, vous devrez remplir le champ Province.</li>
+<li>Saisissez la Start Date et la End Date au format DD-Mon-YYYY.</li>
+<li>Saisissez l'Employer — le nom de votre employeur (nom de l'entreprise).</li>
+<li>Saisissez l'Employer Contact Name — le nom de la personne-ressource de l'employeur.</li>
+<li>Saisissez la City/Town — le lieu de l'emploi.</li>
+<li>Saisissez votre Position Title (titre du poste) occupé pendant que vous étiez à l'emploi de cet Employer.</li>
+</ul>
+<p>Sélectionnez le type de document government-issued (délivré par le gouvernement) que vous fournirez dans le menu déroulant :</p>
+<p>Téléversez le government issued documentation (document délivré par le gouvernement) :</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im0.png" alt="" style="max-width:900px"/></div>
+<p>Téléversez votre lettre de référence (reference letter) pour l'expérience de travail :</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Pour téléverser des documents, cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im2.png" alt="" style="max-width:900px"/></div>
+<p>Vous pouvez téléverser davantage de fichiers/documents en cliquant sur l'icône.</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Save</strong>.</p>
+<p>Si votre expérience de travail a été acquise en Saskatchewan, vous devez fournir une preuve de résidence et d'emploi dans la province.</p>
+<div class="shot"><img src="images/img-p33-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Pour téléverser des documents, cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<div class="shot plain"><img src="images/img-p33-Im11.png" alt="" style="max-width:153px"/></div>
+<p>Vous pouvez téléverser davantage de fichiers/documents en cliquant sur le bouton ci-dessous.</p>
+<div class="shot plain"><img src="images/img-p33-Im5.png" alt="" style="max-width:520px"/></div>
+<p>Cliquez sur <strong>Save</strong>.</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Documentation requise pour l'expérience de travail :</p>
+<ul style="margin-bottom:0;">
+<li>une lettre de référence officielle de l'employeur imprimée sur le letterhead (papier à en-tête) de l'entreprise, qui comprend :
+<ul>
+<li>le nom du demandeur, les coordonnées de l'entreprise (adresse, numéro de téléphone et adresse courriel), ainsi que le nom, le titre et la signature du superviseur immédiat ou de l'agent des ressources humaines de l'entreprise, avec leur numéro de téléphone et leur adresse courriel.</li>
+<li>tous les postes occupés pendant l'emploi chez l'entreprise, y compris le titre du poste, les fonctions et responsabilités, le statut d'emploi (s'il s'agit d'un emploi actuel), les dates d'emploi chez l'entreprise, le nombre d'heures de travail par semaine (nombre total d'heures travaillées en SK pour les demandeurs étudiants), et le salaire annuel ainsi que les avantages sociaux.</li>
+</ul>
+</li>
+<li>si le demandeur est self-employed (travailleur autonome), les articles of incorporation ou une autre preuve de propriété d'entreprise, une preuve de revenu de travail autonome, et de la documentation provenant de tiers indiquant le service fourni ainsi que les détails de paiement.</li>
+</ul>
+</div>
+<p>Les fonctions autodéclarées ou une déclaration sous serment (affidavit) ne constituent pas une preuve acceptable d'expérience de travail ou de travail autonome.</p>
+<div class="shot plain"><img src="images/img-p33-Im1.png" alt="" style="max-width:281px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour créer un autre dossier.</p>
+<div class="shot plain"><img src="images/img-p33-Im3.png" alt="" style="max-width:321px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour poursuivre votre demande.</p>
+<p>Pour vérifier si les dossiers d'expérience de travail sont complets, sur l'écran principal work experience, cliquez sur le bouton ci-dessous.</p>
+<div class="shot plain"><img src="images/img-p33-Im7.png" alt="" style="max-width:378px"/></div>
+<p>Une fois cette section terminée, cochez "Yes" à la question sur l'expérience de travail :</p>
+<div class="shot"><img src="images/img-p34-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>.</p>
+
+<h2 id="s3-14" class="sec-h1">3.14 Compétences en anglais/français (English/French Ability)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p34-Im8.png" alt=""/><div class="callout-text">Des résultats valides de test de langue (language test) sont obligatoires pour certaines catégories du SINP.</div></div>
+<p>Sélectionnez le Language Proof Type (type de preuve linguistique) :</p>
+<div class="shot"><img src="images/img-p34-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Remplissez les champs requis tels qu'ils figurent sur votre document :</p>
+<div class="shot"><img src="images/img-p34-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur le lien ci-dessous pour les Language Requirements for SINP (exigences linguistiques du SINP) :</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/language-requirements-for-sinp" target="_blank" rel="noopener">Language Requirements for SINP</a></li>
+</ul>
+<p>Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<div class="shot plain"><img src="images/img-p34-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Si vous avez un test de langue valide pour la deuxième langue officielle, sélectionnez "Yes". Sinon, sélectionnez "No".</p>
+<div class="shot"><img src="images/img-p35-Im11.png" alt="" style="max-width:608px"/></div>
+<p>Si vous avez sélectionné "Yes", veuillez fournir les résultats du test de langue dans les champs prévus, et vous devez joindre une copie des résultats officiels du test de langue.</p>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>.</p>
+
+<h2 id="s3-15" class="sec-h1">3.15 Dernière page de la Partie 1 (Final Page of Part 1)</h2>
+<p>Sélectionnez "Yes" si vous avez de la famille en Saskatchewan, sinon sélectionnez "No".</p>
+<div class="shot"><img src="images/img-p35-Im3.png" alt="" style="max-width:741px"/></div>
+<p>Sélectionnez "Yes" si vous avez déjà soumis une demande d'immigration provinciale ou fédérale canadienne, sinon sélectionnez "No".</p>
+<div class="shot"><img src="images/img-p35-Im1.png" alt="" style="max-width:742px"/></div>
+<p>Vous n'êtes pas tenu de téléverser de documentation à ce stade.</p>
+<div class="shot plain"><img src="images/img-p35-Im7.png" alt="" style="max-width:297px"/></div>
+<p>Cliquez sur <strong>Save</strong>, puis cliquez sur le bouton ci-dessous.</p>
+<p>Si vous avez tout fait correctement, ce message apparaîtra :</p>
+<div class="shot"><img src="images/img-p35-Im5.png" alt="" style="max-width:446px"/></div>
+<div class="shot plain"><img src="images/img-p35-Im9.png" alt="" style="max-width:153px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour poursuivre votre demande.</p>
+
+<h2 id="s3-16" class="sec-h1">3.16 Modifier la Partie 1 et les renseignements sur le demandeur (Making a Change on Part 1 and Applicant Details)</h2>
+<p>Si vous devez apporter des modifications à votre demande préalable et/ou aux renseignements sur le demandeur :</p>
+<ol>
+<li>Cliquez sur le bouton Home <img class="inline-icon" src="images/img-p36-Im7.png" alt=""/>, si nécessaire.</li>
+</ol>
+<ol start="2">
+<li>Cliquez sur la section Continue Applicant Details de la demande SINP.</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im9.png" alt="" style="max-width:680px"/></div>
+<ol start="3">
+<li>Cliquez sur le dossier Applicant Details-Final Page, puis cliquez sur Make Changes to Part 1.</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im1.png" alt="" style="max-width:900px"/></div>
+<ol start="4">
+<li>Apportez vos modifications ou téléversez des documents.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im5.png" alt="" style="max-width:297px"/></div>
+<ol start="5">
+<li>Lorsque vous avez terminé, assurez-vous de cliquer sur le bouton ci-dessous.</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im3.png" alt="" style="max-width:167px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour continuer.</p>
+<h2 id="s4-0" class="sec-h1">4.0 Écrans de demande pour travailleur qualifié (Skilled Worker Application Screens)</h2>
+<p>Après avoir cliqué sur le bouton <strong>Create Part 2</strong>, l'écran Application apparaîtra du côté gauche de votre écran.</p>
+<h2 id="s4-1" class="sec-h1">4.1 Écran de demande (Application Screen)</h2>
+<p>Le premier écran affichera la catégorie de demande. Voici ci-dessous un écran type pour International Skilled Worker – Express Entry :</p>
+<div class="shot"><img src="images/img-p37-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Des frais de 500 $ sont exigés pour toutes les catégories du SINP. Vous devez indiquer si la carte de crédit utilisée pour payer les frais de demande appartient au demandeur principal (principal applicant) ou au conjoint figurant sur la demande :</p>
+<div class="shot"><img src="images/img-p37-Im6.png" alt="" style="max-width:748px"/></div>
+<p>Si la carte de crédit utilisée appartient à une autre personne, veuillez préciser le lien entre le titulaire de la carte de crédit et le demandeur, ainsi que la raison du paiement :</p>
+<div class="shot"><img src="images/img-p37-Im8.png" alt="" style="max-width:900px"/></div>
+<h2 id="s4-2" class="sec-h1">4.2 Lien avec la Saskatchewan (Connection to Saskatchewan)</h2>
+<div class="shot plain"><img src="images/img-p37-Im1.png" alt="" style="max-width:722px"/></div>
+<p>Sélectionnez "Yes" à la question ci-dessus si l'un des éléments suivants s'applique à vous :</p>
+<ul>
+<li>A étudié en Saskatchewan</li>
+<li>A travaillé en Saskatchewan</li>
+<li>A un parent proche en Saskatchewan</li>
+</ul>
+<p>Sinon, sélectionnez "No" et cliquez sur "Next".</p>
+<h3 id="s4-2-study" class="sec-h2">4.2.a A étudié en Saskatchewan (Studied in Saskatchewan)</h3>
+<p>Si vous avez étudié en Saskatchewan et réclamez des points, remplissez les champs indiqués ci-dessous :</p>
+<div class="shot"><img src="images/img-p38-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Si vous réclamez des points pour vos études en Saskatchewan, vous devez soumettre les documents suivants :</p>
+<ul style="margin-bottom:0;">
+<li>education/trade certificates, diplômes ou attestations avec relevés de notes officiels le cas échéant, montrant l'école ou les écoles fréquentées ou les cours suivis; ou</li>
+<li>une lettre du registrar (bureau du registraire) attestant que vous avez étudié dans un Saskatchewan Institute.</li>
+</ul>
+</div>
+<div class="shot"><img src="images/img-p38-Im5.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-work" class="sec-h2">4.2.b A travaillé en Saskatchewan (Worked in Saskatchewan)</h3>
+<p>Si vous avez de l'expérience de travail en Saskatchewan et réclamez des points, remplissez les champs indiqués ci-dessous :</p>
+<div class="shot"><img src="images/img-p38-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Si vous réclamez des points pour avoir travaillé en Saskatchewan, vous devez soumettre des documents attestant que vous avez déjà travaillé en Saskatchewan pendant au moins 12 mois au cours des cinq dernières années. Vous devrez fournir ce qui suit :</p>
+<ul style="margin-bottom:0;">
+<li>Des lettres de référence de vos employeurs précédents, rédigées sur le letterhead officiel de l'entreprise et signées par un représentant autorisé de l'entreprise identifié par son nom et son titre, avec ses coordonnées. Chaque lettre doit indiquer :
+<ul>
+<li>votre poste;</li>
+<li>les dates d'emploi; et,</li>
+<li>vos principales fonctions/responsabilités.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Pour prouver votre expérience de travail en Saskatchewan, vous devez téléverser une lettre de référence.</p>
+<div class="shot"><img src="images/img-p39-Im3.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-relative" class="sec-h2">4.2.c Parent proche en Saskatchewan (Close Relative in Saskatchewan)</h3>
+<p>Si vous avez un parent proche en Saskatchewan et réclamez des points, remplissez les champs obligatoires indiqués :</p>
+<div class="shot"><img src="images/img-p39-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p40-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Si vous réclamez des points pour un membre proche de la famille, vous devez fournir les éléments suivants de la part de ce membre de la famille :</p>
+<ul style="margin-bottom:0;">
+<li>un certificat de naissance, un certificat de mariage et/ou tout autre document officiel du gouvernement, d'éducation ou religieux prouvant votre lien de parenté avec votre proche parent. Veuillez noter : le SINP n'accepte pas les déclarations sous serment (affidavit).</li>
+<li>une copie de la carte de Canadian permanent resident ou de citizenship du parent, ou de son Canadian passport;</li>
+<li>une preuve qu'il ou elle vit en Saskatchewan depuis les douze derniers mois et qu'il ou elle est autonome financièrement :
+<ul>
+<li>des factures de services publics (utility) des douze derniers mois provenant de SaskPower; SaskEnergy; ou d'un bureau municipal ou de village. (Les factures de téléphone, de cellulaire ou de câble ne seront pas acceptées);</li>
+<li>une Saskatchewan Health Card ou un Saskatchewan Driver's License;</li>
+<li>une preuve que le membre de la famille est un locataire inscrit (registered tenant) à une adresse en Saskatchewan (bail (lease agreement) et reçus de loyer OU preuve de propriété) ainsi que les noms des autres occupants de cette adresse et leur lien de parenté avec eux; et,</li>
+<li>une preuve de réception de revenu pour les trois derniers mois.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Si votre parent proche a déjà parrainé un autre demandeur, vous pourriez recevoir un message d'avertissement (warning). Un membre proche de la famille ne peut parrainer qu'une seule demande à la fois (un même ménage ne peut parrainer qu'une seule demande à la fois). Si votre membre proche de la famille parraine déjà une demande SINP, il ou elle ne pourra pas parrainer votre demande tant que le nominé précédent qu'il ou elle parraine n'aura pas vécu et travaillé en Saskatchewan pendant au moins six mois.</p>
+<p>Si votre parent proche a déjà parrainé un autre demandeur, vous devez indiquer si ce demandeur précédent est arrivé au Canada et a vécu en Saskatchewan pendant au moins six mois. Si oui, vous devrez téléverser une preuve que le demandeur précédent s'est établi avec succès en Saskatchewan pendant au moins six mois.</p>
+<p>Si votre parent proche parraine actuellement une autre demande et que ce demandeur ne s'est pas établi en Saskatchewan pendant au moins six mois, vous ne pouvez pas réclamer ni recevoir les 20 points pour ce parent. Si vous sélectionnez "No", vous recevrez le message d'avertissement ci-dessous. Veuillez noter que si vous continuez à soumettre une demande sans ce parent proche après avoir réclamé des points pour lui ou elle dans votre Expression of Interest, votre dossier sera retourné et vous ne recevrez aucun remboursement.</p>
+<p>Si OASIS ne détecte pas que votre parent parraine actuellement un autre parent, vous ne recevrez pas de message d'avertissement. Veuillez noter que même si vous ne recevez pas d'avertissement, votre parent proche pourrait tout de même être en train de parrainer une demande plus ancienne. Il vous incombe de vous assurer que votre parent proche est admissible à parrainer votre demande.</p>
+<div class="shot"><img src="images/img-p41-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p42-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour créer un dossier pour votre parent résidant actuellement au Canada.</p>
+<div class="shot plain"><img src="images/img-p42-Im1.png" alt="" style="max-width:244px"/></div>
+<p>Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<div class="shot plain"><img src="images/img-p42-Im3.png" alt="" style="max-width:153px"/></div>
+<p>Vous pouvez téléverser des fichiers/documents supplémentaires en cliquant sur le bouton ci-dessous.</p>
+<div class="shot plain"><img src="images/img-p42-Im5.png" alt="" style="max-width:520px"/></div>
+<h2 id="s4-3" class="sec-h1">4.3 Formulaires fédéraux (Federal Forms)</h2>
+<p>Voici les formulaires fédéraux requis (mandatory) :</p>
+<ul>
+<li>IMM 0008 – Generic Application Form for Canada</li>
+</ul>
+<div class="shot plain"><img src="images/img-p42-Im7.png" alt="" style="max-width:153px"/></div>
+<p>Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>.</p>
+<p class="lead-bold"><em>Faites de même pour le reste des formulaires.</em></p>
+<ul>
+<li>IMM 5406 – Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<p>Dans le coin supérieur droit de votre écran, créez les formulaires suivants s'ils s'appliquent à vous :</p>
+<ul>
+<li>IMM 5476 – Use of Representative</li>
+<li>IMM 5475 – Authority to Release Personal Information</li>
+</ul>
+<div class="shot plain"><img src="images/img-p43-Im9.png" alt="" style="max-width:227px"/></div>
+<p>Cliquez sur l'icône de suppression si vous avez ajouté un formulaire par erreur. Vous pouvez télécharger les formulaires à :</p>
+<ul>
+<li>International Skilled Workers <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">link</a>, puis choisissez la sous-catégorie. Ou</li>
+<li>Saskatchewan Experience <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">link</a>, puis choisissez la sous-catégorie.</li>
+</ul>
+<h2 id="s4-4" class="sec-h1">4.4 Étape 1 : Boutons de création (Step 1 Create Buttons)</h2>
+<p>Cliquez sur le(s) bouton(s) <strong>Create…</strong> si cela s'applique à vous :</p>
+<div class="shot"><img src="images/img-p43-Im1.png" alt="" style="max-width:717px"/></div>
+<p>Cliquez sur <strong>Create</strong> si vous travaillez actuellement au Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im3.png" alt="" style="max-width:334px"/></div>
+<p>Cliquez sur <strong>Create</strong> si vous avez un parent résidant actuellement au Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im5.png" alt="" style="max-width:378px"/></div>
+<p>Cliquez sur <strong>Create</strong> si vous avez des membres de la famille qui vous accompagneront au Canada.</p>
+<div class="shot plain"><img src="images/img-p43-Im7.png" alt="" style="max-width:322px"/></div>
+<h2 id="s4-5" class="sec-h1">4.5 Work Permit (Permis de travail)</h2>
+<p>Le dossier Work Permit sera créé automatiquement si vous présentez une demande dans le cadre de la catégorie Saskatchewan Experience. Si vous présentez une demande dans le cadre de International Skilled Category – With Employment Offer, mais que vous travaillez actuellement au Canada, veuillez créer un dossier de permis de travail.</p>
+<p>Remplissez les champs obligatoires tels qu'ils figurent sur votre document :</p>
+<div class="shot"><img src="images/img-p44-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p44-Im5.png" alt="" style="max-width:153px"/></div>
+<p>Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<div class="shot"><img src="images/img-p44-Im7.png" alt="" style="max-width:801px"/></div>
+<p>Si vous avez un open spousal work permit (permis de travail ouvert pour conjoint), veuillez cliquer sur yes.</p>
+<p>Cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong> pour continuer.</p>
+<h2 id="s4-6" class="sec-h1">4.6 Parent se trouvant au Canada (In-Canada Relative)</h2>
+<p>Le dossier 'Relative currently residing in Canada' sera créé automatiquement si vous avez répondu 'Yes' à cette question :</p>
+<div class="shot"><img src="images/img-p44-Im1.png" alt="" style="max-width:741px"/></div>
+<p>Remplissez les champs obligatoires indiqués ci-dessous :</p>
+<div class="shot"><img src="images/img-p45-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p45-Im7.png" alt="" style="max-width:153px"/></div>
+<p>Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<p>Cliquez sur <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p45-Im3.png" alt="" style="max-width:282px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour ajouter un autre In-Canada relative.</p>
+<div class="shot plain"><img src="images/img-p45-Im5.png" alt="" style="max-width:230px"/></div>
+<p>Cliquez sur le bouton ci-dessous pour supprimer l'écran s'il a été ajouté par erreur.</p>
+<h2 id="s4-7" class="sec-h1">4.7 Fonds d'établissement et plan d'établissement (Settlement Funds and Settlement Plan)</h2>
+<h3 id="s4-7-plan" class="sec-h2">4.7.a Plan d'établissement (Settlement Plan)</h3>
+<p>Vous devez créer et joindre un settlement plan (plan d'établissement).</p>
+<div class="shot plain"><img src="images/img-p45-Im9.png" alt="" style="max-width:153px"/></div>
+<p>Téléversez votre Settlement Plan en cliquant sur le bouton ci-dessous, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<h3 id="s4-7-funds" class="sec-h2">4.7.b Fonds d'établissement (Settlement Funds)</h3>
+<p>Vous devez maintenir le montant minimal requis pour la taille de votre famille pendant au moins trois mois avant votre demande.</p>
+<div class="shot"><img src="images/img-p46-Im11.png" alt="" style="max-width:763px"/></div>
+<p>Remplissez les champs obligatoires dans chaque sequence (séquence), comme illustré ci-dessous :</p>
+<div class="shot"><img src="images/img-p46-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Vous devez joindre une copie de vos relevés de compte (account statement).</p>
+<div class="shot plain"><img src="images/img-p46-Im1.png" alt="" style="max-width:153px"/></div>
+<p>Cliquez sur l'icône, puis sélectionnez Browse. Trouvez le document dans votre répertoire de fichiers, sélectionnez-le, et cliquez sur Upload File.</p>
+<div class="shot"><img src="images/img-p46-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Une liste des documents settlement proof of fund (preuve de fonds d'établissement) admissibles s'affiche sous le bouton de téléversement, y compris le nombre de mois de fonds requis.</p>
+<p>Si vous fournissez des documents supplémentaires liés au compte dans une séquence en particulier, cliquez sur <strong>Add an Additional Document</strong> et téléversez le document.</p>
+<div class="shot plain"><img src="images/img-p46-Im7.png" alt="" style="max-width:214px"/></div>
+<p>Si vous fournissez un autre compte Settlement Fund, cliquez sur <strong>Add another Settlement Funds</strong> pour créer la séquence suivante.</p>
+<div class="shot plain"><img src="images/img-p46-Im9.png" alt="" style="max-width:243px"/></div>
+<p>Une fois que vous avez terminé de saisir votre Settlement Plan et vos Settlement Funds, cliquez sur <strong>Save</strong>, puis sur <strong>Next</strong>, pour continuer.</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Documentation requise pour les Settlement Funds :</p>
+<p>Le montant minimal requis pour votre demande est affiché sur notre site Web. Veuillez cliquer sur <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">ce lien</a>, choisir la catégorie pour laquelle vous présentez une demande, cliquer sur l'onglet "Required Documents", et rechercher "Required Documents, Settlement Funds".</p>
+<p>La proof of funds (preuve de fonds) doit :</p>
+<ul>
+<li>être des lettres officielles, des relevés officiels et/ou des attestations d'une ou plusieurs institutions financières.</li>
+<li>avoir été maintenue pendant au moins 3 mois avant de soumettre votre demande, et être maintenue pendant tout le processus d'immigration (ne pas expirer après la soumission de la demande).</li>
+<li>être au nom du demandeur principal ou de son conjoint, ou détenue conjointement.</li>
+</ul>
+<p>Les relevés de fonds doivent montrer un historique détaillé des transactions pour au moins trois mois avant la soumission d'une demande, et comprendre le type de devise, le nom du titulaire des fonds, les coordonnées de l'institution financière, les numéros de compte, les transactions et les soldes.</p>
+<p>Tous les documents non délivrés en anglais ou en français doivent être accompagnés d'une certified translation (traduction certifiée).</p>
+<p>Pour déterminer si les fonds d'établissement sont suffisants, le compte doit montrer que, lorsqu'il était à son montant le plus bas, il répondait tout de même à l'exigence d'établissement pour la taille du ménage.</p>
+<p>Les fonds suivants seront acceptés :</p>
+<ul>
+<li>Comptes chequing (chèques) ou savings (épargne) personnels</li>
+<li>Bonds (obligations)</li>
+<li>Cash value life insurance (assurance-vie à valeur de rachat)</li>
+<li>Guaranteed Investment Certificate (GICs) ou Certificates of Deposit</li>
+<li>Mutual Funds (fonds communs de placement)</li>
+<li>Provident Funds (caisses de prévoyance; une lettre officielle de l'organisme de la caisse de prévoyance indiquant le montant des fonds accessibles est requise)</li>
+<li>Registered Retirement Savings Plans (RRSPs)</li>
+<li>Stocks (actions)</li>
+<li>Tax Free Savings Accounts (TFSAs)</li>
+<li>Term deposit et time deposit (dépôts à terme; doivent être valides au moment de la demande et le demeurer tout au long du processus de demande)</li>
+<li>Treasury Bills (bons du Trésor)</li>
+</ul>
+<p style="margin-bottom:0;">Les debentures, les cartes de crédit, les lines of credit (marges de crédit), l'or, l'argent comptant, les biens immobiliers ou les entreprises ne sont PAS acceptés comme settlement funds.</p>
+</div>
+<h2 id="s4-8" class="sec-h1">4.8 Membre de la famille accompagnant et n'accompagnant pas (Accompanying and Non-Accompanying Family Member)</h2>
+<div class="note-box">Une personne (conjoint, common-law partner, ou enfant à charge (dependent)) qui prévoit immigrer avec vous en Saskatchewan. Les enfants à charge adultes qui accompagnent le demandeur peuvent être inclus dans le SINP Certificate of Nomination si vous êtes approuvé comme provincial nominee (candidat désigné par la province) et si l'enfant à charge adulte répond à au moins <strong>un</strong> des critères suivants :
+<ul style="margin:10px 0 0;">
+<li>a moins de 22 ans et n'a pas de conjoint ou de common-law partner; et/ou</li>
+<li>dépend de votre soutien financier en raison d'une condition mentale ou physique.</li>
+</ul>
+<p style="margin:10px 0 0;">Les parents et la fratrie du demandeur principal ne peuvent pas être inclus dans la demande SINP.</p>
+</div>
+<p>À l'étape 1, cliquez sur <strong>Create a Family Member</strong> si des membres de votre famille vous accompagneront au Canada.</p>
+<div class="shot plain"><img src="images/img-p48-Im7.png" alt="" style="max-width:322px"/></div>
+<p>Remplissez les champs obligatoires indiqués ci-dessous :</p>
+<div class="shot"><img src="images/img-p48-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Save</strong>.</p>
+<div class="shot plain"><img src="images/img-p48-Im5.png" alt="" style="max-width:227px"/></div>
+<p>Cliquez sur l'icône si cet écran a été créé par erreur.</p>
+<div class="shot plain"><img src="images/img-p48-Im3.png" alt="" style="max-width:427px"/></div>
+<p>Cliquez sur <strong>Create/Change Application Screens for Family Member</strong> pour ajouter des écrans pour :</p>
+<h4 id="s4-8-a1" class="sec-h3">4.8.a Accompanying Dependant under 18 years of age (enfant à charge accompagnant de moins de 18 ans)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+</ul>
+<h4 id="s4-8-a2" class="sec-h3">4.8.b Accompanying Dependant 18-21 years old (enfant à charge accompagnant de 18 à 21 ans)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-a3" class="sec-h3">4.8.c Accompanying Spouse (Époux/épouse accompagnant)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-n1" class="sec-h3">4.8.d Non-Accompanying Spouse (Époux/épouse n'accompagnant pas)</h4>
+<ul>
+<li>Aucun écran requis</li>
+</ul>
+<h4 id="s4-8-n2" class="sec-h3">4.8.e Non-Accompanying Dependant 18 years old or older (enfant à charge n'accompagnant pas, âgé de 18 ans ou plus)</h4>
+<ul>
+<li>Aucun écran requis</li>
+</ul>
+<h4 id="s4-8-n3" class="sec-h3">4.8.f Non-Accompanying Dependant under 18 years of age (enfant à charge n'accompagnant pas de moins de 18 ans)</h4>
+<ul>
+<li>Custody/Child Support</li>
+</ul>
+<p>Vous devez remplir l'écran suivant et joindre les documents requis.</p>
+<div class="shot"><img src="images/img-p49-Im1.png" alt="" style="max-width:900px"/></div>
+<p><strong>Birth Document</strong> – Remplissez le First Name, le Middle Name (le cas échéant), et le Family Name at Birth, tels qu'ils figurent sur le document de naissance.</p>
+<p>Si un membre de votre famille est né au Canada, vous devez créer un dossier et joindre le Birth Certificate pour prouver la citoyenneté canadienne. Le passeport n'est pas requis.</p>
+<p><strong>Passport</strong> – Remplissez le Country, le Passport Number (sans espaces), et la Passport Expiry Date (au format DD-Mon-YYYY), tels qu'ils figurent sur votre document.</p>
+<div class="shot plain"><img src="images/img-p50-Im3.png" alt="" style="max-width:248px"/></div>
+<p>Pour le conjoint, remplissez le Previous First Name, le Previous Last Name, ainsi que la date à laquelle le conjoint est entré dans l'état civil sélectionné, et joignez les documents requis. Cliquez sur <strong>Create another Marital Status</strong> pour ajouter un autre dossier d'état civil.</p>
+<h4 id="s4-8-imm5406" class="sec-h3">4.8.g IMM 5406 – Additional Family Member Information (renseignements supplémentaires sur les membres de la famille)</h4>
+<p><em>Vous devez télécharger, remplir et joindre ce formulaire fédéral.</em></p>
+<h4 id="s4-8-schedulea" class="sec-h3">4.8.h Schedule A – Background Declaration (déclaration des antécédents)</h4>
+<p><em>Vous devez télécharger, remplir et joindre ce formulaire fédéral.</em></p>
+<p>Pour chaque écran, cliquez sur l'icône <strong>Save</strong> <img class="inline-icon" src="images/img-p50-Im7.png" alt=""/> pour enregistrer vos entrées, et sur l'icône Attach <img class="inline-icon" src="images/img-p50-Im9.png" alt=""/> pour joindre les documents requis.</p>
+<div class="shot plain"><img src="images/img-p50-Im11.png" alt="" style="max-width:435px"/></div>
+<p>Cliquez sur l'icône pour poursuivre votre demande, puis cliquez sur l'icône.</p>
+<div class="shot plain"><img src="images/img-p50-Im5.png" alt="" style="max-width:420px"/></div>
+<h2 id="s4-9" class="sec-h1">4.9 Offre d'emploi (Job Offer)</h2>
+<p>Sur le dossier Job Offer, les champs seront remplis automatiquement en fonction des valeurs EPA que vous avez saisies dans la section Eligibility. Vous devez saisir la date de la Job Offer, téléverser la Job Offer Letter, et sélectionner validate.</p>
+<div class="shot"><img src="images/img-p50-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Veuillez noter que vous ne pouvez pas soumettre votre demande SINP si la validation de l'offre d'emploi échoue, ou si vous manquez l'échéance de soumission indiquée dans votre EPA Approval.</p>
+<div class="shot"><img src="images/img-p51-Im4.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">La Letter of Offer (lettre d'offre) doit :</p>
+<ul style="margin-bottom:0;">
+<li>être adressée au demandeur principal;</li>
+<li>indiquer le titre du poste, les fonctions et responsabilités, le salaire, les avantages sociaux, ainsi que les coordonnées de l'entreprise;</li>
+<li>indiquer l'endroit (c.-à-d. la ville ou le village) de votre poste en Saskatchewan;</li>
+<li>être délivrée sur le letterhead de l'entreprise; et,</li>
+<li>être signée par l'employeur.</li>
+</ul>
+</div>
+<div class="shot plain"><img src="images/img-p51-Im3.png" alt="" style="max-width:721px"/></div>
+<p>Vous devez également cliquer sur le bouton <strong>Validate</strong> avant de passer à l'étape suivante, sinon vous ne pourrez pas soumettre votre demande, car elle sera signalée comme incomplète.</p>
+<div class="shot"><img src="images/img-p51-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Next</strong> pour continuer.</p>
+<p>Téléversez une copie de votre Job Offer Letter et cliquez sur l'icône <strong>Save</strong> <img class="inline-icon" src="images/img-p51-Im1.png" alt=""/> pour enregistrer vos entrées.</p>
+<h2 id="s4-10" class="sec-h1">4.10 Preuve de permis d'exercice (Proof of Licensure)</h2>
+<p>Si vous présentez une demande dans le cadre du Health Talent Pathways, vous devez fournir une copie de votre medical license (permis d'exercice médical), et remplir les champs suivants :</p>
+<div class="shot"><img src="images/img-p52-Im7.png" alt="" style="max-width:900px"/></div>
+<p>Veuillez noter que le SRNA est maintenant connu sous le nom de College of Registered Nurses of Saskatchewan (CRNS).</p>
+<p>Cliquez sur l'icône <strong>Save</strong> <img class="inline-icon" src="images/img-p52-Im1.png" alt=""/> pour enregistrer vos entrées, et sur l'icône Attach <img class="inline-icon" src="images/img-p52-Im5.png" alt=""/> pour joindre les documents requis.</p>
+<p>Cliquez sur <strong>Next</strong> pour continuer.</p>
+<h2 id="s4-11" class="sec-h1">4.11 Permis de conduire (Driver's License)</h2>
+<p>Si vous présentez une demande en tant que Truck Driver dans le cadre de la Existing Work Permit Sub-Category, vous devez posséder un Class 1A Saskatchewan Driver's License valide.</p>
+<p>Remplissez ces champs obligatoires :</p>
+<div class="shot"><img src="images/img-p52-Im3.png" alt="" style="max-width:900px"/></div>
+<h4 id="s4-11-1" class="sec-h3">4.11.1 Endorsement (Mention)</h4>
+<p>Ajoutez un dossier d'endorsement. Cette information se trouve sur votre permis de conduire :</p>
+<div class="shot"><img src="images/img-p52-Im9.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Create a Licence Endorsement</strong> pour ajouter un autre dossier d'endorsement.</p>
+<div class="shot plain"><img src="images/img-p52-Im11.png" alt="" style="max-width:258px"/></div>
+<h4 id="s4-11-2" class="sec-h3">4.11.2 Restriction (le cas échéant)</h4>
+<p>Ajoutez un dossier de restriction si cela s'applique à vous. Cette information se trouve sur votre permis de conduire.</p>
+<div class="shot"><img src="images/img-p53-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur <strong>Create a Licence Restriction</strong> pour ajouter un autre dossier de restriction.</p>
+<div class="shot plain"><img src="images/img-p53-Im11.png" alt="" style="max-width:240px"/></div>
+<p>Joignez une copie de votre Class 1A Saskatchewan Driver's License.</p>
+<p>Cliquez sur l'icône <strong>Save</strong> <img class="inline-icon" src="images/img-p53-Im9.png" alt=""/> pour enregistrer vos entrées, et sur l'icône Attach <img class="inline-icon" src="images/img-p53-Im13.png" alt=""/> pour joindre les documents requis.</p>
+<h2 id="s4-12" class="sec-h1">4.12 Demande antérieure (Previous Application)</h2>
+<p>Si vous avez déjà présenté des demandes provinciales ou fédérales canadiennes, vous devez remplir ces champs obligatoires :</p>
+<div class="shot"><img src="images/img-p53-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Joignez le ou les documents finaux reçus concernant votre demande antérieure, p. ex. IRCC Refusal Letter, SINP Ineligible Letter, etc.</p>
+<p>Cliquez sur l'icône <strong>Save</strong> <img class="inline-icon" src="images/img-p53-Im5.png" alt=""/> pour enregistrer vos entrées, et sur l'icône Attach <img class="inline-icon" src="images/img-p53-Im15.png" alt=""/> pour joindre les documents requis.</p>
+<div class="shot plain"><img src="images/img-p53-Im7.png" alt="" style="max-width:298px"/></div>
+<p>Cliquez sur l'icône pour créer un autre dossier.</p>
+<p>Cliquez sur <strong>Next</strong> pour continuer.</p>
+<h2 id="s4-13" class="sec-h1">4.13 Écrans de demande requis pour chaque catégorie (Required Application Screens for Each Category)</h2>
+<h2 id="s4-13-1" class="sec-h1">4.13.1 Travailleur qualifié international (International Skilled Worker)</h2>
+<p><strong>a. Occupations In-Demand :</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (le cas échéant)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Express Entry :</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (le cas échéant)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>c. With Employment Offer :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (le cas échéant)</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>d. Agriculture Talent Pathway :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>e. Innovation and Tech Talent Pathway :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (le cas échéant)</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>f. Innovation and Tech Talent Pathway – Express Entry :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (le cas échéant)</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>g. Health Talent Pathway :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (le cas échéant)</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>h. Health Talent Pathway – Express Entry :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (le cas échéant)</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s4-13-2" class="sec-h1">4.13.2 Expérience Saskatchewan (Saskatchewan Experience)</h2>
+<p><strong>a. Existing Work Permit :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Driver's License (le cas échéant)</li>
+<li>Driver's License Endorsement (le cas échéant)</li>
+<li>Driver's License Restriction (le cas échéant)</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Students :</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (le cas échéant)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s5-0" class="sec-h1">5.0 Vérifier les écrans de demande et soumettre (Check Application Screens and Submit)</h2>
+<p>Cliquez sur <strong>Check All Application Screens and Submit</strong> pour soumettre votre demande. Assurez-vous de passer en revue tous les avertissements et erreurs avant de soumettre.</p>
+<div class="shot plain"><img src="images/img-p55-Im1.png" alt="" style="max-width:340px"/></div>
+<p><strong>Il est important que tous les documents requis soient joints à votre demande. Si vous soumettez une demande incomplète, avec des documents manquants, votre demande sera rejetée et vos frais ne seront pas remboursés. Les documents supplémentaires envoyés après la soumission de votre demande ne seront pas acceptés, sauf s'ils sont demandés.</strong></p>
+<h2 id="s6-0" class="sec-h1">6.0 Paiement des frais – Toutes les catégories du SINP (Fee Payment – All SINP Categories)</h2>
+<p class="warn-red">Veuillez noter que vous ne pourrez plus apporter de modifications à votre demande après avoir effectué le paiement. Une fois les frais payés, votre demande sera soumise automatiquement. Les documents supplémentaires envoyés après la soumission ne seront pas acceptés.</p>
+<p>Après avoir cliqué sur le bouton "Check All Application Screens and Submit", une Invoice Page (page de facture) indiquant le montant à payer s'affichera. Le statut de la facture restera "Pending" (en attente) jusqu'à ce que le paiement soit réussi.</p>
+<div class="shot"><img src="images/img-p56-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Après avoir saisi les renseignements de votre carte de crédit et vérifié le montant à payer, cliquez sur "Pay".</p>
+<p>Après un paiement réussi, le statut affichera "Payment Received" (paiement reçu) et votre demande aura été soumise.</p>
+<div class="shot"><img src="images/img-p57-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Cliquez sur le bouton "Go to Home Page" pour retourner à votre demande. Vous pouvez consulter la facture en cliquant sur le bouton ci-dessous.</p>
+<div class="shot plain"><img src="images/img-p57-Im3.png" alt="" style="max-width:533px"/></div>
+<h2 id="s7-0" class="sec-h1">7.0 Demande reçue (Application Received)</h2>
+<p>Vous recevrez un file number (numéro de dossier) après avoir soumis votre demande :</p>
+<div class="shot"><img src="images/img-p58-Im1.png" alt="" style="max-width:766px"/></div>
+<p>Vous recevrez une receipt letter (lettre de reçu) dans les 24 à 48 heures suivant la soumission (exemple : 9999999).</p>
+<h2 id="s8-0" class="sec-h1">8.0 Demande de renseignements supplémentaires (Request for Additional Information)</h2>
+<p>Si votre demande nécessite des documents supplémentaires pour être traitée, vous recevrez de la correspondance du SINP par l'intermédiaire d'OASIS. Pour consulter votre correspondance, vous pouvez cliquer sur le lien fourni dans le courriel, ou vous connecter à OASIS.</p>
+<p>Pour soumettre vos documents, veuillez vous connecter à votre compte OASIS et cliquer sur 'Submit Requested Documents'. Téléversez le ou les documents demandés dans le dossier 'Request Additional Information' et cliquez sur le bouton 'Submit'.</p>
+<p>Vous pouvez également accéder au dossier 'Request Additional Information' en cliquant sur View Submitted Part 2.</p>
+<p>Veuillez noter que les documents reçus par courriel ne seront pas acceptés. Vous devez joindre tous les documents par l'intermédiaire de votre compte OASIS.</p>
+<div style="text-align:center; margin:20px 0 8px; font-weight:bold; color:#333;">
+<span style="display:inline-block; width:46%; min-width:220px;">Applicant home screen:</span>
+<span style="display:inline-block; width:46%; min-width:220px;">Representative home screen:</span>
+</div>
+<div class="shot-row">
+<img src="images/img-p58-Im7.png" alt="" style="max-width:421px"/>
+<img src="images/img-p58-Im3.png" alt="" style="max-width:387px"/>
+</div>
+<div class="shot"><img src="images/img-p58-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Si vous avez besoin de plus de temps pour soumettre vos documents, vous pouvez envoyer votre demande en remplissant le formulaire ci-dessous et en cliquant sur 'Request Extension to Submit Documents'.</p>
+<div class="shot"><img src="images/img-p59-Im5.png" alt="" style="max-width:805px"/></div>
+<p>Votre demande de prolongation pourrait être approuvée ou non. Vous recevrez de la correspondance indiquant si votre demande de prolongation a été approuvée ou refusée. Veuillez téléverser toute la documentation actuellement disponible pour répondre à la demande de renseignements avant de soumettre votre demande de prolongation.</p>
+<h2 id="s9-0" class="sec-h1">9.0 Mettre à jour le numéro de profil Entrée express et le code de validation du chercheur d'emploi (Update Express Entry Profile Number and Job Seeker Validation Code)</h2>
+<p>Si, pendant le traitement, votre Express Entry Profile Number et votre Job Seeker Validation Code ont changé, vous pouvez les mettre à jour en ouvrant votre demande. Sous la Part 2 de votre demande SINP (ou Main Application Page), cliquez sur le bouton ci-dessous.</p>
+<div class="shot"><img src="images/img-p59-Im1.png" alt="" style="max-width:458px"/></div>
+<p>Une page intitulée "Information Changes" s'affichera, et vous pourrez modifier les renseignements de votre Express Entry Profile en remplissant les champs fournis. Après avoir saisi l'information, cliquez sur 'Save', puis sur le bouton 'Submit Changes'.</p>
+<div class="shot"><img src="images/img-p59-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Si vous décidez d'annuler cette étape, cliquez sur 'Move to Part 2' sans enregistrer, ou cliquez sur 'Cancel Changes'.</p>
+<p>Vous pouvez revenir aux sections principales de la demande en cliquant sur 'Move to Part 2'. Vous pouvez modifier cette information à tout moment tant que votre dossier est actif.</p>
+<h2 id="s10-0" class="sec-h1">10.0 Processus de deuxième examen (Second Review Process)</h2>
+<p>Si votre demande a été jugée inadmissible (ineligible) par le SINP et que vous croyez qu'une erreur a été commise pendant le traitement de la demande ou dans l'évaluation basée sur les critères en vigueur au moment de la demande, vous pouvez demander un second review (deuxième examen). Vous disposez de 30 jours à partir de la date à laquelle le SINP a émis la ineligible letter (lettre d'inadmissibilité) pour faire cette demande. Le système n'acceptera aucune demande après l'expiration du délai de 30 jours.</p>
+<p>Pour demander un deuxième examen, sous la Part 2 de votre demande, veuillez cliquer sur le bouton 'Request for Second Review'.</p>
+<div class="shot"><img src="images/img-p60-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Une fenêtre de confirmation s'affichera et, si vous acceptez les modalités énoncées, veuillez cliquer sur le bouton 'Create Appeal Request'.</p>
+<div class="shot"><img src="images/img-p60-Im1.png" alt="" style="max-width:554px"/></div>
+<p>Un dossier Appeal Request (demande d'appel) sera créé pour que vous le remplissiez, et vous pouvez joindre de la documentation pour appuyer votre demande.</p>
+<div class="shot"><img src="images/img-p61-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Si vous n'avez pas encore soumis l'appel, à partir de l'écran de demande principal, vous pouvez consulter votre demande de deuxième examen en attente en cliquant sur le bouton 'View Second Review Request'.</p>
+<div class="shot"><img src="images/img-p61-Im3.png" alt="" style="max-width:896px"/></div>
+<p class="warn-red">Vous disposez de 30 jours à partir de la date à laquelle le SINP a émis la ineligible letter pour faire cette demande. Le système n'acceptera aucune demande après l'expiration du délai de 30 jours.</p>
+<p>Après le délai de 30 jours, vous ne pourrez plus demander de deuxième examen.</p>
+<div class="shot"><img src="images/img-p62-Im1.png" alt="" style="max-width:484px"/></div>
+<p>Si vous n'avez pas soumis l'appel et que le délai de 30 jours est écoulé, vous ne pourrez pas soumettre la demande en attente.</p>
+<div class="shot"><img src="images/img-p62-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Pour soumettre votre appel dans le délai de 30 jours, veuillez cliquer sur 'Submit Appeal Request'.</p>
+<div class="shot"><img src="images/img-p62-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Un message d'avertissement s'affichera pour vous informer que vous serez redirigé afin de payer les frais du deuxième examen.</p>
+<div class="shot"><img src="images/img-p63-Im3.png" alt="" style="max-width:648px"/></div>
+<p>Si vous cliquez sur "Yes, Continue", vous serez dirigé vers la page de paiement. <em>Remarque : Si vous cliquez sur "No, Go Back", vous serez redirigé vers la page appeal request.</em></p>
+<div class="shot"><img src="images/img-p63-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Une fois que vous avez saisi les renseignements de votre carte de crédit, cliquez sur "Pay".</p>
+<div class="shot"><img src="images/img-p64-Im1.png" alt="" style="max-width:900px"/></div>
+<p>Après un paiement réussi, votre demande de deuxième examen sera soumise automatiquement. Vous recevrez de la correspondance vous informant que votre demande de deuxième examen a été reçue.</p>
+<p>Une demande de deuxième examen peut être refusée si vous ne pouvez pas justifier votre raison pour l'examen. Une fois la demande refusée, votre dossier est clos. Si votre demande est acceptée, un dossier de deuxième examen sera créé, et vous serez informé par courriel que votre demande a été placée en second review.</p>
+<div class="shot"><img src="images/img-p64-Im3.png" alt="" style="max-width:900px"/></div>
+<p>Si vous décidez de retirer votre demande de deuxième examen, veuillez cliquer sur le bouton 'Withdraw Second Review Request'.</p>
+<p>Un message d'avertissement s'affichera pour confirmer que vous retirez votre demande de deuxième examen.</p>
+<div class="shot"><img src="images/img-p65-Im1.png" alt="" style="max-width:461px"/></div>
+<p style="text-align:center; margin-top:40px;"><em>- Fin du guide -</em></p>
+<p style="text-align:center;"><strong>Merci de votre intérêt pour le Saskatchewan Immigrant Nominee Program.</strong></p>
+<footer class="doc-footer">SINP – OASIS Guide de l'utilisateur pour les demandeurs · Avril 2026</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SINP – OASIS ਬਿਨੈਕਾਰਾਂ ਲਈ ਵਰਤੋਂਕਾਰ ਗਾਈਡ</title>
+<style>
+:root {
+  --ink: #1a1a1a;
+  --green: #1a5632;
+  --green-dark: #123d23;
+  --paper: #ffffff;
+  --page-bg: #e9e9e4;
+  --rule: #c9c9c0;
+  --note-bg: #eef4fb;
+  --note-border: #9db8d8;
+  --callout-border: #d8b3b3;
+  --highlight-bg: #fff6df;
+  --highlight-border: #d9a441;
+  --warn-red: #b12727;
+}
+* { box-sizing: border-box; }
+html { background: var(--page-bg); }
+body {
+  margin: 0;
+  padding: 40px 16px 100px;
+  background: var(--page-bg);
+  font-family: "Times New Roman", Georgia, "Liberation Serif", serif;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 56px 64px 72px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 8px 30px rgba(0,0,0,0.12);
+}
+/* Cover */
+.cover { text-align: center; padding-top: 20px; padding-bottom: 48px; border-bottom: 3px solid var(--green); margin-bottom: 40px;}
+.cover img.logo { height: 92px; margin-bottom: 6px; }
+.cover h1 { font-size: 30px; color: var(--green); margin: 28px 0 6px; line-height: 1.3; }
+.cover .subtitle { font-size: 19px; color: #444; margin-bottom: 30px; font-style: italic; }
+.cover .contact { font-size: 15px; color: #333; margin-top: 30px; line-height: 1.7; }
+.cover .contact a { color: var(--green); }
+.cover .datestamp { margin-top: 18px; font-size: 15px; color: #555; }
+.cover .brief-note { margin-top: 34px; font-size: 13.5px; color: #8a8a8a; border-top: 1px dashed var(--rule); padding-top: 16px; }
+
+/* TOC */
+.toc { margin: 0 0 48px; padding: 24px 28px; background: #f7f7f3; border: 1px solid var(--rule); }
+.toc-title { color: var(--green); font-size: 20px; margin: 0 0 14px; border-bottom: 2px solid var(--green); padding-bottom: 8px; }
+.toc-list { list-style: none; margin: 0; padding: 0; column-count: 1; }
+.toc-list li { padding: 3px 0; font-size: 15px; }
+.toc-list li.toc-lvl1 { font-weight: bold; margin-top: 10px; }
+.toc-list li.toc-lvl2 { padding-left: 22px; }
+.toc-list li.toc-lvl3 { padding-left: 42px; font-size: 14px; }
+.toc-list li a { color: var(--green-dark); text-decoration: none; }
+.toc-list li a:hover { text-decoration: underline; }
+.toc-list li.toc-inactive { color: #aaa; font-style: italic; }
+.toc-list li.toc-inactive.toc-lvl1 { color: #999; }
+
+/* Headings */
+h2.sec-h1 { color: var(--green); font-size: 24px; margin: 46px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--green); scroll-margin-top: 20px;}
+h3.sec-h2 { color: var(--green); font-size: 19px; margin: 34px 0 12px; scroll-margin-top: 20px;}
+h4.sec-h3 { color: var(--green-dark); font-size: 16px; text-decoration: underline; margin: 26px 0 10px; scroll-margin-top: 20px;}
+
+/* Text */
+p { margin: 0 0 14px; text-align: left; }
+p.lead-bold { font-weight: bold; }
+p.warn-red { color: var(--warn-red); font-weight: bold; }
+ul, ol { margin: 0 0 16px; padding-left: 28px; }
+li { margin-bottom: 8px; }
+a { color: #1155aa; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/* Callout (warning icon + italic text) */
+.callout { display: flex; align-items: flex-start; gap: 14px; margin: 18px 0 22px; padding: 14px 18px; background: #fdfaf5; border: 1px solid var(--callout-border); border-left: 4px solid #c0392b; }
+.callout-icon { width: 30px; height: 30px; flex: none; margin-top: 2px; }
+.callout-text { font-style: italic; color: #333; }
+
+/* Note box (dashed, blue-ish, matches original's tip/status boxes) */
+.note-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--note-bg); border: 1.5px dashed var(--note-border); font-size: 15.5px; }
+
+/* Highlight box - the user's own 10/60-day emphasis */
+.highlight-box { display:flex; align-items:center; gap: 16px; margin: 24px 0 26px; padding: 18px 22px; background: var(--highlight-bg); border: 2px solid var(--highlight-border); border-radius: 3px; box-shadow: 0 2px 8px rgba(217,164,65,0.25); }
+.highlight-box img.callout-icon { width: 34px; height: 34px; }
+.highlight-box div { font-weight: bold; font-size: 18px; color: #6b4a12; line-height: 1.4; }
+
+/* Screenshots */
+.shot { text-align: center; margin: 20px 0 26px; }
+.shot img { max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+.shot-row { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; }
+.shot-row img { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+.img-cap { font-size: 13.5px; color: #666; margin-top: 8px; font-style: italic; }
+
+/* Small inline button-style images get no heavy border/shadow */
+.shot.plain img { box-shadow: none; border: none; }
+
+footer.doc-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 13px; color: #888; text-align: center; }
+
+@media (max-width: 700px) {
+  .page { padding: 28px 20px 50px; }
+  body { font-size: 16px; padding: 16px 8px 60px; }
+  .cover h1 { font-size: 24px; }
+}
+
+/* --- Добавлено при слиянии с Частью 2: в оригинале блоки "Required documentation for..."
+   заключены в рамку с КРАСНЫМ пунктиром (проверено по векторной обводке в PDF), а не в синюю,
+   как .note-box. Заводим для него отдельный класс на основе .note-box. */
+:root { --req-border: #c0504d; --req-bg: #fdf6f5; }
+.req-box { margin: 16px 0 22px; padding: 14px 18px; background: var(--req-bg); border: 1.5px dashed var(--req-border); font-size: 15.5px; }
+
+.lang-switch { text-align:right; max-width:1300px; margin:0 auto 8px; font-size:14px; }
+.lang-switch a { color:#1a5632; text-decoration:none; font-weight:bold; }
+.lang-switch a:hover { text-decoration:underline; }
+</style>
+.inline-icon { display: inline-block; height: 1.3em; width: auto; vertical-align: middle; margin: 0 3px; position: relative; top: -1px; }
+</head>
+<body>
+<div class="lang-switch"><a href="guide_ru.html">Русский (RU)</a> &nbsp;|&nbsp; <a href="guide_ua.html">Українською (UA)</a> &nbsp;|&nbsp; <a href="index.html">English (EN)</a> &nbsp;|&nbsp; <a href="guide_fr.html">Français (FR)</a> &nbsp;|&nbsp; <a href="guide_vi.html">Tiếng Việt (VI)</a> &nbsp;|&nbsp; <a href="guide_tl.html">Tagalog (TL)</a> &nbsp;|&nbsp; <a href="guide_zh.html">简体中文 (ZH)</a></div>
+<div class="page"><div class="cover"><img class="logo" src="images/img-p00-Im0.png" alt="Government of Saskatchewan"/><h1>SINP – OASIS ਬਿਨੈਕਾਰਾਂ ਲਈ ਵਰਤੋਂਕਾਰ ਗਾਈਡ<br><span style="font-size:0.7em;font-weight:normal;color:#555">(User Guide for Applicants)</span></h1><div class="subtitle">ਇਮੀਗ੍ਰੇਸ਼ਨ ਅਤੇ ਕਰੀਅਰ ਟ੍ਰੇਨਿੰਗ ਮੰਤਰਾਲਾ<br>(Ministry of Immigration and Career Training)</div><div class="contact">ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਸੰਪਰਕ ਕਰੋ:<br>Government of Saskatchewan &mdash; Ministry of Immigration and Career Training<br>Immigration Services Branch &mdash; Saskatchewan Immigrant Nominee Program<br>7th Floor, 1945 Hamilton Street, Regina, Saskatchewan S4P 2C8<br>ਟੈਲੀਫੋਨ: (Canada 001) 833-613-0485 &nbsp;&middot;&nbsp; ਫੈਕਸ: (Canada 001) 306-798-0713<br>ਪੁੱਛਗਿੱਛ (Inquiries): <a href="mailto:immigration@gov.sk.ca">immigration@gov.sk.ca</a><br>ਵੈੱਬਸਾਈਟ: <a href="https://www.saskatchewan.ca/sinp" target="_blank">www.saskatchewan.ca/sinp</a></div><div class="datestamp">ਅਪ੍ਰੈਲ 2026</div></div><nav class="toc"><h2 class="toc-title">ਵਿਸ਼ਾ ਸੂਚੀ (Table of Contents)</h2><ol class="toc-list"><li class="toc-lvl1"><a href="#s1-0">1.0 ਜਾਣ-ਪਛਾਣ ਅਤੇ ਲੌਗ ਆਨ (Introduction and Log On)</a></li>
+<li class="toc-lvl2"><a href="#s1-1">1.1 OASIS 'ਤੇ ਰਜਿਸਟਰ ਕਰੋ (Register on OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-2">1.2 OASIS ਵਿੱਚ ਲੌਗਇਨ ਕਰੋ (Login to OASIS)</a></li>
+<li class="toc-lvl2"><a href="#s1-3">1.3 ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਦਾ ਖੁਲਾਸਾ ਕਰਨ ਦਾ ਅਧਿਕਾਰ (Authority to Disclose Personal Information)</a></li>
+<li class="toc-lvl2"><a href="#s1-4">1.4 ਯੂਜ਼ਰ ਆਈਡੀ ਜਾਂ ਪਾਸਵਰਡ ਦੀ ਰਿਕਵਰੀ (User ID or Password Recovery)</a></li>
+<li class="toc-lvl1"><a href="#s2-0">2.0 ਆਪਣੀ ਅਰਜ਼ੀ ਸ਼ੁਰੂ ਕਰੋ (Start your application)</a></li>
+<li class="toc-lvl2"><a href="#s2-1">2.1 ਬਿਨੈਕਾਰ ਦੀ ਜਾਣਕਾਰੀ / ਪਾਸਪੋਰਟ ਵੇਰਵੇ (Applicant Information / Passport Details)</a></li>
+<li class="toc-lvl2"><a href="#s2-2">2.2 ਰਿਹਾਇਸ਼ੀ/ਘਰ ਦਾ ਪਤਾ (Residential/Home Address)</a></li>
+<li class="toc-lvl2"><a href="#s2-3">2.3 ਡਾਕ ਪਤਾ ਅਤੇ ਸੰਪਰਕ ਜਾਣਕਾਰੀ (Mailing Address and Contact Information)</a></li>
+<li class="toc-lvl2"><a href="#s2-4">2.4 ਨੁਮਾਇੰਦਾ (Representative)</a></li>
+<li class="toc-lvl1"><a href="#s3-0">3.0 ਪ੍ਰੀ-ਐਪਲੀਕੇਸ਼ਨ ਅਤੇ ਬਿਨੈਕਾਰ ਦੇ ਵੇਰਵੇ (Pre-Application and Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-1">3.1 ਅਰਜ਼ੀ ਲਈ ਯੋਗਤਾ (Eligibility for Application)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-eoi">3.1.a Expression of Interest (ਦਿਲਚਸਪੀ ਦਾ ਪ੍ਰਗਟਾਵਾ)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-jos">3.1.b Job Offer Streams (ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਦੀਆਂ ਸ਼੍ਰੇਣੀਆਂ)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-agri">3.1.c Agriculture Talent Pathway (ਖੇਤੀਬਾੜੀ ਟੈਲੰਟ ਪਾਥਵੇ)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway (ਇਨੋਵੇਸ਼ਨ ਅਤੇ ਟੈਕ ਟੈਲੰਟ ਪਾਥਵੇ)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-tech">3.1.d Innovation and Tech Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Non-Express Entry (ਹੈਲਥ ਟੈਲੰਟ ਪਾਥਵੇ)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-health">3.1.e Health Talent Pathway – Express Entry</a></li>
+<li class="toc-lvl3"><a href="#s3-1-work">3.1.f Saskatchewan Experience – Existing Work Permit (ਮੌਜੂਦਾ ਵਰਕ ਪਰਮਿਟ)</a></li>
+<li class="toc-lvl3"><a href="#s3-1-student">3.1.g Saskatchewan Experience – Student (ਵਿਦਿਆਰਥੀ)</a></li>
+<li class="toc-lvl2"><a href="#s3-2">3.2 ਹੁਨਰਮੰਦ ਕਾਮੇ ਲਈ ਪੁਆਇੰਟ ਗਰਿੱਡ (Skilled Worker Points Grid)</a></li>
+<li class="toc-lvl2"><a href="#s3-3">3.3 ਮੌਜੂਦਾ ਨਿਵਾਸ ਅਤੇ ਵਸੇਬੇ ਦੀ ਮੰਜ਼ਿਲ (Current Residency and Settlement Destination)</a></li>
+<li class="toc-lvl2"><a href="#s3-4">3.4 ਬਿਨੈਕਾਰ ਦੇ ਵੇਰਵੇ (Applicant Details)</a></li>
+<li class="toc-lvl2"><a href="#s3-5">3.5 ਆਪਣੇ ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰਨਾ (Uploading your documents)</a></li>
+<li class="toc-lvl2"><a href="#s3-6">3.6 ਜਾਣਕਾਰੀ ਦਾ ਖੁਲਾਸਾ (Information Disclosure)</a></li>
+<li class="toc-lvl2"><a href="#s3-7">3.7 ਨਾਗਰਿਕਤਾ (Citizenship)</a></li>
+<li class="toc-lvl2"><a href="#s3-8">3.8 ਜਨਮ ਦਸਤਾਵੇਜ਼ (Birth Document)</a></li>
+<li class="toc-lvl2"><a href="#s3-9">3.9 ਪਾਸਪੋਰਟ (Passport)</a></li>
+<li class="toc-lvl2"><a href="#s3-10">3.10 ਵਿਆਹੁਤਾ ਸਥਿਤੀ (Marital Status)</a></li>
+<li class="toc-lvl2"><a href="#s3-11">3.11 ਸਿੱਖਿਆ (Education)</a></li>
+<li class="toc-lvl3"><a href="#s3-11-enter">3.11.a ਸਿੱਖਿਆ ਦਰਜ ਕਰੋ/ਬਦਲੋ (Enter/Change Education)</a></li>
+<li class="toc-lvl2"><a href="#s3-12">3.12 ਰੈਗੂਲੇਟਰੀ ਜਾਂ ਲਾਇਸੈਂਸਿੰਗ ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ ਅਤੇ ਸਿੱਖਿਆ ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ ਮੁਲਾਂਕਣ</a></li>
+<li class="toc-lvl2"><a href="#s3-13">3.13 ਕੰਮ ਦਾ ਤਜਰਬਾ (Work Experience)</a></li>
+<li class="toc-lvl2"><a href="#s3-14">3.14 ਅੰਗਰੇਜ਼ੀ/ਫ੍ਰੈਂਚ ਯੋਗਤਾ (English/French Ability)</a></li>
+<li class="toc-lvl2"><a href="#s3-15">3.15 ਭਾਗ 1 ਦਾ ਆਖਰੀ ਪੰਨਾ (Final Page of Part 1)</a></li>
+<li class="toc-lvl2"><a href="#s3-16">3.16 ਭਾਗ 1 ਅਤੇ ਬਿਨੈਕਾਰ ਦੇ ਵੇਰਵਿਆਂ ਵਿੱਚ ਬਦਲਾਅ ਕਰਨਾ</a></li>
+<li class="toc-lvl1"><a href="#s4-0">4.0 ਹੁਨਰਮੰਦ ਕਾਮੇ ਦੀ ਅਰਜ਼ੀ ਦੀਆਂ ਸਕਰੀਨਾਂ (Skilled Worker Application Screens)</a></li>
+<li class="toc-lvl2"><a href="#s4-1">4.1 ਅਰਜ਼ੀ ਸਕਰੀਨ (Application Screen)</a></li>
+<li class="toc-lvl2"><a href="#s4-2">4.2 ਸਾਸਕੈਚਵਨ ਨਾਲ ਸਬੰਧ (Connection to Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-study">4.2.a ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਪੜ੍ਹਾਈ ਕੀਤੀ (Studied in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-work">4.2.b ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਕੰਮ ਕੀਤਾ (Worked in Saskatchewan)</a></li>
+<li class="toc-lvl3"><a href="#s4-2-relative">4.2.c ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ (Close Relative in Saskatchewan)</a></li>
+<li class="toc-lvl2"><a href="#s4-3">4.3 ਫੈਡਰਲ ਫਾਰਮ (Federal Forms)</a></li>
+<li class="toc-lvl2"><a href="#s4-4">4.4 ਕਦਮ 1: ਬਣਾਓ ਬਟਨ (Step 1 Create Buttons)</a></li>
+<li class="toc-lvl2"><a href="#s4-5">4.5 Work Permit (ਵਰਕ ਪਰਮਿਟ)</a></li>
+<li class="toc-lvl2"><a href="#s4-6">4.6 ਕੈਨੇਡਾ ਵਿੱਚ ਰਿਸ਼ਤੇਦਾਰ (In-Canada Relative)</a></li>
+<li class="toc-lvl2"><a href="#s4-7">4.7 ਵਸੇਬਾ ਫੰਡ ਅਤੇ ਵਸੇਬਾ ਯੋਜਨਾ (Settlement Funds and Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-plan">4.7.a ਵਸੇਬਾ ਯੋਜਨਾ (Settlement Plan)</a></li>
+<li class="toc-lvl3"><a href="#s4-7-funds">4.7.b ਵਸੇਬਾ ਫੰਡ (Settlement Funds)</a></li>
+<li class="toc-lvl2"><a href="#s4-8">4.8 ਨਾਲ ਆਉਣ ਵਾਲੇ ਅਤੇ ਨਾਲ ਨਾ ਆਉਣ ਵਾਲੇ ਪਰਿਵਾਰਕ ਮੈਂਬਰ</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a1">4.8.a Accompanying Dependant under 18 years of age</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a2">4.8.b Accompanying Dependant 18-21 years old</a></li>
+<li class="toc-lvl3"><a href="#s4-8-a3">4.8.c Accompanying Spouse (ਨਾਲ ਆਉਣ ਵਾਲਾ ਜੀਵਨ ਸਾਥੀ)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n1">4.8.d Non-Accompanying Spouse (ਨਾਲ ਨਾ ਆਉਣ ਵਾਲਾ ਜੀਵਨ ਸਾਥੀ)</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n2">4.8.e Non-Accompanying Dependant 18 years old or older</a></li>
+<li class="toc-lvl3"><a href="#s4-8-n3">4.8.f Non-Accompanying Dependant under 18 years of age</a></li>
+<li class="toc-lvl3"><a href="#s4-8-imm5406">4.8.g IMM 5406 – Additional Family Member Information</a></li>
+<li class="toc-lvl3"><a href="#s4-8-schedulea">4.8.h Schedule A – Background Declaration</a></li>
+<li class="toc-lvl2"><a href="#s4-9">4.9 ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ (Job Offer)</a></li>
+<li class="toc-lvl2"><a href="#s4-10">4.10 ਲਾਇਸੈਂਸ ਦਾ ਸਬੂਤ (Proof of Licensure)</a></li>
+<li class="toc-lvl2"><a href="#s4-11">4.11 ਡਰਾਈਵਰ ਲਾਇਸੈਂਸ (Driver's License)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-1">4.11.1 Endorsement (ਸਮਰਥਨ)</a></li>
+<li class="toc-lvl3"><a href="#s4-11-2">4.11.2 Restriction (ਪਾਬੰਦੀ, ਜੇ ਲਾਗੂ ਹੋਵੇ)</a></li>
+<li class="toc-lvl2"><a href="#s4-12">4.12 ਪਿਛਲੀ ਅਰਜ਼ੀ (Previous Application)</a></li>
+<li class="toc-lvl2"><a href="#s4-13">4.13 ਹਰੇਕ ਸ਼੍ਰੇਣੀ ਲਈ ਲੋੜੀਂਦੀਆਂ ਅਰਜ਼ੀ ਸਕਰੀਨਾਂ</a></li>
+<li class="toc-lvl3"><a href="#s4-13-1">4.13.1 ਅੰਤਰਰਾਸ਼ਟਰੀ ਹੁਨਰਮੰਦ ਕਾਮਾ (International Skilled Worker)</a></li>
+<li class="toc-lvl3"><a href="#s4-13-2">4.13.2 ਸਾਸਕੈਚਵਨ ਤਜਰਬਾ (Saskatchewan Experience)</a></li>
+<li class="toc-lvl1"><a href="#s5-0">5.0 ਅਰਜ਼ੀ ਸਕਰੀਨਾਂ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਜਮ੍ਹਾਂ ਕਰੋ (Check Application Screens and Submit)</a></li>
+<li class="toc-lvl1"><a href="#s6-0">6.0 ਫੀਸ ਭੁਗਤਾਨ – ਸਾਰੀਆਂ SINP ਸ਼੍ਰੇਣੀਆਂ (Fee Payment)</a></li>
+<li class="toc-lvl1"><a href="#s7-0">7.0 ਅਰਜ਼ੀ ਪ੍ਰਾਪਤ ਹੋਈ (Application Received)</a></li>
+<li class="toc-lvl1"><a href="#s8-0">8.0 ਵਾਧੂ ਜਾਣਕਾਰੀ ਲਈ ਬੇਨਤੀ (Request for Additional Information)</a></li>
+<li class="toc-lvl1"><a href="#s9-0">9.0 ਐਕਸਪ੍ਰੈਸ ਐਂਟਰੀ ਪ੍ਰੋਫਾਈਲ ਨੰਬਰ ਅਤੇ ਜੌਬ ਸੀਕਰ ਵੈਲੀਡੇਸ਼ਨ ਕੋਡ ਅੱਪਡੇਟ ਕਰੋ</a></li>
+<li class="toc-lvl1"><a href="#s10-0">10.0 ਦੂਜੀ ਸਮੀਖਿਆ ਪ੍ਰਕਿਰਿਆ (Second Review Process)</a></li>
+</ol></nav><h2 id="s1-0" class="sec-h1">1.0 ਜਾਣ-ਪਛਾਣ ਅਤੇ ਲੌਗ ਆਨ (Introduction and Log On)</h2>
+<p>ਇਹ ਗਾਈਡ ਦੱਸਦੀ ਹੈ ਕਿ OASIS ਸਿਸਟਮ 'ਤੇ SINP ਆਨਲਾਈਨ ਅਰਜ਼ੀਆਂ ਨਾਲ ਸਬੰਧਤ ਵੱਖ-ਵੱਖ ਸਕਰੀਨਾਂ ਤੱਕ ਕਿਵੇਂ ਪਹੁੰਚ ਕੀਤੀ ਜਾਵੇ ਅਤੇ ਉਹਨਾਂ ਦੀ ਵਰਤੋਂ ਕਿਵੇਂ ਕੀਤੀ ਜਾਵੇ।</p>
+<div class="shot"><img src="images/img-p03-01.png" alt="" style="max-width:794px"/></div>
+<p>SINP ਆਨਲਾਈਨ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰੋ: <a href="https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231" target="_blank" rel="noopener">https://immigration.saskatchewan.ca/apex/f?p=305:101:816149727231</a></p>
+<p>ਉੱਪਰ ਦਿੱਤੀ Welcome (ਸੁਆਗਤ) ਸਕਰੀਨ ਦਿਖਾਈ ਦੇਵੇਗੀ। ਸਿਸਟਮ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਇੱਕ ਖਾਤਾ ਬਣਾਉਣ ਦੀ ਲੋੜ ਹੈ।</p>
+<p>ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਿਫਾਰਸ਼ ਕਰਦੇ ਹਾਂ ਕਿ ਤੁਸੀਂ ਆਪਣੀ ਅਰਜ਼ੀ ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਉਹਨਾਂ ਸਾਰੀਆਂ ਲੋੜਾਂ ਦੀ ਸਮੀਖਿਆ ਕਰੋ ਜੋ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਨਾਲ ਨੱਥੀ ਕਰਨ ਲਈ ਦਸਤਾਵੇਜ਼ਾਂ ਅਤੇ ਫਾਰਮਾਂ ਲਈ ਲੋੜੀਂਦੀਆਂ ਹਨ, ਅਤੇ ਹੇਠਾਂ ਦਿੱਤੇ ਮਾਪਦੰਡਾਂ ਦੀ ਸਮੀਖਿਆ ਕਰੋ।</p>
+<p>International Skilled Worker Category (ਅੰਤਰਰਾਸ਼ਟਰੀ ਹੁਨਰਮੰਦ ਕਾਮਾ ਸ਼੍ਰੇਣੀ) ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰੋ: <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">International Skilled Worker Category</a></p>
+<p>Saskatchewan Experience Category (ਸਾਸਕੈਚਵਨ ਤਜਰਬਾ ਸ਼੍ਰੇਣੀ) ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰੋ: <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">Saskatchewan Experience Category</a></p>
+<h2 id="s1-1" class="sec-h1">1.1 OASIS 'ਤੇ ਰਜਿਸਟਰ ਕਰੋ (Register on OASIS)</h2>
+<ul>
+<li><strong>Create an Account</strong> (ਖਾਤਾ ਬਣਾਓ) 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</li>
+<li><strong>Select a Registration Type</strong> (ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਕਿਸਮ ਚੁਣੋ) 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</li>
+</ul>
+<div class="shot"><img src="images/img-p04-04.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li><strong>SINP Applicant or Expression of Interest Candidate</strong> ਚੁਣੋ ਅਤੇ <strong>Continue</strong> (ਜਾਰੀ ਰੱਖੋ) 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</li>
+<li>ਇੱਕ ਯੂਜ਼ਰਨੇਮ ਬਣਾਓ। ਯੂਜ਼ਰਨੇਮ ਵਿੱਚ ਸਪੇਸ ਜਾਂ ਅੰਡਰਸਕੋਰ ('_') ਤੋਂ ਇਲਾਵਾ ਕੋਈ ਹੋਰ ਖਾਸ ਅੱਖਰ ਨਹੀਂ ਹੋਣਾ ਚਾਹੀਦਾ। ਤੁਹਾਡਾ ਯੂਜ਼ਰਨੇਮ ਤੁਹਾਡੇ OASIS ਖਾਤੇ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਵੇਗਾ।</li>
+</ul>
+<div class="note-box">ਕਿਰਪਾ ਕਰਕੇ ਦਿੱਤੀ ਗਈ ਥਾਂ 'ਤੇ ਯੂਜ਼ਰਨੇਮ ਟਾਈਪ ਕਰੋ। ਬਾਕੀ ਸਾਰੀਆਂ ਐਂਟਰੀਆਂ Title Case (ਹਰ ਸ਼ਬਦ ਦਾ ਪਹਿਲਾ ਅੱਖਰ ਵੱਡਾ) ਵਿੱਚ ਟਾਈਪ ਕਰੋ।</div>
+<ul>
+<li>ਆਪਣਾ First Name (ਪਹਿਲਾ ਨਾਮ), Middle Name (ਵਿਚਕਾਰਲਾ ਨਾਮ), ਅਤੇ Family (Last) Name (ਅੰਤਿਮ ਨਾਮ) ਦਰਜ ਕਰੋ, ਜਿਵੇਂ ਕਿ ਇਹ ਤੁਹਾਡੇ ਪਾਸਪੋਰਟ 'ਤੇ ਦਿਖਾਈ ਦਿੰਦੇ ਹਨ।</li>
+<li>ਆਪਣੀ Date of Birth (ਜਨਮ ਮਿਤੀ) DD-Mon-YYYY ਫਾਰਮੈਟ ਵਿੱਚ ਦਰਜ ਕਰੋ।</li>
+<li>ਆਪਣਾ Email address (ਈਮੇਲ ਪਤਾ) ਦਰਜ ਕਰੋ।</li>
+</ul>
+<div class="callout"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div class="callout-text">ਇਹ ਈਮੇਲ ਪਤਾ ਤੁਹਾਡੀ OASIS ਅਰਜ਼ੀ ਲਈ ਸਾਰੇ ਭਵਿੱਖੀ ਪੱਤਰ-ਵਿਹਾਰ ਲਈ ਵਰਤਿਆ ਜਾਵੇਗਾ, ਜਿਸ ਵਿੱਚ ਪਾਸਵਰਡ ਰਿਕਵਰੀ ਵੀ ਸ਼ਾਮਲ ਹੈ।</div></div>
+<div class="shot"><img src="images/img-p04-01.png" alt="" style="max-width:797px"/></div>
+<p><strong>Submit</strong> (ਜਮ੍ਹਾਂ ਕਰੋ) 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਤੁਹਾਡਾ ਯੂਜ਼ਰਨੇਮ ਅਤੇ ਪਾਸਵਰਡ ਵਾਲੀ ਇੱਕ ਈਮੇਲ ਤੁਹਾਨੂੰ ਭੇਜੀ ਜਾਵੇਗੀ। OASIS ਵਿੱਚ ਲੌਗਇਨ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਇਸ ਜਾਣਕਾਰੀ ਦੀ ਲੋੜ ਹੋਵੇਗੀ।</p>
+<h2 id="s1-2" class="sec-h1">1.2 OASIS ਵਿੱਚ ਲੌਗਇਨ ਕਰੋ (Login to OASIS)</h2>
+<ul>
+<li>ਲੌਗਇਨ ਪੇਜ 'ਤੇ, ਈਮੇਲ ਵਿੱਚ ਭੇਜਿਆ ਗਿਆ ਯੂਜ਼ਰਨੇਮ ਅਤੇ ਪਾਸਵਰਡ ਟਾਈਪ ਕਰੋ ਅਤੇ <strong>Login</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</li>
+</ul>
+<div class="shot"><img src="images/img-p05-05.png" alt="" style="max-width:636px"/></div>
+<ul>
+<li>ਸਿਸਟਮ ਫਿਰ ਤੁਹਾਨੂੰ ਆਪਣਾ ਪਾਸਵਰਡ ਬਦਲਣ ਲਈ ਕਹੇਗਾ।</li>
+</ul>
+<div class="note-box">ਕਿਰਪਾ ਕਰਕੇ ਪਾਸਵਰਡ ਲਈ ਹੇਠ ਲਿਖੀਆਂ ਲੋੜਾਂ ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ: ਘੱਟੋ-ਘੱਟ ਅੱਠ ਅੱਖਰ ਹੋਣ; ਘੱਟੋ-ਘੱਟ ਤਿੰਨ ਹੇਠ ਲਿਖੀਆਂ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚੋਂ ਅੱਖਰ ਸ਼ਾਮਲ ਹੋਣ: ਅੰਗਰੇਜ਼ੀ ਵੱਡੇ ਅੱਖਰ (A – Z); ਅੰਗਰੇਜ਼ੀ ਛੋਟੇ ਅੱਖਰ (a – z); ਅੰਕ (0 – 9); ਗੈਰ-ਅਲਫਾਨਿਊਮੈਰਿਕ ਚਿੰਨ੍ਹ (ਜਿਵੇਂ: !, #, $, %); ਤੁਹਾਡੇ ਖਾਤੇ ਦਾ ਨਾਮ ਸ਼ਾਮਲ ਨਾ ਹੋਵੇ।</div>
+<div class="shot"><img src="images/img-p05-01.png" alt="" style="max-width:875px"/></div>
+<div class="shot"><img src="images/img-p05-03.png" alt="" style="max-width:726px"/></div>
+<h2 id="s1-3" class="sec-h1">1.3 ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਦਾ ਖੁਲਾਸਾ ਕਰਨ ਦਾ ਅਧਿਕਾਰ (Authority to Disclose Personal Information)</h2>
+<p>OASIS ਵਿੱਚ ਪਹਿਲੀ ਵਾਰ ਲੌਗਇਨ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਸਾਰੇ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ "I AGREE" (ਮੈਂ ਸਹਿਮਤ ਹਾਂ) ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਜਾਣਕਾਰੀ ਦਾ ਖੁਲਾਸਾ ਕਰਨ ਲਈ ਸਹਿਮਤ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<div class="shot"><img src="images/img-p06-03.png" alt="" style="max-width:764px"/></div>
+<h2 id="s1-4" class="sec-h1">1.4 ਯੂਜ਼ਰ ਆਈਡੀ ਜਾਂ ਪਾਸਵਰਡ ਦੀ ਰਿਕਵਰੀ (User ID or Password Recovery)</h2>
+<p>ਆਪਣੇ ਖਾਤੇ ਤੱਕ ਪਹੁੰਚ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ, ਲੌਗਇਨ ਪੇਜ 'ਤੇ, "Forgot your User ID or Password?" (ਯੂਜ਼ਰ ਆਈਡੀ ਜਾਂ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?) 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Recovery Method (ਰਿਕਵਰੀ ਵਿਧੀ) ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p06-01.png" alt="" style="max-width:736px"/></div>
+<p>ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰਨ ਲਈ "User ID" ਚੁਣੋ। ਤੁਹਾਨੂੰ ਖਾਤਾ ਬਣਾਉਣ ਵੇਲੇ ਵਰਤਿਆ ਯੂਜ਼ਰਨੇਮ ਦਰਜ ਕਰਨ ਲਈ ਕਿਹਾ ਜਾਵੇਗਾ। ਤੁਹਾਡੇ User ID (ਜਾਂ ਯੂਜ਼ਰਨੇਮ) ਨਾਲ ਸਬੰਧਤ ਈਮੇਲ ਪਤੇ 'ਤੇ ਯੂਜ਼ਰਨੇਮ ਅਤੇ ਅਸਥਾਈ ਪਾਸਵਰਡ ਵਾਲੀ ਇੱਕ ਈਮੇਲ ਭੇਜੀ ਜਾਵੇਗੀ।</p>
+<p>ਜੇ ਤੁਸੀਂ ਈਮੇਲ ਪਤੇ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣਾ ਖਾਤਾ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਰਿਕਵਰੀ ਵਿਧੀ ਵਜੋਂ "Email" 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਤੁਹਾਡੇ ਈਮੇਲ ਪਤੇ ਨਾਲ ਸਬੰਧਤ ਯੂਜ਼ਰਨੇਮਾਂ ਦੀ ਸੂਚੀ ਤੁਹਾਨੂੰ ਈਮੇਲ ਰਾਹੀਂ ਭੇਜੀ ਜਾਵੇਗੀ। ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰਨ ਲਈ, ਤੁਹਾਨੂੰ "User ID" ਰਿਕਵਰੀ ਵਿਧੀ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਪਿਛਲਾ ਕਦਮ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ।</p>
+<h2 id="s2-0" class="sec-h1">2.0 ਆਪਣੀ ਅਰਜ਼ੀ ਸ਼ੁਰੂ ਕਰੋ (Start your application)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p07-02.png" alt=""/><div class="callout-text">ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਆਪਣੀ ਅਰਜ਼ੀ ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਸਾਰੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਅਤੇ ਫਾਰਮ ਸਕੈਨ ਕਰ ਲਏ ਹਨ, ਤਰਜੀਹੀ ਤੌਰ 'ਤੇ pdf ਫਾਰਮੈਟ ਵਿੱਚ।</div></div>
+<div class="shot"><img src="images/img-p07-01.png" alt="" style="max-width:497px"/></div>
+<ul>
+<li>ਅਨੁਵਾਦ ਕੀਤੇ ਦਸਤਾਵੇਜ਼ਾਂ ਨੂੰ ਸਕੈਨ ਕਰਦੇ ਸਮੇਂ, ਕਿਰਪਾ ਕਰਕੇ ਮੂਲ ਦਸਤਾਵੇਜ਼ ਅਤੇ ਅੰਗਰੇਜ਼ੀ ਜਾਂ ਫ੍ਰੈਂਚ ਅਨੁਵਾਦ, ਅਤੇ SINP Translator Affidavit ਨੂੰ ਇੱਕ ਦਸਤਾਵੇਜ਼ ਵਜੋਂ ਸਕੈਨ ਕਰੋ। Affidavit ਫਾਰਮ ਇੱਥੇ ਲੱਭੋ: <a href="https://publications.saskatchewan.ca/#/products/76058" target="_blank" rel="noopener">https://publications.saskatchewan.ca/#/products/76058</a></li>
+<li>ਸਕੈਨ ਕੀਤੇ ਦਸਤਾਵੇਜ਼ਾਂ ਦਾ ਆਕਾਰ ਘਟਾਉਣ ਲਈ, SINP ਨੂੰ ਤੁਹਾਡੇ ਪਾਸਪੋਰਟ ਦੇ ਖਾਲੀ ਪੰਨਿਆਂ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।</li>
+<li>ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਸਾਰੀਆਂ ਸਕੈਨ ਕੀਤੀਆਂ ਕਾਪੀਆਂ ਸਾਫ਼ ਅਤੇ ਪੜ੍ਹਨ ਵਿੱਚ ਆਸਾਨ ਹਨ।</li>
+<li>ਕਿਰਪਾ ਕਰਕੇ ਇਹ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਸ਼੍ਰੇਣੀ-ਵਿਸ਼ੇਸ਼ ਚੈੱਕਲਿਸਟ ਦੀ ਸਮੀਖਿਆ ਕਰੋ ਕਿ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਸਾਰੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ਾਂ ਨਾਲ ਪੂਰੀ ਹੈ।</li>
+</ul>
+<p><strong>ਮਹੱਤਵਪੂਰਨ ਨੋਟ:</strong> ਜੇ ਤੁਹਾਡੇ ਕੋਈ ਸਵਾਲ ਹਨ, ਯੂਜ਼ਰਨੇਮ ਜਾਂ ਪਾਸਵਰਡ ਨਾਲ ਸਮੱਸਿਆ ਹੈ, ਜਾਂ ਆਪਣਾ ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰਨਾ ਹੈ; ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ immigration@gov.sk.ca 'ਤੇ ਈਮੇਲ ਕਰੋ ਜਾਂ 1-833-613-0485 'ਤੇ ਕਾਲ ਕਰੋ।</p>
+<p class="warn-red">ਆਪਣੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਣ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ SINP ਆਨਲਾਈਨ ਐਪਲੀਕੇਸ਼ਨ ਤੋਂ ਲੌਗ ਆਊਟ ਕਰੋ ਅਤੇ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਆਪਣਾ ਸੈਸ਼ਨ ਖਤਮ ਕਰਨ ਤੋਂ ਬਾਅਦ ਆਪਣਾ ਵੈੱਬ ਬ੍ਰਾਊਜ਼ਰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਬੰਦ ਕਰ ਦਿਓ।</p>
+<h2 id="s2-1" class="sec-h1">2.1 ਬਿਨੈਕਾਰ ਦੀ ਜਾਣਕਾਰੀ / ਪਾਸਪੋਰਟ ਵੇਰਵੇ (Applicant Information / Passport Details)</h2>
+<p>ਹੇਠਾਂ ਲੋੜੀਂਦੀ ਸਾਰੀ Applicant Information (ਬਿਨੈਕਾਰ ਦੀ ਜਾਣਕਾਰੀ) ਅਤੇ Passport Details (ਪਾਸਪੋਰਟ ਵੇਰਵੇ) ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p08-01.png" alt="" style="max-width:900px"/></div>
+<p>Intended Destination for Settlement (ਵਸੇਬੇ ਲਈ ਇਰਾਦਾ ਮੰਜ਼ਿਲ) ਚੁਣੋ, ਫਿਰ ਆਪਣੇ ਮੌਜੂਦਾ ਨਿਵਾਸ ਦਾ ਦੇਸ਼ ਅਤੇ ਸ਼ਹਿਰ/ਕਸਬਾ ਦਰਜ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p08-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-2" class="sec-h1">2.2 ਰਿਹਾਇਸ਼ੀ/ਘਰ ਦਾ ਪਤਾ (Residential/Home Address)</h2>
+<p>Residential/Home Address (ਰਿਹਾਇਸ਼ੀ/ਘਰ ਦਾ ਪਤਾ) ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p08-03.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>ਜੇ ਤੁਹਾਡਾ Home Address ਕੈਨੇਡਾ ਤੋਂ ਬਾਹਰ ਹੈ, ਤਾਂ Province/State ਹੇਠ, International/Outside Canada ਚੁਣੋ ਅਤੇ ਆਪਣਾ ਪ੍ਰਾਂਤ ਟਾਈਪ ਕਰੋ।</li>
+</ul>
+<div class="shot"><img src="images/img-p09-01.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>ਜੇ ਤੁਹਾਡਾ Home Address ਤੁਹਾਡੇ mailing address ਵਾਂਗ ਹੀ ਹੈ, ਤਾਂ 'Is the mailing address the same as the Residential/Home Address?' (ਕੀ ਡਾਕ ਪਤਾ Residential/Home Address ਵਾਂਗ ਹੀ ਹੈ?) ਸਵਾਲ ਲਈ 'Yes' ਚੁਣੋ।</li>
+</ul>
+<div class="shot"><img src="images/img-p09-03.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-3" class="sec-h1">2.3 ਡਾਕ ਪਤਾ ਅਤੇ ਸੰਪਰਕ ਜਾਣਕਾਰੀ (Mailing Address and Contact Information)</h2>
+<p>ਜੇ ਤੁਹਾਡੇ home address ਤੋਂ ਵੱਖਰਾ ਹੈ, ਤਾਂ mailing address ਅਤੇ ਟੈਲੀਫੋਨ ਨੰਬਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p09-05.png" alt="" style="max-width:900px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p09-06.png" alt=""/><div class="callout-text">Applicant's Email Address (ਬਿਨੈਕਾਰ ਦਾ ਈਮੇਲ ਪਤਾ) ਇੱਕ ਲੋੜੀਂਦਾ ਖੇਤਰ ਹੈ ਅਤੇ ਅਰਜ਼ੀ ਨੂੰ ਪੂਰੀ ਮੰਨਣ ਲਈ ਬਿਨੈਕਾਰ ਦੇ ਈਮੇਲ ਪਤੇ ਨੂੰ ਸ਼ਾਮਲ ਕਰਨਾ ਲਾਜ਼ਮੀ ਹੈ। ਜੇ Applicant's Email Address ਵਿੱਚ ਦਰਜ ਕੀਤਾ ਈਮੇਲ ਪਤਾ ਬਿਨੈਕਾਰ ਦਾ ਈਮੇਲ ਪਤਾ ਨਹੀਂ ਹੈ, ਤਾਂ ਅਰਜ਼ੀ ਗਲਤ ਬਿਆਨੀ ਲਈ integrity review (ਅਖੰਡਤਾ ਸਮੀਖਿਆ) ਦੇ ਅਧੀਨ ਹੋ ਸਕਦੀ ਹੈ।</div></div>
+<p>ਫਿਰ, ਜੋ ਤੁਹਾਡੇ 'ਤੇ ਲਾਗੂ ਹੁੰਦਾ ਹੈ ਉਹ ਚੁਣੋ:</p>
+<div class="shot"><img src="images/img-p09-08.png" alt="" style="max-width:900px"/></div>
+<h2 id="s2-4" class="sec-h1">2.4 ਨੁਮਾਇੰਦਾ (Representative)</h2>
+<p>ਜੇ ਤੁਸੀਂ ਕੋਈ ਨੁਮਾਇੰਦਾ ਨਿਯੁਕਤ ਕਰ ਰਹੇ ਹੋ ਤਾਂ 'Yes' ਚੁਣੋ, ਨਹੀਂ ਤਾਂ 'No' ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p10-01.png" alt="" style="max-width:870px"/></div>
+<p>ਜੇ ਤੁਸੀਂ 'Yes' ਚੁਣਦੇ ਹੋ ਤਾਂ Consultant (ਸਲਾਹਕਾਰ) ਲਈ ਈਮੇਲ ਪਤਾ ਭਰੋ।</p>
+<div class="shot"><img src="images/img-p10-05.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੀ SINP ਅਰਜ਼ੀ ਵਿੱਚ ਨੁਮਾਇੰਦੇ ਦੀ ਵਰਤੋਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰੋ:</p>
+<p><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities" target="_blank" rel="noopener">https://www.saskatchewan.ca/residents/moving-to-saskatchewan/provide-immigration-services/immigration-consultant-and-foreign-worker-recruiter-licensing-and-responsibilities</a></p>
+<p>ਆਪਣੀ ਅਰਜ਼ੀ ਜਾਰੀ ਰੱਖਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p10-03.png" alt="" style="max-width:236px"/></div>
+<h2 id="s3-0" class="sec-h1">3.0 ਪ੍ਰੀ-ਐਪਲੀਕੇਸ਼ਨ ਅਤੇ ਬਿਨੈਕਾਰ ਦੇ ਵੇਰਵੇ (Pre-Application and Applicant Details)</h2>
+<p class="lead-bold">ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਜਾਂ ਰੁਜ਼ਗਾਰ ਬਾਰੇ ਪ੍ਰੀ-ਐਪਲੀਕੇਸ਼ਨ ਸਵਾਲ ਤੁਹਾਨੂੰ ਢੁਕਵੀਂ ਅਰਜ਼ੀ ਸ਼੍ਰੇਣੀ ਵੱਲ ਸੇਧਿਤ ਕਰਨ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ।</p>
+<h2 id="s3-1" class="sec-h1">3.1 ਅਰਜ਼ੀ ਲਈ ਯੋਗਤਾ (Eligibility for Application)</h2>
+<p>ਯੋਗਤਾ ਅਤੇ ਅਰਜ਼ੀ ਸ਼੍ਰੇਣੀ ਨਿਰਧਾਰਤ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਇਸ ਪੇਜ 'ਤੇ ਸਵਾਲਾਂ ਦੀ ਲੜੀ ਦੇ ਜਵਾਬ ਦੇਣੇ ਚਾਹੀਦੇ ਹਨ।</p>
+<h4 id="s3-1-eoi" class="sec-h3">3.1.a Expression of Interest (ਦਿਲਚਸਪੀ ਦਾ ਪ੍ਰਗਟਾਵਾ)</h4>
+<p>ਜੇ ਤੁਸੀਂ Occupations In-Demand ਜਾਂ Express Entry ਉਪ-ਸ਼੍ਰੇਣੀਆਂ ਹੇਠ ਯੋਗ ਹੋ, ਤਾਂ ਤੁਸੀਂ Expression of Interest (EOI) ਜਮ੍ਹਾਂ ਕਰ ਸਕੋਗੇ।</p>
+<p>ਜੇ ਤੁਸੀਂ Occupations In-Demand ਲਈ EOI ਜਮ੍ਹਾਂ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਹੇਠਾਂ ਦਿਖਾਏ ਗਏ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦੇਣੇ ਚਾਹੀਦੇ ਹਨ ਅਤੇ ਆਪਣਾ ਇਰਾਦਾ NOC (ਕਿੱਤਾ) ਚੁਣਨਾ ਚਾਹੀਦਾ ਹੈ। ਯੋਗ ਹੋਣ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਆਪਣੀ ਸਿੱਖਿਆ ਜਾਂ ਸਿਖਲਾਈ ਦੇ ਖੇਤਰ ਵਿੱਚ ਪਿਛਲੇ ਦਸ ਸਾਲਾਂ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸਾਲ ਦਾ ਭੁਗਤਾਨਯੋਗ ਕੰਮ ਦਾ ਤਜਰਬਾ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<div class="shot"><img src="images/img-p11-01.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਸੀਂ Express Entry ਲਈ EOI ਜਮ੍ਹਾਂ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ IRCC ਦੇ Express Entry Pool ਵਿੱਚ ਸਵੀਕਾਰ ਕੀਤਾ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ, ਤੁਹਾਡੇ ਕੋਲ Express Entry Profile Number ਅਤੇ Job Seeker Validation Code ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ। ਯੋਗ ਹੋਣ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਆਪਣੀ ਸਿੱਖਿਆ ਜਾਂ ਸਿਖਲਾਈ ਦੇ ਖੇਤਰ ਵਿੱਚ ਪਿਛਲੇ ਦਸ ਸਾਲਾਂ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸਾਲ ਦਾ ਭੁਗਤਾਨਯੋਗ ਕੰਮ ਦਾ ਤਜਰਬਾ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<div class="shot"><img src="images/img-p11-03.png" alt="" style="max-width:900px"/></div>
+<p><strong>ਨੋਟ:</strong> ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਇਸ dropdown ਸੂਚੀ ਵਿੱਚ ਕਿੱਤੇ ਸਾਸਕੈਚਵਨ ਦੇ ਰੁਜ਼ਗਾਰ ਮੰਗ ਦੇ ਅਨੁਮਾਨ ਦੇ ਆਧਾਰ 'ਤੇ ਬਦਲ ਸਕਦੇ ਹਨ।</p>
+<p>ਤੁਹਾਡਾ ਇਰਾਦਾ ਕਿੱਤਾ regulated (ਨਿਯੰਤ੍ਰਿਤ) ਹੋ ਸਕਦਾ ਹੈ ਜਾਂ ਪੇਸ਼ੇਵਰ ਪ੍ਰਮਾਣੀਕਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ। ਇਸ ਲੋੜ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ ਦੇਖੋ:</p>
+<ul>
+<li>Regulated Occupations and Licensing Requirements: <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">saskatchewan.ca — Regulated Occupations and Licensing Requirements</a></li>
+<li>SINP Requirements Related to Professional Status or Licensure: <a href="https://publications.saskatchewan.ca/#/products/102710" target="_blank" rel="noopener">publications.saskatchewan.ca/#/products/102710</a></li>
+</ul>
+<p>ਜੇ ਤੁਹਾਨੂੰ ਅਰਜ਼ੀ ਦੇਣ ਲਈ ਸੱਦਾ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ, ਤਾਂ SINP ਤੁਹਾਡੀ ਸਿੱਖਿਆ, ਕੰਮ ਦੇ ਤਜਰਬੇ ਅਤੇ ਇਰਾਦਾ ਕਿੱਤੇ ਦੀ ਸਮੀਖਿਆ ਕਰੇਗਾ, ਅਤੇ ਜੇ ਲੋੜ ਹੋਵੇ ਤਾਂ ਤੁਹਾਨੂੰ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਦੇਣ ਲਈ ਸੂਚਿਤ ਕਰੇਗਾ। ਜੇ ਤੁਹਾਡੇ ਕਿੱਤੇ ਲਈ ਇਸ ਦਸਤਾਵੇਜ਼ੀ ਦੀ ਲੋੜ ਹੈ, ਤਾਂ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਲੋੜੀਂਦੀ ਦਸਤਾਵੇਜ਼ੀ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰਦੇ, ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਦੀ ਪ੍ਰੋਸੈਸਿੰਗ ਰੋਕ ਦਿੱਤੀ ਜਾਵੇਗੀ।</p>
+<p>ਅੱਗੇ ਵਧਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਹੇਠਾਂ ਦਿੱਤੇ ਸਾਰੇ ਬਾਕੀ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦੇਣੇ ਚਾਹੀਦੇ ਹਨ।</p>
+<div class="shot"><img src="images/img-p12-01.png" alt="" style="max-width:575px"/></div>
+<p>ਜਦੋਂ ਤੱਕ ਸਾਰੇ ਲੋੜੀਂਦੇ ਜਵਾਬ ਸੇਵ ਨਹੀਂ ਹੋ ਜਾਂਦੇ, ਤੁਸੀਂ ਅੱਗੇ ਨਹੀਂ ਵਧ ਸਕਦੇ। ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੇ ਲੋੜੀਂਦੇ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦਿਓ ਅਤੇ ਅੱਗੇ ਵਧਣ ਲਈ <strong>Save</strong> ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>Expression of Interest (EOI) ਲਈ ਕਦਮਾਂ ਦਾ ਪੂਰਾ ਸੈੱਟ <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-eoi-system" target="_blank" rel="noopener">saskatchewan.ca — International Skilled Worker EOI System</a> 'ਤੇ ਮਿਲ ਸਕਦਾ ਹੈ।</p>
+<h4 id="s3-1-jos" class="sec-h3">3.1.b Job Offer Streams (ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਦੀਆਂ ਸ਼੍ਰੇਣੀਆਂ)</h4>
+<p>ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਸਥਾਈ, ਫੁੱਲ-ਟਾਈਮ ਰੁਜ਼ਗਾਰ ਦੀ ਪੇਸ਼ਕਸ਼ ਹੈ, ਤਾਂ ਇਸ ਦੇ ਸਬੂਤ ਵਜੋਂ ਤੁਹਾਨੂੰ Employer Position Assessment (EPA) Approval ਪ੍ਰਾਪਤ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ। ਜਦੋਂ ਤੁਹਾਡਾ ਮਾਲਕ ਤੁਹਾਡਾ ਨਾਮ ਜੋੜਦਾ ਹੈ, ਤੁਹਾਨੂੰ EPA Approval ਮਿਲੇਗੀ ਜਿਸ ਵਿੱਚ ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਦੇ ਵੇਰਵੇ ਅਤੇ ਸਮਾਂ-ਸੀਮਾਵਾਂ ਤੁਹਾਡੇ ਨਿੱਜੀ ਈਮੇਲ ਪਤੇ 'ਤੇ ਭੇਜੀਆਂ ਜਾਣਗੀਆਂ।</p>
+<p>ਯੋਗ ਹੋਣ ਲਈ ਤੁਹਾਨੂੰ ਉਪ-ਸ਼੍ਰੇਣੀ ਦੇ ਮਾਪਦੰਡ ਵੀ ਪੂਰੇ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ।</p>
+<p>Eligibility for Application ਪੇਜ 'ਤੇ, ਦੱਸੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਵੈਧ ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਅਤੇ EPA Approval ਹੈ ਜਾਂ ਨਹੀਂ:</p>
+<div class="shot"><img src="images/img-p13-07.png" alt="" style="max-width:900px"/><div class="img-cap">ਉਦਾਹਰਨ: "Eligibility for Application" ਪੇਜ</div></div>
+<p>ਤੁਹਾਨੂੰ Employer ID ਅਤੇ EPA ID ਦਰਜ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ। ਸਿਸਟਮ ਤੁਹਾਡੀ ਜਨਮ ਮਿਤੀ ਸਮੇਤ ਇਸ ਜਾਣਕਾਰੀ ਦੀ ਤਸਦੀਕ ਕਰੇਗਾ। ਜੇ ਸਾਰੀ ਜਾਣਕਾਰੀ ਮੇਲ ਖਾਂਦੀ ਹੈ, ਤਾਂ "View Job Offer" ਚੁਣਨ ਨਾਲ Job Offer Information ਪੇਜ ਦਿਖਾਈ ਦੇਵੇਗਾ।</p>
+<div class="highlight-box"><img class="callout-icon" src="images/img-p04-02.png" alt=""/><div>ਮਹੱਤਵਪੂਰਨ: ਤੁਹਾਡੇ ਕੋਲ ਆਪਣੀ SINP ਅਰਜ਼ੀ ਦੇ Part 2 ਵਿੱਚ ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ 10 ਦਿਨ ਹਨ ਅਤੇ ਆਪਣੀ ਪੂਰੀ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਨ ਲਈ 60 ਦਿਨ ਹਨ — ਦੋਵੇਂ ਪ੍ਰਾਪਤ ਹੋਈ EPA Approval ਦੀ ਮਿਤੀ ਤੋਂ ਗਿਣੇ ਜਾਂਦੇ ਹਨ।</div></div>
+<p>ਜੇ ਤੁਸੀਂ Agriculture Talent Pathway, Innovation and Tech Talent Pathway, ਜਾਂ Health Talent Pathway ਹੇਠ ਅਰਜ਼ੀ ਨਹੀਂ ਦੇ ਰਹੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਸਵਾਲਾਂ ਦਾ ਜਵਾਬ NO (ਨਹੀਂ) ਦਿਓ:</p>
+<div class="shot"><img src="images/img-p13-03.png" alt="" style="max-width:870px"/></div>
+<p>ਵੈਧ ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਜਵਾਬਾਂ ਦੀ ਹੇਠ ਲਿਖੀ ਲੜੀ ਤੁਹਾਨੂੰ ਇੱਥੇ ਲੈ ਜਾਵੇਗੀ:</p>
+<p class="lead-bold">International Skilled Worker – With Employment Offer Sub-Category (ਰੁਜ਼ਗਾਰ ਪੇਸ਼ਕਸ਼ ਵਾਲੀ ਉਪ-ਸ਼੍ਰੇਣੀ)</p>
+<div class="shot"><img src="images/img-p13-01.png" alt="" style="max-width:870px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਵਰਤਮਾਨ ਵਿੱਚ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਵੈਧ ਵਰਕ ਪਰਮਿਟ 'ਤੇ ਨਹੀਂ ਹੋ ਅਤੇ ਆਪਣੇ ਇਰਾਦਾ ਕਿੱਤੇ ਵਿੱਚ ਪਿਛਲੇ ਦਸ ਸਾਲਾਂ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸਾਲ ਦਾ ਕੰਮ ਦਾ ਤਜਰਬਾ ਰੱਖਦੇ ਹੋ:</p>
+<div class="shot"><img src="images/img-p14-03.png" alt="" style="max-width:444px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਵਰਤਮਾਨ ਵਿੱਚ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਵੈਧ ਵਰਕ ਪਰਮਿਟ 'ਤੇ ਕੰਮ ਕਰ ਰਹੇ ਹੋ, ਪੋਸਟ-ਗ੍ਰੈਜੂਏਸ਼ਨ ਵਰਕ ਪਰਮਿਟ 'ਤੇ ਅੰਤਰਰਾਸ਼ਟਰੀ ਵਿਦਿਆਰਥੀ ਨਹੀਂ ਹੋ, ਅਤੇ ਆਪਣੇ ਇਰਾਦਾ ਕਿੱਤੇ ਵਿੱਚ ਪਿਛਲੇ ਦਸ ਸਾਲਾਂ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸਾਲ ਦਾ ਕੰਮ ਦਾ ਤਜਰਬਾ ਰੱਖਦੇ ਹੋ:</p>
+<div class="shot"><img src="images/img-p14-01.png" alt="" style="max-width:438px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਵੈਧ ਵਰਕ ਪਰਮਿਟ 'ਤੇ ਕੰਮ ਕਰ ਰਹੇ ਅੰਤਰਰਾਸ਼ਟਰੀ ਵਿਦਿਆਰਥੀ ਹੋ ਅਤੇ ਸਾਸਕੈਚਵਨ ਤੋਂ ਬਾਹਰ ਗ੍ਰੈਜੂਏਟ ਹੋਏ ਹੋ:</p>
+<div class="shot"><img src="images/img-p15-03.png" alt="" style="max-width:675px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਵੈਧ ਵਰਕ ਪਰਮਿਟ 'ਤੇ ਕੰਮ ਕਰ ਰਹੇ ਅੰਤਰਰਾਸ਼ਟਰੀ ਵਿਦਿਆਰਥੀ ਹੋ ਅਤੇ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਗ੍ਰੈਜੂਏਟ ਹੋਏ ਹੋ ਪਰ Student ਸ਼੍ਰੇਣੀ ਦੇ ਮਾਪਦੰਡ ਪੂਰੇ ਨਹੀਂ ਕੀਤੇ:</p>
+<div class="shot"><img src="images/img-p15-01.png" alt="" style="max-width:660px"/></div>
+<h4 id="s3-1-agri" class="sec-h3">3.1.c Agriculture Talent Pathway (ਖੇਤੀਬਾੜੀ ਟੈਲੰਟ ਪਾਥਵੇ)</h4>
+<p>ਜੇ ਤੁਸੀਂ ਇਸ ਸ਼੍ਰੇਣੀ ਹੇਠ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ ਤਾਂ "Yes" ਚੁਣੋ ਅਤੇ ਫਿਰ drop-down ਵਿੱਚ ਆਪਣਾ ਇਰਾਦਾ NOC ਕਿੱਤਾ ਚੁਣੋ:</p>
+<div class="shot"><img src="images/img-p16-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-tech" class="sec-h3">3.1.d Innovation and Tech Talent Pathway (ਇਨੋਵੇਸ਼ਨ ਅਤੇ ਟੈਕ ਟੈਲੰਟ ਪਾਥਵੇ)</h4>
+<p>ਜੇ ਤੁਸੀਂ Innovation and Tech Talent Pathway ਉਪ-ਸ਼੍ਰੇਣੀ ਹੇਠ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ ਤਾਂ "Yes" ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p16-05.png" alt="" style="max-width:900px"/></div>
+<p>drop-down ਵਿੱਚ ਆਪਣਾ ਇਰਾਦਾ NOC ਕਿੱਤਾ ਚੁਣੋ:</p>
+<div class="shot"><img src="images/img-p16-03.png" alt="" style="max-width:800px"/></div>
+<p>ਤੁਹਾਡੇ ਕੋਲ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਸਿੱਖਿਆ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਦਿੱਤੀ ਗਈ ਨੌਕਰੀ ਨਾਲ ਸਬੰਧਤ ਹੋਵੇ (Master's ਜਾਂ Bachelor's ਡਿਗਰੀ; ਜਾਂ ਯੂਨੀਵਰਸਿਟੀ ਜਾਂ ਕਾਲਜ ਵਿੱਚ ਤਿੰਨ-ਸਾਲ ਦੀ ਡਿਗਰੀ; ਜਾਂ ਯੂਨੀਵਰਸਿਟੀ, ਕਾਲਜ, ਟ੍ਰੇਡ ਜਾਂ ਤਕਨੀਕੀ ਸਕੂਲ, ਜਾਂ ਹੋਰ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਸੰਸਥਾ ਵਿੱਚ ਦੋ ਸਾਲ ਦੀ ਲੋੜ ਵਾਲਾ ਡਿਪਲੋਮਾ)।</p>
+<div class="shot"><img src="images/img-p17-03.png" alt="" style="max-width:787px"/></div>
+<p>Innovation and Tech Talent Pathway ਉਪ-ਸ਼੍ਰੇਣੀ ਹੇਠ ਅਰਜ਼ੀ ਦੇਣ ਲਈ "Yes" ਚੁਣੋ ਅਤੇ ਫਿਰ "Have you been accepted into Immigration, Refugees and Citizenship Canada's Express Entry Pool and have a Profile Number." (ਕੀ ਤੁਹਾਨੂੰ IRCC ਦੇ Express Entry Pool ਵਿੱਚ ਸਵੀਕਾਰ ਕੀਤਾ ਗਿਆ ਹੈ ਅਤੇ ਤੁਹਾਡੇ ਕੋਲ Profile Number ਹੈ?) ਲਈ "Yes" ਚੁਣੋ। ਹੁਣ ਤੁਸੀਂ ਆਪਣਾ Express Entry profile number ਅਤੇ Job Seeker Validation Code ਦਰਜ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<div class="shot"><img src="images/img-p17-01.png" alt="" style="max-width:900px"/></div>
+<p>drop-down ਵਿੱਚ ਆਪਣਾ ਇਰਾਦਾ NOC ਕਿੱਤਾ ਚੁਣੋ:</p>
+<div class="shot"><img src="images/img-p18-01.png" alt="" style="max-width:900px"/></div>
+<p>ਤੁਹਾਡੇ ਕੋਲ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਸਿੱਖਿਆ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਦਿੱਤੀ ਗਈ ਨੌਕਰੀ ਨਾਲ ਸਬੰਧਤ ਹੋਵੇ (Master's ਜਾਂ Bachelor's ਡਿਗਰੀ; ਜਾਂ ਯੂਨੀਵਰਸਿਟੀ ਜਾਂ ਕਾਲਜ ਵਿੱਚ ਤਿੰਨ-ਸਾਲ ਦੀ ਡਿਗਰੀ; ਜਾਂ ਯੂਨੀਵਰਸਿਟੀ, ਕਾਲਜ, ਟ੍ਰੇਡ ਜਾਂ ਤਕਨੀਕੀ ਸਕੂਲ, ਜਾਂ ਹੋਰ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਸੰਸਥਾ ਵਿੱਚ ਦੋ ਸਾਲ ਦੀ ਲੋੜ ਵਾਲਾ ਡਿਪਲੋਮਾ)।</p>
+<div class="shot"><img src="images/img-p18-03.png" alt="" style="max-width:787px"/></div>
+<h4 id="s3-1-health" class="sec-h3">3.1.e Health Talent Pathway – Non-Express Entry (ਹੈਲਥ ਟੈਲੰਟ ਪਾਥਵੇ)</h4>
+<p>ਜੇ ਤੁਸੀਂ Health Talent Pathway ਹੇਠ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ ਤਾਂ "Yes" ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p18-05.png" alt="" style="max-width:900px"/></div>
+<p>ਫਿਰ drop down ਮੀਨੂ ਵਿੱਚ ਆਪਣਾ ਇਰਾਦਾ NOC ਕਿੱਤਾ ਚੁਣੋ:</p>
+<div class="shot"><img src="images/img-p19-00.png" alt="" style="max-width:900px"/></div>
+<p>Express Entry profile ਹੈ ਅਤੇ NOC 44101 ਹੈ। ਨੋਟ: NOC 44101 Express Entry ਲਈ ਯੋਗ ਨਹੀਂ ਹੈ।</p>
+<div class="shot"><img src="images/img-p19-02.png" alt="" style="max-width:900px"/></div>
+<p>Express Entry profile ਹੈ, ਅਤੇ ਤੁਹਾਡਾ NOC 44101 ਨਹੀਂ ਹੈ, ਅਤੇ ਤੁਸੀਂ ਸਾਸਕੈਚਵਨ ਦੇ ਅੰਦਰੋਂ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ।</p>
+<div class="shot"><img src="images/img-p20-01.png" alt="" style="max-width:900px"/></div>
+<p>Express Entry profile ਹੈ, ਅਤੇ ਤੁਹਾਡਾ NOC 44101 ਨਹੀਂ ਹੈ, ਅਤੇ ਤੁਸੀਂ ਕੈਨੇਡਾ ਦੇ ਅੰਦਰ ਜਾਂ ਬਾਹਰ ਤੋਂ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ:</p>
+<div class="shot"><img src="images/img-p21-01.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-work" class="sec-h3">3.1.f Saskatchewan Experience – Existing Work Permit (ਮੌਜੂਦਾ ਵਰਕ ਪਰਮਿਟ)</h4>
+<p>ਉਸ ਮਾਲਕ ਕੋਲ ਜਿਸ ਨੇ ਤੁਹਾਨੂੰ EPA Approval ਦਿੱਤੀ ਹੈ, ਵੈਧ ਵਰਕ ਪਰਮਿਟ ਨਾਲ ਘੱਟੋ-ਘੱਟ ਛੇ ਮਹੀਨੇ (780 ਘੰਟੇ) ਫੁੱਲ-ਟਾਈਮ (30+ ਘੰਟੇ ਪ੍ਰਤੀ ਹਫ਼ਤਾ) ਕੰਮ ਦਾ ਤਜਰਬਾ ਰੱਖਿਆ ਹੋਵੇ। ਕੰਮ ਦਾ ਤਜਰਬਾ ਲਗਾਤਾਰ (consecutive) ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<p>ਜਿਸ ਕਿੱਤੇ NOC ਵਿੱਚ ਤੁਸੀਂ ਕੰਮ ਕਰ ਰਹੇ ਹੋ, ਉਸ ਲਈ ਢੁਕਵਾਂ drop-down ਚੁਣੋ।</p>
+<p>***ਇਹ ਸ਼੍ਰੇਣੀ ਉਹਨਾਂ ਲਈ ਹੈ ਜੋ "I am working" drop down ਹੇਠ ਕਿਸੇ ਵੀ ਮਾਪਦੰਡ ਨਾਲ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹਨ, ਜਿਸ ਵਿੱਚ hospitality ਕਿੱਤੇ ਅਤੇ long-haul truck driver ਕਿੱਤੇ ਸ਼ਾਮਲ ਹਨ।</p>
+<div class="shot"><img src="images/img-p22-09.png" alt="" style="max-width:900px"/></div>
+<h4 id="s3-1-student" class="sec-h3">3.1.g Saskatchewan Experience – Student (ਵਿਦਿਆਰਥੀ)</h4>
+<p>ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਪੂਰੀ ਕੀਤੀ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਸਿੱਖਿਆ: ਤੁਹਾਡੇ ਕੋਲ ਆਪਣੀ ਪੜ੍ਹਾਈ ਦੇ ਖੇਤਰ ਨਾਲ ਸਬੰਧਤ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਛੇ (6) ਮਹੀਨੇ ਦਾ ਫੁੱਲ-ਟਾਈਮ ਰੁਜ਼ਗਾਰ (ਜਾਂ 960 ਘੰਟੇ) ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ, ਅਤੇ Immigration, Refugees and Citizenship Canada (IRCC) ਦੁਆਰਾ ਜਾਰੀ ਕੀਤਾ Post Graduation Work Permit ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<div class="shot"><img src="images/img-p22-07.png" alt="" style="max-width:900px"/></div>
+<p>ਸਾਸਕੈਚਵਨ ਤੋਂ ਬਾਹਰ Designated Learning Institute ਤੋਂ ਗ੍ਰੈਜੂਏਟ ਹੋਏ Post Graduation Work Permit (PGWP) ਧਾਰਕ ਸਿਰਫ਼ Health Talent Pathway, Agriculture Talent Pathway, Innovation and Tech Talent Pathway, ਅਤੇ International Skilled Worker: Employment Offer ਲਈ ਯੋਗ ਕਿੱਤੇ ਵਿੱਚ ਅਰਜ਼ੀ ਦੇ ਸਕਦੇ ਹਨ।</p>
+<p>ਆਪਣੇ ਜਵਾਬ ਸੇਵ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ, ਅਤੇ ਇਹ ਦੇਖਣ ਲਈ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਕਿ ਤੁਸੀਂ ਕਿਸ ਅਰਜ਼ੀ ਸ਼੍ਰੇਣੀ ਹੇਠ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ।</p>
+<div class="shot shot-row plain"><img src="images/img-p22-01.png" alt="" style="max-width:54px"/><img src="images/img-p22-03.png" alt="" style="max-width:218px"/></div>
+<p>ਜੇ ਦਿਖਾਈ ਗਈ ਸ਼੍ਰੇਣੀ ਉਹ ਨਹੀਂ ਹੈ ਜੋ ਤੁਹਾਡੇ ਲਈ ਸਹੀ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਆਪਣੇ ਜਵਾਬ ਬਦਲ ਸਕਦੇ ਹੋ, ਜਾਂ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ "No" 'ਤੇ ਕਲਿੱਕ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<div class="shot shot-row plain"><img src="images/img-p22-00.png" alt="" style="max-width:36px"/><img src="images/img-p22-05.png" alt="" style="max-width:242px"/></div>
+<p>ਜੇ ਦਿਖਾਈ ਗਈ ਸ਼੍ਰੇਣੀ ਸਹੀ ਹੈ, ਤਾਂ "Yes" ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਅਤੇ ਆਪਣੀ ਅਰਜ਼ੀ ਨਾਲ ਅੱਗੇ ਵਧੋ।</p>
+<h2 id="s3-2" class="sec-h1">3.2 ਹੁਨਰਮੰਦ ਕਾਮੇ ਲਈ ਪੁਆਇੰਟ ਗਰਿੱਡ (Skilled Worker Points Grid)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-04.png" alt=""/><div class="callout-text">ਇਹ ਸਿਰਫ਼ International Skilled Worker Category ਹੇਠ ਬਿਨੈਕਾਰਾਂ 'ਤੇ ਲਾਗੂ ਹੁੰਦਾ ਹੈ।</div></div>
+<div class="shot"><img src="images/img-p23-03.png" alt="" style="max-width:900px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<h2 id="s3-3" class="sec-h1">3.3 ਮੌਜੂਦਾ ਨਿਵਾਸ ਅਤੇ ਵਸੇਬੇ ਦੀ ਮੰਜ਼ਿਲ (Current Residency and Settlement Destination)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p23-05.png" alt=""/><div class="callout-text">drop-down ਵਿੱਚੋਂ, ਆਪਣਾ ਮੌਜੂਦਾ ਨਿਵਾਸ ਦੇਸ਼, ਨਿਵਾਸ ਸਥਿਤੀ, ਨਿਵਾਸ ਦੀ ਲੰਬਾਈ, ਅਤੇ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਵਸੇਬੇ ਦੀ ਮੰਜ਼ਿਲ ਚੁਣੋ। ਇਹ ਚੀਜ਼ਾਂ Generic Application Form for Canada ਵਿੱਚ ਤੁਹਾਡੇ ਜਵਾਬਾਂ ਨਾਲ ਮੇਲ ਖਾਣੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ।</div></div>
+<div class="shot"><img src="images/img-p23-01.png" alt="" style="max-width:900px"/></div>
+<div class="note-box"><strong>Status in Canada (ਕੈਨੇਡਾ ਵਿੱਚ ਸਥਿਤੀ)</strong> – ਜੇ ਤੁਸੀਂ ਵਰਤਮਾਨ ਵਿੱਚ ਕੈਨੇਡਾ ਵਿੱਚ Visitor (ਸੈਲਾਨੀ) ਜਾਂ Student (ਵਿਦਿਆਰਥੀ) ਵਜੋਂ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ Visitor ਜਾਂ Study permit ਦੀ ਕਾਪੀ ਦੇਣੀ ਚਾਹੀਦੀ ਹੈ। ਇਸ ਦਸਤਾਵੇਜ਼ ਨੂੰ Passport ਰਿਕਾਰਡ ਹੇਠ Additional Document ਵਜੋਂ ਨੱਥੀ ਕਰੋ।</div>
+<h2 id="s3-4" class="sec-h1">3.4 ਬਿਨੈਕਾਰ ਦੇ ਵੇਰਵੇ (Applicant Details)</h2>
+<ul>
+<li>ਤੁਹਾਡੀ ਉਮਰ OASIS ਦੁਆਰਾ ਤੁਹਾਡੀ ਜਨਮ ਮਿਤੀ ਦੇ ਆਧਾਰ 'ਤੇ ਖੁਦ ਹੀ ਗਿਣੀ ਜਾਂਦੀ ਹੈ।</li>
+<li>Birth City/Town (ਜਨਮ ਸ਼ਹਿਰ/ਕਸਬਾ) ਟਾਈਪ ਕਰੋ।</li>
+<li>Birth Country (ਜਨਮ ਦੇਸ਼) ਚੁਣੋ।</li>
+<li>Highest Education Level completed (ਪੂਰੀ ਕੀਤੀ ਸਭ ਤੋਂ ਉੱਚੀ ਸਿੱਖਿਆ ਦਾ ਪੱਧਰ) ਚੁਣੋ।</li>
+<li>Intended Occupation NOC (ਇਰਾਦਾ ਕਿੱਤਾ NOC): Express Entry ਅਤੇ Occupation In-Demand ਅਰਜ਼ੀਆਂ ਲਈ, ਇਹ ਖੇਤਰ ਉਹ NOC ਦਿਖਾਏਗਾ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ ਆਪਣੀ Expression of Interest ਵਿੱਚ ਚੁਣਿਆ ਸੀ, ਜਿਸ ਨੂੰ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ। Agriculture Talent, Innovation and Tech Talent ਅਤੇ Health Talent Pathways, Employment Offer, Student ਅਤੇ Existing Work Permit ਸ਼੍ਰੇਣੀਆਂ ਲਈ, ਆਪਣਾ Intended Occupation NOC ਚੁਣੋ।</li>
+</ul>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<h2 id="s3-5" class="sec-h1">3.5 ਆਪਣੇ ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰਨਾ (Uploading your documents)</h2>
+<p>ਲੋੜ ਅਨੁਸਾਰ ਆਪਣੇ ਦਸਤਾਵੇਜ਼ ਦੀ ਸਕੈਨ ਕੀਤੀ (<strong>ਪੜ੍ਹਨ ਯੋਗ</strong>) ਕਾਪੀ ਅੱਪਲੋਡ ਕਰਨਾ ਨਾ ਭੁੱਲੋ। ਜੇ ਸੰਭਵ ਹੋਵੇ, ਹਰੇਕ ਦਸਤਾਵੇਜ਼ ਦਾ ਵਰਣਨ ਕਰਨ ਵਾਲਾ ਫਾਈਲ ਨਾਮ ਵਰਤੋ, ਜਿਵੇਂ passport, birth certificate – ਇਹ ਸਾਨੂੰ ਅਰਜ਼ੀ ਦੀ ਪ੍ਰੋਸੈਸਿੰਗ ਦਾ ਸਮਾਂ ਸੁਧਾਰਨ ਵਿੱਚ ਮਦਦ ਕਰੇਗਾ।</p>
+<p>ਜੇ ਤੁਸੀਂ ਪਹਿਲਾਂ <strong>Files</strong> <img class="inline-icon" src="images/img-p24-03.png" alt=""/> ਸੈਕਸ਼ਨ ਹੇਠ ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰ ਚੁੱਕੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਸਿਰਫ਼ ਇਹ ਦਸਤਾਵੇਜ਼ ਦੇਖ ਅਤੇ ਡਾਊਨਲੋਡ ਕਰ ਸਕਦੇ ਹੋ। ਕੋਈ ਵੀ ਅੱਪਲੋਡ "Upload File" ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਹੀ ਕੀਤੀ ਜਾਣੀ ਚਾਹੀਦੀ ਹੈ।</p>
+<p>ਜਦੋਂ ਤੱਕ ਤੁਹਾਡੇ ਦਸਤਾਵੇਜ਼ ਹਰੇਕ ਸੈਕਸ਼ਨ ਲਈ ਅੱਪਲੋਡ ਨਹੀਂ ਹੁੰਦੇ, ਤੁਸੀਂ ਆਪਣੀ ਅਰਜ਼ੀ ਵਿੱਚ ਅੱਗੇ ਨਹੀਂ ਵਧ ਸਕੋਗੇ।</p>
+<div class="note-box">ਜੇ ਤੁਹਾਡਾ ਦਸਤਾਵੇਜ਼ ਅੰਗਰੇਜ਼ੀ ਜਾਂ ਫ੍ਰੈਂਚ ਵਿੱਚ ਨਹੀਂ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ Translator's Affidavit ਸਮੇਤ ਅੰਗਰੇਜ਼ੀ (ਜਾਂ ਫ੍ਰੈਂਚ) ਅਨੁਵਾਦ ਪ੍ਰਦਾਨ ਕਰੋ ਅਤੇ ਇਹਨਾਂ ਨੂੰ ਮੂਲ ਦਸਤਾਵੇਜ਼ ਨਾਲ ਜਮ੍ਹਾਂ ਕਰੋ। ਮੂਲ, ਅਨੁਵਾਦ, ਅਤੇ affidavit ਨੂੰ ਸਬੰਧਤ OASIS ਰਿਕਾਰਡ ਨਾਲ ਨੱਥੀ ਕਰੋ।</div>
+<p>OASIS ਵਿੱਚ ਆਪਣਾ ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰਨ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ 'Upload File' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p24-01.png" alt="" style="max-width:900px"/></div>
+<p>ਹੇਠਾਂ ਦਿਖਾਈ ਗਈ ਇੱਕ ਪੌਪ-ਅੱਪ ਵਿੰਡੋ ਦਿਖਾਈ ਦੇਵੇਗੀ। 'Browse' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਉਹ ਦਸਤਾਵੇਜ਼ ਚੁਣੋ ਜਿਸਨੂੰ ਤੁਸੀਂ ਅੱਪਲੋਡ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਅਤੇ ਫਿਰ 'Upload File' 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p25-03.png" alt="" style="max-width:900px"/></div>
+<p>ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਹੋਣ ਤੋਂ ਬਾਅਦ, ਤੁਹਾਡੀ ਸਕਰੀਨ ਦੇ ਹੇਠਲੇ ਸੱਜੇ ਕੋਨੇ ਵਿੱਚ ਇੱਕ ਪੌਪ-ਅੱਪ ਪੁਸ਼ਟੀ ਸੁਨੇਹਾ ਦਿਖਾਈ ਦੇਵੇਗਾ:</p>
+<div class="shot plain"><img src="images/img-p25-09.png" alt="" style="max-width:317px"/></div>
+<p>'Download File' ਚੁਣ ਕੇ ਤੁਸੀਂ ਨੱਥੀ ਦਸਤਾਵੇਜ਼ ਡਾਊਨਲੋਡ ਕਰ ਸਕਦੇ ਹੋ। ਜੇ ਤੁਸੀਂ ਗਲਤ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕੀਤਾ ਹੈ, ਤਾਂ 'Remove File' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸਨੂੰ ਹਟਾਓ।</p>
+<div class="shot"><img src="images/img-p25-01.png" alt="" style="max-width:900px"/></div>
+<p>ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਹੋਰ ਫਾਈਲਾਂ/ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰ ਸਕਦੇ ਹੋ। ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਨਮੂਨਾ ਸਕਰੀਨਸ਼ਾਟ ਦੇਖੋ।</p>
+<div class="shot plain"><img src="images/img-p25-05.png" alt="" style="max-width:520px"/></div>
+<div class="shot"><img src="images/img-p25-07.png" alt="" style="max-width:900px"/></div>
+<p>ਕਿਰਪਾ ਕਰਕੇ SINP ਲਈ ਇਸ ਅਰਜ਼ੀ ਦੀਆਂ ਸ਼ਰਤਾਂ ਅਤੇ ਹਾਲਾਤ ਪੜ੍ਹੋ ਅਤੇ ਸਵੀਕਾਰ ਕਰੋ, ਅਤੇ <strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<h2 id="s3-6" class="sec-h1">3.6 ਜਾਣਕਾਰੀ ਦਾ ਖੁਲਾਸਾ (Information Disclosure)</h2>
+<div class="shot"><img src="images/img-p26-05.png" alt="" style="max-width:900px"/></div>
+<h2 id="s3-7" class="sec-h1">3.7 ਨਾਗਰਿਕਤਾ (Citizenship)</h2>
+<p>ਆਪਣਾ Country of Citizenship (ਨਾਗਰਿਕਤਾ ਦਾ ਦੇਸ਼) ਚੁਣੋ। ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਇੱਕ ਤੋਂ ਵੱਧ ਨਾਗਰਿਕਤਾ ਹੈ ਤਾਂ ਇੱਕ ਹੋਰ Citizenship ਰਿਕਾਰਡ ਬਣਾਓ।</p>
+<div class="shot"><img src="images/img-p26-01.png" alt="" style="max-width:900px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<h2 id="s3-8" class="sec-h1">3.8 ਜਨਮ ਦਸਤਾਵੇਜ਼ (Birth Document)</h2>
+<p>drop-down ਸੂਚੀ ਵਿੱਚੋਂ Birth Document Type (ਜਨਮ ਦਸਤਾਵੇਜ਼ ਦੀ ਕਿਸਮ) ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p26-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੇ ਜਨਮ ਦਸਤਾਵੇਜ਼ 'ਤੇ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ ਆਪਣਾ First Name, Middle Name (ਜੇ ਲਾਗੂ ਹੋਵੇ), ਅਤੇ Family (Last) Name at Birth ਟਾਈਪ ਕਰੋ। ਜੇ ਇਹ ਤੁਹਾਡੇ 'ਤੇ ਲਾਗੂ ਨਹੀਂ ਹੁੰਦਾ ਤਾਂ ਖੇਤਰ ਖਾਲੀ ਛੱਡ ਸਕਦੇ ਹੋ, ਜਿਵੇਂ Middle Name।</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im0.png" alt=""/><div class="callout-text">ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ Birth Document ਦੀ ਸਕੈਨ ਕੀਤੀ ਕਾਪੀ ਅੱਪਲੋਡ ਕਰੋ। ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ। Birth Document ਲਈ affidavit ਜਾਂ passport ਸਵੀਕਾਰਯੋਗ ਨਹੀਂ ਹੈ। Save 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Next 'ਤੇ।</div></div>
+<div class="shot plain"><img src="images/img-p27-Im7.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-9" class="sec-h1">3.9 ਪਾਸਪੋਰਟ (Passport)</h2>
+<ul>
+<li>drop-down ਸੂਚੀ ਵਿੱਚੋਂ ਪਾਸਪੋਰਟ ਜਾਰੀ ਕਰਨ ਵਾਲਾ ਦੇਸ਼ ਚੁਣੋ।</li>
+<li>Passport Number ਅਤੇ Passport Expiry Date ਖੁਦ ਹੀ Birthdate and Address Screen ਤੋਂ ਭਰੇ ਜਾਣਗੇ।</li>
+</ul>
+<div class="shot"><img src="images/img-p27-Im11.png" alt="" style="max-width:900px"/></div>
+<p>ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਤੁਹਾਨੂੰ ਆਪਣੇ ਪੁਰਾਣੇ/ਮਿਆਦ ਪੁੱਗ ਚੁੱਕੇ ਪਾਸਪੋਰਟ(ਾਂ) ਲਈ ਰਿਕਾਰਡ ਬਣਾਉਣ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।</p>
+<div class="callout"><img class="callout-icon" src="images/img-p27-Im1.png" alt=""/><div class="callout-text">ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ Passport (ਅਤੇ Visitor ਜਾਂ Study Permit, ਜੇ ਲਾਗੂ ਹੋਵੇ) ਦੀ ਸਕੈਨ ਕੀਤੀ ਕਾਪੀ ਅੱਪਲੋਡ ਕਰੋ। ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ। Save 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Next 'ਤੇ।</div></div>
+<div class="shot plain"><img src="images/img-p27-Im9.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-10" class="sec-h1">3.10 ਵਿਆਹੁਤਾ ਸਥਿਤੀ (Marital Status)</h2>
+<p>drop-down ਸੂਚੀ ਵਿੱਚੋਂ ਆਪਣੀ ਮੌਜੂਦਾ Marital Status ਚੁਣੋ:</p>
+<div class="shot"><img src="images/img-p27-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਸੀਂ Single, Annulled Marriage, Legally Separated, ਜਾਂ Widowed ਹੋ ਤਾਂ ਤੁਹਾਡੀ ਸਕਰੀਨ ਇਸ ਤਰ੍ਹਾਂ ਦਿਖਾਈ ਦੇਣੀ ਚਾਹੀਦੀ ਹੈ:</p>
+<div class="shot"><img src="images/img-p27-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Common-Law, Divorced, ਜਾਂ Married ਲਈ:</p>
+<ul>
+<li>marital status ਦਸਤਾਵੇਜ਼ 'ਤੇ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ ਆਪਣਾ ਪਿਛਲਾ First Name ਅਤੇ Last Name ਦਰਜ ਕਰੋ, ਅਤੇ ਉਹ ਮਿਤੀ ਦਰਜ ਕਰੋ ਜਦੋਂ ਤੁਸੀਂ ਅਤੇ ਤੁਹਾਡੇ ਜੀਵਨ ਸਾਥੀ ਨੇ ਚੁਣੀ ਗਈ marital status ਵਿੱਚ ਪ੍ਰਵੇਸ਼ ਕੀਤਾ ਸੀ।</li>
+</ul>
+<div class="shot"><img src="images/img-p28-Im2.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਹਾਡੀ ਇੱਕ (1) ਤੋਂ ਵੱਧ marital status ਹੈ (ਉਦਾਹਰਨ ਲਈ, ਜੇ ਤੁਸੀਂ ਪਹਿਲਾਂ ਤਲਾਕਸ਼ੁਦਾ ਸੀ ਅਤੇ ਹੁਣ ਵਿਆਹੇ ਹੋ), ਤਾਂ ਤੁਹਾਨੂੰ ਇਸ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇੱਕ ਹੋਰ marital status ਸਕਰੀਨ ਬਣਾਉਣੀ ਚਾਹੀਦੀ ਹੈ:</p>
+<div class="shot plain"><img src="images/img-p28-Im4.png" alt="" style="max-width:363px"/></div>
+<div class="callout"><img class="callout-icon" src="images/img-p28-Im0.png" alt=""/><div class="callout-text">ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ Marital Status Document ਦੀ ਸਕੈਨ ਕੀਤੀ ਕਾਪੀ ਅੱਪਲੋਡ ਕਰੋ। ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ। Save 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Next 'ਤੇ।</div></div>
+<div class="shot plain"><img src="images/img-p28-Im6.png" alt="" style="max-width:153px"/></div>
+<h2 id="s3-11" class="sec-h1">3.11 ਸਿੱਖਿਆ (Education)</h2>
+<p>Education ਹੇਠ, ਤੁਹਾਨੂੰ ਹੇਠ ਲਿਖੇ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦੇਣੇ ਚਾਹੀਦੇ ਹਨ। ਆਪਣੀ ਸਿੱਖਿਆ ਦਾ ਸਭ ਤੋਂ ਉੱਚਾ ਪੱਧਰ ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p28-Im8.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਹਾਡੇ ਇਰਾਦਾ ਕਿੱਤੇ ਜਾਂ ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਲਈ Professional Certification ਜਾਂ Licensure ਦੀ ਲੋੜ ਹੈ, ਤਾਂ ਅਗਲੇ ਸਵਾਲ ਲਈ "Yes" ਚੁਣੋ; ਨਹੀਂ ਤਾਂ "No" ਚੁਣੋ।</p>
+<p>ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਹੈ ਅਤੇ ਲਾਇਸੈਂਸਿੰਗ ਲੋੜਾਂ ਬਾਰੇ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ ਦੇਖੋ:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements/saskatchewan-regulatory-bodies" target="_blank" rel="noopener">Saskatchewan Regulatory Bodies</a></li>
+</ul>
+<p>ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ ਨਹੀਂ ਹੈ ਅਤੇ ਲਾਇਸੈਂਸਿੰਗ ਲੋੜਾਂ ਬਾਰੇ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਜਾਓ:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/Residents/Moving-to-Saskatchewan/Live-in-Saskatchewan/By-Immigrating/Saskatchewan-Immigrant-Nominee-Program/Browse-SINP-Programs/Applicants-International-Skilled-Workers/Occupation-Restrictions-and-Requirements" target="_blank" rel="noopener">Occupation Restrictions and Requirements</a></li>
+</ul>
+<p>Professional Certification ਜਾਂ Licensure ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਤੁਹਾਨੂੰ ਇਸ ਗਾਈਡ ਦੇ ਸੈਕਸ਼ਨ 3.12 (ਅਗਲੇ ਸੈਕਸ਼ਨ) ਵਿੱਚ ਮਿਲੇਗੀ।</p>
+<p>ਜੇ ਤੁਸੀਂ ਅਜਿਹੀ ਸ਼੍ਰੇਣੀ ਹੇਠ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ ਜਿਸ ਲਈ Education ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ (ਜਿਵੇਂ Existing Work Permit, ਜਾਂ ISW-With Employment Offer, ਅਤੇ ਸਿੱਖਿਆ ਲਈ ਪੁਆਇੰਟ ਦਾਅਵਾ ਨਹੀਂ ਕਰ ਰਹੇ), ਤਾਂ ਤੁਸੀਂ ਅਗਲੇ ਸਵਾਲ ਲਈ 'Not Applicable' 'ਤੇ ਕਲਿੱਕ ਕਰ ਸਕਦੇ ਹੋ। ਨਹੀਂ ਤਾਂ, ਹੇਠਾਂ ਦਿੱਤੇ "Enter/Change Education" ਕਦਮਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ। ਆਪਣੀ ਸਾਰੀ Education ਦਰਜ ਕਰਨ ਤੋਂ ਬਾਅਦ, 'Yes' ਚੁਣੋ ਅਤੇ Save ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p29-Im3.png" alt="" style="max-width:820px"/></div>
+<h3 id="s3-11-enter" class="sec-h2">3.11.a ਸਿੱਖਿਆ ਦਰਜ ਕਰੋ/ਬਦਲੋ (Enter/Change Education)</h3>
+<p>ਆਪਣੇ Education Credentials ਦਰਜ ਕਰਨ ਲਈ, ਆਪਣੀ ਸਕਰੀਨ ਦੇ ਉੱਪਰਲੇ ਸੱਜੇ ਕੋਨੇ ਵਿੱਚ ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p29-Im1.png" alt="" style="max-width:448px"/></div>
+<div class="note-box">ਤੁਹਾਨੂੰ ਹੇਠ ਲਿਖੇ ਵਿੱਚੋਂ ਇੱਕ ਜਾਂ ਵੱਧ ਨਾਲ ਆਪਣੀ ਸਿਖਲਾਈ ਅਤੇ/ਜਾਂ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਸਿੱਖਿਆ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਦਸਤਾਵੇਜ਼ ਜਮ੍ਹਾਂ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ: education/trade certificates, degree, ਜਾਂ diploma ਜਿਸ ਦੇ ਨਾਲ ਸਰਕਾਰੀ transcript ਦੀ ਕਾਪੀ ਹੋਵੇ, ਜੋ ਹਾਜ਼ਰ ਸਕੂਲ(ਾਂ) ਜਾਂ ਲਏ ਗਏ ਕੋਰਸ(ਾਂ) ਨੂੰ ਦਿਖਾਉਂਦੀ ਹੋਵੇ; ਪੇਸ਼ੇਵਰ designation, ਲਾਇਸੈਂਸ, ਅਤੇ/ਜਾਂ ਪੇਸ਼ੇਵਰ ਐਸੋਸੀਏਸ਼ਨ ਮੈਂਬਰਸ਼ਿਪ; ਅਤੇ, apprenticeship/certificate ਦੇ ਬਰਾਬਰ ਦਾ ਪ੍ਰਮਾਣੀਕਰਨ (ਜਿਸ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਸਕੇ ਅਤੇ ਕੈਨੇਡੀਅਨ ਸਿੱਖਿਆ ਸਿਸਟਮ ਦੇ ਪ੍ਰੋਗਰਾਮਾਂ ਨਾਲ ਤੁਲਨਾਯੋਗ ਹੋਵੇ) ਜਿਸ ਵਿੱਚ ਪ੍ਰੋਗਰਾਮ ਦੀ ਬਣਤਰ, ਕੋਰਸ, ਲੰਬਾਈ, ਅਤੇ ਇਸਦੀ ਪ੍ਰਬੰਧਕ ਜਾਂ ਰੈਗੂਲੇਟਰੀ ਸੰਸਥਾ ਦੇ ਵੇਰਵੇ ਹੋਣ।</div>
+<p>Education ਸਕਰੀਨ 'ਤੇ, ਆਪਣੀ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਜਾਂ ਟ੍ਰੇਡ-ਸਬੰਧਤ ਡਿਗਰੀ, ਡਿਪਲੋਮਾ, ਜਾਂ ਸਰਟੀਫਿਕੇਟ 'ਤੇ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ ਹੇਠ ਲਿਖੀ ਜਾਣਕਾਰੀ ਦਰਜ ਕਰੋ: <strong>Country</strong>, <strong>Start Date</strong>, ਅਤੇ <strong>End Date</strong> DD-Mon-YYYY ਫਾਰਮੈਟ ਵਿੱਚ, <strong>Institution</strong> (ਜਿੱਥੇ ਸਿੱਖਿਆ ਪ੍ਰਾਪਤ ਕੀਤੀ), ਅਤੇ <strong>Specialty</strong> (ਪੜ੍ਹਾਈ ਦਾ ਪ੍ਰੋਗਰਾਮ)।</p>
+<div class="shot"><img src="images/img-p30-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਕੈਨੇਡਾ ਵਿੱਚ, ਤਾਂ ਉਹ ਪ੍ਰਾਂਤ ਚੁਣੋ ਜਿੱਥੇ ਤੁਹਾਡੀ ਪੋਸਟ-ਸੈਕੰਡਰੀ ਸਿੱਖਿਆ ਪੂਰੀ ਹੋਈ ਸੀ।</p>
+<p>ਆਪਣੇ ਸਿੱਖਿਆ ਦਸਤਾਵੇਜ਼ਾਂ ਦੀ ਕਾਪੀ ਅੱਪਲੋਡ ਕਰਨ ਲਈ <strong>Upload File</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਕਿਰਪਾ ਕਰਕੇ ਜਿੱਥੇ ਲਾਗੂ ਹੋਵੇ ਆਪਣਾ ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰੋ, ਜਿਵੇਂ ਹੇਠਾਂ ਦਿਖਾਇਆ ਗਿਆ ਹੈ:</p>
+<div class="shot plain"><img src="images/img-p30-Im5.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p30-Im7.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p30-Im13.png" alt="" style="max-width:900px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਇੱਕ ਹੋਰ ਰਿਕਾਰਡ ਜੋੜਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p30-Im3.png" alt="" style="max-width:286px"/></div>
+<p>ਮੁੱਖ Education ਸਕਰੀਨ 'ਤੇ ਵਾਪਸ ਜਾਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p30-Im9.png" alt="" style="max-width:326px"/></div>
+<p>ਸਿੱਖਿਆ ਲਈ ਦਰਜ ਕੀਤੀਆਂ ਐਂਟਰੀਆਂ ਦੀ ਸੰਪੂਰਨਤਾ ਦੀ ਜਾਂਚ ਕਰਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p30-Im11.png" alt="" style="max-width:285px"/></div>
+<h2 id="s3-12" class="sec-h1">3.12 ਰੈਗੂਲੇਟਰੀ ਜਾਂ ਲਾਇਸੈਂਸਿੰਗ ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ ਅਤੇ ਸਿੱਖਿਆ ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ ਮੁਲਾਂਕਣ (Regulatory or Licensing Credentials and Education Credentials Assessment)</h2>
+<p class="lead-bold">ਰੈਗੂਲੇਟਰੀ ਜਾਂ ਲਾਇਸੈਂਸਿੰਗ ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ (Regulatory or Licensing Credentials)</p>
+<p>ਜੇ ਤੁਸੀਂ ਸਾਸਕੈਚਵਨ ਵਿੱਚ regulated ਕਿੱਤੇ ਵਿੱਚ ਕੰਮ ਕਰਨ ਦਾ ਇਰਾਦਾ ਰੱਖਦੇ ਹੋ ਅਤੇ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਲਾਜ਼ਮੀ ਪ੍ਰਮਾਣੀਕਰਨ ਜਾਂ ਲਾਇਸੈਂਸ ਦੀ ਲੋੜ ਹੈ, ਤਾਂ SINP ਲਈ ਅਰਜ਼ੀ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਉਸ ਪੇਸ਼ੇ ਵਿੱਚ ਕੰਮ ਕਰਨ ਲਈ Saskatchewan licensure ਦੀ ਯੋਗਤਾ ਦਾ ਸਬੂਤ ਪ੍ਰਾਪਤ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ। ਤੁਹਾਡੀ SINP ਅਰਜ਼ੀ ਦੇ ਹਿੱਸੇ ਵਜੋਂ regulatory body ਤੋਂ Saskatchewan licensure ਦੀ ਯੋਗਤਾ ਦਾ ਸਬੂਤ ਲੋੜੀਂਦਾ ਹੈ। ਜੇ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਵਿੱਚ ਇਹ ਯੋਗਤਾ ਦਾ ਸਬੂਤ ਸ਼ਾਮਲ ਨਹੀਂ ਹੈ, ਤਾਂ SINP ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਨੂੰ ਰੱਦ ਕਰ ਸਕਦਾ ਹੈ ਅਤੇ ਤੁਸੀਂ ਇਹ ਸਬੂਤ ਪ੍ਰਾਪਤ ਕਰਨ 'ਤੇ ਦੁਬਾਰਾ ਅਰਜ਼ੀ ਦੇ ਸਕਦੇ ਹੋ।</p>
+<p>ਜੇ ਤੁਸੀਂ ਕਿਸੇ SKILLED TRADE ਵਿੱਚ ਕੰਮ ਕਰਨ ਦਾ ਇਰਾਦਾ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ Saskatchewan Apprenticeship & Trade Certification Commission ਤੋਂ ਆਪਣੇ skilled trade ਵਿੱਚ certificate of qualification (ਜਿਸਨੂੰ letter of invitation ਵੀ ਕਿਹਾ ਜਾਂਦਾ ਹੈ) ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<p>regulated ਕਿੱਤਿਆਂ ਜਾਂ ਲਾਇਸੈਂਸਿੰਗ ਲੋੜਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰੋ:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/to-work/regulated-occupations-and-licensing-requirements" target="_blank" rel="noopener">Regulated Occupations and Licensing Requirements</a></li>
+</ul>
+<p class="lead-bold">ਸਿੱਖਿਆ ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ ਮੁਲਾਂਕਣ (Education Credentials Assessment - ECA)</p>
+<p>Express Entry, Occupation in Demand, International Skilled Worker with Employment Offer, ਅਤੇ Health Talent Pathway (trade ਕਿੱਤਿਆਂ ਨੂੰ ਛੱਡ ਕੇ) ਰਾਹੀਂ ਅਰਜ਼ੀ ਦੇਣ ਵਾਲੇ ਬਿਨੈਕਾਰਾਂ ਨੂੰ designated organization ਤੋਂ Educational Credential Assessment (ECA) ਸ਼ਾਮਲ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<p>Educational Credentials Assessment (ECA) ਪ੍ਰਾਪਤ ਕਰਨ ਬਾਰੇ ਜਾਣਕਾਰੀ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰੋ:</p>
+<ul>
+<li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessed/how.html" target="_blank" rel="noopener">Obtaining an Educational Credentials Assessment (ECA)</a></li>
+</ul>
+<p>ECA ਦੀ ਲੋੜ ਵਾਲੀਆਂ ਉਪ-ਸ਼੍ਰੇਣੀਆਂ ਲਈ, ਤੁਹਾਨੂੰ ਕੈਨੇਡਾ ਤੋਂ ਬਾਹਰ ਪ੍ਰਾਪਤ ਕੀਤੀ ਸਾਰੀ ਸਿੱਖਿਆ ਲਈ ਮੁੱਖ Education ਪੇਜ 'ਤੇ ਆਪਣੇ ECA ਦੀ ਕਾਪੀ ਅੱਪਲੋਡ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ।</p>
+<p>ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p32-Im3.png" alt="" style="max-width:153px"/></div>
+<div class="shot"><img src="images/img-p32-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਲਾਗੂ ਹੋਵੇ ਤਾਂ ਆਪਣੇ Regulatory or Licensing Credentials (Saskatchewan Licensure) ਲਈ ਵੀ ਇਹੀ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p32-Im7.png" alt="" style="max-width:710px"/></div>
+<p>education ਸਕਰੀਨਾਂ ਦੀ ਸੰਪੂਰਨਤਾ ਦੀ ਜਾਂਚ ਕਰਨ ਲਈ, ਮੁੱਖ Education ਰਿਕਾਰਡ 'ਤੇ, ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p32-Im5.png" alt="" style="max-width:320px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<h2 id="s3-13" class="sec-h1">3.13 ਕੰਮ ਦਾ ਤਜਰਬਾ (Work Experience)</h2>
+<p>ਸਵਾਲ ਦਾ "Yes" ਜਵਾਬ ਦੇ ਕੇ ਆਪਣੇ ਕੰਮ ਦੇ ਤਜਰਬੇ ਦਾ ਖੁਲਾਸਾ ਕਰੋ:</p>
+<div class="shot"><img src="images/img-p32x-gp0-Im0.png" alt="" style="max-width:869px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p32x-gp0-Im1.png" alt="" style="max-width:331px"/></div>
+<p>work experience ਸਕਰੀਨ ਬਣਾਉਣ ਲਈ <strong>Enter/Change Work Experience</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<ul>
+<li>Country (ਦੇਸ਼) ਚੁਣੋ।</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im2.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>ਘੱਟੋ-ਘੱਟ ਤਿੰਨ ਅੱਖਰ ਦਰਜ ਕਰਕੇ ਆਪਣੇ ਕੰਮ ਦੇ ਤਜਰਬੇ ਨਾਲ ਮੇਲ ਖਾਂਦਾ NOC ID ਲੱਭੋ ਅਤੇ ਚੁਣੋ।</li>
+</ul>
+<div class="shot"><img src="images/img-p32x-gp0-Im3.png" alt="" style="max-width:900px"/></div>
+<ul>
+<li>ਜੇ ਤੁਹਾਡੇ ਕੰਮ ਦੇ ਤਜਰਬੇ ਦਾ ਦੇਸ਼ ਕੈਨੇਡਾ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ Province ਖੇਤਰ ਭਰਨ ਦੀ ਲੋੜ ਹੈ।</li>
+<li>Start Date ਅਤੇ End Date DD-Mon-YYYY ਵਜੋਂ ਦਰਜ ਕਰੋ।</li>
+<li>Employer — ਆਪਣੇ ਮਾਲਕ ਦਾ ਨਾਮ (ਕੰਪਨੀ ਦਾ ਨਾਮ) ਦਰਜ ਕਰੋ।</li>
+<li>Employer Contact Name — ਮਾਲਕ ਦੇ ਸੰਪਰਕ ਵਿਅਕਤੀ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ।</li>
+<li>City/Town — ਰੁਜ਼ਗਾਰ ਦੀ ਜਗ੍ਹਾ ਦਰਜ ਕਰੋ।</li>
+<li>ਇਸ Employer ਨਾਲ ਕੰਮ ਕਰਦੇ ਸਮੇਂ ਰੱਖੀ ਗਈ ਆਪਣੀ Position Title ਦਰਜ ਕਰੋ।</li>
+</ul>
+<p>drop-down ਮੀਨੂ ਵਿੱਚੋਂ government-issued ਦਸਤਾਵੇਜ਼ ਦੀ ਕਿਸਮ ਚੁਣੋ (ਜੋ ਤੁਸੀਂ ਦੇਵੋਗੇ):</p>
+<p>government issued documentation ਅੱਪਲੋਡ ਕਰੋ:</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im0.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੀ Work Experience ਦੀ reference letter ਅੱਪਲੋਡ ਕਰੋ:</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰਨ ਲਈ, ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im2.png" alt="" style="max-width:900px"/></div>
+<p>ਤੁਸੀਂ ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਹੋਰ ਫਾਈਲਾਂ/ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<div class="shot"><img src="images/img-p32x-gp1-Im3.png" alt="" style="max-width:900px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਜੇ ਤੁਹਾਡਾ ਕੰਮ ਦਾ ਤਜਰਬਾ ਸਾਸਕੈਚਵਨ ਦੇ ਅੰਦਰ ਪ੍ਰਾਪਤ ਕੀਤਾ ਗਿਆ ਸੀ, ਤਾਂ ਤੁਹਾਨੂੰ ਪ੍ਰਾਂਤ ਵਿੱਚ ਨਿਵਾਸ ਅਤੇ ਰੁਜ਼ਗਾਰ ਦਾ ਸਬੂਤ ਦੇਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<div class="shot"><img src="images/img-p33-Im9.png" alt="" style="max-width:900px"/></div>
+<p>ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰਨ ਲਈ, ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p33-Im11.png" alt="" style="max-width:153px"/></div>
+<p>ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਹੋਰ ਫਾਈਲਾਂ/ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<div class="shot plain"><img src="images/img-p33-Im5.png" alt="" style="max-width:520px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">ਕੰਮ ਦੇ ਤਜਰਬੇ ਲਈ ਲੋੜੀਂਦੀ ਦਸਤਾਵੇਜ਼ੀ:</p>
+<ul style="margin-bottom:0;">
+<li>ਮਾਲਕ ਵੱਲੋਂ ਕੰਪਨੀ ਦੇ letterhead 'ਤੇ ਛਪੀ ਇੱਕ ਸਰਕਾਰੀ reference letter, ਜਿਸ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੇ
+<ul>
+<li>ਬਿਨੈਕਾਰ ਦਾ ਨਾਮ, ਕੰਪਨੀ ਦੀ ਸੰਪਰਕ ਜਾਣਕਾਰੀ (ਪਤਾ, ਟੈਲੀਫੋਨ ਨੰਬਰ ਅਤੇ ਈਮੇਲ ਪਤਾ), ਅਤੇ ਕੰਪਨੀ ਵਿੱਚ ਤੁਰੰਤ ਸੁਪਰਵਾਈਜ਼ਰ ਜਾਂ personnel officer ਦਾ ਨਾਮ, ਅਹੁਦਾ, ਅਤੇ ਦਸਤਖਤ, ਉਹਨਾਂ ਦੇ ਟੈਲੀਫੋਨ ਨੰਬਰ ਅਤੇ ਈਮੇਲ ਪਤੇ ਸਮੇਤ।</li>
+<li>ਕੰਪਨੀ ਵਿੱਚ ਰੱਖੇ ਗਏ ਸਾਰੇ ਅਹੁਦੇ, ਜੌਬ ਟਾਈਟਲ, ਜ਼ਿੰਮੇਵਾਰੀਆਂ, ਨੌਕਰੀ ਦੀ ਸਥਿਤੀ (ਜੇ ਮੌਜੂਦਾ ਨੌਕਰੀ ਹੈ), ਕੰਪਨੀ ਵਿੱਚ ਕੰਮ ਕੀਤੇ ਦਿਨਾਂ, ਪ੍ਰਤੀ ਹਫ਼ਤਾ ਕੰਮ ਦੇ ਘੰਟਿਆਂ ਦੀ ਗਿਣਤੀ (ਵਿਦਿਆਰਥੀ ਬਿਨੈਕਾਰਾਂ ਲਈ SK ਵਿੱਚ ਕੁੱਲ ਕੰਮ ਕੀਤੇ ਘੰਟੇ), ਅਤੇ ਸਾਲਾਨਾ ਤਨਖਾਹ ਅਤੇ ਲਾਭ ਸਮੇਤ।</li>
+</ul>
+</li>
+<li>ਜੇ ਬਿਨੈਕਾਰ self-employed ਹੈ, ਤਾਂ articles of incorporation ਜਾਂ ਕਾਰੋਬਾਰੀ ਮਾਲਕੀ ਦਾ ਹੋਰ ਸਬੂਤ, self-employment ਆਮਦਨ ਦਾ ਸਬੂਤ, ਅਤੇ ਭੁਗਤਾਨ ਦੇ ਵੇਰਵਿਆਂ ਸਮੇਤ ਦਿੱਤੀ ਗਈ ਸੇਵਾ ਨੂੰ ਦਰਸਾਉਂਦੀ third-party ਵਿਅਕਤੀਆਂ ਤੋਂ ਦਸਤਾਵੇਜ਼ੀ।</li>
+</ul>
+</div>
+<p>ਕੰਮ ਦੇ ਤਜਰਬੇ ਜਾਂ self-employment ਦੇ ਸਬੂਤ ਵਜੋਂ ਆਪ ਲਿਖੀਆਂ ਜ਼ਿੰਮੇਵਾਰੀਆਂ ਜਾਂ affidavit ਸਵੀਕਾਰਯੋਗ ਨਹੀਂ ਹਨ।</p>
+<div class="shot plain"><img src="images/img-p33-Im1.png" alt="" style="max-width:281px"/></div>
+<p>ਇੱਕ ਹੋਰ ਰਿਕਾਰਡ ਬਣਾਉਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p33-Im3.png" alt="" style="max-width:321px"/></div>
+<p>ਆਪਣੀ ਅਰਜ਼ੀ ਜਾਰੀ ਰੱਖਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>work experience ਰਿਕਾਰਡਾਂ ਦੀ ਸੰਪੂਰਨਤਾ ਦੀ ਜਾਂਚ ਕਰਨ ਲਈ, ਮੁੱਖ work experience ਸਕਰੀਨ 'ਤੇ, ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p33-Im7.png" alt="" style="max-width:378px"/></div>
+<p>ਇਹ ਸੈਕਸ਼ਨ ਪੂਰਾ ਹੋਣ ਤੋਂ ਬਾਅਦ, work experience ਸਵਾਲ ਲਈ "Yes" ਨਿਸ਼ਾਨ ਲਗਾਓ:</p>
+<div class="shot"><img src="images/img-p34-Im5.png" alt="" style="max-width:900px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+
+<h2 id="s3-14" class="sec-h1">3.14 ਅੰਗਰੇਜ਼ੀ/ਫ੍ਰੈਂਚ ਯੋਗਤਾ (English/French Ability)</h2>
+<div class="callout"><img class="callout-icon" src="images/img-p34-Im8.png" alt=""/><div class="callout-text">ਕੁਝ SINP ਸ਼੍ਰੇਣੀਆਂ ਲਈ ਵੈਧ language test ਨਤੀਜੇ ਲਾਜ਼ਮੀ ਹਨ।</div></div>
+<p>Language Proof Type ਚੁਣੋ:</p>
+<div class="shot"><img src="images/img-p34-Im7.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੇ ਦਸਤਾਵੇਜ਼ 'ਤੇ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p34-Im1.png" alt="" style="max-width:900px"/></div>
+<p>SINP ਲਈ Language Requirements ਵਾਸਤੇ ਹੇਠਾਂ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰੋ:</p>
+<ul>
+<li><a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/language-requirements-for-sinp" target="_blank" rel="noopener">Language Requirements for SINP</a></li>
+</ul>
+<p>ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p34-Im3.png" alt="" style="max-width:153px"/></div>
+<p>ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਦੂਜੀ ਸਰਕਾਰੀ ਭਾਸ਼ਾ ਲਈ ਵੈਧ language test ਹੈ, ਤਾਂ "Yes" ਚੁਣੋ। ਨਹੀਂ ਤਾਂ, "No" ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p35-Im11.png" alt="" style="max-width:608px"/></div>
+<p>ਜੇ ਤੁਸੀਂ "Yes" ਚੁਣਿਆ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਦਿੱਤੇ ਗਏ ਖੇਤਰਾਂ ਵਿੱਚ language test ਸਕੋਰ ਦਿਓ ਅਤੇ ਤੁਹਾਨੂੰ ਸਰਕਾਰੀ language test ਨਤੀਜਿਆਂ ਦੀ ਕਾਪੀ ਨੱਥੀ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ।</p>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+
+<h2 id="s3-15" class="sec-h1">3.15 ਭਾਗ 1 ਦਾ ਆਖਰੀ ਪੰਨਾ (Final Page of Part 1)</h2>
+<p>ਜੇ ਤੁਹਾਡਾ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਕੋਈ ਰਿਸ਼ਤੇਦਾਰ ਹੈ ਤਾਂ "Yes" ਚੁਣੋ, ਨਹੀਂ ਤਾਂ "No" ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p35-Im3.png" alt="" style="max-width:741px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਪਹਿਲਾਂ ਕੋਈ provincial ਜਾਂ federal ਕੈਨੇਡੀਅਨ ਇਮੀਗ੍ਰੇਸ਼ਨ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕੀਤੀ ਹੈ ਤਾਂ "Yes" ਚੁਣੋ, ਨਹੀਂ ਤਾਂ "No" ਚੁਣੋ।</p>
+<div class="shot"><img src="images/img-p35-Im1.png" alt="" style="max-width:742px"/></div>
+<p>ਇਸ ਪੜਾਅ 'ਤੇ ਤੁਹਾਨੂੰ ਕੋਈ ਦਸਤਾਵੇਜ਼ੀ ਅੱਪਲੋਡ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।</p>
+<div class="shot plain"><img src="images/img-p35-Im7.png" alt="" style="max-width:297px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਜੇ ਤੁਸੀਂ ਸਭ ਕੁਝ ਸਹੀ ਢੰਗ ਨਾਲ ਕੀਤਾ ਹੈ, ਤਾਂ ਇਹ ਸੁਨੇਹਾ ਆਵੇਗਾ:</p>
+<div class="shot"><img src="images/img-p35-Im5.png" alt="" style="max-width:446px"/></div>
+<div class="shot plain"><img src="images/img-p35-Im9.png" alt="" style="max-width:153px"/></div>
+<p>ਆਪਣੀ ਅਰਜ਼ੀ ਜਾਰੀ ਰੱਖਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+
+<h2 id="s3-16" class="sec-h1">3.16 ਭਾਗ 1 ਅਤੇ ਬਿਨੈਕਾਰ ਦੇ ਵੇਰਵਿਆਂ ਵਿੱਚ ਬਦਲਾਅ ਕਰਨਾ (Making a Change on Part 1 and Applicant Details)</h2>
+<p>ਜੇ ਤੁਹਾਨੂੰ ਆਪਣੀ pre-application ਅਤੇ/ਜਾਂ ਬਿਨੈਕਾਰ ਦੇ ਵੇਰਵਿਆਂ ਵਿੱਚ ਬਦਲਾਅ ਕਰਨ ਦੀ ਲੋੜ ਹੈ:</p>
+<ol>
+<li>ਜੇ ਲੋੜ ਹੋਵੇ ਤਾਂ Home <img class="inline-icon" src="images/img-p36-Im7.png" alt=""/> ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</li>
+</ol>
+<ol start="2">
+<li>SINP ਅਰਜ਼ੀ ਦੇ Continue Applicant Details ਸੈਕਸ਼ਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im9.png" alt="" style="max-width:680px"/></div>
+<ol start="3">
+<li>Applicant Details-Final Page ਰਿਕਾਰਡ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Make Changes to Part 1 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</li>
+</ol>
+<div class="shot"><img src="images/img-p36-Im1.png" alt="" style="max-width:900px"/></div>
+<ol start="4">
+<li>ਆਪਣੇ ਬਦਲਾਅ ਕਰੋ ਜਾਂ ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰੋ।</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im5.png" alt="" style="max-width:297px"/></div>
+<ol start="5">
+<li>ਜਦੋਂ ਤੁਸੀਂ ਪੂਰਾ ਕਰ ਲਓ, ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਦੇ ਹੋ।</li>
+</ol>
+<div class="shot plain"><img src="images/img-p36-Im3.png" alt="" style="max-width:167px"/></div>
+<p>ਅੱਗੇ ਵਧਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h2 id="s4-0" class="sec-h1">4.0 ਹੁਨਰਮੰਦ ਕਾਮੇ ਦੀ ਅਰਜ਼ੀ ਦੀਆਂ ਸਕਰੀਨਾਂ (Skilled Worker Application Screens)</h2>
+<p><strong>Create Part 2</strong> ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਨ ਤੋਂ ਬਾਅਦ, Application ਸਕਰੀਨ ਤੁਹਾਡੀ ਸਕਰੀਨ ਦੇ ਖੱਬੇ ਪਾਸੇ ਆਵੇਗੀ।</p>
+<h2 id="s4-1" class="sec-h1">4.1 ਅਰਜ਼ੀ ਸਕਰੀਨ (Application Screen)</h2>
+<p>ਪਹਿਲੀ ਸਕਰੀਨ ਅਰਜ਼ੀ ਸ਼੍ਰੇਣੀ ਦਿਖਾਏਗੀ। ਹੇਠਾਂ International Skilled Worker – Express Entry ਲਈ ਇੱਕ ਨਮੂਨਾ ਸਕਰੀਨ ਹੈ:</p>
+<div class="shot"><img src="images/img-p37-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਸਾਰੀਆਂ SINP ਸ਼੍ਰੇਣੀਆਂ ਲਈ $500 ਫੀਸ ਲੋੜੀਂਦੀ ਹੈ। ਤੁਹਾਨੂੰ ਦੱਸਣਾ ਚਾਹੀਦਾ ਹੈ ਕਿ ਅਰਜ਼ੀ ਫੀਸ ਭਰਨ ਲਈ ਵਰਤਿਆ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਪ੍ਰਿੰਸੀਪਲ ਬਿਨੈਕਾਰ ਜਾਂ ਅਰਜ਼ੀ 'ਤੇ ਸੂਚੀਬੱਧ ਜੀਵਨ ਸਾਥੀ ਦਾ ਹੈ:</p>
+<div class="shot"><img src="images/img-p37-Im6.png" alt="" style="max-width:748px"/></div>
+<p>ਜੇ ਵਰਤਿਆ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਕਿਸੇ ਹੋਰ ਵਿਅਕਤੀ ਦਾ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਧਾਰਕ ਦਾ ਬਿਨੈਕਾਰ ਨਾਲ ਰਿਸ਼ਤਾ ਅਤੇ ਭੁਗਤਾਨ ਦਾ ਕਾਰਨ ਦੱਸੋ:</p>
+<div class="shot"><img src="images/img-p37-Im8.png" alt="" style="max-width:900px"/></div>
+<h2 id="s4-2" class="sec-h1">4.2 ਸਾਸਕੈਚਵਨ ਨਾਲ ਸਬੰਧ (Connection to Saskatchewan)</h2>
+<div class="shot plain"><img src="images/img-p37-Im1.png" alt="" style="max-width:722px"/></div>
+<p>ਉੱਪਰ ਦਿੱਤੇ ਸਵਾਲ ਲਈ "Yes" ਚੁਣੋ ਜੇ ਹੇਠਾਂ ਦਿੱਤੀਆਂ ਵਿੱਚੋਂ ਕੋਈ ਗੱਲ ਤੁਹਾਡੇ 'ਤੇ ਲਾਗੂ ਹੁੰਦੀ ਹੈ:</p>
+<ul>
+<li>ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਪੜ੍ਹਾਈ ਕੀਤੀ</li>
+<li>ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਕੰਮ ਕੀਤਾ</li>
+<li>ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ</li>
+</ul>
+<p>ਨਹੀਂ ਤਾਂ, "No" ਚੁਣੋ ਅਤੇ "Next" 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h3 id="s4-2-study" class="sec-h2">4.2.a ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਪੜ੍ਹਾਈ ਕੀਤੀ (Studied in Saskatchewan)</h3>
+<p>ਜੇ ਤੁਸੀਂ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਪੜ੍ਹਾਈ ਕੀਤੀ ਹੈ ਅਤੇ ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਹੇਠਾਂ ਦਿਖਾਏ ਗਏ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p38-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">ਜੇ ਤੁਸੀਂ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਪੜ੍ਹਾਈ ਲਈ ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਹੇਠਾਂ ਦਿੱਤੇ ਦਸਤਾਵੇਜ਼ ਜਮ੍ਹਾਂ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ:</p>
+<ul style="margin-bottom:0;">
+<li>education/trade certificates, degree, ਜਾਂ diploma ਸਰਕਾਰੀ transcript ਸਮੇਤ ਜਿੱਥੇ ਲਾਗੂ ਹੋਵੇ, ਜੋ ਹਾਜ਼ਰ ਸਕੂਲ(ਾਂ) ਜਾਂ ਲਏ ਗਏ ਕੋਰਸ(ਾਂ) ਨੂੰ ਦਿਖਾਉਂਦੀ ਹੋਵੇ; ਜਾਂ</li>
+<li>registrar ਤੋਂ ਸੁਨੇਹਾ ਜੋ ਦੱਸੇ ਕਿ ਤੁਸੀਂ Saskatchewan Institute ਵਿੱਚ ਪੜ੍ਹਾਈ ਕੀਤੀ।</li>
+</ul>
+</div>
+<div class="shot"><img src="images/img-p38-Im5.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-work" class="sec-h2">4.2.b ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਕੰਮ ਕੀਤਾ (Worked in Saskatchewan)</h3>
+<p>ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਕੰਮ ਦਾ ਤਜਰਬਾ ਹੈ ਅਤੇ ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਹੇਠਾਂ ਦਿਖਾਏ ਗਏ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p38-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">ਜੇ ਤੁਸੀਂ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਕੰਮ ਕਰਨ ਲਈ ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਇਹ ਤਸਦੀਕ ਕਰਨ ਲਈ ਦਸਤਾਵੇਜ਼ ਜਮ੍ਹਾਂ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ ਕਿ ਤੁਸੀਂ ਪਿਛਲੇ ਪੰਜ ਸਾਲਾਂ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ 12 ਮਹੀਨੇ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਕੰਮ ਕਰ ਚੁੱਕੇ ਹੋ। ਤੁਹਾਨੂੰ ਹੇਠ ਲਿਖਿਆ ਦੇਣ ਦੀ ਲੋੜ ਹੋਵੇਗੀ:</p>
+<ul style="margin-bottom:0;">
+<li>ਤੁਹਾਡੇ ਪਿਛਲੇ ਮਾਲਕ(ਾਂ) ਤੋਂ reference letters ਜੋ ਕੰਪਨੀ ਦੇ ਸਰਕਾਰੀ letterhead 'ਤੇ ਲਿਖੇ ਹੋਣ ਅਤੇ ਨਾਮ ਅਤੇ ਅਹੁਦੇ ਦੇ ਨਾਲ ਸੰਪਰਕ ਜਾਣਕਾਰੀ ਸਮੇਤ ਪਛਾਣੇ ਗਏ ਕੰਪਨੀ ਦੇ ਅਧਿਕਾਰਤ ਨੁਮਾਇੰਦੇ ਵੱਲੋਂ ਦਸਤਖਤ ਹੋਣ। ਹਰੇਕ ਸੁਨੇਹੇ ਵਿੱਚ ਹੇਠ ਲਿਖਿਆ ਦਰਸਾਇਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ:
+<ul>
+<li>ਤੁਹਾਡਾ ਜੌਬ ਅਹੁਦਾ;</li>
+<li>ਰੁਜ਼ਗਾਰ ਦੀਆਂ ਮਿਤੀਆਂ; ਅਤੇ,</li>
+<li>ਤੁਹਾਡੀਆਂ ਮੁੱਖ ਜ਼ਿੰਮੇਵਾਰੀਆਂ।</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਆਪਣੇ ਕੰਮ ਦੇ ਤਜਰਬੇ ਨੂੰ ਸਾਬਤ ਕਰਨ ਲਈ, ਤੁਹਾਨੂੰ ਇੱਕ reference letter ਅੱਪਲੋਡ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ।</p>
+<div class="shot"><img src="images/img-p39-Im3.png" alt="" style="max-width:900px"/></div>
+<h3 id="s4-2-relative" class="sec-h2">4.2.c ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ (Close Relative in Saskatchewan)</h3>
+<p>ਜੇ ਤੁਹਾਡਾ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਹੈ ਅਤੇ ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਦਿਖਾਏ ਗਏ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p39-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p40-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">ਜੇ ਤੁਸੀਂ ਨਜ਼ਦੀਕੀ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਲਈ ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਤੋਂ ਹੇਠ ਲਿਖਿਆ ਦੇਣਾ ਚਾਹੀਦਾ ਹੈ:</p>
+<ul style="margin-bottom:0;">
+<li>birth certificate, marriage certificate, ਅਤੇ/ਜਾਂ ਕੋਈ ਹੋਰ ਸਰਕਾਰੀ ਸਿੱਖਿਆ ਜਾਂ ਧਾਰਮਿਕ ਦਸਤਾਵੇਜ਼ ਜੋ ਤੁਹਾਡੇ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਨਾਲ ਤੁਹਾਡੇ ਰਿਸ਼ਤੇ ਨੂੰ ਸਾਬਤ ਕਰਨ। ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ: SINP affidavit ਸਵੀਕਾਰ ਨਹੀਂ ਕਰਦਾ।</li>
+<li>ਰਿਸ਼ਤੇਦਾਰ ਦੇ Canadian permanent resident ਜਾਂ citizenship card, ਜਾਂ Canadian passport ਦੀ ਕਾਪੀ;</li>
+<li>ਸਬੂਤ ਕਿ ਉਹ ਪਿਛਲੇ ਬਾਰਾਂ ਮਹੀਨਿਆਂ ਤੋਂ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਰਹਿ ਰਹੇ ਹਨ ਅਤੇ ਆਪਣੇ ਆਪ ਵਿੱਚ ਆਤਮਨਿਰਭਰ ਹਨ:
+<ul>
+<li>SaskPower; SaskEnergy; ਜਾਂ ਸ਼ਹਿਰ ਜਾਂ ਕਸਬੇ ਦੇ ਦਫ਼ਤਰ ਤੋਂ ਪਿਛਲੇ ਬਾਰਾਂ ਮਹੀਨਿਆਂ ਦੇ utility ਬਿੱਲ। (ਟੈਲੀਫੋਨ, ਸੈਲੂਲਰ, ਜਾਂ ਕੇਬਲ ਬਿੱਲ ਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤੇ ਜਾਣਗੇ);</li>
+<li>Saskatchewan Health Card ਜਾਂ Saskatchewan Driver's License;</li>
+<li>ਸਬੂਤ ਕਿ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਸਾਸਕੈਚਵਨ ਦੇ ਪਤੇ ਦਾ ਰਜਿਸਟਰਡ ਕਿਰਾਏਦਾਰ ਹੈ (lease agreement ਅਤੇ ਕਿਰਾਏ ਦੀਆਂ ਰਸੀਦਾਂ ਜਾਂ ਮਾਲਕੀ ਦਾ ਸਬੂਤ) ਅਤੇ ਇਸ ਪਤੇ 'ਤੇ ਰਹਿਣ ਵਾਲੇ ਹੋਰ ਲੋਕਾਂ ਦੇ ਨਾਮ ਅਤੇ ਉਹਨਾਂ ਨਾਲ ਰਿਸ਼ਤਾ; ਅਤੇ,</li>
+<li>ਪਿਛਲੇ ਤਿੰਨ ਮਹੀਨਿਆਂ ਦੀ ਆਮਦਨ ਪ੍ਰਾਪਤੀ ਦਾ ਸਬੂਤ।</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>ਜੇ ਤੁਹਾਡੇ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਨੇ ਕਿਸੇ ਹੋਰ ਬਿਨੈਕਾਰ ਦਾ ਸਮਰਥਨ ਕੀਤਾ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ ਇੱਕ warning ਸੁਨੇਹਾ ਮਿਲ ਸਕਦਾ ਹੈ। ਨਜ਼ਦੀਕੀ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਇੱਕ ਸਮੇਂ ਵਿੱਚ ਸਿਰਫ਼ ਇੱਕ ਅਰਜ਼ੀ ਦਾ ਸਮਰਥਨ ਕਰ ਸਕਦੇ ਹਨ (ਇੱਕ ਘਰ ਇੱਕ ਸਮੇਂ ਵਿੱਚ ਇੱਕ ਅਰਜ਼ੀ ਦਾ ਸਮਰਥਨ ਕਰ ਸਕਦਾ ਹੈ)। ਜੇ ਤੁਹਾਡਾ ਨਜ਼ਦੀਕੀ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਪਹਿਲਾਂ ਹੀ ਕਿਸੇ SINP ਅਰਜ਼ੀ ਦਾ ਸਮਰਥਨ ਕਰ ਰਿਹਾ ਹੈ, ਤਾਂ ਉਹ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰ ਸਕਦੇ ਜਦੋਂ ਤੱਕ ਪਿਛਲਾ ਨਾਮਜ਼ਦ ਵਿਅਕਤੀ ਜਿਸਦਾ ਉਹ ਸਮਰਥਨ ਕਰ ਰਹੇ ਹਨ, ਘੱਟੋ-ਘੱਟ ਛੇ ਮਹੀਨਿਆਂ ਲਈ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਨਹੀਂ ਰਹਿ ਚੁੱਕਾ ਅਤੇ ਕੰਮ ਨਹੀਂ ਕਰ ਚੁੱਕਾ।</p>
+<p>ਜੇ ਤੁਹਾਡੇ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਨੇ ਕਿਸੇ ਹੋਰ ਬਿਨੈਕਾਰ ਦਾ ਸਮਰਥਨ ਕੀਤਾ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ ਇਹ ਦੱਸਣਾ ਚਾਹੀਦਾ ਹੈ ਕਿ ਕੀ ਪਿਛਲਾ ਬਿਨੈਕਾਰ ਕੈਨੇਡਾ ਵਿੱਚ ਪਹੁੰਚ ਗਿਆ ਹੈ ਅਤੇ ਘੱਟੋ-ਘੱਟ ਛੇ ਮਹੀਨਿਆਂ ਲਈ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਰਹਿ ਚੁੱਕਾ ਹੈ। ਜੇ ਹਾਂ, ਤਾਂ ਤੁਹਾਨੂੰ ਇਹ ਸਬੂਤ ਅੱਪਲੋਡ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ ਕਿ ਪਿਛਲਾ ਬਿਨੈਕਾਰ ਘੱਟੋ-ਘੱਟ ਛੇ ਮਹੀਨਿਆਂ ਲਈ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਸਫਲਤਾਪੂਰਵਕ ਵਸ ਗਿਆ ਹੈ।</p>
+<p>ਜੇ ਤੁਹਾਡਾ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਵਰਤਮਾਨ ਵਿੱਚ ਕਿਸੇ ਹੋਰ ਅਰਜ਼ੀ ਦਾ ਸਮਰਥਨ ਕਰ ਰਿਹਾ ਹੈ ਅਤੇ ਉਹ ਬਿਨੈਕਾਰ ਘੱਟੋ-ਘੱਟ ਛੇ ਮਹੀਨਿਆਂ ਲਈ ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਨਹੀਂ ਵਸਿਆ, ਤਾਂ ਤੁਸੀਂ ਉਸ ਰਿਸ਼ਤੇਦਾਰ ਲਈ 20 ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਜਾਂ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦੇ। ਜੇ ਤੁਸੀਂ "No" ਚੁਣਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਹੇਠਾਂ warning ਸੁਨੇਹਾ ਮਿਲੇਗਾ। ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ, ਜੇ ਤੁਸੀਂ ਆਪਣੇ Expression of Interest ਵਿੱਚ ਰਿਸ਼ਤੇਦਾਰ ਲਈ ਪੁਆਇੰਟਾਂ ਦਾ ਦਾਅਵਾ ਕਰਨ ਤੋਂ ਬਾਅਦ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਤੋਂ ਬਿਨਾਂ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੀ ਫਾਈਲ ਵਾਪਸ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ ਅਤੇ ਤੁਹਾਨੂੰ ਕੋਈ ਵਾਪਸੀ ਨਹੀਂ ਮਿਲੇਗੀ।</p>
+<p>ਜੇ OASIS ਇਹ ਪਤਾ ਨਹੀਂ ਲਗਾਉਂਦਾ ਕਿ ਤੁਹਾਡਾ ਰਿਸ਼ਤੇਦਾਰ ਵਰਤਮਾਨ ਵਿੱਚ ਕਿਸੇ ਹੋਰ ਰਿਸ਼ਤੇਦਾਰ ਦਾ ਸਮਰਥਨ ਕਰ ਰਿਹਾ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ warning ਸੁਨੇਹਾ ਨਹੀਂ ਮਿਲੇਗਾ। ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਭਾਵੇਂ ਤੁਹਾਨੂੰ ਕੋਈ warning ਨਾ ਮਿਲੇ, ਤੁਹਾਡਾ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਫਿਰ ਵੀ ਕਿਸੇ ਪੁਰਾਣੀ ਅਰਜ਼ੀ ਦਾ ਸਮਰਥਨ ਕਰ ਰਿਹਾ ਹੋ ਸਕਦਾ ਹੈ। ਇਹ ਯਕੀਨੀ ਬਣਾਉਣਾ ਤੁਹਾਡੀ ਜ਼ਿੰਮੇਵਾਰੀ ਹੈ ਕਿ ਤੁਹਾਡਾ ਨਜ਼ਦੀਕੀ ਰਿਸ਼ਤੇਦਾਰ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਦਾ ਸਮਰਥਨ ਕਰਨ ਲਈ ਯੋਗ ਹੈ।</p>
+<div class="shot"><img src="images/img-p41-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot"><img src="images/img-p42-Im9.png" alt="" style="max-width:900px"/></div>
+<p>ਕੈਨੇਡਾ ਵਿੱਚ ਵਰਤਮਾਨ ਵਿੱਚ ਰਹਿੰਦੇ ਆਪਣੇ ਰਿਸ਼ਤੇਦਾਰ ਲਈ ਰਿਕਾਰਡ ਬਣਾਉਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p42-Im1.png" alt="" style="max-width:244px"/></div>
+<p>ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p42-Im3.png" alt="" style="max-width:153px"/></div>
+<p>ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਵਾਧੂ ਫਾਈਲਾਂ/ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<div class="shot plain"><img src="images/img-p42-Im5.png" alt="" style="max-width:520px"/></div>
+<h2 id="s4-3" class="sec-h1">4.3 ਫੈਡਰਲ ਫਾਰਮ (Federal Forms)</h2>
+<p>ਹੇਠ ਲਿਖੇ ਲੋੜੀਂਦੇ (ਲਾਜ਼ਮੀ) ਫੈਡਰਲ ਫਾਰਮ ਹਨ:</p>
+<ul>
+<li>IMM 0008 – Generic Application Form for Canada</li>
+</ul>
+<div class="shot plain"><img src="images/img-p42-Im7.png" alt="" style="max-width:153px"/></div>
+<p>ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<p class="lead-bold"><em>ਬਾਕੀ ਫਾਰਮਾਂ ਲਈ ਵੀ ਇਹੀ ਕਰੋ।</em></p>
+<ul>
+<li>IMM 5406 – Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<p>ਆਪਣੀ ਸਕਰੀਨ ਦੇ ਉੱਪਰਲੇ ਸੱਜੇ ਕੋਨੇ ਵਿੱਚ, ਜੇ ਲਾਗੂ ਹੋਵੇ ਤਾਂ ਹੇਠ ਲਿਖੇ ਫਾਰਮ ਬਣਾਓ:</p>
+<ul>
+<li>IMM 5476 – Use of Representative</li>
+<li>IMM 5475 – Authority to Release Personal Information</li>
+</ul>
+<div class="shot plain"><img src="images/img-p43-Im9.png" alt="" style="max-width:227px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਗਲਤੀ ਨਾਲ ਕੋਈ ਫਾਰਮ ਜੋੜਿਆ ਹੈ ਤਾਂ delete ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਤੁਸੀਂ ਫਾਰਮ ਇੱਥੋਂ ਡਾਊਨਲੋਡ ਕਰ ਸਕਦੇ ਹੋ:</p>
+<ul>
+<li>International Skilled Workers <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">link</a>, ਫਿਰ ਉਪ-ਸ਼੍ਰੇਣੀ ਚੁਣੋ। ਜਾਂ</li>
+<li>Saskatchewan Experience <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-with-saskatchewan-experience" target="_blank" rel="noopener">link</a>, ਫਿਰ ਉਪ-ਸ਼੍ਰੇਣੀ ਚੁਣੋ।</li>
+</ul>
+<h2 id="s4-4" class="sec-h1">4.4 ਕਦਮ 1: ਬਣਾਓ ਬਟਨ (Step 1 Create Buttons)</h2>
+<p>ਜੇ ਲਾਗੂ ਹੋਵੇ ਤਾਂ <strong>Create…</strong> ਬਟਨ(ਾਂ) 'ਤੇ ਕਲਿੱਕ ਕਰੋ:</p>
+<div class="shot"><img src="images/img-p43-Im1.png" alt="" style="max-width:717px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਵਰਤਮਾਨ ਵਿੱਚ ਕੈਨੇਡਾ ਵਿੱਚ ਕੰਮ ਕਰ ਰਹੇ ਹੋ ਤਾਂ <strong>Create</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p43-Im3.png" alt="" style="max-width:334px"/></div>
+<p>ਜੇ ਤੁਹਾਡਾ ਕੋਈ ਰਿਸ਼ਤੇਦਾਰ ਵਰਤਮਾਨ ਵਿੱਚ ਕੈਨੇਡਾ ਵਿੱਚ ਰਹਿ ਰਿਹਾ ਹੈ ਤਾਂ <strong>Create</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p43-Im5.png" alt="" style="max-width:378px"/></div>
+<p>ਜੇ ਤੁਹਾਡੇ ਨਾਲ ਕੈਨੇਡਾ ਆਉਣ ਵਾਲਾ ਕੋਈ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਹੈ ਤਾਂ <strong>Create</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p43-Im7.png" alt="" style="max-width:322px"/></div>
+<h2 id="s4-5" class="sec-h1">4.5 Work Permit (ਵਰਕ ਪਰਮਿਟ)</h2>
+<p>ਜੇ ਤੁਸੀਂ Saskatchewan Experience ਸ਼੍ਰੇਣੀ ਹੇਠ ਅਰਜ਼ੀ ਦਿੰਦੇ ਹੋ ਤਾਂ Work Permit ਰਿਕਾਰਡ ਖੁਦ ਹੀ ਬਣ ਜਾਵੇਗਾ। ਜੇ ਤੁਸੀਂ International Skilled Category – With Employment Offer ਹੇਠ ਅਰਜ਼ੀ ਦਿੰਦੇ ਹੋ ਪਰ ਵਰਤਮਾਨ ਵਿੱਚ ਕੈਨੇਡਾ ਵਿੱਚ ਕੰਮ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ work permit ਰਿਕਾਰਡ ਬਣਾਓ।</p>
+<p>ਆਪਣੇ ਦਸਤਾਵੇਜ਼ 'ਤੇ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p44-Im3.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p44-Im5.png" alt="" style="max-width:153px"/></div>
+<p>ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p44-Im7.png" alt="" style="max-width:801px"/></div>
+<p>ਜੇ ਤੁਹਾਡੇ ਕੋਲ open spousal work permit ਹੈ ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ yes 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਜਾਰੀ ਰੱਖਣ ਲਈ <strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<h2 id="s4-6" class="sec-h1">4.6 ਕੈਨੇਡਾ ਵਿੱਚ ਰਿਸ਼ਤੇਦਾਰ (In-Canada Relative)</h2>
+<p>ਜੇ ਤੁਸੀਂ ਇਸ ਸਵਾਲ ਦਾ ਜਵਾਬ 'Yes' ਦਿੱਤਾ ਹੈ ਤਾਂ 'Relative currently residing in Canada' ਰਿਕਾਰਡ ਖੁਦ ਹੀ ਬਣ ਜਾਵੇਗਾ:</p>
+<div class="shot"><img src="images/img-p44-Im1.png" alt="" style="max-width:741px"/></div>
+<p>ਹੇਠਾਂ ਦਿਖਾਏ ਗਏ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p45-Im1.png" alt="" style="max-width:900px"/></div>
+<div class="shot plain"><img src="images/img-p45-Im7.png" alt="" style="max-width:153px"/></div>
+<p>ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p45-Im3.png" alt="" style="max-width:282px"/></div>
+<p>ਇੱਕ ਹੋਰ In-Canada relative ਜੋੜਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p45-Im5.png" alt="" style="max-width:230px"/></div>
+<p>ਜੇ ਗਲਤੀ ਨਾਲ ਜੋੜੀ ਗਈ ਹੈ ਤਾਂ ਸਕਰੀਨ ਮਿਟਾਉਣ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h2 id="s4-7" class="sec-h1">4.7 ਵਸੇਬਾ ਫੰਡ ਅਤੇ ਵਸੇਬਾ ਯੋਜਨਾ (Settlement Funds and Settlement Plan)</h2>
+<h3 id="s4-7-plan" class="sec-h2">4.7.a ਵਸੇਬਾ ਯੋਜਨਾ (Settlement Plan)</h3>
+<p>ਤੁਹਾਨੂੰ ਇੱਕ settlement plan ਬਣਾਉਣ ਅਤੇ ਨੱਥੀ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।</p>
+<div class="shot plain"><img src="images/img-p45-Im9.png" alt="" style="max-width:153px"/></div>
+<p>ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਆਪਣੀ Settlement Plan ਅੱਪਲੋਡ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h3 id="s4-7-funds" class="sec-h2">4.7.b ਵਸੇਬਾ ਫੰਡ (Settlement Funds)</h3>
+<p>ਅਰਜ਼ੀ ਤੋਂ ਘੱਟੋ-ਘੱਟ ਤਿੰਨ ਮਹੀਨੇ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ ਪਰਿਵਾਰ ਦੇ ਆਕਾਰ ਲਈ ਲੋੜੀਂਦੇ ਘੱਟੋ-ਘੱਟ ਫੰਡ ਬਣਾਈ ਰੱਖਣ ਦੀ ਲੋੜ ਹੈ।</p>
+<div class="shot"><img src="images/img-p46-Im11.png" alt="" style="max-width:763px"/></div>
+<p>ਹੇਠਾਂ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ ਹਰੇਕ sequence ਵਿੱਚ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p46-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਤੁਹਾਨੂੰ ਆਪਣੇ account statement(s) ਦੀ ਕਾਪੀ ਨੱਥੀ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ।</p>
+<div class="shot plain"><img src="images/img-p46-Im1.png" alt="" style="max-width:153px"/></div>
+<p>ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ Browse ਚੁਣੋ। ਆਪਣੀ ਫਾਈਲ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼ ਲੱਭੋ, ਦਸਤਾਵੇਜ਼ ਚੁਣੋ, ਅਤੇ Upload File 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p46-Im5.png" alt="" style="max-width:900px"/></div>
+<p>Upload ਬਟਨ ਦੇ ਹੇਠਾਂ ਯੋਗ settlement proof of fund ਦਸਤਾਵੇਜ਼ਾਂ ਦੀ ਸੂਚੀ ਦਿਖਾਈ ਗਈ ਹੈ, ਜਿਸ ਵਿੱਚ ਲੋੜੀਂਦੇ ਫੰਡਾਂ ਲਈ ਮਹੀਨਿਆਂ ਦੀ ਗਿਣਤੀ ਵੀ ਸ਼ਾਮਲ ਹੈ।</p>
+<p>ਜੇ ਤੁਸੀਂ ਕਿਸੇ ਖਾਸ sequence ਵਿੱਚ account ਨਾਲ ਸਬੰਧਤ ਵਾਧੂ ਦਸਤਾਵੇਜ਼ ਪ੍ਰਦਾਨ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ <strong>Add an Additional Document</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਅਤੇ ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p46-Im7.png" alt="" style="max-width:214px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਇੱਕ ਹੋਰ Settlement Fund account ਪ੍ਰਦਾਨ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਅਗਲਾ sequence ਬਣਾਉਣ ਲਈ <strong>Add another Settlement Funds</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p46-Im9.png" alt="" style="max-width:243px"/></div>
+<p>ਆਪਣੀ Settlement Plan ਅਤੇ Settlement Funds ਦਰਜ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਅੱਗੇ ਵਧਣ ਲਈ <strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ <strong>Next</strong> 'ਤੇ।</p>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Settlement Funds ਲਈ ਲੋੜੀਂਦੀ ਦਸਤਾਵੇਜ਼ੀ:</p>
+<p>ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਲਈ ਲੋੜੀਂਦੀ ਘੱਟੋ-ਘੱਟ ਰਕਮ ਸਾਡੀ ਵੈੱਬਸਾਈਟ 'ਤੇ ਪੋਸਟ ਕੀਤੀ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ <a href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers" target="_blank" rel="noopener">ਇਸ ਲਿੰਕ</a> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਆਪਣੀ ਅਰਜ਼ੀ ਦੀ ਸ਼੍ਰੇਣੀ ਚੁਣੋ, "Required Documents" ਟੈਬ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਅਤੇ "Required Documents, Settlement Funds" ਲੱਭੋ।</p>
+<p>proof of funds ਲਾਜ਼ਮੀ:</p>
+<ul>
+<li>ਇੱਕ ਜਾਂ ਵੱਧ ਵਿੱਤੀ ਸੰਸਥਾਵਾਂ ਤੋਂ ਸਰਕਾਰੀ ਸੁਨੇਹੇ, ਸਰਕਾਰੀ statement, ਅਤੇ/ਜਾਂ ਸਰਟੀਫਿਕੇਟ ਹੋਣ।</li>
+<li>ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ ਘੱਟੋ-ਘੱਟ 3 ਮਹੀਨੇ ਪਹਿਲਾਂ ਬਣਾਈ ਰੱਖੇ ਗਏ ਹੋਣ ਅਤੇ ਪੂਰੀ ਇਮੀਗ੍ਰੇਸ਼ਨ ਪ੍ਰਕਿਰਿਆ ਦੌਰਾਨ ਬਣਾਈ ਰੱਖੇ ਜਾਣ (ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਹੋਣ ਤੋਂ ਬਾਅਦ ਮਿਆਦ ਪੁੱਗਣ ਵਾਲੇ ਨਾ ਹੋਣ)।</li>
+<li>ਪ੍ਰਿੰਸੀਪਲ ਬਿਨੈਕਾਰ ਜਾਂ ਜੀਵਨ ਸਾਥੀ ਦੇ ਨਾਮ 'ਤੇ, ਜਾਂ ਸਾਂਝੇ ਤੌਰ 'ਤੇ ਹੋਣ।</li>
+</ul>
+<p>Fund statement ਵਿੱਚ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ ਘੱਟੋ-ਘੱਟ ਤਿੰਨ ਮਹੀਨੇ ਪਹਿਲਾਂ ਦਾ ਵਿਸਤ੍ਰਿਤ transaction ਇਤਿਹਾਸ ਦਿਖਾਇਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ ਅਤੇ ਕਰੰਸੀ ਦੀ ਕਿਸਮ, ਫੰਡ ਧਾਰਕ ਦਾ ਨਾਮ, ਵਿੱਤੀ ਸੰਸਥਾ ਦੀ ਸੰਪਰਕ ਜਾਣਕਾਰੀ, ਖਾਤਾ ਨੰਬਰ, transaction, ਅਤੇ ਬਕਾਏ ਸ਼ਾਮਲ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।</p>
+<p>ਅੰਗਰੇਜ਼ੀ ਜਾਂ ਫ੍ਰੈਂਚ ਵਿੱਚ ਜਾਰੀ ਨਾ ਕੀਤੇ ਸਾਰੇ ਦਸਤਾਵੇਜ਼ਾਂ ਦੇ ਨਾਲ ਇੱਕ certified translation ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<p>ਇਹ ਨਿਰਧਾਰਤ ਕਰਨ ਲਈ ਕਿ ਕੀ settlement funds ਕਾਫ਼ੀ ਹਨ, account ਵਿੱਚ ਦਿਖਾਇਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ ਕਿ ਜਦੋਂ account ਸਭ ਤੋਂ ਘੱਟ ਰਕਮ 'ਤੇ ਸੀ, ਇਹ ਪਰਿਵਾਰ ਦੇ ਆਕਾਰ ਲਈ settlement requirement ਨੂੰ ਪੂਰਾ ਕਰਦਾ ਸੀ।</p>
+<p>ਹੇਠ ਲਿਖੇ ਫੰਡ ਸਵੀਕਾਰ ਕੀਤੇ ਜਾਣਗੇ:</p>
+<ul>
+<li>ਨਿੱਜੀ chequing ਜਾਂ savings account</li>
+<li>Bonds</li>
+<li>Cash value life insurance</li>
+<li>Guaranteed Investment Certificate (GICs) ਜਾਂ Certificates of Deposit</li>
+<li>Mutual Funds</li>
+<li>Provident Funds (provident fund ਸੰਸਥਾ ਤੋਂ ਸਰਕਾਰੀ ਸੁਨੇਹਾ ਲੋੜੀਂਦਾ ਹੈ ਜੋ ਪਹੁੰਚਯੋਗ ਫੰਡਾਂ ਦੀ ਰਕਮ ਦਰਸਾਏ)</li>
+<li>Registered Retirement Savings Plans (RRSPs)</li>
+<li>Stocks</li>
+<li>Tax Free Savings Accounts (TFSAs)</li>
+<li>Term deposit ਅਤੇ time deposit (ਅਰਜ਼ੀ ਦੇ ਸਮੇਂ ਵੈਧ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ ਅਤੇ ਪੂਰੀ ਅਰਜ਼ੀ ਪ੍ਰਕਿਰਿਆ ਦੌਰਾਨ ਵੈਧ ਰਹਿਣੇ ਚਾਹੀਦੇ ਹਨ)</li>
+<li>Treasury Bills</li>
+</ul>
+<p style="margin-bottom:0;">Debenture, ਕ੍ਰੈਡਿਟ ਕਾਰਡ, lines of credit, ਸੋਨਾ, ਨਕਦ, ਜਾਇਦਾਦ, ਜਾਂ ਕਾਰੋਬਾਰ ਨੂੰ settlement funds ਵਜੋਂ ਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ।</p>
+</div>
+<h2 id="s4-8" class="sec-h1">4.8 ਨਾਲ ਆਉਣ ਵਾਲੇ ਅਤੇ ਨਾਲ ਨਾ ਆਉਣ ਵਾਲੇ ਪਰਿਵਾਰਕ ਮੈਂਬਰ (Accompanying and Non-Accompanying Family Member)</h2>
+<div class="note-box">ਇੱਕ ਵਿਅਕਤੀ (ਜੀਵਨ ਸਾਥੀ, common-law partner, ਜਾਂ dependent ਬੱਚਾ) ਜੋ ਤੁਹਾਡੇ ਨਾਲ ਸਾਸਕੈਚਵਨ ਆਉਣ ਦੀ ਯੋਜਨਾ ਬਣਾ ਰਿਹਾ ਹੈ। ਨਾਲ ਆਉਣ ਵਾਲੇ adult child dependent ਨੂੰ SINP Certificate of Nomination ਹੇਠ ਸ਼ਾਮਲ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ ਜੇ ਤੁਹਾਨੂੰ provincial nominee ਵਜੋਂ ਮਨਜ਼ੂਰੀ ਮਿਲਦੀ ਹੈ ਅਤੇ ਜੇ adult child dependent ਹੇਠ ਲਿਖੇ ਵਿੱਚੋਂ ਘੱਟੋ-ਘੱਟ <strong>ਇੱਕ</strong> ਮਾਪਦੰਡ ਪੂਰਾ ਕਰਦਾ ਹੈ:
+<ul style="margin:10px 0 0;">
+<li>22 ਸਾਲ ਤੋਂ ਘੱਟ ਉਮਰ ਦਾ ਹੈ ਅਤੇ ਉਸ ਦਾ ਕੋਈ ਜੀਵਨ ਸਾਥੀ ਜਾਂ common-law partner ਨਹੀਂ ਹੈ; ਅਤੇ/ਜਾਂ</li>
+<li>ਮਾਨਸਿਕ ਜਾਂ ਸਰੀਰਕ ਹਾਲਤ ਕਾਰਨ ਤੁਹਾਡੇ ਵਿੱਤੀ ਸਹਾਰੇ 'ਤੇ ਨਿਰਭਰ ਰਿਹਾ ਹੈ।</li>
+</ul>
+<p style="margin:10px 0 0;">ਪ੍ਰਿੰਸੀਪਲ ਬਿਨੈਕਾਰ ਦੇ ਮਾਪੇ ਅਤੇ ਭੈਣ-ਭਰਾ SINP ਅਰਜ਼ੀ ਵਿੱਚ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕਦੇ।</p>
+</div>
+<p>Step 1 ਹੇਠ, ਜੇ ਤੁਹਾਡੇ ਨਾਲ ਕੈਨੇਡਾ ਆਉਣ ਵਾਲਾ ਕੋਈ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਹੈ ਤਾਂ <strong>Create a Family Member</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p48-Im7.png" alt="" style="max-width:322px"/></div>
+<p>ਹੇਠਾਂ ਦਿਖਾਏ ਗਏ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p48-Im1.png" alt="" style="max-width:900px"/></div>
+<p><strong>Save</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p48-Im5.png" alt="" style="max-width:227px"/></div>
+<p>ਜੇ ਇਹ ਸਕਰੀਨ ਗਲਤੀ ਨਾਲ ਬਣਾਈ ਗਈ ਹੈ ਤਾਂ ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p48-Im3.png" alt="" style="max-width:427px"/></div>
+<p>ਹੇਠ ਲਿਖਿਆਂ ਲਈ ਸਕਰੀਨਾਂ ਜੋੜਨ ਲਈ <strong>Create/Change Application Screens for Family Member</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ:</p>
+<h4 id="s4-8-a1" class="sec-h3">4.8.a Accompanying Dependant under 18 years of age (18 ਸਾਲ ਤੋਂ ਘੱਟ ਉਮਰ ਦਾ ਨਾਲ ਆਉਣ ਵਾਲਾ ਬੱਚਾ)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+</ul>
+<h4 id="s4-8-a2" class="sec-h3">4.8.b Accompanying Dependant 18-21 years old (18-21 ਸਾਲ ਦੀ ਉਮਰ ਦਾ ਨਾਲ ਆਉਣ ਵਾਲਾ ਬੱਚਾ)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-a3" class="sec-h3">4.8.c Accompanying Spouse (ਨਾਲ ਆਉਣ ਵਾਲਾ ਜੀਵਨ ਸਾਥੀ)</h4>
+<ul>
+<li>Birth Document</li>
+<li>Passport</li>
+<li>IMM 5406 - Additional Family Information</li>
+<li>Schedule A – Background/Declaration</li>
+</ul>
+<h4 id="s4-8-n1" class="sec-h3">4.8.d Non-Accompanying Spouse (ਨਾਲ ਨਾ ਆਉਣ ਵਾਲਾ ਜੀਵਨ ਸਾਥੀ)</h4>
+<ul>
+<li>ਕੋਈ ਸਕਰੀਨ ਲੋੜੀਂਦੀ ਨਹੀਂ</li>
+</ul>
+<h4 id="s4-8-n2" class="sec-h3">4.8.e Non-Accompanying Dependant 18 years old or older (18 ਸਾਲ ਜਾਂ ਵੱਧ ਉਮਰ ਦਾ ਨਾਲ ਨਾ ਆਉਣ ਵਾਲਾ ਬੱਚਾ)</h4>
+<ul>
+<li>ਕੋਈ ਸਕਰੀਨ ਲੋੜੀਂਦੀ ਨਹੀਂ</li>
+</ul>
+<h4 id="s4-8-n3" class="sec-h3">4.8.f Non-Accompanying Dependant under 18 years of age (18 ਸਾਲ ਤੋਂ ਘੱਟ ਉਮਰ ਦਾ ਨਾਲ ਨਾ ਆਉਣ ਵਾਲਾ ਬੱਚਾ)</h4>
+<ul>
+<li>Custody/Child Support</li>
+</ul>
+<p>ਤੁਹਾਨੂੰ ਹੇਠ ਲਿਖੀ ਸਕਰੀਨ ਭਰਨੀ ਚਾਹੀਦੀ ਹੈ ਅਤੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ।</p>
+<div class="shot"><img src="images/img-p49-Im1.png" alt="" style="max-width:900px"/></div>
+<p><strong>Birth Document</strong> – ਜਨਮ ਦਸਤਾਵੇਜ਼ 'ਤੇ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ First Name, Middle Name (ਜੇ ਲਾਗੂ ਹੋਵੇ), ਅਤੇ Family Name at Birth ਭਰੋ।</p>
+<p>ਜੇ ਤੁਹਾਡਾ ਕੋਈ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਕੈਨੇਡਾ ਵਿੱਚ ਪੈਦਾ ਹੋਇਆ ਸੀ, ਤਾਂ Canadian citizenship ਸਾਬਤ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਇੱਕ ਰਿਕਾਰਡ ਬਣਾਉਣਾ ਅਤੇ Birth Certificate ਨੱਥੀ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ। Passport ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।</p>
+<p><strong>Passport</strong> – ਆਪਣੇ ਦਸਤਾਵੇਜ਼ 'ਤੇ ਦਿਖਾਏ ਗਏ ਅਨੁਸਾਰ Country, Passport Number (ਬਿਨਾਂ ਸਪੇਸ ਦੇ), ਅਤੇ Passport Expiry Date (DD-Mon-YYYY ਫਾਰਮੈਟ ਵਿੱਚ) ਭਰੋ।</p>
+<div class="shot plain"><img src="images/img-p50-Im3.png" alt="" style="max-width:248px"/></div>
+<p>ਜੀਵਨ ਸਾਥੀ ਲਈ, Previous First Name, Previous Last Name, ਅਤੇ ਉਹ ਮਿਤੀ ਭਰੋ ਜਦੋਂ ਜੀਵਨ ਸਾਥੀ ਨੇ ਚੁਣੀ ਗਈ marital status ਵਿੱਚ ਪ੍ਰਵੇਸ਼ ਕੀਤਾ ਸੀ, ਅਤੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕਰੋ। ਇੱਕ ਹੋਰ marital status ਰਿਕਾਰਡ ਜੋੜਨ ਲਈ <strong>Create another Marital Status</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h4 id="s4-8-imm5406" class="sec-h3">4.8.g IMM 5406 – Additional Family Member Information (ਵਾਧੂ ਪਰਿਵਾਰਕ ਮੈਂਬਰ ਜਾਣਕਾਰੀ)</h4>
+<p><em>ਤੁਹਾਨੂੰ ਇਸ ਫੈਡਰਲ ਫਾਰਮ ਨੂੰ ਡਾਊਨਲੋਡ, ਭਰਨਾ, ਅਤੇ ਨੱਥੀ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ।</em></p>
+<h4 id="s4-8-schedulea" class="sec-h3">4.8.h Schedule A – Background Declaration (ਬੈਕਗ੍ਰਾਊਂਡ ਘੋਸ਼ਣਾ)</h4>
+<p><em>ਤੁਹਾਨੂੰ ਇਸ ਫੈਡਰਲ ਫਾਰਮ ਨੂੰ ਡਾਊਨਲੋਡ, ਭਰਨਾ, ਅਤੇ ਨੱਥੀ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ।</em></p>
+<p>ਹਰੇਕ ਸਕਰੀਨ ਲਈ, ਆਪਣੀਆਂ ਐਂਟਰੀਆਂ ਸੇਵ ਕਰਨ ਲਈ <strong>Save</strong> ਆਈਕਨ <img class="inline-icon" src="images/img-p50-Im7.png" alt=""/> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਅਤੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕਰਨ ਲਈ Attach ਆਈਕਨ <img class="inline-icon" src="images/img-p50-Im9.png" alt=""/> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p50-Im11.png" alt="" style="max-width:435px"/></div>
+<p>ਆਪਣੀ ਅਰਜ਼ੀ ਜਾਰੀ ਰੱਖਣ ਲਈ ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਫਿਰ ਆਈਕਨ 'ਤੇ।</p>
+<div class="shot plain"><img src="images/img-p50-Im5.png" alt="" style="max-width:420px"/></div>
+<h2 id="s4-9" class="sec-h1">4.9 ਨੌਕਰੀ ਦੀ ਪੇਸ਼ਕਸ਼ (Job Offer)</h2>
+<p>Job Offer ਰਿਕਾਰਡ 'ਤੇ, ਖੇਤਰ ਤੁਹਾਡੇ ਦੁਆਰਾ Eligibility ਸੈਕਸ਼ਨ ਵਿੱਚ ਦਰਜ ਕੀਤੇ EPA ਮੁੱਲਾਂ ਦੇ ਆਧਾਰ 'ਤੇ ਖੁਦ ਹੀ ਭਰੇ ਜਾਣਗੇ। ਤੁਹਾਨੂੰ Job Offer ਮਿਤੀ ਦਰਜ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ, Job Offer Letter ਅੱਪਲੋਡ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ, ਅਤੇ validate ਚੁਣਨਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<div class="shot"><img src="images/img-p50-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਜੇ job offer ਦੀ validation ਅਸਫਲ ਹੁੰਦੀ ਹੈ ਜਾਂ ਤੁਸੀਂ ਆਪਣੀ EPA Approval ਵਿੱਚ ਦੱਸੀ ਗਈ ਜਮ੍ਹਾਂ ਕਰਨ ਦੀ ਸਮਾਂ-ਸੀਮਾ ਖੁੰਝਾਉਂਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਆਪਣੀ SINP ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਨਹੀਂ ਕਰ ਸਕਦੇ।</p>
+<div class="shot"><img src="images/img-p51-Im4.png" alt="" style="max-width:900px"/></div>
+<div class="req-box">
+<p class="lead-bold" style="margin-bottom:10px;">Letter of Offer ਲਾਜ਼ਮੀ:</p>
+<ul style="margin-bottom:0;">
+<li>ਪ੍ਰਿੰਸੀਪਲ ਬਿਨੈਕਾਰ ਨੂੰ ਸੰਬੋਧਿਤ ਹੋਵੇ;</li>
+<li>ਜੌਬ ਟਾਈਟਲ, ਜ਼ਿੰਮੇਵਾਰੀਆਂ, ਤਨਖਾਹ, ਲਾਭ, ਅਤੇ ਕੰਪਨੀ ਦੀ ਸੰਪਰਕ ਜਾਣਕਾਰੀ ਦੱਸੇ;</li>
+<li>ਸਾਸਕੈਚਵਨ ਵਿੱਚ ਤੁਹਾਡੀ ਪੋਜ਼ੀਸ਼ਨ ਦੀ ਜਗ੍ਹਾ (ਭਾਵ, ਕਸਬਾ/ਸ਼ਹਿਰ) ਸੂਚੀਬੱਧ ਕਰੇ;</li>
+<li>ਕੰਪਨੀ ਦੇ letterhead 'ਤੇ ਜਾਰੀ ਕੀਤਾ ਗਿਆ ਹੋਵੇ; ਅਤੇ,</li>
+<li>ਮਾਲਕ ਦੁਆਰਾ ਦਸਤਖਤ ਕੀਤਾ ਗਿਆ ਹੋਵੇ।</li>
+</ul>
+</div>
+<div class="shot plain"><img src="images/img-p51-Im3.png" alt="" style="max-width:721px"/></div>
+<p>ਅਗਲੇ ਕਦਮ ਵੱਲ ਵਧਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ <strong>Validate</strong> ਬਟਨ 'ਤੇ ਵੀ ਕਲਿੱਕ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ, ਨਹੀਂ ਤਾਂ ਤੁਸੀਂ ਆਪਣੀ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਨਹੀਂ ਕਰ ਸਕੋਗੇ ਕਿਉਂਕਿ ਇਸਨੂੰ ਅਧੂਰਾ ਵਜੋਂ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ ਜਾਵੇਗਾ।</p>
+<div class="shot"><img src="images/img-p51-Im5.png" alt="" style="max-width:900px"/></div>
+<p>ਜਾਰੀ ਰੱਖਣ ਲਈ <strong>Next</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਆਪਣੇ Job Offer Letter ਦੀ ਕਾਪੀ ਅੱਪਲੋਡ ਕਰੋ ਅਤੇ ਆਪਣੀਆਂ ਐਂਟਰੀਆਂ ਸੇਵ ਕਰਨ ਲਈ <strong>Save</strong> ਆਈਕਨ <img class="inline-icon" src="images/img-p51-Im1.png" alt=""/> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h2 id="s4-10" class="sec-h1">4.10 ਲਾਇਸੈਂਸ ਦਾ ਸਬੂਤ (Proof of Licensure)</h2>
+<p>ਜੇ ਤੁਸੀਂ Health Talent Pathways ਹੇਠ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ medical license ਦੀ ਕਾਪੀ ਦੇਣੀ ਚਾਹੀਦੀ ਹੈ, ਅਤੇ ਇਹ ਖੇਤਰ ਭਰਨੇ ਚਾਹੀਦੇ ਹਨ:</p>
+<div class="shot"><img src="images/img-p52-Im7.png" alt="" style="max-width:900px"/></div>
+<p>ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ SRNA ਹੁਣ College of Registered Nurses of Saskatchewan (CRNS) ਵਜੋਂ ਜਾਣਿਆ ਜਾਂਦਾ ਹੈ।</p>
+<p>ਆਪਣੀਆਂ ਐਂਟਰੀਆਂ ਸੇਵ ਕਰਨ ਲਈ <strong>Save</strong> ਆਈਕਨ <img class="inline-icon" src="images/img-p52-Im1.png" alt=""/> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਅਤੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕਰਨ ਲਈ Attach ਆਈਕਨ <img class="inline-icon" src="images/img-p52-Im5.png" alt=""/> 'ਤੇ।</p>
+<p>ਜਾਰੀ ਰੱਖਣ ਲਈ <strong>Next</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h2 id="s4-11" class="sec-h1">4.11 ਡਰਾਈਵਰ ਲਾਇਸੈਂਸ (Driver's License)</h2>
+<p>ਜੇ ਤੁਸੀਂ Existing Work Permit Sub-Category ਹੇਠ Truck Driver ਵਜੋਂ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ ਵੈਧ Class 1A Saskatchewan Driver's License ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</p>
+<p>ਇਹ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰੋ:</p>
+<div class="shot"><img src="images/img-p52-Im3.png" alt="" style="max-width:900px"/></div>
+<h4 id="s4-11-1" class="sec-h3">4.11.1 Endorsement (ਸਮਰਥਨ)</h4>
+<p>ਇੱਕ endorsement ਰਿਕਾਰਡ ਜੋੜੋ। ਇਹ ਤੁਹਾਡੇ driver's license 'ਤੇ ਮਿਲ ਸਕਦਾ ਹੈ:</p>
+<div class="shot"><img src="images/img-p52-Im9.png" alt="" style="max-width:900px"/></div>
+<p>ਇੱਕ ਹੋਰ endorsement ਰਿਕਾਰਡ ਜੋੜਨ ਲਈ <strong>Create a Licence Endorsement</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p52-Im11.png" alt="" style="max-width:258px"/></div>
+<h4 id="s4-11-2" class="sec-h3">4.11.2 Restriction (ਪਾਬੰਦੀ, ਜੇ ਲਾਗੂ ਹੋਵੇ)</h4>
+<p>ਜੇ ਲਾਗੂ ਹੋਵੇ ਤਾਂ ਇੱਕ restriction ਰਿਕਾਰਡ ਜੋੜੋ। ਇਹ ਤੁਹਾਡੇ driver's license 'ਤੇ ਮਿਲ ਸਕਦਾ ਹੈ।</p>
+<div class="shot"><img src="images/img-p53-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਇੱਕ ਹੋਰ restriction ਰਿਕਾਰਡ ਜੋੜਨ ਲਈ <strong>Create a Licence Restriction</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot plain"><img src="images/img-p53-Im11.png" alt="" style="max-width:240px"/></div>
+<p>ਆਪਣੇ Class 1A Saskatchewan Driver's License ਦੀ ਕਾਪੀ ਨੱਥੀ ਕਰੋ।</p>
+<p>ਆਪਣੀਆਂ ਐਂਟਰੀਆਂ ਸੇਵ ਕਰਨ ਲਈ <strong>Save</strong> ਆਈਕਨ <img class="inline-icon" src="images/img-p53-Im9.png" alt=""/> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਅਤੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕਰਨ ਲਈ Attach ਆਈਕਨ <img class="inline-icon" src="images/img-p53-Im13.png" alt=""/> 'ਤੇ।</p>
+<h2 id="s4-12" class="sec-h1">4.12 ਪਿਛਲੀ ਅਰਜ਼ੀ (Previous Application)</h2>
+<p>ਜੇ ਤੁਹਾਡੀਆਂ ਪਿਛਲੀਆਂ provincial ਜਾਂ federal ਕੈਨੇਡੀਅਨ ਅਰਜ਼ੀਆਂ ਹਨ, ਤਾਂ ਤੁਹਾਨੂੰ ਇਹ ਲੋੜੀਂਦੇ ਖੇਤਰ ਭਰਨੇ ਚਾਹੀਦੇ ਹਨ:</p>
+<div class="shot"><img src="images/img-p53-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੀ ਪਿਛਲੀ ਅਰਜ਼ੀ ਦੇ ਸਬੰਧ ਵਿੱਚ ਪ੍ਰਾਪਤ ਹੋਏ ਅੰਤਿਮ ਦਸਤਾਵੇਜ਼(ਾਂ) ਨੂੰ ਨੱਥੀ ਕਰੋ, ਜਿਵੇਂ IRCC Refusal Letter, SINP Ineligible Letter, ਆਦਿ।</p>
+<p>ਆਪਣੀਆਂ ਐਂਟਰੀਆਂ ਸੇਵ ਕਰਨ ਲਈ <strong>Save</strong> ਆਈਕਨ <img class="inline-icon" src="images/img-p53-Im5.png" alt=""/> 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਅਤੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕਰਨ ਲਈ Attach ਆਈਕਨ <img class="inline-icon" src="images/img-p53-Im15.png" alt=""/> 'ਤੇ।</p>
+<div class="shot plain"><img src="images/img-p53-Im7.png" alt="" style="max-width:298px"/></div>
+<p>ਇੱਕ ਹੋਰ ਰਿਕਾਰਡ ਬਣਾਉਣ ਲਈ ਆਈਕਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਜਾਰੀ ਰੱਖਣ ਲਈ <strong>Next</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<h2 id="s4-13" class="sec-h1">4.13 ਹਰੇਕ ਸ਼੍ਰੇਣੀ ਲਈ ਲੋੜੀਂਦੀਆਂ ਅਰਜ਼ੀ ਸਕਰੀਨਾਂ (Required Application Screens for Each Category)</h2>
+<h2 id="s4-13-1" class="sec-h1">4.13.1 ਅੰਤਰਰਾਸ਼ਟਰੀ ਹੁਨਰਮੰਦ ਕਾਮਾ (International Skilled Worker)</h2>
+<p><strong>a. Occupations In-Demand:</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Express Entry:</strong></p>
+<ul>
+<li>Settlement Funds and Settlement Plan</li>
+<li>Relative Currently Residing in Canada (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Connection to Saskatchewan</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>c. With Employment Offer:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>d. Agriculture Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>e. Innovation and Tech Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>f. Innovation and Tech Talent Pathway – Express Entry:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>g. Health Talent Pathway:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>h. Health Talent Pathway – Express Entry:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Medical License</li>
+<li>Work Permit (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s4-13-2" class="sec-h1">4.13.2 ਸਾਸਕੈਚਵਨ ਤਜਰਬਾ (Saskatchewan Experience)</h2>
+<p><strong>a. Existing Work Permit:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Driver's License (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Driver's License Endorsement (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Driver's License Restriction (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<p><strong>b. Students:</strong></p>
+<ul>
+<li>Job Offer</li>
+<li>Work Permit</li>
+<li>Family Members (ਜੇ ਲਾਗੂ ਹੋਵੇ)</li>
+<li>Federal Forms</li>
+</ul>
+<h2 id="s5-0" class="sec-h1">5.0 ਅਰਜ਼ੀ ਸਕਰੀਨਾਂ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਜਮ੍ਹਾਂ ਕਰੋ (Check Application Screens and Submit)</h2>
+<p>ਆਪਣੀ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਨ ਲਈ <strong>Check All Application Screens and Submit</strong> 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਸਾਰੀਆਂ warning ਅਤੇ error ਦੀ ਸਮੀਖਿਆ ਕਰ ਲਈ ਹੈ।</p>
+<div class="shot plain"><img src="images/img-p55-Im1.png" alt="" style="max-width:340px"/></div>
+<p><strong>ਇਹ ਮਹੱਤਵਪੂਰਨ ਹੈ ਕਿ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਵਿੱਚ ਸਾਰੇ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਹੋਣ। ਜੇ ਤੁਸੀਂ ਦਸਤਾਵੇਜ਼ਾਂ ਦੀ ਘਾਟ ਵਾਲੀ ਅਧੂਰੀ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ ਅਤੇ ਤੁਹਾਡੀ ਫੀਸ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾਵੇਗੀ। ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਭੇਜੇ ਗਏ ਵਾਧੂ ਦਸਤਾਵੇਜ਼ ਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤੇ ਜਾਣਗੇ ਜਦੋਂ ਤੱਕ ਬੇਨਤੀ ਨਾ ਕੀਤੀ ਜਾਵੇ।</strong></p>
+<h2 id="s6-0" class="sec-h1">6.0 ਫੀਸ ਭੁਗਤਾਨ – ਸਾਰੀਆਂ SINP ਸ਼੍ਰੇਣੀਆਂ (Fee Payment – All SINP Categories)</h2>
+<p class="warn-red">ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਭੁਗਤਾਨ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਸੀਂ ਆਪਣੀ ਅਰਜ਼ੀ ਵਿੱਚ ਬਦਲਾਅ ਨਹੀਂ ਕਰ ਸਕੋਗੇ। ਇੱਕ ਵਾਰ ਫੀਸ ਦਾ ਭੁਗਤਾਨ ਹੋਣ 'ਤੇ, ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਖੁਦ ਹੀ ਜਮ੍ਹਾਂ ਹੋ ਜਾਵੇਗੀ। ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਭੇਜੇ ਗਏ ਵਾਧੂ ਦਸਤਾਵੇਜ਼ ਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤੇ ਜਾਣਗੇ।</p>
+<p>"Check All Application Screens and Submit" ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਭੁਗਤਾਨਯੋਗ ਰਕਮ ਦੱਸਦਾ ਇੱਕ Invoice Page ਦਿਖਾਈ ਦੇਵੇਗਾ। ਜਦੋਂ ਤੱਕ ਭੁਗਤਾਨ ਸਫਲ ਨਹੀਂ ਹੁੰਦਾ, invoice "Pending" ਸਥਿਤੀ 'ਤੇ ਰਹੇਗਾ।</p>
+<div class="shot"><img src="images/img-p56-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੀ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਜਾਣਕਾਰੀ ਦਰਜ ਕਰਨ ਅਤੇ ਭੁਗਤਾਨਯੋਗ ਰਕਮ ਦੀ ਸਮੀਖਿਆ ਕਰਨ ਤੋਂ ਬਾਅਦ, "Pay" 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਸਫਲ ਭੁਗਤਾਨ ਤੋਂ ਬਾਅਦ ਸਥਿਤੀ "Payment Received" ਦਿਖਾਏਗੀ ਅਤੇ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਹੋ ਗਈ ਹੈ।</p>
+<div class="shot"><img src="images/img-p57-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੀ ਅਰਜ਼ੀ ਵਿੱਚ ਵਾਪਸ ਜਾਣ ਲਈ "Go to Home Page" ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ invoice ਦੇਖ ਸਕਦੇ ਹੋ।</p>
+<div class="shot plain"><img src="images/img-p57-Im3.png" alt="" style="max-width:533px"/></div>
+<h2 id="s7-0" class="sec-h1">7.0 ਅਰਜ਼ੀ ਪ੍ਰਾਪਤ ਹੋਈ (Application Received)</h2>
+<p>ਆਪਣੀ ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਇੱਕ file number ਮਿਲੇਗਾ:</p>
+<div class="shot"><img src="images/img-p58-Im1.png" alt="" style="max-width:766px"/></div>
+<p>ਤੁਹਾਨੂੰ ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ 24–48 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਇੱਕ receipt letter ਮਿਲੇਗਾ (ਉਦਾਹਰਨ: 9999999)।</p>
+<h2 id="s8-0" class="sec-h1">8.0 ਵਾਧੂ ਜਾਣਕਾਰੀ ਲਈ ਬੇਨਤੀ (Request for Additional Information)</h2>
+<p>ਜੇ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਦੀ ਪ੍ਰੋਸੈਸਿੰਗ ਲਈ ਵਾਧੂ ਦਸਤਾਵੇਜ਼ਾਂ ਦੀ ਲੋੜ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ OASIS ਰਾਹੀਂ SINP ਤੋਂ ਪੱਤਰ-ਵਿਹਾਰ ਮਿਲੇਗਾ। ਆਪਣੇ ਪੱਤਰ-ਵਿਹਾਰ ਦੀ ਜਾਂਚ ਕਰਨ ਲਈ, ਤੁਸੀਂ ਈਮੇਲ ਵਿੱਚ ਦਿੱਤੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰ ਸਕਦੇ ਹੋ, ਜਾਂ OASIS ਵਿੱਚ ਲੌਗਇਨ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<p>ਆਪਣੇ ਦਸਤਾਵੇਜ਼ ਜਮ੍ਹਾਂ ਕਰਨ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ OASIS ਖਾਤੇ ਵਿੱਚ ਲੌਗਇਨ ਕਰੋ ਅਤੇ 'Submit Requested Documents' 'ਤੇ ਕਲਿੱਕ ਕਰੋ। 'Request Additional Information' ਰਿਕਾਰਡ 'ਤੇ ਬੇਨਤੀ ਕੀਤੇ ਦਸਤਾਵੇਜ਼(ਾਂ) ਨੂੰ ਅੱਪਲੋਡ ਕਰੋ ਅਤੇ 'Submit' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਤੁਸੀਂ View Submitted Part 2 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਵੀ 'Request Additional Information' ਰਿਕਾਰਡ ਤੱਕ ਪਹੁੰਚ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<p>ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਈਮੇਲ ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਦਸਤਾਵੇਜ਼ ਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤੇ ਜਾਣਗੇ। ਤੁਹਾਨੂੰ ਆਪਣੇ OASIS ਖਾਤੇ ਰਾਹੀਂ ਸਾਰੇ ਦਸਤਾਵੇਜ਼ ਨੱਥੀ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ।</p>
+<div style="text-align:center; margin:20px 0 8px; font-weight:bold; color:#333;">
+<span style="display:inline-block; width:46%; min-width:220px;">Applicant home screen:</span>
+<span style="display:inline-block; width:46%; min-width:220px;">Representative home screen:</span>
+</div>
+<div class="shot-row">
+<img src="images/img-p58-Im7.png" alt="" style="max-width:421px"/>
+<img src="images/img-p58-Im3.png" alt="" style="max-width:387px"/>
+</div>
+<div class="shot"><img src="images/img-p58-Im5.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਹਾਨੂੰ ਆਪਣੇ ਦਸਤਾਵੇਜ਼ ਜਮ੍ਹਾਂ ਕਰਨ ਲਈ ਵਾਧੂ ਸਮੇਂ ਦੀ ਲੋੜ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤਾ ਫਾਰਮ ਭਰ ਕੇ ਅਤੇ 'Request Extension to Submit Documents' 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਆਪਣੀ ਬੇਨਤੀ ਭੇਜ ਸਕਦੇ ਹੋ।</p>
+<div class="shot"><img src="images/img-p59-Im5.png" alt="" style="max-width:805px"/></div>
+<p>ਤੁਹਾਡੀ extension ਦੀ ਬੇਨਤੀ ਮਨਜ਼ੂਰ ਹੋ ਸਕਦੀ ਹੈ ਜਾਂ ਨਹੀਂ। ਤੁਹਾਨੂੰ ਦੱਸਿਆ ਜਾਵੇਗਾ ਕਿ ਤੁਹਾਡੀ extension ਬੇਨਤੀ ਮਨਜ਼ੂਰ ਹੋਈ ਜਾਂ ਰੱਦ ਹੋਈ। ਆਪਣੀ extension ਬੇਨਤੀ ਜਮ੍ਹਾਂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਵਾਧੂ ਜਾਣਕਾਰੀ ਲਈ ਬੇਨਤੀ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਵਰਤਮਾਨ ਵਿੱਚ ਉਪਲਬਧ ਸਾਰੀ ਦਸਤਾਵੇਜ਼ੀ ਅੱਪਲੋਡ ਕਰੋ।</p>
+<h2 id="s9-0" class="sec-h1">9.0 ਐਕਸਪ੍ਰੈਸ ਐਂਟਰੀ ਪ੍ਰੋਫਾਈਲ ਨੰਬਰ ਅਤੇ ਜੌਬ ਸੀਕਰ ਵੈਲੀਡੇਸ਼ਨ ਕੋਡ ਅੱਪਡੇਟ ਕਰੋ (Update Express Entry Profile Number and Job Seeker Validation Code)</h2>
+<p>ਜੇ ਪ੍ਰੋਸੈਸਿੰਗ ਦੌਰਾਨ, ਤੁਹਾਡਾ Express Entry Profile Number ਅਤੇ Job Seeker Validation Code ਬਦਲ ਗਿਆ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਆਪਣੀ ਅਰਜ਼ੀ ਖੋਲ੍ਹ ਕੇ ਇਹਨਾਂ ਨੂੰ ਅੱਪਡੇਟ ਕਰ ਸਕਦੇ ਹੋ। ਆਪਣੀ SINP ਅਰਜ਼ੀ ਦੇ Part 2 (ਜਾਂ Main Application Page) ਹੇਠ, ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p59-Im1.png" alt="" style="max-width:458px"/></div>
+<p>"Information Changes" ਸਿਰਲੇਖ ਵਾਲਾ ਇੱਕ ਪੇਜ ਦਿਖਾਈ ਦੇਵੇਗਾ, ਅਤੇ ਤੁਸੀਂ ਦਿੱਤੇ ਗਏ ਖੇਤਰ ਭਰ ਕੇ ਆਪਣੀ Express Entry Profile ਜਾਣਕਾਰੀ ਬਦਲ ਸਕਦੇ ਹੋ। ਜਾਣਕਾਰੀ ਦਰਜ ਕਰਨ ਤੋਂ ਬਾਅਦ, 'Save' 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਫਿਰ 'Submit Changes' ਬਟਨ 'ਤੇ।</p>
+<div class="shot"><img src="images/img-p59-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਇਸ ਕਦਮ ਨੂੰ ਰੱਦ ਕਰਨ ਦਾ ਫੈਸਲਾ ਕਰਦੇ ਹੋ, ਤਾਂ ਬਿਨਾਂ ਸੇਵ ਕੀਤੇ 'Move to Part 2' 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਜਾਂ 'Cancel Changes' 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਤੁਸੀਂ 'Move to Part 2' 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਮੁੱਖ ਅਰਜ਼ੀ ਸੈਕਸ਼ਨਾਂ ਵਿੱਚ ਵਾਪਸ ਜਾ ਸਕਦੇ ਹੋ। ਤੁਸੀਂ ਆਪਣੀ ਫਾਈਲ ਸਰਗਰਮ ਹੋਣ ਦੌਰਾਨ ਕਿਸੇ ਵੀ ਸਮੇਂ ਇਸ ਜਾਣਕਾਰੀ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<h2 id="s10-0" class="sec-h1">10.0 ਦੂਜੀ ਸਮੀਖਿਆ ਪ੍ਰਕਿਰਿਆ (Second Review Process)</h2>
+<p>ਜੇ SINP ਵੱਲੋਂ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਨੂੰ ineligible (ਅਯੋਗ) ਮੰਨਿਆ ਗਿਆ ਹੈ ਅਤੇ ਤੁਸੀਂ ਵਿਸ਼ਵਾਸ ਕਰਦੇ ਹੋ ਕਿ ਅਰਜ਼ੀ ਦੀ ਪ੍ਰੋਸੈਸਿੰਗ ਦੌਰਾਨ ਜਾਂ ਅਰਜ਼ੀ ਦੇ ਸਮੇਂ ਲਾਗੂ ਮਾਪਦੰਡਾਂ ਦੇ ਆਧਾਰ 'ਤੇ ਮੁਲਾਂਕਣ ਵਿੱਚ ਗਲਤੀ ਹੋਈ ਸੀ, ਤਾਂ ਤੁਸੀਂ ਇੱਕ second review (ਦੂਜੀ ਸਮੀਖਿਆ) ਦੀ ਬੇਨਤੀ ਕਰ ਸਕਦੇ ਹੋ। SINP ਵੱਲੋਂ ineligible letter ਜਾਰੀ ਕਰਨ ਦੀ ਮਿਤੀ ਤੋਂ ਤੁਹਾਡੇ ਕੋਲ ਬੇਨਤੀ ਕਰਨ ਲਈ 30 ਦਿਨ ਹਨ। 30 ਦਿਨ ਦੀ ਮਿਆਦ ਪੁੱਗਣ ਤੋਂ ਬਾਅਦ ਸਿਸਟਮ ਕੋਈ ਬੇਨਤੀ ਸਵੀਕਾਰ ਨਹੀਂ ਕਰੇਗਾ।</p>
+<p>ਦੂਜੀ ਸਮੀਖਿਆ ਦੀ ਬੇਨਤੀ ਕਰਨ ਲਈ, ਆਪਣੀ ਅਰਜ਼ੀ ਦੇ Part 2 ਹੇਠ, ਕਿਰਪਾ ਕਰਕੇ 'Request for Second Review' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p60-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਇੱਕ confirmation ਵਿੰਡੋ ਦਿਖਾਈ ਦੇਵੇਗੀ ਅਤੇ ਜੇ ਤੁਸੀਂ ਦੱਸੀਆਂ ਸ਼ਰਤਾਂ ਅਤੇ ਹਾਲਾਤ ਨਾਲ ਸਹਿਮਤ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ 'Create Appeal Request' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p60-Im1.png" alt="" style="max-width:554px"/></div>
+<p>ਤੁਹਾਡੇ ਭਰਨ ਲਈ ਇੱਕ Appeal Request ਰਿਕਾਰਡ ਬਣਾਇਆ ਜਾਵੇਗਾ, ਅਤੇ ਤੁਸੀਂ ਆਪਣੀ ਬੇਨਤੀ ਦੇ ਸਮਰਥਨ ਲਈ ਦਸਤਾਵੇਜ਼ੀ ਨੱਥੀ ਕਰ ਸਕਦੇ ਹੋ।</p>
+<div class="shot"><img src="images/img-p61-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਅਜੇ ਤੱਕ ਅਪੀਲ ਜਮ੍ਹਾਂ ਨਹੀਂ ਕੀਤੀ ਹੈ, ਤਾਂ ਮੁੱਖ ਅਰਜ਼ੀ ਸਕਰੀਨ ਤੋਂ, ਤੁਸੀਂ 'View Second Review Request' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਆਪਣੀ ਬਕਾਇਆ second review ਬੇਨਤੀ ਦੇਖ ਸਕਦੇ ਹੋ।</p>
+<div class="shot"><img src="images/img-p61-Im3.png" alt="" style="max-width:896px"/></div>
+<p class="warn-red">SINP ਵੱਲੋਂ ineligible letter ਜਾਰੀ ਕਰਨ ਦੀ ਮਿਤੀ ਤੋਂ ਤੁਹਾਡੇ ਕੋਲ ਬੇਨਤੀ ਕਰਨ ਲਈ 30 ਦਿਨ ਹਨ। 30 ਦਿਨ ਦੀ ਮਿਆਦ ਪੁੱਗਣ ਤੋਂ ਬਾਅਦ ਸਿਸਟਮ ਕੋਈ ਬੇਨਤੀ ਸਵੀਕਾਰ ਨਹੀਂ ਕਰੇਗਾ।</p>
+<p>30-ਦਿਨ ਦੀ ਮਿਆਦ ਤੋਂ ਬਾਅਦ, ਤੁਸੀਂ second review ਦੀ ਬੇਨਤੀ ਨਹੀਂ ਕਰ ਸਕੋਗੇ।</p>
+<div class="shot"><img src="images/img-p62-Im1.png" alt="" style="max-width:484px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਅਪੀਲ ਜਮ੍ਹਾਂ ਨਹੀਂ ਕੀਤੀ ਅਤੇ 30-ਦਿਨ ਦੀ ਮਿਆਦ ਲੰਘ ਗਈ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਬਕਾਇਆ ਬੇਨਤੀ ਜਮ੍ਹਾਂ ਨਹੀਂ ਕਰ ਸਕੋਗੇ।</p>
+<div class="shot"><img src="images/img-p62-Im3.png" alt="" style="max-width:900px"/></div>
+<p>30-ਦਿਨ ਦੀ ਮਿਆਦ ਦੇ ਅੰਦਰ ਆਪਣੀ ਅਪੀਲ ਜਮ੍ਹਾਂ ਕਰਨ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ 'Submit Appeal Request' 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p62-Im5.png" alt="" style="max-width:900px"/></div>
+<p>ਇੱਕ warning ਸੁਨੇਹਾ ਦਿਖਾਈ ਦੇਵੇਗਾ ਜੋ ਦੱਸੇਗਾ ਕਿ ਤੁਹਾਨੂੰ second review ਫੀਸ ਦਾ ਭੁਗਤਾਨ ਕਰਨ ਲਈ ਭੇਜਿਆ ਜਾਵੇਗਾ।</p>
+<div class="shot"><img src="images/img-p63-Im3.png" alt="" style="max-width:648px"/></div>
+<p>ਜੇ ਤੁਸੀਂ "Yes, Continue" 'ਤੇ ਕਲਿੱਕ ਕਰਦੇ ਹੋ ਤਾਂ ਤੁਹਾਨੂੰ payment page 'ਤੇ ਭੇਜਿਆ ਜਾਵੇਗਾ। <em>ਨੋਟ: ਜੇ ਤੁਸੀਂ "No, Go Back" 'ਤੇ ਕਲਿੱਕ ਕਰਦੇ ਹੋ ਤਾਂ ਤੁਹਾਨੂੰ appeal request ਪੇਜ 'ਤੇ ਵਾਪਸ ਭੇਜਿਆ ਜਾਵੇਗਾ।</em></p>
+<div class="shot"><img src="images/img-p63-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਆਪਣੀ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਜਾਣਕਾਰੀ ਦਰਜ ਕਰਨ ਤੋਂ ਬਾਅਦ "Pay" 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<div class="shot"><img src="images/img-p64-Im1.png" alt="" style="max-width:900px"/></div>
+<p>ਸਫਲ ਭੁਗਤਾਨ ਤੋਂ ਬਾਅਦ, ਤੁਹਾਡੀ second review ਬੇਨਤੀ ਖੁਦ ਹੀ ਜਮ੍ਹਾਂ ਹੋ ਜਾਵੇਗੀ। ਤੁਹਾਨੂੰ ਦੱਸਦਾ ਇੱਕ ਪੱਤਰ-ਵਿਹਾਰ ਮਿਲੇਗਾ ਕਿ ਤੁਹਾਡੀ second review ਬੇਨਤੀ ਪ੍ਰਾਪਤ ਹੋ ਗਈ ਹੈ।</p>
+<p>ਜੇ ਤੁਸੀਂ ਸਮੀਖਿਆ ਦਾ ਆਪਣਾ ਕਾਰਨ ਜਾਇਜ਼ ਸਾਬਤ ਨਹੀਂ ਕਰ ਸਕਦੇ ਤਾਂ second review ਦੀ ਬੇਨਤੀ ਰੱਦ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ। ਇੱਕ ਵਾਰ ਬੇਨਤੀ ਰੱਦ ਹੋਣ 'ਤੇ, ਤੁਹਾਡਾ ਕੇਸ ਬੰਦ ਕਰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ। ਜੇ ਤੁਹਾਡੀ ਬੇਨਤੀ ਸਵੀਕਾਰ ਕੀਤੀ ਜਾਂਦੀ ਹੈ, ਤਾਂ ਇੱਕ second review ਕੇਸ ਬਣਾਇਆ ਜਾਵੇਗਾ, ਅਤੇ ਤੁਹਾਨੂੰ ਈਮੇਲ ਰਾਹੀਂ ਸੂਚਿਤ ਕੀਤਾ ਜਾਵੇਗਾ ਕਿ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਨੂੰ second review ਹੇਠ ਰੱਖਿਆ ਗਿਆ ਹੈ।</p>
+<div class="shot"><img src="images/img-p64-Im3.png" alt="" style="max-width:900px"/></div>
+<p>ਜੇ ਤੁਸੀਂ ਆਪਣੀ second review ਬੇਨਤੀ ਵਾਪਸ ਲੈਣ ਦਾ ਫੈਸਲਾ ਕਰਦੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ 'Withdraw Second Review Request' ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।</p>
+<p>ਇਹ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਕਿ ਤੁਸੀਂ ਆਪਣੀ second review ਬੇਨਤੀ ਵਾਪਸ ਲੈ ਰਹੇ ਹੋ, ਇੱਕ warning ਸੁਨੇਹਾ ਦਿਖਾਈ ਦੇਵੇਗਾ।</p>
+<div class="shot"><img src="images/img-p65-Im1.png" alt="" style="max-width:461px"/></div>
+<p style="text-align:center; margin-top:40px;"><em>- ਗਾਈਡ ਦਾ ਅੰਤ -</em></p>
+<p style="text-align:center;"><strong>Saskatchewan Immigrant Nominee Program ਵਿੱਚ ਤੁਹਾਡੀ ਦਿਲਚਸਪੀ ਲਈ ਧੰਨਵਾਦ।</strong></p>
+<footer class="doc-footer">SINP – OASIS ਬਿਨੈਕਾਰਾਂ ਲਈ ਵਰਤੋਂਕਾਰ ਗਾਈਡ · ਅਪ੍ਰੈਲ 2026</footer>
+</div>
+</body>
+</html>
